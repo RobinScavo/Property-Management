@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #599cdf;
+    --dark-color: #515151;
+    --light-color: rgb(248, 245, 245);
+}
+
+body {
+    background-color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: var(--light-color);
+}
+
+header {
+    background-color: var(--light-color);
+    height: 25vh;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vh;
+    height: 10vh;
+    background-color: var(--primary-color);
+    text-decoration: none;
+    color: var(--light-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.option-div {
+    background-color: var(--dark-color);
+    height: 15vh;
+    color: var(--light-color);
+}
+
+figure  {
+    position: relative;
+    height: 50vh;
+    background-image: url('../images/billings.jpeg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 110%;
+    margin: 0;
+    /* flex-direction: column; */
+}
+
+figure::after{
+    content:'';
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:black;
+    opacity:0.2;
+  }
+
+figure .btn {
+    position: absolute;
+    bottom: 50px;
+    width: 50vh;
+    height: 10vh;
+    z-index: 100;
+}
+
+figcaption {
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 35px;
+    z-index: 100;
+}
+
+
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
