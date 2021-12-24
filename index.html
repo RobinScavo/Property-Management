@@ -5,55 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Billings Property Management</title>
 </head>
 <body>
-    <header class="header flex">
-        <div class="logo-div">
-            <div class="logo"></div>
-            <div class="logo-text"></div>
+    <!-- <header class="header flex">
+        <div class="logo-div flex">
+            <div class='logo'></div>
+            <div class="logo-text-div">
+                <div class="logo-text-top">BILLINGS</div>
+                <div class="logo-text-bottom">Property Management</div>
+            </div>
         </div>
+        <a href="resources.html" class='btn'>Apply Now</a>
+        <a href="resources.html" class='btn'>Submit Repair Request</a>
+        <a href="resources.html" class='btn'>Free Rental Analysis</a>
     </header>
 
     <section class='option-div flex'>
-        <link rel="stylesheet" href="index.htl"> Home
-        <select name="availableDropdown" class='dropdown'>Available Rentals</select>
-        <select name="tenamtDropdown" class='dropdown'>Tenant Resources</select>
-        <link rel="stylesheet" href="contact.html"> Contact
-    </section>
+        <a href="index.html">Home</a>
+        <label for="availableDropdown">Available Rentals</label>
+        <select name="availableDropdown" class='dropdown'></select>
+        <label for="availableDropdown">Tenant Resources</label>
+        <select name="tenamtDropdown" class='dropdown'></select>
+        <a href="contact.html">Contact Us</a>
+    </section> -->
 
-    <figure class='flex'>
-        <!-- <div class='figure-image'></div> -->
+    <!-- <figure class='flex'>
         <figcaption>Rent In Billings <br><small> because the future is here</small></figcaption>
         <a href="available.html" class='btn'>AVAILABLE RENTALS</a>
-    </figure>
+    </figure> -->
 
-    <nav class='main grid'>
-        <ul>
-<!--
-            <li>
-                <h2>FIND A RENTAL</h2>
-                <p>Looking for a great place to live? Search our wide-variety of affordable, beautifully maintained rental homes and apartments based on your requirements.</p>
-                <link rel="stylesheet" href="">
+    <nav class='main'>
+        <ul class='grid'>
+            <li class='flex'>
+                <div class="image-div">
+                    <img src="images/icons/search1.png" alt="">
+                    <!-- Search by Kidiladon from NounProject.com -->
+                </div>
+                <div class="main-text">
+                    <h2>FIND A RENTAL</h2>
+                    <p>Looking for a great place to live? Search our wide-variety of rental homes and apartments based on your requirements.</p>
+                    <a href="available.html">Search Page</a>
+                </div>
             </li>
-
-            <li>
-                <h2>PROPERTY MAP</h2>
-                <p>Looking for a great place to live? Search our wide-variety of affordable, beautifully maintained rental homes and apartments based on your requirements.</p>
-                <link rel="stylesheet" href="">
+            <li class='flex'>
+                <div class="image-div">
+                    <img src="images/icons/signpost.png" alt="Signpost by Zohaib Bajwa from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>PROPERTY MAP</h2>
+                    <p>Want to live in a specific neighborhood? See all our properties on one map.</p>
+                    <a href="available.html">Location Map</a>
+                </div>
             </li>
-
-            <li>
-                <h2>TENANT PORTAL</h2>
-                <p>Looking for a great place to live? Search our wide-variety of affordable, beautifully maintained rental homes and apartments based on your requirements.</p>
-                <link rel="stylesheet" href="">
+            <li class='flex'>
+                <div class="image-div">
+                    <img id='keys' src="images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>TENANT PORTAL</h2>
+                    <p>View your account. Update your information. Pay your rent.</p>
+                    <a href="available.html">Tenant Portal</a>
+                </div>
             </li>
-
-            <li>
-                <h2>OWNER PORTAL</h2>
-                <p>Looking for a great place to live? Search our wide-variety of affordable, beautifully maintained rental homes and apartments based on your requirements.</p>
-                <link rel="stylesheet" href="">
-            </li> -->
+            <li class='flex'>
+                <div class="image-div">
+                    <img src="images/icons/sign.png" alt="Search by Gregor Cresnar from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>OWNER PORTAL</h2>
+                    <p>24/7/365 access to your property accounts.</p>
+                    <a href="available.html">Online Owner Portal</a>
+                </div>
+            </li>
         </ul>
     </nav>
 
