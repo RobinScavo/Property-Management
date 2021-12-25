@@ -7,6 +7,7 @@
 
 :root {
     --primary-color: #599cdf;
+    --secondary-color: #2983dd;
     --dark-color: #515151;
     --dark-color: #858484;
     --light-color: rgb(248, 245, 245);
@@ -28,8 +29,9 @@ a {
     color: var(--light-color);
 }
 
-h2, p, ul, nav {
+h2, p, ul, nav, img {
     margin: 0;
+    padding: 0;
 }
 
 .flex {
@@ -42,7 +44,7 @@ h2, p, ul, nav {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0px;
+    gap: 0 20px;
 }
 
 header {
@@ -98,6 +100,10 @@ header {
     padding: 13px;
 }
 
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
 .option-div {
     background-color: var(--dark-color);
     height: 10vh;
@@ -137,6 +143,7 @@ figure  {
     background-position: top;
     background-size: 110%;
     margin: 0;
+    margin-bottom: 15px;
 }
 
 figure::after{
@@ -168,13 +175,19 @@ figcaption {
 }
 
 .main {
+    display: flex;
+    justify-content: center;
     height: 62vh;
 }
 
+.main ul {
+    width: 75%;
+}
+
 .main ul li {
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    width: 65vh;
+    width: 60vh;
     padding: 0;
 }
 
@@ -182,7 +195,7 @@ figcaption {
     margin-left: 20px;
     overflow: hidden;
     height: 13vh;
-    width: 16vh;
+    width: 15vh;
     margin-bottom: 37px;
 }
 
@@ -193,12 +206,18 @@ figcaption {
     opacity: 0.4;
 }
 
+#keys {
+    position: relative;
+    right: 10px;
+    height: 130%;
+    width: 130%;
+}
 .main-text {
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    padding: 3px;
     font-size: 15px;
-    width: 45vh;
+    width: 40vh;
     height: 30vh;
 }
 
@@ -219,4 +238,140 @@ figcaption {
     color: var(--primary-color);
     font-size: 18px;
     padding-top: 10px;
+}
+
+.main-text a:hover {
+    color: var(--secondary-color);
+}
+
+.image-gallery {
+    height: auto;
+    position: relative;
+}
+
+.image-gallery ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 25vw;
+    width: 25vw;
+    font-weight: lighter;
+    font-size: 12px;
+    padding: 10px;
+    transition: background-size 0.4s ease-in;
+}
+
+.overlay {
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:black;
+    opacity:0.4;
+    visibility: hidden;
+}
+
+.gallery-item:hover {
+    cursor: pointer;
+}
+
+.gallery-item:hover .overlay {
+    visibility: visible;
+}
+
+.gallery-item:hover .gallery-text {
+    visibility: visible;
+}
+
+.gallery-item:nth-child(1) {
+    background: url('../images/gallery/apt.jpg');
+    background-size: 180%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-item:nth-child(1):hover {
+    background-size: 195%;
+}
+
+.gallery-item:nth-child(2) {
+    background: url('../images/gallery/moving.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-item:nth-child(2):hover,
+.gallery-item:nth-child(3):hover,
+.gallery-item:nth-child(4):hover,
+.gallery-item:nth-child(5):hover {
+    background-size: 110%;
+}
+
+.gallery-item:nth-child(3) {
+    background: url('../images/gallery/pexels-vincent-rivaud-2265881.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-item:nth-child(4) {
+    background: url('../images/gallery/pexels-arthouse-studio-4413755.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.gallery-item:nth-child(5) {
+    background: url('../images/gallery/pexels-spencer-gurley-1448055 copy.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-item:nth-child(6) {
+    background: url('../images/gallery/pexels-pixabay-221506.jpg');
+    background-size: 180%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-item:nth-child(6):hover {
+    background-size: 195%;
+}
+
+.gallery-item:nth-child(7) {
+    background: url('../images/gallery/pexels-cottonbro-4056535.jpg');
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: -60px;
+}
+
+.gallery-item:nth-child(7):hover {
+    background-size: 165%;
+    background-position: -60px;
+}
+
+.gallery-item:nth-child(8) {
+    background: url('../images/gallery/pexels-luis-quintero-2564873.jpg');
+    background-size: 160%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gallery-item:nth-child(8):hover {
+    background-size: 175%;
+}
+
+.gallery-text {
+    visibility: hidden;
+    z-index: 100;
 }
