@@ -4,11 +4,14 @@ const testimonialArray = [
     'Leapold was very helpful during an emergency I had with my apartment. She had the maintenence crew respond quickly and even followed up later to see that it was resolved. Thank you so much!',
     'Billings Property Management was real easy to work with. Robin was friendly, professional and responsive. I will certainly use BPM in the future.',
     'Leapold was very helpful!',
-    'I highly recommend Leapold to anyone seeking',
+    'I highly recommend Leapold to anyone seeking a rental.',
     'Prompt and professional!',
 ]
 
 const dates = ['Nov 10 2021', 'Nov 17 2021', 'Nov 22 2021', 'Dec 3 2021', 'Dec 8 2021', 'Dec 18 2021', 'Dec 23 2021', 'Dec 29 2021', 'Jan 5 2022', 'Jan 11 2022']
+
+let counter = 0;
+let results = {};
 
 async function getUsers() {
     let response = await fetch('https://randomuser.me/api/?results=5&inc=name,picture&nat=US');
@@ -17,11 +20,9 @@ async function getUsers() {
     return data;
 }
 
-let counter = 0;
 
 const createCard = ({results}) => {
     const stars = createStars();
-    console.log(stars);
     const newCard = document.createElement('div');
     newCard.classList.add('testimonial-card');
 
@@ -50,41 +51,43 @@ const createStars = () => {
 }
 
 getUsers()
-    .then(data => createCard(data))
+    .then(data => Object.assign(results, data))
+    .then(results => createCard(results));
+    // .then(createCard(results));
 
+// Cycle cards on scroll
 
+let lastKnownScrollPosition = 0;
+let cycling = false;
+let cyclingCards;
 
+const cycleCards  = () => {
+    const currentTestimonial = document.querySelector('.testimonial-card');
+    if (counter === 4) counter = -1;
+    counter++;
+    console.log(counter)
+    if (currentTestimonial) {
+        currentTestimonial.classList.add('hidden');
+        setTimeout(() => {
+            testimonials.removeChild(currentTestimonial);
+            createCard(results);
+        }, 1000)
+    }
+}
 
+document.addEventListener('scroll', function(e) {
+    lastKnownScrollPosition = window.scrollY;
 
+    if (!cycling && lastKnownScrollPosition > 745 && lastKnownScrollPosition < 1400) {
+        window.requestAnimationFrame(function()  {
+            cycling = true;
+            cyclingCards = setInterval(cycleCards, 3000);
+        });
+    }
 
-
-// const galleryList = document.querySelector('.gallery-list');
-// const galleryItems = document.querySelectorAll('.gallery-item');
-
-// const galleryImages = [
-//     'apt.jpg',
-//     'moving.jpg',
-//     'pexels-arthouse-studio-4413755.jpg',
-//     'pexels-cottonbro-4056535.jpg',
-//     'pexels-luis-quintero-2564873.jpg',
-//     'pexels-pixabay-221506.jpg',
-//     'pexels-spencer-gurley-1448055.jpg',
-//     'pexels-vincent-rivaud-2265881.jpg'
-// ]
-
-
-
-// for (const item of galleryImages) {
-//     const location = `url(images/gallery/${item})`;
-
-//     const newItem = document.createElement('div');
-
-//     const imageInnerHTML = `
-//         <li class='gallery-item' style='background:${location};background-size:cover'>
-//             <h2>fff</h2>
-//         </li>
-//     `
-//     newItem.innerHTML = imageInnerHTML;
-
-//     galleryList.appendChild(newItem);
-// }
+    if (cycling && (lastKnownScrollPosition < 745 || lastKnownScrollPosition > 1400)) {
+        console.log('stop')
+        cycling = false;
+        clearInterval(cyclingCards);
+    }
+});
