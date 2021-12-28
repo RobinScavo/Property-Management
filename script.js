@@ -38,8 +38,9 @@ const createCard = ({results}) => {
         <div class='quote scrollbar-hidden'>"${testimonialArray[counter]}"</div>
     `
 
-    newCard.innerHTML = `${cardInnerHTML}`
+    newCard.innerHTML = `${cardInnerHTML}`;
     testimonials.appendChild(newCard);
+    newCard.classList.add('fade-in');
 }
 
 const createStars = () => {
@@ -67,7 +68,7 @@ const cycleCards  = () => {
     counter++;
     console.log(counter)
     if (currentTestimonial) {
-        currentTestimonial.classList.add('hidden');
+        currentTestimonial.classList.add('fade-out');
         setTimeout(() => {
             testimonials.removeChild(currentTestimonial);
             createCard(results);
@@ -81,7 +82,7 @@ document.addEventListener('scroll', function(e) {
     if (!cycling && lastKnownScrollPosition > 745 && lastKnownScrollPosition < 1400) {
         window.requestAnimationFrame(function()  {
             cycling = true;
-            cyclingCards = setInterval(cycleCards, 3000);
+            cyclingCards = setInterval(cycleCards, 4000);
         });
     }
 
