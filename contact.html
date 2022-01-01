@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/utilities.css">
+    <link rel="stylesheet" href="./css/contact.css">
     <title>Contact Page</title>
 </head>
-<body>
-    <h1>Contact Page</h1>
+<body class='scrollbar-hidden'>
+    <header class="header flex small-header">
+        <div class="logo-div flex">
+            <div class='logo'></div>
+            <div class="log-text">BPM</div>
+        </div>
+        <div class="logo-text-div">
+            <div class="logo-text-top">BILLINGS</div>
+            <div class="logo-text-bottom">Property Management</div>
+        </div>
+        <a href="resources.html" class='btn'>Apply Now</a>
+    </header>
+
+    <figure class='flex small-figure'>
+        <figcaption>Our Team and Services</figcaption>
+    </figure>
+
+
+    <nav class='main contact-main'>
+        <div class="contact-text-div">
+            <h2 class='contact-title'>Serving Tenants and Owners Since 2020</h2>
+            <p class="contact-description">Missoula Property Management is proud to offer residents the most affordable, high quality and comfortable living experience possible. We truly care about you and the properties we manage. As a resident, you can rely on us to be responsive to maintenance needs and ensure your unit, building and grounds are well-maintained, so you have fewer worries. As an owner, you can trust us to care for and manage your property investment as if it were our own.</p>
+        </div>
+        <ul class='grid contact-links'>
+            <li class='flex'>
+                <div class="image-div contact-image-div">
+                    <img id='keys' src="images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>TENANTS</h2>
+                    <p>We are proud to offer a wide selection of rental properties in the Missoula area. Our tenants enjoy well-maintained properties at every price-point. Search online to see our currently available properties, or call us to help find exactly what you're looking for.</p>
+                    <!-- <a href="https://missoula.twa.rentmanager.com/Applynow" target='blank'>Tenant Portal</a> -->
+                </div>
+            </li>
+            <li class='flex'>
+                <div class="image-div contact-image-div">
+                    <img src="images/icons/sign.png" alt="Search by Gregor Cresnar from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>OWNERS</h2>
+                    <p>We care for every property as if it were our own investment focusing on optimizing owners' returns, while attracting qualified tenants and keeping them happy and comfortable. We are proud to have mastered this delicate balance, and look forward to discussing your property and how we can help you.</p>
+                    <!-- <a href="https://missoula.owa.rentmanager.com/#/login?returnUrl=%2Fdashboard&locations=Default,hoa,talbert,weaver" target='blank'>
+                        Online Owner Portal</a> -->
+                </div>
+            </li>
+            <button class="btn contact-btn">Call Us: 406-555-1212</button>
+        </ul>
+    </nav>
 </body>
 </html>
