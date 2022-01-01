@@ -54,7 +54,6 @@ const createStars = () => {
 getUsers()
     .then(data => Object.assign(results, data))
     .then(results => createCard(results));
-    // .then(createCard(results));
 
 // Cycle cards on scroll
 
@@ -66,7 +65,7 @@ const cycleCards  = () => {
     const currentTestimonial = document.querySelector('.testimonial-card');
     if (counter === 4) counter = -1;
     counter++;
-    console.log(counter)
+
     if (currentTestimonial) {
         currentTestimonial.classList.add('fade-out');
         setTimeout(() => {
@@ -87,7 +86,6 @@ document.addEventListener('scroll', function(e) {
     }
 
     if (cycling && (lastKnownScrollPosition < 745 || lastKnownScrollPosition > 1400)) {
-        console.log('stop')
         cycling = false;
         clearInterval(cyclingCards);
     }

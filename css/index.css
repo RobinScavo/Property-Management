@@ -481,32 +481,22 @@ i {
       height: 110vh;
       /* background-color: violet; */
       color: var(--dark-color);
-      background: url('../images/pexels-karolina-grabowska-4210787.jpg');
+      background: url('../images/2-pexels-karolina-grabowska-4210787.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       margin-top: 20px;
 
   }
-/* .writing-image {
-    width: auto;
-    height: auto;
-    position: fixed;
-    top: 200px;
-    z-index: -1;
-} */
 
 form {
-    /* position: absolute; */
     width: 90%;
-    /* background-color: yellowgreen; */
     margin-top: 30px;
   }
 
 .form-top {
     display: flex;
     justify-content: space-between;
-    /* background-color: yellow; */
 }
 
 .form-div {
@@ -522,13 +512,13 @@ form input, form textarea {
     font-size: 16px;
     border: none;
     height: 35px;
-    background-color: var(--dark-color);
-    opacity: 0.3;
+    background-color: rgba(0, 0, 0, 0.2);
+    caret-color: var(--dark-color);
 }
 
 form input:focus, form textarea:focus {
     outline: none;
-    border: 2px solid var(--primary-color);
+    /* border: 3px solid var(--primary-color); */
 }
 
 form textarea {
@@ -559,6 +549,10 @@ form textarea {
     width: 250px;
     height: 40px;
     font-size: 18px;
+}
+
+.g-recaptcha {
+    margin-top: 60px;
 }
 
 
@@ -624,4 +618,26 @@ form textarea {
     height: 10vh;
     font-size: 10px;
     color: var(--dark-color);
+}
+
+.alert {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 400px;
+    background-color: var(--lighter-color);
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+}
+
+.okButton {
+    height: 30px;
+    width: 50px;
 }

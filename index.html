@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <title>Billings Property Management</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="scrollbar-hidden">
     <header class="header flex">
@@ -127,12 +128,12 @@
 
     <section class='contact-form'>
         <!-- <img class='writing-image' src="./images/pexels-karolina-grabowska-4210787.jpg" alt="pexels-karolina-grabowska"> -->
-        <form action="">
+        <form action="mailto:sirscavo@gmail.com">
             <h2 class="form-title">CONTACT US</h2>
             <h3 class="form-subtitle">Want us to call you? Send us an email.</h3>
             <div class="form-top">
                 <div class="form-div">
-                    <h2 class="form-text">Home</h2>
+                    <h2 class="form-text">Name</h2>
                     <input type="text" class="form-name" name='form-name' required>
                 </div>
                 <div class="form-div">
@@ -148,6 +149,7 @@
                 <h2 class="form-text">Message</h2>
                 <textarea name='form-text'></textarea>
             </div>
+            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
             <button type="submit" class='btn form-btn'>SEND MESSAGE</button>
             <!-- <input type="submit" class='btn form-btn' value='SEND MESSAGE'> -->
         </form>
@@ -183,5 +185,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="submitForm.js"></script>
 </body>
 </html>
