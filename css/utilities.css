@@ -10,8 +10,8 @@
     --secondary-color: #2983dd;
     --dark-color: #515151;
     --darkish-color: rgba(81, 81, 81, 0.7);
-    --lighter-color: #f0eeee;
-    --light-color: rgb(248, 245, 245);
+    --darker-color: #f1eaea;
+    --light-color: rgb(250, 246, 246);
 }
 
 body {
@@ -57,6 +57,33 @@ h2, h3, p, ul, nav, img {
     scrollbar-width: none; /* Firefox */
 }
 
+/* OVERLAY */
+
+.overlay {
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:black;
+    opacity:0.4;
+    visibility: hidden;
+}
+
+.overlay-text {
+    visibility: hidden;
+    z-index: 100;
+    color: var(--light-color);
+}
+
+.gallery-item:hover .overlay {
+    visibility: visible;
+}
+
+.gallery-item:hover .overlay-text {
+    visibility: visible;
+}
+
 /* HEADER */
 
 header {
@@ -74,7 +101,22 @@ header {
     left: 5px;
     height: 12vh;
     width: 18vh;
-    font-size: 18px;
+    font-size: 7px;
+    color: var(--light-color);
+}
+
+.logo-text {
+    position: absolute;
+    top: 50px;
+    left: 19px;
+}
+
+.home-text {
+    visibility: hidden;
+    position: absolute;
+    top: 30px;
+    left: 13px;
+    font-size: 10px;
 }
 
 .logo-text-div {
@@ -96,6 +138,7 @@ header {
 }
 
 .logo {
+    position: relative;
     height: 50px;
     width: 50px;
     margin-right: 5px;
@@ -105,6 +148,17 @@ header {
     background-size: 130%;
     background-repeat: no-repeat;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo-overlay {
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:black;
+    opacity:0.3;
+    border-radius: 50%;
 }
 
 .btn {
@@ -204,4 +258,62 @@ header {
     width: 200px;
     height: 40px;
     font-size: 17px;
+}
+
+/* Footer */
+
+.footer {
+    background-color: var(--dark-color);
+    height: 23vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.footer > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90px;
+}
+
+.social-div {
+    display: flex;
+    justify-content: space-around;
+    font-size: 35px;
+}
+
+.footer h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.footer a,
+.footer p {
+    width: fit-content;
+    font-size: 13px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+}
+
+.footer i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.footer a:hover,
+.footer i:hover {
+    color: var(--primary-color);
+}
+
+/* Copyright */
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    font-size: 10px;
+    color: var(--dark-color);
 }

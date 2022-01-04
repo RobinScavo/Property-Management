@@ -1,8 +1,24 @@
+/* HEADER */
+
+.logo-div:hover {
+    cursor: pointer;
+}
+
+.logo-div:hover .logo-text {
+    visibility: hidden;
+}
+
+.logo-div:hover .home-text {
+    visibility: visible;
+}
+
 .small-header {
     height: 14vh;
     padding: 0;
     box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.1);
 }
+
+/* MAIN IMAGE */
 
 .small-figure  {
     position: relative;
@@ -19,10 +35,11 @@
     margin-bottom: 0;
 }
 
+/* NAV */
+
 .contact-main {
-    display: inline;
+    height: 114vh;
     flex-direction: column;
-    /* background-color: violet; */
     color: var(--dark-color);
     padding: 40px;
     text-align: center;
@@ -30,7 +47,6 @@
 
 .contact-text-div {
     display: relative;
-    /* background-color: chartreuse; */
     padding-bottom: 20px;
     border-bottom: 2px solid var(--darkish-color);
 }
@@ -39,7 +55,6 @@
     margin-bottom: 20px;
     margin-top: 10px;
     font-size: 30px;
-    /* background-color: violet; */
 }
 
 .contact-links {
@@ -48,7 +63,6 @@
 }
 
 .contact-image-div {
-    /* background-color: violet; */
     height: 23vh;
     width: 26vh;
     margin: 0;
@@ -64,18 +78,15 @@
 .contact-main ul {
     justify-content: space-around;
     width: 100%;
-    /* background-color: yellow; */
 }
 
 .contact-main ul li {
-    /* background-color: turquoise; */
     width: 100%;
     align-items: flex-start;
     padding-top: 20px;
 }
 
 .contact-main .main-text {
-    /* background-color: green; */
     width: 90%;
     padding: 10px;
     text-align: start;
@@ -84,5 +95,89 @@
 }
 
 .contact-main .contact-btn {
+    margin-top: 20px;
     align-self: center;
+}
+
+/* BIOGRAPHIES */
+
+.bio-section {
+    color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    background-color: var(--darker-color);
+    margin-bottom: 20px;
+    box-shadow: 0px -2px 7px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bio-text {
+    width: 300px;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.bio-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 45vw;
+    height: 60vh;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.bio-image-div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 30vw;
+    margin-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+    transition: background-size 0.4s ease-in;
+}
+
+.leapold {
+    background-image: url('../images/leapold.jpg');
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.samuii {
+    background-image: url('../images/samuii.jpg');
+    background-size: 105%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bio-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.bio-title {
+    color: var(--darkish-color);
+    font-size: 15px;
+}
+
+.bio-image-div:hover {
+    cursor: pointer;
+    background-size: 110%;
+}
+
+.bio-image-div:hover .overlay {
+    visibility: visible;
+}
+
+.bio-image-div:hover .overlay-text {
+    visibility: visible;
 }

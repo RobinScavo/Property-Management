@@ -99,25 +99,6 @@ figcaption {
     transition: background-size 0.4s ease-in;
 }
 
-.overlay {
-    position:absolute;
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    background-color:black;
-    opacity:0.4;
-    visibility: hidden;
-}
-
-.gallery-item:hover .overlay {
-    visibility: visible;
-}
-
-.gallery-item:hover .gallery-text {
-    visibility: visible;
-}
-
 .gallery-item:nth-child(1) {
     background: url('../images/gallery/3-pexels-mike-144632.jpg');
     background-size: 105%;
@@ -174,11 +155,6 @@ figcaption {
     background-position: center;
 }
 
-.gallery-text {
-    visibility: hidden;
-    z-index: 100;
-}
-
 .gallery-item:hover {
     cursor: pointer;
     background-size: 110%;
@@ -188,7 +164,6 @@ figcaption {
 
 .testimonials {
     height: 62vh;
-    /* background-color: maroon; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -201,12 +176,7 @@ figcaption {
     margin-bottom: 30px;
 }
 
-/* .testimonials-div {
-    width: auto;
-} */
-
 .testimonial-card {
-    /* background-color: forestgreen; */
     height: 180px;
     width: 230px;
     margin-bottom: 20px;
@@ -250,7 +220,6 @@ figcaption {
     align-items: center;
     color: goldenrod;
     height: 15%;
-    /* background-color: violet; */
     font-weight: bolder;
     margin-top: 5px;
 }
@@ -280,7 +249,6 @@ i {
       align-items: center;
       flex-direction: column;
       height: 110vh;
-      /* background-color: violet; */
       color: var(--dark-color);
       background: url('../images/2-pexels-karolina-grabowska-4210787.jpg');
       background-repeat: no-repeat;
@@ -319,7 +287,6 @@ form input, form textarea {
 
 form input:focus, form textarea:focus {
     outline: none;
-    /* border: 3px solid var(--primary-color); */
 }
 
 form textarea {
@@ -356,64 +323,7 @@ form textarea {
     margin-top: 60px;
 }
 
-
-/* Footer */
-
-.footer {
-    background-color: var(--dark-color);
-    height: 23vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.footer > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 90px;
-}
-
-.social-div {
-    display: flex;
-    justify-content: space-around;
-    font-size: 35px;
-}
-
-.footer h2 {
-    font-size: 25px;
-    margin-bottom: 10px;
-}
-
-.footer a,
-.footer p {
-    width: fit-content;
-    font-size: 13px;
-    margin-bottom: 4px;
-    margin-left: 10px;
-}
-
-.footer i {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.footer a:hover,
-.footer i:hover {
-    color: var(--primary-color);
-}
-
-/* Copyright */
-
-.copyright {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    font-size: 10px;
-    color: var(--dark-color);
-}
+/* VALIDATION ALERTS */
 
 .alert {
     position: absolute;
