@@ -107,7 +107,7 @@ header {
 
 .logo-text {
     position: absolute;
-    top: 50px;
+    top: 40px;
     left: 19px;
 }
 
@@ -316,4 +316,8 @@ header {
     height: 10vh;
     font-size: 10px;
     color: var(--dark-color);
+}
+
+.copyright a {
+    color: var(--primary-color);
 }
