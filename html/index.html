@@ -10,6 +10,7 @@
     <title>Billings Property Management</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
+
 <body class="scrollbar-hidden">
     <header class="header">
         <div class="logo-div">
@@ -22,7 +23,7 @@
         <div class="header-links">
             <a href="resources.html" class='btn'>Apply Now</a>
             <a href="resources.html" class='btn'>Submit Repair Request</a>
-            <a href='contact.html' class='btn' target='blank'>About Us<a>
+            <a href='contact.html' class='btn' target='blank'>About Us</a>
         </div>
 
         <div class="logo-text-div">
@@ -31,13 +32,17 @@
         </div>
     </header>
 
-    <section class='option-div flex'>
-        <a href="index.html">Home</a>
-        <label for="availableDropdown">Available Rentals</label>
-        <select name="availableDropdown" class='dropdown'></select>
-        <label for="availableDropdown">Tenant Resources</label>
-        <select name="tenantDropdown" class='dropdown'></select>
-        <a href="https://www.rentometer.com/">Free Rental Analysis</a>
+    <section  class='option-section'>
+        <a id='home-option' href="index.html" class='option'>Home</a>
+        <div class="dropdown-div">
+            <select name="availableDropdown" class='dropdown'></select>
+            <h2 class='option'>Available Rentals</h2>
+        </div>
+        <div class="dropdown-div">
+            <select name="tenantDropdown" class='dropdown'></select>
+            <h2 class='option'>Tenant Resources</h2>
+        </div>
+        <a id='rental-option' href="https://www.rentometer.com/" class='option'>Free Rental Analysis</a>
     </section>
 
     <figure class='flex'>
@@ -57,6 +62,7 @@
                     <a href="available.html">Search Page</a>
                 </div>
             </li>
+
             <li class='flex'>
                 <div class="image-div">
                     <img src="../images/icons/sign.png" alt="Signpost by Zohaib Bajwa from NounProject.com">
@@ -67,6 +73,7 @@
                     <a href="available.html">Location Map</a>
                 </div>
             </li>
+
             <li class='flex'>
                 <div class="image-div">
                     <img id='keys' src="../images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
@@ -77,6 +84,7 @@
                     <a href="https://missoula.twa.rentmanager.com/Applynow" target='blank'>Tenant Portal</a>
                 </div>
             </li>
+
             <li class='flex'>
                 <div class="image-div">
                     <img src="../images/icons/signpost.png" alt="Sign by Astoe Design from NounProject.com">
@@ -85,7 +93,8 @@
                     <h2>OWNER PORTAL</h2>
                     <p>24/7/365 access to your property accounts.</p>
                     <a href="https://missoula.owa.rentmanager.com/#/login?returnUrl=%2Fdashboard&locations=Default,hoa,talbert,weaver" target='blank'>
-                        Online Owner Portal</a>
+                        Online Owner Portal
+                    </a>
                 </div>
             </li>
         </ul>
@@ -143,19 +152,23 @@
                     <h2 class="form-text">Name</h2>
                     <input type="text" class="form-name" name='form-name' required>
                 </div>
+
                 <div class="form-div">
                     <h2 class="form-text">Email</h2>
                     <input type="email" class="form-email" name='form-email' required>
                 </div>
+
                 <div class="form-div">
                     <h2 class="form-text">Phone</h2>
                     <input type="tel" class="form-phone" name='form-name' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                 </div>
             </div>
+
             <div class="form-div textarea-div">
                 <h2 class="form-text">Message</h2>
                 <textarea name='form-text'></textarea>
             </div>
+
             <div class="g-recaptcha" data-sitekey="your_site_key"></div>
             <button type="submit" class='btn form-btn'>SEND MESSAGE</button>
             <!-- <input type="submit" class='btn form-btn' value='SEND MESSAGE'> -->
@@ -169,15 +182,18 @@
             <a href="resources.html">Tenant Resources</a>
             <a href="resources.html">Owner Resources</a>
         </nav>
+
         <div class="footer-contact">
             <h2>CONTACT US</h2>
             <button class="btn contact-btn">Call Us: 406-555-1212</button>
         </div>
+
         <div class="footer-location">
             <h2>LOCATION</h2>
             <p>1633 Main St STE A #220</p>
             <p>Billings, MT 59105</p>
         </div>
+
         <div class="footer-connect">
             <h2>CONNECT</h2>
             <div class="social-div">

@@ -1,27 +1,34 @@
 
 /* OPTION DIV */
 
-.option-div {
-    background-color: var(--dark-color);
-    height: 10vh;
-    color: var(--light-color);
+.option-section {
+    display: flex;
+    justify-content: space-around;
     align-items: flex-start;
-    padding-top: 10px;
+    background-color: var(--dark-color);
+    height: 3.5rem;
+    color: var(--light-color);
+    padding-top: .8rem;
 }
 
-.option-div > * {
-    margin-right: 2px;
+.option-section a {
+    text-align: center;
 }
 
-.option-div > *:hover,
-.option-div *:first-child {
+.option {
+    margin-left: .3rem;
+    width: 10rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.option:hover {
     border-bottom: 3px solid var(--primary-color);
     cursor: pointer;
 }
 
-.option-div > a,
-.option-div > select {
-    margin-right: 85px;
+.dropdown-div {
+    display: flex;
 }
 
 .dropdown {
@@ -30,6 +37,19 @@
     color: var(--light-color);
     outline: none;
     border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 738px)  {
+    #home-option {
+        display: none;
+    }
+}
+
+@media (max-width: 538px)  {
+    #rental-option {
+        display: none;
+    }
 }
 
 /* MAIN IMAGE */
