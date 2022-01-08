@@ -15,6 +15,7 @@
 }
 
 body {
+    position: relative;
     background-color: var(--light-color);
     display: flex;
     flex-direction: column;
@@ -22,6 +23,7 @@ body {
     font-family: 'Lato', sans-serif;
     color: var(--light-color);
     caret-color: transparent;
+    /* height: 100%; */
 }
 
 a {
@@ -87,50 +89,54 @@ h2, h3, p, ul, nav, img {
 /* HEADER */
 
 header {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     background-color: var(--light-color);
-    height: 25vh;
-    padding-top: 45px;
+    height: 8.5rem;
     color: var(--dark-color);
 }
 
 .logo-div {
-    justify-content: flex-start;
     position: absolute;
-    top: 5px;
-    left: 5px;
-    height: 12vh;
-    width: 18vh;
-    font-size: 7px;
+    height: 3.5rem;
+    width: 3.5rem;
+    left: .5rem;
+    top: .5rem;
+    font-size: 0.5rem;
     color: var(--light-color);
 }
 
 .logo-text {
     position: absolute;
-    top: 40px;
-    left: 19px;
+    top: 2rem;
+    left: 1.2rem;
 }
 
 .home-text {
     visibility: hidden;
     position: absolute;
-    top: 30px;
-    left: 13px;
+    top: 2rem;
+    left: 1rem;
     font-size: 10px;
+    opacity: 0;
+    transition: visiblity 0s linear 1000ms, opacity 1000ms;
 }
 
 .logo-text-div {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    right: .5rem;
+    top: .5rem;
+    width: 10rem;
 }
 
 .logo-text-top {
-    font-size: 18px;
+    font-size: 1.2rem;
     text-align: center;
     letter-spacing: 1px;
     font-weight: bold;
     font-family: 'Orbitron', sans-serif;
+    color: var(--dark-color);
 }
 
 .logo-text-bottom {
@@ -139,9 +145,8 @@ header {
 
 .logo {
     position: relative;
-    height: 50px;
-    width: 50px;
-    margin-right: 5px;
+    height: 3.5rem;
+    width: 3.5rem;
     border-radius: 50%;
     background-image: url("../images/logo.png");
     background-position: center;
@@ -157,22 +162,28 @@ header {
     height:100%;
     width:100%;
     background-color:black;
-    opacity:0.3;
+    opacity:0.1;
     border-radius: 50%;
+}
+
+.header-links {
+    display: flex;
+    justify-content: space-between;
+    width: 29rem;
+    margin-top: 4rem;
 }
 
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30vh;
-    height: 9vh;
+    width: 9rem;
+    height: 3rem;
     background-color: var(--primary-color);
     text-decoration: none;
     color: var(--light-color);
     font-weight: bold;
-    font-size: 15px;
-    margin-right: 10px;
+    font-size: 0.9rem;
     text-align: center;
     padding: 13px;
     border: none;
@@ -182,55 +193,60 @@ header {
     background-color: var(--secondary-color);
 }
 
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* MAIN NAV */
 
 .main {
     display: flex;
     justify-content: center;
-    height: 62vh;
+    height: 20rem;
+    margin-top: 1rem;
 }
 
 .main ul {
-    width: 75%;
+    width: 40rem;
 }
 
 .main ul li {
-    justify-content: flex-end;
-    align-items: center;
-    width: 60vh;
+    display: flex;
+    align-items: flex-start;
+    width: 20rem;
     padding: 0;
 }
 
 .image-div {
-    margin-left: 20px;
     overflow: hidden;
-    height: 13vh;
-    width: 15vh;
-    margin-bottom: 37px;
+    height: 3.6rem;
+    width: 30%;
+    margin-top: 1rem;
 }
 
 .main img {
     color: var(--dark-color);
-    height: 16vh;
-    width: 16vh;
+    height: 4rem;
+    width: 4rem;
     opacity: 0.4;
+    margin-left: 1.7rem;
 }
 
 #keys {
     position: relative;
-    right: 10px;
+    right: 1.7rem;
     height: 130%;
-    width: 130%;
+    width: 110%;
 }
 .main-text {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 3px;
-    font-size: 15px;
-    width: 40vh;
-    height: 30vh;
-    display: flex;
-    justify-content: center;
+    font-size: .9rem;
+    width: 70%;
+    height: 100%;
     color: var(--dark-color);
     text-align: center;
 }
@@ -254,51 +270,44 @@ header {
     color: var(--secondary-color);
 }
 
-.contact-btn {
-    width: 200px;
-    height: 40px;
-    font-size: 17px;
-}
-
 /* Footer */
 
 .footer {
     background-color: var(--dark-color);
-    height: 23vh;
+    height: 8rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 .footer > * {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 90px;
+    height: 7rem;
 }
 
 .social-div {
     display: flex;
     justify-content: space-around;
-    font-size: 35px;
 }
 
 .footer h2 {
-    font-size: 25px;
+    font-size: 1.7rem;
     margin-bottom: 10px;
 }
 
 .footer a,
 .footer p {
     width: fit-content;
-    font-size: 13px;
-    margin-bottom: 4px;
-    margin-left: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0.6rem;
 }
 
 .footer i {
-    font-size: 30px;
+    font-size: 2rem;
     cursor: pointer;
 }
 
@@ -307,14 +316,20 @@ header {
     color: var(--primary-color);
 }
 
+.contact-btn {
+    width: 14rem;
+    height: 3rem;
+    font-size: 1.1rem;
+}
+
 /* Copyright */
 
 .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
-    font-size: 10px;
+    height: 3rem;
+    font-size: 0.7rem;
     color: var(--dark-color);
 }
 

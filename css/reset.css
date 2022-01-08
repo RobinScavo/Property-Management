@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+html {
+    font-size: calc(60% + 0.8vmin)
+    /* SCALE PAGE FONT-SIZE WITH THE SIZE OF THE BROWSER WINDOW  */
+}
+
+* {
+    font-size: 1rem;
+    /* SET ALL ELEMENTS TO THE HTML FONT-SIZE (NOT JUST TEXT) */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    line-height: 1.6rem;
+    font-family: 'Lato', sans-serif;
+    caret-color: transparent;
+}
+
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+P {
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2, h3, p, ul, nav, img {
+    margin: 0;
+    padding: 0;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
+}

@@ -1,6 +1,8 @@
 const leapold = document.querySelector('.leapold');
 const robin = document.querySelector('.samuii');
 const modal = document.querySelector('.bio-modal');
+const body = document.querySelector('body');
+const overlay = document.querySelector('.full-overlay');
 
 const targets = [
     {name: 'Leapold Lionheart', titles: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero culpa, voluptates cupiditate aliquam corporis vitae nam. Iure sit minus cupiditate, corrupti accusantium, maiores eius quas cum hic dicta exercitationem asperiores.', bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione culpa qui pariatur ab nam excepturi nobis voluptatem, numquam quae animi, vero similique alias facere quidem possimus quis. Vero, totam aspernatur!'},
@@ -8,14 +10,16 @@ const targets = [
 ]
 
 const showModal = (target) => {
-    modal.classList.add('bio-visible');
+    overlay.classList.add('overlay-visible');
+    modal.classList.add('visible');
 
     const closeButton = document.createElement('div');
     closeButton.classList.add('modal-close');
     closeButton.innerText = 'X';
     closeButton.addEventListener('click', () => {
         modal.innerHTML = '';
-        modal.classList.remove('bio-visible');
+        modal.classList.remove('visible');
+        overlay.classList.remove('overlay-visible');
     });
 
     const modalName = document.createElement('div');
