@@ -27,48 +27,57 @@
 }
 
 .small-header {
-    height: 14vh;
+    height: 4.5rem;
     padding: 0;
     box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 500px) {
+    .small-header .logo-text-div {
+        display: none;
+    }
+    .small-header  {
+        justify-content: right;
+        padding-right: 1rem;
+    }
 }
 
 /* MAIN IMAGE */
 
 .small-figure  {
-    position: relative;
-    height: 20vh;
+    /* position: relative; */
+    height: 8rem;
     background-image: url('../images/billings.jpeg');
     background-repeat: no-repeat;
     background-position: top;
     background-size: 110%;
     margin: 0;
-    margin-bottom: 15px;
-    margin-top: 50px;
-    font-size: 30px;
+    margin-top: 3rem;
+    font-size: 1.8rem;
     font-weight: bolder;
-    margin-bottom: 0;
 }
 
 /* NAV */
 
 .contact-main {
     height: 114vh;
+    height: auto;
     flex-direction: column;
     color: var(--dark-color);
-    padding: 40px;
+    padding: 1rem 3rem 3rem 3rem;
     text-align: center;
 }
 
 .contact-text-div {
     display: relative;
-    padding-bottom: 20px;
+    padding-bottom: 1.3rem;
     border-bottom: 2px solid var(--darkish-color);
 }
 
 .contact-title {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-size: 30px;
+    margin-bottom: 1.3rem;
+    margin-top: .8rem;
+    font-size: 1.8rem;
 }
 
 .contact-links {
@@ -77,16 +86,19 @@
 }
 
 .contact-image-div {
-    height: 23vh;
-    width: 26vh;
+    height: 8rem;
+    width: 8rem;
+    width: 20%;
     margin: 0;
     margin-right: 20px;
+    /* background-color: green; */
 }
 
 .contact-main img {
     color: var(--darkish-color);
-    height: 26vh;
-    width: 26vh;
+    height: 7.5rem;
+    width: 7.5rem;
+    margin: 0;
 }
 
 .contact-main ul {
@@ -101,16 +113,38 @@
 }
 
 .contact-main .main-text {
-    width: 90%;
+    width: 100%;
     padding: 10px;
     text-align: start;
     justify-content: flex-start;
-    height: 100%;
 }
 
 .contact-main .contact-btn {
     margin-top: 20px;
     align-self: center;
+}
+
+#keys {
+    margin: 0;
+    margin-left: 1.5rem;
+    right: 1.7rem;
+    height: 9.5rem;
+    width: 9.5rem;
+}
+
+#signpost {
+    margin-top: 1rem;
+}
+
+@media (max-width: 730px) {
+    .contact-main img {
+        height: 6.5rem;
+        width: 6.5rem;
+        display: none;
+    }
+    .contact-image-div {
+        display: none;
+    }
 }
 
 /* BIOGRAPHIES */
@@ -122,17 +156,17 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    height: 80vh;
+    /* height: 80vh; */
     background-color: var(--darker-color);
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     box-shadow: 0px -2px 7px 2px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.1);
 }
 
 .bio-text {
-    width: 300px;
-    font-size: 30px;
-    margin-top: 20px;
+    width: 19rem;
+    font-size: 2rem;
+    margin-top: 1.5rem;
 }
 
 .bio-div {
@@ -142,9 +176,8 @@
     align-items: center;
     width: 45vw;
     height: 60vh;
-    padding: 10px;
-    margin-top: 20px;
-}
+    padding: 1rem;
+    margin-top: 1.5rem;}
 
 .bio-image-div {
     position: relative;
@@ -153,8 +186,8 @@
     align-items: center;
     width: 40vw;
     height: 30vw;
-    margin-bottom: 20px;
-    font-size: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
     text-align: center;
     transition: background-size 0.4s ease-in;
 }
@@ -174,13 +207,13 @@
 }
 
 .bio-name {
-    font-size: 20px;
+    font-size: 1.3rem;
     margin-bottom: 10px;
 }
 
 .bio-title {
     color: var(--darkish-color);
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .bio-image-div:hover {
@@ -254,4 +287,8 @@
     cursor: pointer;
     border: 3px solid var(--dark-color);
     font-weight: bolder;
+}
+.visible {
+    opacity: 1;
+    visibility: visible;
 }
