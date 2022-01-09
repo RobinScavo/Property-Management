@@ -1,53 +1,5 @@
-:root {
-    --primary-color: #599cdf;
-    --secondary-color: #2983dd;
-    --dark-color: #515151;
-    --darkish-color: rgba(81, 81, 81, 0.7);
-    --darker-color: #f1eaea;
-    --light-color: rgb(250, 246, 246);
-}
-
-.footer {
-    background-color: var(--dark-color);
-    height: 8rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.footer > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 90px;
-}
-
-.social-div {
-    display: flex;
-    justify-content: space-around;
-    font-size: 35px;
-}
-
-.footer h2 {
-    font-size: 25px;
-    margin-bottom: 10px;
-}
-
-.footer a,
-.footer p {
-    width: fit-content;
-    font-size: 13px;
-    margin-bottom: 4px;
-    margin-left: 10px;
-}
-
-.footer i {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.footer a:hover,
-.footer i:hover {
-    color: var(--primary-color);
+.resource-fig {
+    background-image: url('../images/desktop.jpg');
+    background-position: bottom;
+    margin-top: 3rem;
 }
