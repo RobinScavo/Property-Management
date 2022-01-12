@@ -9,9 +9,11 @@
     --primary-color: #599cdf;
     --secondary-color: #2983dd;
     --dark-color: #515151;
+    --darker-color: #1a1919;
     --darkish-color: rgba(81, 81, 81, 0.7);
-    --darker-color: #f1eaea;
+    /* --darker-color: #f1eaea; */
     --light-color: rgb(250, 246, 246);
+    --lightish-color: rgb(235, 233, 227);
 }
 
 body {
