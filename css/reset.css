@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 html {
     font-size: calc(60% + 0.8vmin)
@@ -6,37 +7,39 @@ html {
 }
 
 * {
-    font-size: 1rem;
     /* SET ALL ELEMENTS TO THE HTML FONT-SIZE (NOT JUST TEXT) */
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #599cdf;
+    --secondary-color: #2983dd;
+    --dark-color: #515151;
+    --darker-color: #1a1919;
+    --darkish-color: rgba(81, 81, 81, 0.7);
+    --light-color: rgb(250, 246, 246);
+    --lightish-color: rgb(235, 233, 227);
+}
+
 body {
+    position: relative;
+    background-color: var(--light-color);
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    line-height: 1.6rem;
     font-family: 'Lato', sans-serif;
+    color: var(--light-color);
     caret-color: transparent;
+    line-height: 1.6rem;
 }
 
-
-h1 {
-    font-size: 2.2rem;
-}
-
-h2 {
-    font-size: 1.6rem;
-}
-
-h3 {
-    font-size: 1.3rem;
-}
-
-P {
-    font-size: 1.1rem;
+h1, h2, h3, p, ul, li {
+    color: var(--darkish-color)
 }
 
 a {
     text-decoration: none;
+    color: var(--light-color);
 }
 
 h2, h3, p, ul, nav, img {
@@ -51,4 +54,26 @@ h2, h3, p, ul, nav, img {
 .scrollbar-hidden {
     -ms-overflow-style: none;
     scrollbar-width: none; /* Firefox */
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+/* p {
+    font-size: 1.1rem;
+} */
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
