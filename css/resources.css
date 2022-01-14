@@ -241,6 +241,7 @@ figure::after{
 
 .pet-policy-div .btn {
     margin-top: 1.5rem;
+    align-self: center;
 }
 
 /* UTILITIES */
@@ -263,9 +264,17 @@ figure::after{
 }
 
 .utilities-icon {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     width: 3rem;
     height: 3rem;
-    background-color: turquoise;
+    opacity: 0.8;
 }
 
 .utilities-title {
@@ -298,6 +307,51 @@ figure::after{
 }
 
 .lower-utilities-title {
-    color: var(--dar-color);
+    color: var(--dark-color);
     margin-bottom: 0;
+}
+
+/* VIDEO IMAGE */
+
+.video-link-container {
+    display: flex;
+    color: var(--darkish-color);
+    background-color: var(--lightish-color);
+}
+
+.video-image {
+    width: 40vw;
+    min-width: 15rem;
+}
+
+.video-link-right {
+    padding: 1.5rem;
+    padding-left: 2.5rem;
+}
+
+.video-title {
+    color: var(--dark-color);
+}
+
+.video-subtitle {
+    font-style: italic;
+    font-weight: lighter;
+    font-size: 1.2rem;
+    margin-top: .5rem;
+    margin-left: 1.5rem;
+}
+
+.video-text {
+    margin-top: 1.5rem;
+}
+
+.video-list {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.video-link-right .btn {
+    margin-top: 1.5rem;
+    width: 13rem;
+    font-size: 1rem;
 }
