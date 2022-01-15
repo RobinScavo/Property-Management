@@ -80,26 +80,20 @@ figure::after{
     padding: 1rem;
 }
 
-.lower-right-icon-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 50%;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
-    background-color: var(--light-color);
+.pet-icon {
+    height: 3.3rem;
+    width: 3.3rem;
 }
 
-.lower-right-icon {
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    opacity: 0.6;
+.laptop-icon {
+    height: 3.6rem;
+    width: 3.6rem;
+    top: .3rem;
 }
 
 .phone-icon {
-    height: 2rem;
-    width: 2rem;
+    height: 3.7rem;
+    width: 3.7rem;
 }
 
 .lower-right-title {
@@ -193,7 +187,7 @@ figure::after{
 }
 
 .second-lower-h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;
     color: var(--dark-color);
 }
 
@@ -279,7 +273,7 @@ figure::after{
 
 .utilities-title {
     color: var(--primary-color);
-    margin-top: .5rem;
+    margin-top: 1rem;
 }
 
 .utilities-text {
@@ -309,6 +303,8 @@ figure::after{
 .lower-utilities-title {
     color: var(--dark-color);
     margin-bottom: 0;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
 }
 
 /* VIDEO IMAGE */
@@ -320,12 +316,14 @@ figure::after{
 }
 
 .video-image {
+    display: block;
+    min-width: 22rem;
     width: 35vw;
-    min-width: 15rem;
 }
 
 .video-image-container {
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    background-color: var(--lightish-color);
 }
 
 .video-link-right {
@@ -358,4 +356,76 @@ figure::after{
     margin-top: 1.5rem;
     width: 13rem;
     font-size: 1rem;
+}
+
+/* BOTTOM NAV */
+
+.resource-bottom-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1.5rem; */
+}
+
+.bottom-container {
+    display: flex;
+    width: 80%;
+    margin-top: 1.5rem;
+}
+
+.left-bottom-div, .right-bottom-div, .middle-bottom-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 33%;
+    padding: 1.5rem;
+}
+
+.bottom-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.bottom-subtitle {
+    margin-top: 1.5rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.bottom-text {
+    margin-top: 1.5rem;
+}
+
+.bottom-button {
+    margin-top: 1.5rem;
+    width: 13rem;
+}
+
+.bottom-icon {
+    height: 2rem;
+    width: 2rem;
+}
+
+.bottom-link {
+    color: var(--primary-color);
+}
+
+.emergency-icon  {
+    height:  6rem;
+    width: 6rem;
+    right: -17px;
+    top: -5px;
+}
+
+
+.resource-bottom-nav .resource-icon {
+    opacity: .8;
+}
+
+.scale-icon {
+    left: -.2rem;
 }
