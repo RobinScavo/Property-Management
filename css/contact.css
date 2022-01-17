@@ -1,15 +1,4 @@
-/* OVERLAY */
-.full-overlay {
-    position:absolute;
-    left:0;
-    bottom:0;
-    height:100%;
-    width:100%;
-    background-color:black;
-    opacity: 0.4;
-    z-index: 9;
-    visibility: hidden;
-}
+
 
 /* MAIN IMAGE */
 
@@ -220,45 +209,6 @@
     visibility: visible;
 }
 
-.modal-name {
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 10px;
-    height: 15vh;
-    margin-bottom: 20px;
-    font-size: 36px;
-    border-bottom: 2px solid var(--dark-color);
-    font-weight: lighter;
-    color: var(--dark-color);
-}
-
-.modal-text {
-    height: 85vh;
-    font-size: 16px;
-    color: var(--darkish-color);
-}
-
-.modal-close {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    right: 10px;
-    top: 10px;
-    height: 30px;
-    width: 30px;
-    font-size: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--dark-color);
-    color: var(--dark-color);
-}
-
-.modal-close:hover {
-    cursor: pointer;
-    border: 3px solid var(--dark-color);
-    font-weight: bolder;
-}
 .visible {
     opacity: 1;
     visibility: visible;

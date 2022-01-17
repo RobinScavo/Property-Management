@@ -24,14 +24,14 @@
             <div class="logo-text-top">BILLINGS</div>
             <div class="logo-text-bottom">Property Management</div>
         </div>
-        <a href="resources.html" class='btn'>Apply Now</a>
+        <a href="#resource-second" class='btn'>Apply Now</a>
     </header>
 
     <figure class='resource-fig' alt='Top View Of Entrepreneur Working On Mobile Phone Sitting At Work Table by Jacob Lund Photography from NounProject.com'>
         <figcaption>Resident Resources <br><small  id='resource-small'> helpful info for new and current residents</small></figcaption>
     </figure>
 
-    <section class="resource-main">
+    <section id='resource-main' class="resource-main">
         <div class="main-upper-div">
             <img class='upper-right-image' src="../images/dating.jpg" alt="Dating Couple Moving In Together In New Apartment by Jacob Lund Photography from NounProject.com">
             <div class="main-upper-right">
@@ -53,7 +53,7 @@
                 </div>
                 <h2 class="lower-right-title">Pet Friendly</h2>
                 <p class="lower-right-text">We understand that pets are family, too.  We offer many pet friendly properties and policies to protect you, your pet, and our rental properties.</p>
-                <a href="" class="btn">Read More</a>
+                <a href="#resource-pet-policy" class="btn">Read More</a>
             </div>
             <div class="lower-right-item">
                 <div class="icon-div" style="height:3.5rem;width:3.5rem;">
@@ -61,7 +61,7 @@
                 </div>
                 <h2 class="lower-right-title">Apply Online</h2>
                 <p class="lower-right-text">Our online application makes the process quick and convenient for you, and helps us get you into the apartment you want faster.</p>
-                <a href="" class="btn">Read More</a>
+                <a href="#resource-second" class="btn">Read More</a>
             </div>
             <div class="lower-right-item phone-div">
                 <div class="icon-div" style="height:3.5rem;width:3.5rem;">
@@ -69,12 +69,12 @@
                 </div>
                 <h2 class="lower-right-title">Let Us Help</h2>
                 <p class="lower-right-text">Search online or call us and let our friendly staff find the property that best suits your needs</p>
-                <a href="" class="btn">Call Us</a>
+                <button class="btn call-button">Call Us</button>
             </div>
         </div>
     </section>
 
-    <section class="resource-second">
+    <section id='resource-second' class="resource-second">
         <div class="second-upper-div">
             <div class="second-upper-image" style="height:10rem;width:10rem;min-width:10rem">
                 <img class='second-image' src="../images/desk.jpg" alt="Young Woman Working On Her Laptop While Sitting At Cafe by Jacob Lund Photography from NounProject.com">
@@ -95,8 +95,8 @@
                     <li class="second-lower-item">Before submitting an application, please watch the short video provided below & download and read MPM's rental criteria</li>
                     <li class="second-lower-item">As a company, we do business in accordance with the Federal Fair Housing Law and welcome Persons of all Race, Color, Religion, Sex, Handicap, Familial Status, or National Origin.</li>
                 </ul>
-                <button class="btn">Application Requirements</button>
-                <button class="btn">Rental Criteria</button>
+                <a href='https://www.youtube.com/watch?v=-mirqViyITY' class="btn" target='blank'>Application Requirements</a>
+                <a href="" class="btn">Rental Criteria</a>
             </div>
 
             <div class="second-lower-div">
@@ -106,7 +106,7 @@
                     <li class="second-lower-item"> When we receive multiple applications on a property, tenants are selected on a "most qualified" basis.</li>
                     <li class="second-lower-item">You may call us to ask if there are any pending applications for the property you are interested in prior to applying.</li>
                 </ul>
-                <button class="btn">Call Us</button>
+                <button class="btn call-button">Call Us</button>
             </div>
 
             <div class="second-lower-div">
@@ -118,13 +118,13 @@
                     <li class="second-lower-item">There is a one-time, $50 non-refundable application fee for all applicants and co-signers. If your application is not approved for any reason, no refunds are given.</li>
                     <li class="second-lower-item">If your application is approved, but not selected for your first choice property, your application may be eligible for other available properties, without paying an additional application fee.</li>
                     <li class="second-lower-item">The Apply Online button accesses our secure online application portal.</li>
-                </ul>`
-                <button class="btn">Apply Online</button>
+                </ul>
+                <a href='https://missoula.twa.rentmanager.com/Applynow' class="btn" target='blank'>Apply Online</a>
             </div>
         </div>
     </section>
 
-    <section class="resource-pet-policy">
+    <section id='resource-pet-policy' class="resource-pet-policy">
         <img class='pet-policy-image' src="../images/happy-cat.jpg" alt="Person Petting A Cat by Scopio from NounProject.com">
         <div class="pet-policy-div">
             <h2 class="pet-policy-title">Must Love Pets Policy</h2>
@@ -193,7 +193,7 @@
 
     <nav class="resource-bottom-nav">
         <div class="bottom-container">
-            <div class="left-bottom-div">
+            <div class="left-bottom-div first-bottom-div">
                 <h2 class="bottom-title">We're Here to Help!</h2>
                 <p class="bottom-text">We strive to make your lease term happy and comfortable, and we are here to help whenever issues arise. </p>
                 <p class="bottom-text">Please let us know as quickly as possible whenever you need help resolving an issue involving your rental that does not fall under maintenance and repairs.</p>
@@ -204,7 +204,7 @@
                 </div>
                 <h2 class="bottom-subtitle">General Concerns</h2>
                 <p class="bottom-text">Was there an event at your rental you think we should know about? Please click the Report a Concern button, and use the form to let us know the issue you need help resolving.</p>
-                <a href="" class="bottom-button btn">Report a Concern</a>
+                <button class="bottom-button btn report-button">Report a Concern</button>
             </div>
             <div class="right-bottom-div">
                 <div class="icon-div" style="height:3.5rem;width:3.5rem;">
@@ -215,13 +215,15 @@
             </div>
         </div>
 
+        <div class="full-overlay"></div>
         <div class="bottom-container">
+            <div class="trouble-modal"></div>
             <div class="left-bottom-div">
                 <h2 class="bottom-title">Maintenance</h2>
                 <p class="bottom-text">Unfortunately, things do need repaired from time-to-time and your home has been furnished with appliances and utilities that must be kept in working order. </p>
                 <p class="bottom-text">Our job is to make sure those items get repaired as quickly as possible during our business hours. </p>
                 <p class="bottom-text">Your job is to follow the guidelines for handling and reporting emergency issues and non-emergency repairs. If you are not in danger, please troubleshoot your issue first before reporting an emergency or submitting a non-emergency repair request.</p>
-                <a href="" class="bottom-button btn">Troubleshoot Your Issue</a>
+                <button class="bottom-button btn troubleshoot-button">Troubleshoot Your Issue</button>
             </div>
             <div class="middle-bottom-div">
                 <div class="icon-div" style="height:3.5rem;width:3.5rem;">
@@ -236,8 +238,9 @@
                     <li class="repair-item">Only toilet is not functioning</li>
                     <li class="repair-item">Inoperable door lock</li>
                 </ul>
-                <a href="" class="bottom-button btn">Call 406-251-8500</a>
+                <button class="bottom-button btn call-button">Call 406-251-8500</button>
             </div>
+
             <div class="right-bottom-div">
                 <div class="icon-div" style="height:3.5rem;width:3.5rem;">
                     <img class='resource-icon' src="../images/icons/paint.png" alt="Home Repair by ainul muttaqin from NounProject.com">
@@ -270,6 +273,47 @@
                 <a href="" class="bottom-button btn">Request Modification</a>
             </div>
         </div>
+
+        <div class="bottom-container last-container">
+            <div class="bottom-upper-div">
+                <div class="icon-div" style="height:3.5rem;width:3.5rem;">
+                    <img src="../images/icons/box.png" alt="ainul muttaqin from NounProject.com" class="resource-icon">
+                </div>
+                <h2 class="bottom-title">Leaving Us?</h2>
+                <p class="bottom-text">We hate to see you go! These forms and guides will help make parting easier for everyone.</p>
+            </div>
+
+            <div class="bottom-lower-container">
+                <div class="right-bottom-div">
+                    <div class="icon-div" style="height:3.5rem;width:3.5rem;">
+                        <img src="../images/icons/calender.png" alt="ainul muttaqin from NounProject.com" class="resource-icon">
+                    </div>
+                    <h2 class="bottom-subtitle">30-Day Notice to Vacate</h2>
+                    <p class="bottom-text">Use this form to let us know when you are leaving.</p>
+                    <p class="bottom-text">Drop off your signed form to our after-hours drop box, mail it, or use our online submission tool to upload the completed, signed document.</p>
+                    <a href="" class="bottom-button btn">30-Day Notice to Vacate Form</a>
+                    <a href="" class="bottom-button btn">Online Submission Tool</a>
+                </div>
+                <div class="right-bottom-div">
+                    <div class="icon-div" style="height:3.5rem;width:3.5rem;">
+                        <img src="../images/icons/checklist.png" alt="ainul muttaqin from NounProject.com" class="resource-icon">
+                    </div>
+                    <h2 class="bottom-subtitle">Helpful Move-Out Guide</h2>
+                    <p class="bottom-text">We created this step-by-step guide to walk you through the entire move-out process so everything is transparent and goes as smoothly as possible.</p>
+                    <a href="" class="bottom-button btn">Helpful Move-Out Guide</a>
+                </div>
+                <div class="right-bottom-div">
+                    <div class="icon-div" style="height:3.5rem;width:3.5rem;">
+                        <img src="../images/icons/eyes.png" alt="ainul muttaqin from NounProject.com" class="resource-icon eyes-icon">
+                    </div>
+                    <h2 class="bottom-subtitle">Request for Review</h2>
+                    <p class="bottom-text">If you are unhappy with the deductions from your deposit, you may request a secondary review.</p>
+                    <p class="bottom-text">Please download and read requirements and procedures before submitting your request.</p>
+                    <a href="" class="bottom-button btn">Download Request For Review Form</a>
+                    <a href="" class="bottom-button btn">Submit Request for Review</a>
+                </div>
+            </div>
+        </div>
     </nav>
 
 
@@ -282,7 +326,7 @@
         </nav>
         <div class="footer-contact">
             <h2>CONTACT US</h2>
-            <button class="btn contact-btn">Call Us: 406-555-1212</button>
+            <button class="btn contact-btn call-button">Call Us: 406-555-1212</button>
         </div>
         <div class="footer-location">
             <h2>LOCATION</h2>
@@ -301,7 +345,7 @@
     <div class="copyright">
         <p class='copyright-text'>Created by <a href="https://robinscavo.github.io/portfolioSite/" target='blank'>Robin Scavo</a> for demonstration purposes only. Original design credit: &copy; <a href="https://www.rentinmissoula.com/" target='blank'>2021 Missoula Property Management</a> View code <a href="https://github.com/RobinScavo/Property-Management" target='blank'>here</a>.</p>
     </div>
-</body>
-</html>
 
-<!-- Side View Of Beautiful Young Woman Sitting By Kitchen Counter And Using Laptop by Jacob Lund Photography from NounProject.com -->
+    <script src='../js/utilities.js'></script>
+    <script src="../js/troubleshootingModal.js"></script>
+</html>
