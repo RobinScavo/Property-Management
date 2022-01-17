@@ -1,7 +1,7 @@
 const leapold = document.querySelector('.leapold');
 const robin = document.querySelector('.samuii');
 const modal = document.querySelector('.bio-modal');
-const body = document.querySelector('body');
+// const body = document.querySelector('body');
 const overlay = document.querySelector('.full-overlay');
 
 const targets = [
