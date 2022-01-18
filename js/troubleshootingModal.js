@@ -41,20 +41,21 @@ const showTroubleModal = () => {
     for (let [index, child] of troubleTips.children.entries()) {
         const issue = Object.keys(child);
 
-        const issueExpand = document.createElement('button');
-        issueExpand.classList.add('expand-button');
-
-        const issueDiv = document.createElement('div');
-        issueDiv.classList.add('issue-div');
-        issueDiv.addEventListener('click', () => {
-            issueExpand.classList.toggle('expanded');
-        });
+        const expandButton = document.createElement('button');
+        expandButton.classList.add('expand-button');
+        expandButton.setAttribute('id', index);
 
         const issueEl = document.createElement('p');
         issueEl.classList.add('modal-issue');
+        issueEl.setAttribute('id', index);
         issueEl.innerText = issue;
 
-        issueDiv.appendChild(issueExpand);
+        const issueDiv = document.createElement('div');
+        issueDiv.classList.add('issue-div');
+        issueDiv.setAttribute('id', index);
+        issueDiv.addEventListener('click', (e) => toggleExpand(e));
+
+        issueDiv.appendChild(expandButton);
         issueDiv.appendChild(issueEl);
 
         const resolutionDiv = document.createElement('ul');
@@ -64,7 +65,6 @@ const showTroubleModal = () => {
         const resolutions = Object.values(child)
 
         for (let resolution of resolutions[0]) {
-            console.log(resolution)
             const resolutionEl = document.createElement('li');
             resolutionEl.innerText = resolution;
             resolutionDiv.appendChild(resolutionEl);
@@ -76,6 +76,18 @@ const showTroubleModal = () => {
 
 
     modal.scrollIntoView();
+}
+
+const toggleExpand = (e) => {
+    const resolutions = document.querySelectorAll('.resolution-div');
+    const expandIcons = document.querySelectorAll('.expand-button');
+
+    const index = e.target.id;
+    const target = resolutions[index];
+    const icon = expandIcons[index];
+
+    icon.classList.toggle('expanded-icon');
+    target.classList.toggle('expanded-div');
 }
 
 const showReportModal = () => {

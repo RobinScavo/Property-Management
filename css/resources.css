@@ -586,12 +586,13 @@ figure::after{
 }
 
 .issue-div  {
+    position: relative;
     display: flex;
     padding: .5rem;
     background-color: var(--lightish-color);
     cursor: pointer;
-    /* border-bottom: 2px solid var(--faint-color); */
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+    /* z-index: 100; */
 }
 
 .expand-button {
@@ -612,7 +613,7 @@ figure::after{
     transition: transform ease-in-out 1s;
 }
 
-.expanded {
+.expanded-icon {
     transform: rotate(360deg);
     transition: transform ease-in-out 1s;
 }
@@ -629,9 +630,29 @@ figure::after{
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
     padding-bottom: .5rem;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    /* transform: translateY(-100%);
+    transition: transform ease-in 0.5s;
+    transition: display ease-in 0.5s; */
+    opacity: 0;
+    height: 0;
+    z-index: -1;
+    transition: opacity ease-in 2s;
+    transition: height ease-in 2s;
+    /* transition: display ease-in 0.5s; */
+    /* visibility: hidden; */
+    /* display: none; */
+}
+
+.expanded-div {
+    /* transform: translateY(0); */
+    transition: opacity ease-in 2s;
+    transition: height ease-in 2s;
+    display: block;
+    height: auto;
+    opacity: 1;
 }
