@@ -597,13 +597,13 @@ figure::after{
 
 .expand-button {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2rem;
-    width: 2rem;
+    /* justify-content: center;
+    align-items: center; */
+    height: 1.7rem;
+    width: 1.7rem;
     background-image: url(../images/icons/circle-arrow.png);
     background-position: center;
-    background-size: 90%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-color: var(--lightish-color);
     border: none;
@@ -611,11 +611,13 @@ figure::after{
     margin-left: 1rem;
     transform: rotate(180deg);
     transition: transform ease-in-out 1s;
+    background-color: turquoise;
 }
 
 .expanded-icon {
-    transform: rotate(360deg);
-    transition: transform ease-in-out 1s;
+    /* rotate: 360deg; */
+    transform: rotate(300deg);
+    transition: transform linear .5s;
 }
 
 .modal-issue {
