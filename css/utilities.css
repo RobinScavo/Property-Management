@@ -17,27 +17,6 @@
     --lightish-color: rgb(223, 221, 215);
 }
 
-/* body {
-    position: relative;
-    background-color: var(--light-color);
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    color: var(--light-color);
-    caret-color: transparent;
-} */
-
-/* a {
-    text-decoration: none;
-    color: var(--light-color);
-} */
-
-/* h2, h3, p, ul, nav, img {
-    margin: 0;
-    padding: 0;
-} */
-
 .flex {
     display: flex;
     align-items: center;
@@ -54,14 +33,11 @@
 .icon-div {
     display: flex;
     position: relative;
-    /* justify-content: flex-start; */
-    /* align-items: center; */
     text-align: center;
     border-radius: 50%;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
     background-color: var(--light-color);
     overflow: hidden;
-    /* background-color: violet; */
 }
 
 .resource-icon {
@@ -215,11 +191,6 @@ header {
     background-color: var(--secondary-color);
 }
 
-/* .visible {
-    opacity: 1;
-    visibility: visible;
-} */
-
 /* SMALL HEADER */
 
 .logo-div:hover {
@@ -274,17 +245,17 @@ header {
 
 .image-div {
     overflow: hidden;
-    height: 3.6rem;
-    width: 30%;
+    height: 4.3rem;
+    width: 4.3rem;
     margin-top: 1rem;
+    margin-right: .5rem;
 }
 
 .main img {
     color: var(--dark-color);
-    height: 4rem;
-    width: 4rem;
+    height: 5rem;
+    width: 5rem;
     opacity: 0.4;
-    margin-left: 1.7rem;
 }
 
 #keys {
@@ -292,6 +263,7 @@ header {
     right: 1.7rem;
     height: 5.7rem;
     width: 5.7rem;
+    margin-left: 1.3rem;
 }
 
 .main-text {
@@ -318,7 +290,8 @@ header {
 .main-text a {
     color: var(--primary-color);
     font-size: 18px;
-    padding-top: 10px;
+    padding-top: .3rem;
+    margin-bottom: 1rem;
 }
 
 .main-text a:hover {

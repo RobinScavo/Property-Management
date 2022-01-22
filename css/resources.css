@@ -316,6 +316,7 @@ figure::after{
 
 .utilities-link {
     color: var(--primary-color);
+    font-weight: bold;
 }
 
 .lower-utilities-container {
@@ -475,6 +476,7 @@ figure::after{
 
 .bottom-link {
     color: var(--primary-color);
+    font-weight: bold;
 }
 
 .emergency-icon  {
@@ -528,6 +530,13 @@ figure::after{
     left: -.7rem;
 }
 
+.link-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    font-weight: bold;
+}
 
 @media (max-width: 600px) {
     .bottom-container,
@@ -542,9 +551,10 @@ figure::after{
     }
 }
 
-/* MODALS */
+/* TROUBLE MODAL */
 
-.trouble-modal {
+.trouble-modal,
+.report-modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -579,7 +589,20 @@ figure::after{
     margin-bottom: 0;
 }
 
+.report-modal .modal-name {
+    text-align: center;
+    line-height: 1;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
 .trouble-modal .modal-text {
+    text-align: center;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.report-modal .modal-text {
     text-align: center;
     height: auto;
     margin-bottom: 1.5rem;
@@ -592,13 +615,10 @@ figure::after{
     background-color: var(--lightish-color);
     cursor: pointer;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
-    /* z-index: 100; */
 }
 
 .expand-button {
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     height: 1.7rem;
     width: 1.7rem;
     background-image: url(../images/icons/circle-arrow.png);
@@ -610,12 +630,10 @@ figure::after{
     opacity: 0.7;
     margin-left: 1rem;
     transform: rotate(180deg);
-    transition: transform ease-in-out 1s;
-    background-color: turquoise;
+    transition: transform linear .5s;
 }
 
 .expanded-icon {
-    /* rotate: 360deg; */
     transform: rotate(300deg);
     transition: transform linear .5s;
 }
@@ -636,25 +654,60 @@ figure::after{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
     padding-bottom: .5rem;
-    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    /* transform: translateY(-100%);
-    transition: transform ease-in 0.5s;
-    transition: display ease-in 0.5s; */
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
     opacity: 0;
     height: 0;
     z-index: -1;
     transition: opacity ease-in 2s;
     transition: height ease-in 2s;
-    /* transition: display ease-in 0.5s; */
-    /* visibility: hidden; */
-    /* display: none; */
 }
 
 .expanded-div {
-    /* transform: translateY(0); */
-    transition: opacity ease-in 2s;
-    transition: height ease-in 2s;
-    display: block;
+    margin-bottom: 1rem;
     height: auto;
     opacity: 1;
+}
+
+/* REPORT FORM */
+
+.input-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: .7rem;
+    font-size: 1.2rem;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.report-label {
+    color: var(--darkish-color);
+    margin-right: 1.5rem;
+    width: 20vw;
+    background-color: var(--light-color);
+}
+
+.report-input {
+    border-radius: 5px;
+    border: none;
+    height: 2.5rem;
+    width: 100%;
+    background-color: var(--lightish-color);
+}
+
+.report-option-text {
+    margin-left: .5rem;
+}
+
+.report-radio-input {
+    height: 15px;
+    width: 15px;
+}
+
+.report-textarea {
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--lightish-color);
+    border: none;
+    resize: none;
 }
