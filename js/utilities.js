@@ -10,4 +10,4 @@ callButtons.forEach((callButton) => {
             callButton.innerHTML = '406-555-1212';
         }
     })
-})
+});

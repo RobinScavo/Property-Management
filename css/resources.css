@@ -744,8 +744,8 @@ input[type=time]:focus::-webkit-datetime-edit {
 }
 
 .report-radio-input {
-    height: 15px;
-    width: 15px;
+    min-height: 15px;
+    min-width: 15px;
 }
 
 .report-textarea {
@@ -757,11 +757,17 @@ input[type=time]:focus::-webkit-datetime-edit {
     padding-left: 1rem;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
 .report-submit {
     align-self: center;
 }
 
 .requirement-div {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -770,4 +776,40 @@ input[type=time]:focus::-webkit-datetime-edit {
     height: 3rem;
     width: 5rem;
     margin-left: 1rem;
+    opacity: .5;
+}
+
+.requirement-text {
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.checkmark-div {
+    position: absolute;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(../images/icons/checkmark.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.x-mark-div {
+    position: absolute;
+    left: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(../images/icons/X-mark.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 600px) {
+    .report-modal {
+        padding: 10px;
+    }
+
+    .input-div {
+        width: 110%;
+    }
 }

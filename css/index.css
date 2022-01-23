@@ -361,8 +361,6 @@ form textarea {
     position: absolute;
     bottom: 2rem;
     right: 2.5rem;
-    /* opacity: 1; */
-    /* justify-self: flex-end; */
     width: 17rem;
     height: 2.7rem;
     font-size: 1.2rem;
@@ -370,28 +368,4 @@ form textarea {
 
 .g-recaptcha {
     margin-top: 2rem;
-}
-
-/* VALIDATION ALERTS */
-
-.alert {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 200px;
-    width: 400px;
-    background-color: var(--lighter-color);
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    padding: 20px;
-}
-
-.okButton {
-    height: 30px;
-    width: 50px;
 }

@@ -3,7 +3,6 @@ const reportButton = document.querySelector('.report-button');
 const troubleModal = document.querySelector('.trouble-modal');
 const reportModal = document.querySelector('.report-modal');
 const overlay = document.querySelector('.full-overlay');
-const form = document.querySelector('form');
 
 const troubleTips = {
     title: 'Troubleshooting Common Issues',
@@ -128,6 +127,13 @@ const troubleChildren = (modal) => {
 
 const reportChildren = (modal) => {
     const form = document.createElement('form');
+    form.setAttribute('onkeydown', "return event.key != 'Enter';");
+    form.onkeydown = function(e) {
+        if (e.key == "Enter") {
+            e.preventDefault();
+            validateForm(form);
+        }
+    }
 
     for (let [index, child] of reportForm.children.entries()) {
         const inputType = Object.keys(child)[0];
@@ -157,11 +163,6 @@ const reportChildren = (modal) => {
                 optionText.innerText = option;
                 radioInput.setAttribute('value', option);
 
-                if (child.radio === 'Were the Police Called?') {
-                    radioInput.setAttribute('required', true);
-                    requiredText = 'REQUIRED';
-                };
-
                 inputDiv.appendChild(optionText);
                 inputDiv.appendChild(radioInput);
             });
@@ -190,8 +191,22 @@ const reportChildren = (modal) => {
 
         const requirementDiv = document.createElement('div');
         requirementDiv.classList.add('requirement-div');
-        requirementDiv.innerText = requiredText;
 
+        const requirementText = document.createElement('h2');
+        requirementText.innerText = requiredText;
+        requirementText.classList.add('requirement-text');
+
+        const checkmarkDiv = document.createElement('div');
+        checkmarkDiv.classList.add('checkmark-div');
+        checkmarkDiv.classList.add('hidden');
+
+        const xMarkDiv = document.createElement('div');
+        xMarkDiv.classList.add('x-mark-div');
+        xMarkDiv.classList.add('hidden');
+
+        requirementDiv.appendChild(requirementText);
+        requirementDiv.appendChild(checkmarkDiv);
+        requirementDiv.appendChild(xMarkDiv);
         inputDiv.appendChild(requirementDiv);
         form.appendChild(inputDiv);
     }
@@ -199,16 +214,16 @@ const reportChildren = (modal) => {
     // SUBMIT BUTTON
     const submitButton = document.createElement('button');
     submitButton.innerText = 'Submit';
-    submitButton.addEventListener('click', () => validateForm());
     submitButton.classList.add('btn');
     submitButton.classList.add('report-submit');
+    submitButton.addEventListener('click', (e) => {
+        e.preventDefault;
+        const form = document.querySelector('form');
+        validateForm(form);
+    });
 
     form.appendChild(submitButton);
     modal.appendChild(form);
-}
-
-const submitReport = () => {
-    console.log('submit');
 }
 
 const toggleExpand = (e) => {
@@ -223,8 +238,63 @@ const toggleExpand = (e) => {
     target.classList.toggle('expanded-div');
 }
 
-const validateForm = () => {
+const validateForm = (form) => {
+    const checkmarks = document.querySelectorAll('.checkmark-div');
+    const xMarks = document.querySelectorAll('.x-mark-div');
+    const requirements = document.querySelectorAll('.requirement-text');
 
+    for (let i = 0; i < form.elements.length -6; i ++) {
+        console.log(form.elements[i].required)
+        if (form.elements[i].required && form.elements[i].value) {
+            checkmarks[i].classList.remove('hidden');
+            requirements[i].classList.add('hidden');
+            xMarks[i].classList.add('hidden');
+        } else if (form.elements[i].required) {
+            xMarks[i].classList.remove('hidden');
+            requirements[i].classList.add('hidden');
+            alert('Please fill out all required fields.');
+            return;
+        }
+    }
+
+    if (!validatePhone(form.elements[2].value)) {
+        xMarks[2].classList.remove('hidden');
+        requirements[2].classList.add('hidden');
+        checkmarks[2].classList.add('hidden');
+        alert('Please provide a valid phone number.');
+        return;
+    }
+
+    if (!validateEmail(form.elements[3].value)) {
+        xMarks[3].classList.remove('hidden');
+        requirements[3].classList.add('hidden');
+        checkmarks[3].classList.add('hidden');
+        alert('Please provide a valid email.');
+        return;
+    }
+
+}
+
+const alert = (message) => {
+    const form = document.querySelector('form');
+
+    const alert = document.createElement('div');
+    alert.classList.add('alert');
+    alert.classList.add('report-alert');
+
+    const alertTextEl = document.createElement('h2');
+    alertTextEl.innerHTML = message;
+    alert.appendChild(alertTextEl);
+
+    const okButton = document.createElement('button');
+    okButton.classList.add('btn');
+    okButton.classList.add('okButton');
+    okButton.innerText = 'OK';
+    okButton.addEventListener('click', () => form.removeChild(alert));
+
+    alert.appendChild(okButton);
+    form.appendChild(alert);
+    alert.scrollIntoView();
 }
 
 troubleButtons.forEach((button) => {
@@ -236,3 +306,22 @@ troubleButtons.forEach((button) => {
 reportButton.addEventListener('click', () => {
     showModal(reportForm);
 });
+
+function validateEmail (emailAddress) {
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailAddress.match(regexEmail)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validatePhone (phoneNumber) {
+    let regexPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+    if (phoneNumber.match(regexPhone)) {
+        return true;
+    } else {
+        return false;
+    }
+}
