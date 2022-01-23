@@ -693,6 +693,50 @@ figure::after{
     height: 2.5rem;
     width: 100%;
     background-color: var(--lightish-color);
+    padding-left: 1rem;
+}
+
+.report-input:-webkit-autofill,
+.report-input:-webkit-autofill:hover,
+.report-input:-webkit-autofill:focus,
+.report-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--lightish-color) inset !important;
+    box-shadow: var(--lightish-color);
+    -webkit-text-fill-color: var(--dark-color) !important;
+    color: var(--dark-color);
+}
+
+input[type=date]::-webkit-datetime-edit,
+input[type=time]::-webkit-datetime-edit {
+    color: transparent;
+    color: var(--primary-color);
+    opacity: .7;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: .5;
+    margin-right: 10px;
+}
+
+input[type=date]:focus::-webkit-datetime-edit,
+input[type=time]:focus::-webkit-datetime-edit {
+    color: var(--darkish-color) !important;
+    border: none;
+}
+
+.report-input::placeholder,
+.report-textarea::placeholder {
+    color: var(--primary-color);
+    opacity: .7;
+}
+
+.report-input:focus,
+.report-textarea:focus {
+    border: 3px solid var(--primary-color);
+    outline: none;
 }
 
 .report-option-text {
@@ -710,4 +754,20 @@ figure::after{
     background-color: var(--lightish-color);
     border: none;
     resize: none;
+    padding-left: 1rem;
+}
+
+.report-submit {
+    align-self: center;
+}
+
+.requirement-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--primary-color);
+    height: 3rem;
+    width: 5rem;
+    margin-left: 1rem;
 }

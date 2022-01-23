@@ -1,9 +1,9 @@
 const troubleButtons = document.querySelectorAll('.troubleshoot-button');
 const reportButton = document.querySelector('.report-button');
-
 const troubleModal = document.querySelector('.trouble-modal');
 const reportModal = document.querySelector('.report-modal');
 const overlay = document.querySelector('.full-overlay');
+const form = document.querySelector('form');
 
 const troubleTips = {
     title: 'Troubleshooting Common Issues',
@@ -45,9 +45,10 @@ const reportForm = {
         {'radio': 'Was Anyone Arrested?', radioValues: ['Yes', 'No']},
         {'radio': 'Was Any Property Damaged?', radioValues: ['Yes', 'No', 'Not Sure']},
         {'textarea': 'If Yes: Please Describe Damage:'},
-        {'button': 'Submit'},
     ]
 }
+
+const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];
 
 const showModal = (inputPojo) => {
     overlay.classList.add('overlay-visible');
@@ -67,17 +68,17 @@ const showModal = (inputPojo) => {
         overlay.classList.remove('overlay-visible');
     });
 
-    const troubleTitle = document.createElement('div');
-    troubleTitle.classList.add('modal-name');
-    troubleTitle.innerText = inputPojo.title;
+    const modalTitle = document.createElement('div');
+    modalTitle.classList.add('modal-name');
+    modalTitle.innerText = inputPojo.title;
 
-    const troubleSubtitle = document.createElement('p');
-    troubleSubtitle.classList.add('modal-text');
-    troubleSubtitle.innerText = inputPojo.subtitle;
+    const modalSubtitle = document.createElement('p');
+    modalSubtitle.classList.add('modal-text');
+    modalSubtitle.innerText = inputPojo.subtitle;
 
     modal.appendChild(closeButton);
-    modal.appendChild(troubleTitle);
-    modal.appendChild(troubleSubtitle);
+    modal.appendChild(modalTitle);
+    modal.appendChild(modalSubtitle);
 
     if (inputPojo.title === 'Troubleshooting Common Issues') {
         troubleChildren(modal)
@@ -126,8 +127,11 @@ const troubleChildren = (modal) => {
 }
 
 const reportChildren = (modal) => {
+    const form = document.createElement('form');
+
     for (let [index, child] of reportForm.children.entries()) {
         const inputType = Object.keys(child)[0];
+        let requiredText = '';
 
         const inputDiv = document.createElement('div');
         inputDiv.classList.add('input-div');
@@ -153,33 +157,58 @@ const reportChildren = (modal) => {
                 optionText.innerText = option;
                 radioInput.setAttribute('value', option);
 
+                if (child.radio === 'Were the Police Called?') {
+                    radioInput.setAttribute('required', true);
+                    requiredText = 'REQUIRED';
+                };
+
                 inputDiv.appendChild(optionText);
                 inputDiv.appendChild(radioInput);
             });
         } else if (inputType === 'textarea') {
             const textarea = document.createElement('textarea');
             textarea.classList.add('report-textarea');
-            textarea.setAttribute('rows', '3');
+            textarea.setAttribute('rows', '4');
+            textarea.setAttribute('placeholder', placeholderArray[index]);
+
+            if (child.textarea === 'Describe Your Issue') {
+                textarea.setAttribute('required', true);
+                requiredText = 'REQUIRED';
+            };
 
             inputDiv.appendChild(textarea);
-        } else if (inputType === 'button') {
-            label.classList.add('hidden-label');
-            console.log('button');
-            const reportSubmit =  document.createElement('button');
-            reportSubmit.classList.add('btn');
-            reportSubmit.classList.add('report-submit');
-
-            inputDiv.appendChild(reportSubmit);
         } else {
             const input = document.createElement('input');
             input.setAttribute('type', inputType);
+            input.setAttribute('required', true);
+            requiredText = 'REQUIRED';
+            input.setAttribute('placeholder', placeholderArray[index]);
             input.classList.add('report-input');
 
             inputDiv.appendChild(input);
         }
 
-        modal.appendChild(inputDiv);
+        const requirementDiv = document.createElement('div');
+        requirementDiv.classList.add('requirement-div');
+        requirementDiv.innerText = requiredText;
+
+        inputDiv.appendChild(requirementDiv);
+        form.appendChild(inputDiv);
     }
+
+    // SUBMIT BUTTON
+    const submitButton = document.createElement('button');
+    submitButton.innerText = 'Submit';
+    submitButton.addEventListener('click', () => validateForm());
+    submitButton.classList.add('btn');
+    submitButton.classList.add('report-submit');
+
+    form.appendChild(submitButton);
+    modal.appendChild(form);
+}
+
+const submitReport = () => {
+    console.log('submit');
 }
 
 const toggleExpand = (e) => {
@@ -192,6 +221,10 @@ const toggleExpand = (e) => {
 
     icon.classList.toggle('expanded-icon');
     target.classList.toggle('expanded-div');
+}
+
+const validateForm = () => {
+
 }
 
 troubleButtons.forEach((button) => {
