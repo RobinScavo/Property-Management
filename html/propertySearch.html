@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/propertySearch.css">
+    <title>Search Rentals</title>
+</head>
+<body class="scrollbar-hidden">
+    <header class="search-header">
+        <div class="filter-div">
+            <div class="select-div">
+                <label for="bedrooms" class="filter-label">Bedrooms</label>
+                <select name='bedrooms' class="filter-select" value='Bedrooms'>
+                    <option value="" class="filter-option" selected disabled hidden></option>
+                    <option value='0' class="filter-option">Studio</option>
+                    <option value='1' class="filter-option">1</option>
+                    <option value='2' class="filter-option">2</option>
+                    <option value='3' class="filter-option">3</option>
+                    <option value='4' class="filter-option">4+</option>
+                </select>
+            </div>
+            <div class="select-div">
+                <label for="bedrooms" class="filter-label">Bathrooms</label>
+                <select name='bathrooms' class="filter-select" value='Bathrooms'>
+                    <option value="" class="filter-option" selected disabled hidden></option>
+                    <option value='1' class="filter-option">1</option>
+                    <option value='2' class="filter-option">2</option>
+                    <option value='3' class="filter-option">3</option>
+                </select>
+            </div>
+            <div class="select-div">
+                <label for="max-rent" class="filter-label">Max Rent</label>
+                <select name='max-rent' class="filter-select" value='Max Rent'>
+                    <option value="" class="filter-option" selected disabled hidden></option>
+                    <option value='800' class="filter-option">$800</option>
+                    <option value='900' class="filter-option">$900</option>
+                    <option value='1000' class="filter-option">$1000</option>
+                    <option value='1100' class="filter-option">$1100+</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn filter-button">Search</button>
+    </header>
+
+    <main class="search-main">
+        <div class="results-container"></div>
+    </main>
+
+    <script type='module' src='../js/dummyData.js'></script>
+    <script type='module' src="../js/propertySearch.js"></script>
+</body>
+</html>
