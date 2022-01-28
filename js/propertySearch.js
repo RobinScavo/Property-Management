@@ -3,13 +3,61 @@ import { properties } from './dummyData.js';
 const searchButton = document.querySelector('.filter-button');
 const resultsContainer = document.querySelector('.results-container');
 
+let currentIndex = 0;
+let currentPage = 1;
+console.log('running')
+const numberOfPages = Math.ceil(properties.length/5);
+
 searchButton.addEventListener('click', () => {
     //filter results
 });
 
-const fetchData = (index) => {
-    for (let i = index; i < index + 5; i++) {
-        console.log(i);
+const nextPageButton = () => {
+    const nextPageContainer = document.createElement('div');
+    nextPageContainer.classList.add('next-page-container');
+
+    if (currentPage > 1) {
+        const prevButton = document.createElement('button');
+        prevButton.classList.add('next-button');
+        prevButton.innerText = 'Prev';
+        prevButton.addEventListener('click', () => {
+            currentIndex -= 5;
+            currentPage--;
+            displayProperties(currentIndex);
+        });
+
+        nextPageContainer.appendChild(prevButton);
+    }
+
+    const currentPageDisplay = document.createElement('h3');
+    currentPageDisplay.classList.add('current-page');
+    currentPageDisplay.innerText = `Page ${currentPage} of ${numberOfPages}`;
+    nextPageContainer.appendChild(currentPageDisplay);
+
+    if (currentPage < numberOfPages) {
+        const nextButton = document.createElement('button');
+        nextButton.classList.add('next-button');
+        nextButton.innerText = 'Next';
+        nextButton.addEventListener('click', () => {
+            currentIndex += 5;
+            currentPage++;
+            displayProperties(currentIndex);
+        });
+
+        nextPageContainer.appendChild(nextButton);
+    }
+
+    resultsContainer.appendChild(nextPageContainer);
+}
+
+const displayProperties = (index) => {
+    const increment = (currentPage !== numberOfPages) ? 5 : (properties.length % 5);
+    console.log('Increment', increment);
+    console.log('Index', currentIndex, 'Page', currentPage)
+
+    nextPageButton();
+
+    for (let i = index; i < index + increment; i++) {
         const property = properties[i];
         const propertyContainer = document.createElement('div');
         propertyContainer.classList.add('property-container');
@@ -82,4 +130,4 @@ const fetchData = (index) => {
     };
 }
 
-fetchData(0);
+displayProperties(currentIndex);
