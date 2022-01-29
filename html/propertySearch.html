@@ -14,7 +14,7 @@
         <div class="filter-div">
             <div class="select-div">
                 <label for="bedrooms" class="filter-label">Bedrooms</label>
-                <select name='bedrooms' class="filter-select" value='Bedrooms'>
+                <select id='bedrooms' class="filter-select">
                     <option value="" class="filter-option" selected disabled hidden></option>
                     <option value='0' class="filter-option">Studio</option>
                     <option value='1' class="filter-option">1</option>
@@ -24,8 +24,8 @@
                 </select>
             </div>
             <div class="select-div">
-                <label for="bedrooms" class="filter-label">Bathrooms</label>
-                <select name='bathrooms' class="filter-select" value='Bathrooms'>
+                <label for="bathrooms" class="filter-label">Bathrooms</label>
+                <select id='bathrooms' class="filter-select">
                     <option value="" class="filter-option" selected disabled hidden></option>
                     <option value='1' class="filter-option">1</option>
                     <option value='2' class="filter-option">2</option>
@@ -34,7 +34,7 @@
             </div>
             <div class="select-div">
                 <label for="max-rent" class="filter-label">Max Rent</label>
-                <select name='max-rent' class="filter-select" value='Max Rent'>
+                <select id='max-rent' class="filter-select">
                     <option value="" class="filter-option" selected disabled hidden></option>
                     <option value='800' class="filter-option">$800</option>
                     <option value='900' class="filter-option">$900</option>
@@ -43,7 +43,7 @@
                 </select>
             </div>
         </div>
-        <button class="btn filter-button">Search</button>
+        <input type='submit' class="btn filter-button">Search</input>
     </header>
 
     <main class="search-main">

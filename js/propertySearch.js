@@ -3,62 +3,97 @@ import { properties } from './dummyData.js';
 const searchButton = document.querySelector('.filter-button');
 const resultsContainer = document.querySelector('.results-container');
 
+let list = properties;
 let currentIndex = 0;
 let currentPage = 1;
-console.log('running')
-const numberOfPages = Math.ceil(properties.length/5);
+let numberOfPages = Math.ceil(properties.length/5);
+
+const increment = () => {
+    currentIndex += 5;
+    currentPage++;
+    displayProperties(currentIndex);
+}
+
+const decrement = () => {
+    currentIndex -= 5;
+    currentPage--;
+    displayProperties(currentIndex);
+}
 
 searchButton.addEventListener('click', () => {
-    //filter results
+    let result;
+
+    const bedrooms = document.getElementById('bedrooms');
+    const bathrooms = document.getElementById('bathrooms');
+    const rent = document.getElementById('max-rent');
+    console.log('bedrooms', bedrooms.value, 'bathrooms',typeof bathrooms.value, 'rent', rent.value);
+
+    if (!bedrooms.value && !bathrooms.value && !rent.value) return;
+
+    if (bedrooms.value) {
+        result = (list.filter(property => property.beds === +bedrooms.value));
+    }
+    if (bathrooms.value) {
+        result = (list.filter(property => property.bathrooms === +bathrooms.value));
+        console.log('[kkkkkk', list)
+    }
+    if (rent.value) {
+        result = (list.filter(property => property.rent <= +rent.value));
+    }
+
+    numberOfPages = Math.ceil(result.length/5);
+    list = result;
+
+    displayProperties(currentIndex);
 });
 
 const nextPageButton = () => {
     const nextPageContainer = document.createElement('div');
     nextPageContainer.classList.add('next-page-container');
 
-    if (currentPage > 1) {
-        const prevButton = document.createElement('button');
-        prevButton.classList.add('next-button');
-        prevButton.innerText = 'Prev';
-        prevButton.addEventListener('click', () => {
-            currentIndex -= 5;
-            currentPage--;
-            displayProperties(currentIndex);
-        });
-
-        nextPageContainer.appendChild(prevButton);
+    const prevButton = document.createElement('button');
+    prevButton.classList.add('next-button');
+    prevButton.innerText = 'Prev';
+    prevButton.addEventListener('click', decrement);
+    if (currentPage <= 1) {
+        prevButton.classList.add('disabled');
+        prevButton.removeEventListener('click', decrement);
     }
+
+    nextPageContainer.appendChild(prevButton);
 
     const currentPageDisplay = document.createElement('h3');
     currentPageDisplay.classList.add('current-page');
     currentPageDisplay.innerText = `Page ${currentPage} of ${numberOfPages}`;
     nextPageContainer.appendChild(currentPageDisplay);
 
-    if (currentPage < numberOfPages) {
-        const nextButton = document.createElement('button');
-        nextButton.classList.add('next-button');
-        nextButton.innerText = 'Next';
-        nextButton.addEventListener('click', () => {
-            currentIndex += 5;
-            currentPage++;
-            displayProperties(currentIndex);
-        });
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('next-button');
+    nextButton.innerText = 'Next';
+    nextButton.addEventListener('click', increment);
 
-        nextPageContainer.appendChild(nextButton);
+    if (currentPage >= numberOfPages) {
+        nextButton.classList.add('disabled');
+        nextButton.removeEventListener('click', increment);
     }
 
+    nextPageContainer.appendChild(nextButton);
     resultsContainer.appendChild(nextPageContainer);
 }
 
 const displayProperties = (index) => {
-    const increment = (currentPage !== numberOfPages) ? 5 : (properties.length % 5);
-    console.log('Increment', increment);
-    console.log('Index', currentIndex, 'Page', currentPage)
+    const listLength = (list.length < 5) ? list.length : 5
+    const increment = (currentPage !== numberOfPages)
+        ? listLength
+        : (list.length % 5);
 
+    resultsContainer.innerHTML = '';
+    console.log('list length', listLength, 'list', list,  'increment', increment);
     nextPageButton();
 
     for (let i = index; i < index + increment; i++) {
-        const property = properties[i];
+        const property = list[i];
+        console.log('index', index, 'property', property);
         const propertyContainer = document.createElement('div');
         propertyContainer.classList.add('property-container');
 
@@ -82,8 +117,11 @@ const displayProperties = (index) => {
 
         const bedrooms = document.createElement('p');
         bedrooms.classList.add('property-text');
-        let grammarNazi = (property.name > 1) ? 's' : '';
+        let grammarNazi = (property.beds > 1) ? 's' : '';
         bedrooms.innerHTML = `${property.beds} Bedroom${grammarNazi}`;
+        if (property.beds === 0) {
+            bedrooms.innerHTML = 'Studio';
+        }
 
         const baths = document.createElement('p');
         baths.classList.add('property-text');
@@ -98,7 +136,7 @@ const displayProperties = (index) => {
         firstPropertyText.appendChild(baths);
         firstPropertyText.appendChild(address);
 
-        // Seecond Test Div
+        // Seecond Text Div
 
         const secondPropertyText = document.createElement('div');
         secondPropertyText.classList.add('second-property-text');
@@ -128,6 +166,8 @@ const displayProperties = (index) => {
         propertyContainer.appendChild(secondPropertyText);
         resultsContainer.appendChild(propertyContainer);
     };
+
+    nextPageButton();
 }
 
 displayProperties(currentIndex);
