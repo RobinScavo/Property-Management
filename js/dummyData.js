@@ -30,7 +30,7 @@ export const properties = [
         address: '3320 Great Northern Ave B207',
         rent: 700,
         availability: '2022/1/1',
-        pets: true
+        pets: false
     },
     {
         mainImageURL: '../images/gallery/2-pexels-pixabay-221506.jpg',
@@ -52,7 +52,7 @@ export const properties = [
         address: '3320 Great Northern Ave B207',
         rent: 800,
         availability: '2022/2/1',
-        pets: true
+        pets: false
     },
     {
         mainImageURL: '../images/gallery/2-pexels-pixabay-221506.jpg',
@@ -61,7 +61,7 @@ export const properties = [
         beds: 4,
         bath: 3,
         address: '3320 Great Northern Ave B207',
-        rent: 800,
+        rent: 1800,
         availability: '2022/2/15',
         pets: true
     }

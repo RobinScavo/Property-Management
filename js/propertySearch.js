@@ -21,24 +21,31 @@ const decrement = () => {
 }
 
 searchButton.addEventListener('click', () => {
-    let result;
+    let result = list;
 
     const bedrooms = document.getElementById('bedrooms');
     const bathrooms = document.getElementById('bathrooms');
     const rent = document.getElementById('max-rent');
-    console.log('bedrooms', bedrooms.value, 'bathrooms',typeof bathrooms.value, 'rent', rent.value);
 
     if (!bedrooms.value && !bathrooms.value && !rent.value) return;
 
     if (bedrooms.value) {
-        result = (list.filter(property => property.beds === +bedrooms.value));
+        result = (result.filter(property => property.beds === +bedrooms.value));
     }
     if (bathrooms.value) {
-        result = (list.filter(property => property.bathrooms === +bathrooms.value));
-        console.log('[kkkkkk', list)
+        result = (result.filter(property => property.bath === +bathrooms.value));
     }
     if (rent.value) {
-        result = (list.filter(property => property.rent <= +rent.value));
+        result = (result.filter(property => property.rent <= +rent.value));
+    }
+    if (!result.length) {
+        const noResults = document.createElement('h3');
+        noResults.classList.add('no-results');
+        noResults.innerText = 'Unfortunately we do not have any properties that meet those requirements.';
+
+        resultsContainer.innerHTML = '';
+        resultsContainer.appendChild(noResults);
+        return;
     }
 
     numberOfPages = Math.ceil(result.length/5);
@@ -85,15 +92,14 @@ const displayProperties = (index) => {
     const listLength = (list.length < 5) ? list.length : 5
     const increment = (currentPage !== numberOfPages)
         ? listLength
-        : (list.length % 5);
+        : (list.length % 5 || 5);
 
     resultsContainer.innerHTML = '';
-    console.log('list length', listLength, 'list', list,  'increment', increment);
+
     nextPageButton();
 
     for (let i = index; i < index + increment; i++) {
         const property = list[i];
-        console.log('index', index, 'property', property);
         const propertyContainer = document.createElement('div');
         propertyContainer.classList.add('property-container');
 
@@ -136,7 +142,7 @@ const displayProperties = (index) => {
         firstPropertyText.appendChild(baths);
         firstPropertyText.appendChild(address);
 
-        // Seecond Text Div
+        // Second Text Div
 
         const secondPropertyText = document.createElement('div');
         secondPropertyText.classList.add('second-property-text');
