@@ -10,7 +10,22 @@
     <title>Search Rentals</title>
 </head>
 <body class="scrollbar-hidden">
-    <header class="search-header">
+    <header class="header flex small-header">
+        <a href='index.html' class="logo-div flex">
+            <div class='logo'>
+                <div class="logo-overlay"></div>
+            </div>
+            <div class="logo-text">bpm</div>
+            <div class="home-text">home</div>
+        </a>
+        <div class="logo-text-div">
+            <div class="logo-text-top">BILLINGS</div>
+            <div class="logo-text-bottom">Property Management</div>
+        </div>
+        <a href="resources.html" class='btn'>Apply Now</a>
+    </header>
+
+    <section class="search-header">
         <div class="filter-div">
             <div class="select-div">
                 <label for="bedrooms" class="filter-label">Bedrooms</label>
@@ -44,7 +59,7 @@
             </div>
         </div>
         <button type='submit' class="btn filter-button">Search</button>
-    </header>
+    </section>
 
     <main class="search-main">
         <div class="results-container"></div>
