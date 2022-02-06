@@ -83,8 +83,15 @@
 }
 
 .property-image-div {
-    height: 200px;
+    /* height: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+}
+
+.property-image {
+    background-size: initial;
 }
 
 .property-text-big {
@@ -152,4 +159,124 @@
     .first-property-text {
         margin-bottom: 1rem;
     }
+}
+
+/* PROPERTY DETAIL */
+
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+}
+
+/* CAROUSEL */
+
+.carousel {
+    position: relative;
+    width: 80vw;
+    height: 40vw;
+    overflow: hidden;
+}
+
+.carousel-image {
+    height: 150%;
+    width: 100%;
+}
+
+.carousel-overlay{
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:black;
+    opacity:0.3;
+  }
+
+.detail-address {
+    font-size: 3.5vw;
+    color: var(--primary-color);
+    margin-bottom: 2.5rem;
+}
+
+.carousel-button-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 100;
+    width: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel-button {
+    border: none;
+    background-color: transparent;
+    color: var(--light-color);
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px var(--darkish-color);
+    background-image: url('../images/icons/left-arrow.png');
+    background-size: 95%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--light-color);
+    border-radius: 50%;
+    margin: .5rem;
+}
+
+.carousel-button-right {
+    transform: rotate(180deg)
+}
+
+.carousel-button:hover {
+    cursor: pointer;
+}
+
+.carousel-button:active {
+    background-size: 90%;
+}
+
+.carousel-text {
+    color: var(--light-color);
+    height: 2rem;
+    font-size: 1.5rem;
+    margin-top: .2rem;
+}
+
+/* THUMBNAILS */
+
+.thumbnail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* display: grid; */
+    /* grid-template-rows: repeat(5, 1fr); */
+    /* grid-template-columns: repeat(5, 1fr); */
+    height: 12vw;
+    width: 68vw;
+    margin-top: 1.5rem;
+    overflow: hidden;
+}
+
+.thumbnail-image {
+    position: absolute;
+    height: 12.5vw;
+    /* width: 14rem; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.thumbnail-image-div {
+    position: relative;
+    height: 12vw;
+    width: 12vw;
+    overflow: hidden;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2);
+    /* margin-right: 1rem; */
 }

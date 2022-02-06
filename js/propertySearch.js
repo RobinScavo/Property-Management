@@ -1,4 +1,5 @@
 import { properties } from './dummyData.js';
+import { viewProperty } from './viewProperty.js';
 
 const searchButton = document.querySelector('.filter-button');
 const resultsContainer = document.querySelector('.results-container');
@@ -108,8 +109,9 @@ const displayProperties = (index) => {
         const propertyImage = document.createElement('img');
         propertyImage.classList.add('property-image');
         propertyImage.setAttribute('src', property.mainImageURL);
-        propertyImage.setAttribute('height', '300px');
+        propertyImage.setAttribute('alt', `${property.alt}`);
         propertyImage.setAttribute('width', '300px');
+        propertyImage.setAttribute('height', '200px');
 
         const propertyImageDiv = document.createElement('div');
         propertyImageDiv.classList.add('property-image-div');
@@ -159,6 +161,8 @@ const displayProperties = (index) => {
         available.innerText = `Available ${availableText}`;
 
         const moreInfo = document.createElement('button');
+        moreInfo.setAttribute('id', `${property.id}`);
+        moreInfo.addEventListener('click', (e) => viewProperty(e.target.id));
         moreInfo.classList.add('btn');
         moreInfo.classList.add('more-info');
         moreInfo.innerText = 'More Info >>';
