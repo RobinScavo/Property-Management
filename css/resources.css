@@ -291,20 +291,6 @@ figure::after{
     max-width: 50rem;
 }
 
-.utilities-icon {
-    height: 3.5rem;
-    width: 3.5rem;
-}
-
-.icon-container {
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    width: 3rem;
-    height: 3rem;
-    opacity: 0.8;
-}
-
 .utilities-title {
     color: var(--primary-color);
     margin-top: 1rem;

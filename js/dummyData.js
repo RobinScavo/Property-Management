@@ -4,84 +4,330 @@ export const properties = [
         mainImageURL: '../images/gallery/2-pexels-pixabay-221506.jpg',
         imageURLs: ['../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-        footage: 500,
         beds: 1,
         bath: 1,
         address: '3320 Great Northern Ave B207',
+        city: 'Billings, MT',
         rent: 800,
         availability: '2022/1/2',
-        pets: true,
         alt: 'pixaby from NounProject.com',
+        propertyInfo: [
+            {
+                icon: '../images/icons/water.png',
+                title: 'Beds & Bath',
+                infoArray: ['1 Bedroom', '1 Bathroom']
+            },
+            {
+                icon: '../images/icons/lightbulb.png',
+                title: 'Utilities',
+                infoArray: ['$35 utility fee which includes water, sewer, and trash.']
+            },
+            {
+                icon: '../images/icons/pets-icon.png',
+                title: 'Pets',
+                infoArray: ['Cats', 'Small dogs']
+            },
+            {
+                icon: '../images/icons/calculator.png',
+                title: 'Rent',
+                infoArray: ['$800 monthly', '$1000 deposit']
+            },
+            {
+                icon: null,
+                title: 'Footage',
+                infoArray: ['550 sq. feet']
+            },
+            {
+                icon: null,
+                title: 'Appliances',
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+            },
+            {
+                icon: null,
+                title: 'Design',
+                infoArray: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage']
+            },
+            {
+                icon: null,
+                title: 'Amenities',
+                infoArray: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+            },
+        ]
     },
     {
         id: 1,
         mainImageURL: '../images/property-images/canal-house.jpg',
         imageURLs: ['../images/property-images/canal-house.jpg','../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['Scopio from NounProject.com','dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-        footage: 700,
         beds: 3,
         bath: 2,
         address: '1222 7th St W',
+        city: 'Billings, MT',
         rent: 1100,
         availability: '2022/1/31',
-        pets: true,
         alt: 'Scopio from NounProject.com',
+        propertyInfo: [
+            {
+                icon: '../images/icons/water.png',
+                title: 'Beds & Bath',
+                infoArray: ['1 Bedroom', '1 Bathroom']
+            },
+            {
+                icon: '../images/icons/lightbulb.png',
+                title: 'Utilities',
+                infoArray: ['$35 utility fee which includes water, sewer, and trash.']
+            },
+            {
+                icon: '../images/icons/pets-icon.png',
+                title: 'Pets',
+                infoArray: ['Cats', 'Small dogs']
+            },
+            {
+                icon: '../images/icons/calculator.png',
+                title: 'Rent',
+                infoArray: ['$800 monthly', '$1000 deposit']
+            },
+            {
+                icon: null,
+                title: 'Footage',
+                infoArray: ['550 sq. feet']
+            },
+            {
+                icon: null,
+                title: 'Appliances',
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+            },
+            {
+                icon: null,
+                title: 'Design',
+                infoArray: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage']
+            },
+            {
+                icon: null,
+                title: 'Amenities',
+                infoArray: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+            },
+        ]
     },
     {
         id: 2,
         mainImageURL: '../images/property-images/dog-house.jpg',
         imageURLs: ['../images/property-images/dog-house.jpg', '../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['Carol M. Highsmith from NounProject.com','dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-        footage: 400,
         beds: 0,
         bath: 1,
         address: '2225 Main St',
+        city: 'Billings, MT',
         rent: 700,
         availability: '2022/1/1',
-        pets: false,
         alt: 'Carol M. Highsmith from NounProject.com',
+        propertyInfo: [
+            {
+                icon: '../images/icons/water.png',
+                title: 'Beds & Bath',
+                infoArray: ['1 Bedroom', '1 Bathroom']
+            },
+            {
+                icon: '../images/icons/lightbulb.png',
+                title: 'Utilities',
+                infoArray: ['$35 utility fee which includes water, sewer, and trash.']
+            },
+            {
+                icon: '../images/icons/pets-icon.png',
+                title: 'Pets',
+                infoArray: ['Cats', 'Small dogs']
+            },
+            {
+                icon: '../images/icons/calculator.png',
+                title: 'Rent',
+                infoArray: ['$800 monthly', '$1000 deposit']
+            },
+            {
+                icon: null,
+                title: 'Footage',
+                infoArray: ['550 sq. feet']
+            },
+            {
+                icon: null,
+                title: 'Appliances',
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+            },
+            {
+                icon: null,
+                title: 'Design',
+                infoArray: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage']
+            },
+            {
+                icon: null,
+                title: 'Amenities',
+                infoArray: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+            },
+        ]
     },
     {
         id: 3,
         mainImageURL: '../images/property-images/white-house.jpg',
         imageURLs: ['../images/property-images/white-house.jpg', '../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['Jacob Lund Photography from NounProject.com','dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-        footage: 550,
         beds: 1,
         bath: 1,
         address: '843 Bench Blvd TRAILER 1',
+        city: 'Billings, MT',
         rent: 1000,
         availability: '2022/1/15',
-        pets: true,
         alt: 'Jacob Lund Photography from NounProject.com',
+        propertyInfo: [
+            {
+                icon: '../images/icons/water.png',
+                title: 'Beds & Bath',
+                infoArray: ['1 Bedroom', '1 Bathroom']
+            },
+            {
+                icon: '../images/icons/lightbulb.png',
+                title: 'Utilities',
+                infoArray: ['$35 utility fee which includes water, sewer, and trash.']
+            },
+            {
+                icon: '../images/icons/pets-icon.png',
+                title: 'Pets',
+                infoArray: ['Cats', 'Small dogs']
+            },
+            {
+                icon: '../images/icons/calculator.png',
+                title: 'Rent',
+                infoArray: ['$800 monthly', '$1000 deposit']
+            },
+            {
+                icon: null,
+                title: 'Footage',
+                infoArray: ['550 sq. feet']
+            },
+            {
+                icon: null,
+                title: 'Appliances',
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+            },
+            {
+                icon: null,
+                title: 'Design',
+                infoArray: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage']
+            },
+            {
+                icon: null,
+                title: 'Amenities',
+                infoArray: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+            },
+        ]
     },
     {
         id: 4,
         mainImageURL: '../images/property-images/cabin.jpg',
         imageURLs: ['../images/property-images/cabin.jpg', '../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['Daniela Simona Temneanu from NounProject.com','dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-        footage: 650,
         beds: 2,
         bath: 1,
         address: '1117 17th St W #SEE',
+        city: 'Billings, MT',
         rent: 800,
         availability: '2022/2/1',
-        pets: false,
         alt: 'Daniela Simona Temneanu from NounProject.com',
+        propertyInfo: [
+            {
+                icon: '../images/icons/water.png',
+                title: 'Beds & Bath',
+                infoArray: ['1 Bedroom', '1 Bathroom']
+            },
+            {
+                icon: '../images/icons/lightbulb.png',
+                title: 'Utilities',
+                infoArray: ['$35 utility fee which includes water, sewer, and trash.']
+            },
+            {
+                icon: '../images/icons/pets-icon.png',
+                title: 'Pets',
+                infoArray: ['Cats', 'Small dogs']
+            },
+            {
+                icon: '../images/icons/calculator.png',
+                title: 'Rent',
+                infoArray: ['$800 monthly', '$1000 deposit']
+            },
+            {
+                icon: null,
+                title: 'Footage',
+                infoArray: ['550 sq. feet']
+            },
+            {
+                icon: null,
+                title: 'Appliances',
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+            },
+            {
+                icon: null,
+                title: 'Design',
+                infoArray: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage']
+            },
+            {
+                icon: null,
+                title: 'Amenities',
+                infoArray: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+            },
+        ]
     },
     {
         id: 5,
         mainImageURL: '../images/gallery/2-pexels-luis-quintero-2564873.jpg',
         imageURLs: ['../images/gallery/2-pexels-luis-quintero-2564873.jpg', '../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['Luis Quintero from NounProject.com', 'dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-        footage: 1100,
         beds: 4,
         bath: 3,
         address: 'Rock Creek, APT 31, 2323 32nd St W',
+        city: 'Billings, MT',
         rent: 1800,
         availability: '2022/2/15',
-        pets: true,
         alt: 'Luis Quintero from NounProject.com',
+        propertyInfo: [
+            {
+                icon: '../images/icons/water.png',
+                title: 'Beds & Bath',
+                infoArray: ['1 Bedroom', '1 Bathroom']
+            },
+            {
+                icon: '../images/icons/lightbulb.png',
+                title: 'Utilities',
+                infoArray: ['$35 utility fee which includes water, sewer, and trash.']
+            },
+            {
+                icon: '../images/icons/pets-icon.png',
+                title: 'Pets',
+                infoArray: ['Cats', 'Small dogs']
+            },
+            {
+                icon: '../images/icons/calculator.png',
+                title: 'Rent',
+                infoArray: ['$800 monthly', '$1000 deposit']
+            },
+            {
+                icon: null,
+                title: 'Footage',
+                infoArray: ['550 sq. feet']
+            },
+            {
+                icon: null,
+                title: 'Appliances',
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+            },
+            {
+                icon: null,
+                title: 'Design',
+                infoArray: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage']
+            },
+            {
+                icon: null,
+                title: 'Amenities',
+                infoArray: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+            },
+        ]
     }
 ]
 
