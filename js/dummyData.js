@@ -2,7 +2,7 @@ export const properties = [
     {
         id: 0,
         mainImageURL: '../images/gallery/2-pexels-pixabay-221506.jpg',
-        imageURLs: ['../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
+        imageURLs: ['../images/gallery/2-pexels-pixabay-221506.jpg', '../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
         imageAlts: ['dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
         beds: 1,
         bath: 1,
