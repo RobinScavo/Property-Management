@@ -33,67 +33,8 @@ export const viewProperty = (target) => {
 
     const carousel = buildCarousel(targetProperty);
     const thumbnails = buildThumbnails(targetProperty);
-
-    // const carousel = document.createElement('div');
-    // carousel.classList.add('carousel');
-
-    // buildCarousel(targetProperty)
-
-    // const mainImage = document.createElement('img');
-    // mainImage.classList.add('carousel-image');
-    // mainImage.setAttribute('src', targetProperty.mainImageURL);
-    // mainImage.setAttribute('alt', `${targetProperty.alt}`);
-
-
-    // const carouselButtonContainer = document.createElement('div');
-    // carouselButtonContainer.classList.add('carousel-button-container');
-
-    // const leftCarouselButton = document.createElement('button');
-    // leftCarouselButton.classList.add('carousel-button');
-    // leftCarouselButton.setAttribute('id', 'left-carousel-button');
-    // leftCarouselButton.addEventListener('click', (e) => toggleCarousel(e));
-
-    // const rightCarouselButton = document.createElement('button');
-    // rightCarouselButton.classList.add('carousel-button');
-    // rightCarouselButton.classList.add('carousel-button-right');
-    // rightCarouselButton.setAttribute('id', 'right-carousel-button');
-    // rightCarouselButton.addEventListener('click', (e) => toggleCarousel(e))
-
-    // const carouselText = document.createElement('p');
-    // carouselText.classList.add('carousel-text');
-    // carouselText.innerText = 'test';
-
-    // carouselButtonContainer.appendChild(leftCarouselButton);
-    // carouselButtonContainer.appendChild(carouselText);
-    // carouselButtonContainer.appendChild(rightCarouselButton);
-
-    // carousel.appendChild(mainImage);
-    // carousel.appendChild(carouselButtonContainer);
-    // carousel.appendChild(carouselOverlay);
-
-    // propertyContainer.appendChild(carousel);
-
-    // const thumbnailContainer = document.createElement('div');
-    // thumbnailContainer.classList.add('thumbnail-container');
-
-    // for (let i = displayedImageIndex; i < targetProperty.imageURLs.length; i++) {
-    //     if (mainImage > targetProperty.imageURLs.length) mainImage = 0;
-
-    //     const thumbnailImageDiv = document.createElement('div');
-    //     thumbnailImageDiv.classList.add('thumbnail-image-div');
-
-    //     const thumbnailImage = document.createElement('img');
-    //     thumbnailImage.classList.add('thumbnail-image');
-    //     thumbnailImage.setAttribute('src', targetProperty.imageURLs[i]);
-    //     thumbnailImage.setAttribute('alt', targetProperty.imageAlts[i]);
-
-    //     thumbnailImageDiv.appendChild(thumbnailImage)
-    //     thumbnailContainer.appendChild(thumbnailImageDiv);
-    // }
-
     const infoDiv = buildInfoDiv(targetProperty);
 
-    // propertyContainer.appendChild(thumbnailContainer);
     propertyContainer.appendChild(carousel);
     propertyContainer.appendChild(thumbnails);
     propertyContainer.appendChild(infoDiv);
@@ -156,6 +97,7 @@ const buildThumbnails = (targetProperty) => {
     thumbnailDiv.classList.add('thumbnail-div');
 
     for (const [index, image] of targetProperty.imageURLs.entries()) {
+        if (index === 0) continue;
         const thumbnail = document.createElement('div');
         thumbnail.classList.add('thumbnail-image');
         thumbnail.setAttribute('style', `background-image: url('${image}')`);
@@ -217,7 +159,7 @@ const buildInfoDiv = (targetProperty) => {
 const toggleCarousel = (direction) => {
     const carousel = document.querySelector('.carousel-container');
     const mainImage = document.querySelector('.main-image-container');
-    const thumbnails = document.querySelector('.thumbnail-container')
+    const thumbnails = document.querySelector('.thumbnail-image');
     const thumbnailDiv = document.querySelector('.thumbnail-div');
     const slidesLength = mainImage.querySelectorAll('div').length;
     const overlay = document.querySelector('.carousel-overlay');
@@ -242,5 +184,5 @@ const toggleCarousel = (direction) => {
     }
 
     mainImage.style.transform = `translateX(-${activeSlideIndex * sliderWidth}px)`;
-    thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * thumbnailWidth}px)`;
+    thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
 }
