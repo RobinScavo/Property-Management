@@ -5,6 +5,8 @@ const searchMain = document.querySelector('.search-main');
 
 let targetProperty;
 let activeSlideIndex = 0;
+let runSlideShow;
+let manuallyToggling = false;
 
 export const viewProperty = (target) => {
     searchHeader.innerHTML = '';
@@ -40,6 +42,8 @@ export const viewProperty = (target) => {
     propertyContainer.appendChild(infoDiv);
 
     searchMain.appendChild(propertyContainer);
+
+    setTimeout(() => slideShow(targetProperty, activeSlideIndex), 1000)
 }
 
 const buildCarousel = (targetProperty) => {
@@ -48,6 +52,35 @@ const buildCarousel = (targetProperty) => {
 
     const carouselDiv = document.createElement('div');
     carouselDiv.classList.add('main-image-container');
+
+    const carouselOverlay = document.createElement('div');
+    carouselOverlay.classList.add('carousel-overlay');
+    carouselOverlay.classList.add('carousel-hidden');
+
+    const carouselButtonContainer = document.createElement('div');
+    carouselButtonContainer.classList.add('carousel-button-container');
+
+    const leftCarouselButton = document.createElement('button');
+    leftCarouselButton.classList.add('carousel-button');
+    leftCarouselButton.addEventListener('click', () => {
+        manuallyToggling  = true;
+        clearTimeout(runSlideShow);
+        toggleCarousel('left', activeSlideIndex);
+    });
+
+    const rightCarouselButton = document.createElement('button');
+    rightCarouselButton.classList.add('carousel-button');
+    rightCarouselButton.classList.add('carousel-button-right');
+    rightCarouselButton.addEventListener('click', () => {
+        manuallyToggling  = true;
+        clearTimeout(runSlideShow);
+        toggleCarousel('right', activeSlideIndex);
+    });
+
+    const carouselText = document.createElement('p');
+    carouselText.classList.add('carousel-text');
+    carouselText.classList.add('carousel-text-hidden');
+    carouselText.innerText = '';
 
     for (const [index, image] of targetProperty.imageURLs.entries()) {
         const mainImage = document.createElement('div');
@@ -58,29 +91,9 @@ const buildCarousel = (targetProperty) => {
         carouselDiv.appendChild(mainImage);
     }
 
-    const carouselOverlay = document.createElement('div');
-    carouselOverlay.classList.add('carousel-overlay');
-
-    const carouselButtonContainer = document.createElement('div');
-    carouselButtonContainer.classList.add('carousel-button-container');
-
-    const leftCarouselButton = document.createElement('button');
-    leftCarouselButton.classList.add('carousel-button');
-    leftCarouselButton.addEventListener('click', () => toggleCarousel('left'));
-
-    const rightCarouselButton = document.createElement('button');
-    rightCarouselButton.classList.add('carousel-button');
-    rightCarouselButton.classList.add('carousel-button-right');
-    rightCarouselButton.addEventListener('click', () => toggleCarousel('right'))
-
-    const carouselText = document.createElement('p');
-    carouselText.classList.add('carousel-text');
-    carouselText.innerText = 'test';
-
     carouselButtonContainer.appendChild(leftCarouselButton);
     carouselButtonContainer.appendChild(carouselText);
     carouselButtonContainer.appendChild(rightCarouselButton);
-
 
     carouselContainer.appendChild(carouselButtonContainer);
     carouselContainer.appendChild(carouselDiv);
@@ -156,7 +169,7 @@ const buildInfoDiv = (targetProperty) => {
     return infoContainer
 }
 
-const toggleCarousel = (direction) => {
+const toggleCarousel = (direction, index) => {
     const carousel = document.querySelector('.carousel-container');
     const mainImage = document.querySelector('.main-image-container');
     const thumbnails = document.querySelector('.thumbnail-image');
@@ -168,8 +181,12 @@ const toggleCarousel = (direction) => {
     const sliderWidth = carousel.clientWidth;
     const thumbnailWidth = thumbnails.clientWidth;
 
-    overlay.classList.add('hidden');
-    imageText.classList.add('hidden');
+    activeSlideIndex = index;
+
+    overlay.classList.remove('carousel-visible');
+    imageText.classList.remove('carousel-text-visible');
+    overlay.classList.add('carousel-hidden');
+    imageText.classList.add('carousel-text-hidden');
 
     if (direction === 'right') {
         activeSlideIndex++;
@@ -185,4 +202,24 @@ const toggleCarousel = (direction) => {
 
     mainImage.style.transform = `translateX(-${activeSlideIndex * sliderWidth}px)`;
     thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
+
+    if (!manuallyToggling) {
+        setTimeout(function() {
+            slideShow(targetProperty, activeSlideIndex)
+        }, 1500);
+    }
+}
+
+const slideShow = (targetProperty, index) => {
+    const overlay = document.querySelector('.carousel-overlay');
+    const imageText = document.querySelector('.carousel-text');
+
+    imageText.innerText = targetProperty.imageTextArray[index];
+
+    overlay.classList.add('carousel-visible');
+    overlay.classList.remove('carousel-hidden');
+    imageText.classList.add('carousel-text-visible');
+    imageText.classList.remove('carousel-text-hidden');
+
+    runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
 }

@@ -185,9 +185,9 @@
 
 .carousel-container {
     position: relative;
-    overflow: hidden;
-    width: 480px;
-    height: 300px;
+    overflow:hidden;
+    width: 580px;
+    height: 350px;
 }
 
 .main-image-container {
@@ -198,8 +198,8 @@
 }
 
 .main-image {
-    height: 300px;
-    width: 480px;
+    height: 350px;
+    width: 580px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -255,6 +255,19 @@
     background-size: 90%;
 }
 
+.carousel-visible {
+    opacity: 0.3;
+    visibility: visible;
+    transition: visibility 1000ms ease-in, opacity 1000ms ease-in;
+}
+
+.carousel-text-visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: visibility 1000ms ease-in, opacity 1000ms ease-in,transform 3000ms ease-in;
+}
+
 .carousel-text {
     color: var(--light-color);
     height: 2rem;
@@ -262,6 +275,32 @@
     margin-top: .2rem;
 }
 
+.carousel-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 1000ms ease-in, opacity 1000ms ease-in;
+}
+
+.carousel-text-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(150px);
+    transition: visibility 1000ms ease-in, opacity 1000ms ease-in, transform 3000ms ease-in;
+}
+
+@media (max-width: 630px) {
+    .main-image, .carousel-container {
+        height: 300px;
+        width: 500px;
+    }
+}
+
+@media (max-width: 530px) {
+    .main-image, .carousel-container {
+        height: 250px;
+        width: 400px;
+    }
+}
 /* THUMBNAILS */
 
 .thumbnail-container {
@@ -312,7 +351,7 @@
 .info-div > .icon-container {
     background-color: var(--light-color);
     border-radius: 50%;
-    opacity: 1;
+    opacity: 0.5;
     height: 3.4rem;
     width: 3.4rem;
     padding-top: .3rem;
