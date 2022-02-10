@@ -66,6 +66,10 @@
         <div class="results-container"></div>
     </main>
 
+    <section class="map-container">
+        <div id="map"></div>
+    </section>
+
     <footer class='footer'>
         <nav class="footer-resources">
             <h2>RESOURCES</h2>
@@ -96,5 +100,17 @@
 
     <script type='module' src='../js/dummyData.js'></script>
     <script type='module' src="../js/propertySearch.js"></script>
+    <!-- <script type="module" src="../js/map.js"></script> -->
+    <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 45.782650, lng: -108.504578},
+            zoom: 11
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo&callback=initMap"
+      async defer></script>
 </body>
 </html>

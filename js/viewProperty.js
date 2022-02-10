@@ -36,10 +36,12 @@ export const viewProperty = (target) => {
     const carousel = buildCarousel(targetProperty);
     const thumbnails = buildThumbnails(targetProperty);
     const infoDiv = buildInfoDiv(targetProperty);
+    const map = buildMap(targetProperty.address);
 
     propertyContainer.appendChild(carousel);
     propertyContainer.appendChild(thumbnails);
     propertyContainer.appendChild(infoDiv);
+    propertyContainer.appendChild(map);
 
     searchMain.appendChild(propertyContainer);
 
@@ -115,6 +117,10 @@ const buildThumbnails = (targetProperty) => {
         thumbnail.classList.add('thumbnail-image');
         thumbnail.setAttribute('style', `background-image: url('${image}')`);
         thumbnail.setAttribute('alt', targetProperty.imageAlts[index]);
+        thumbnail.addEventListener('click', () => {
+            manuallyToggling  = true;
+            toggleCarousel(null, index);
+        });
 
         thumbnailDiv.appendChild(thumbnail);
         thumbnailContainer.appendChild(thumbnailDiv);
@@ -142,7 +148,7 @@ const buildInfoDiv = (targetProperty) => {
             }
 
             const icon = document.createElement('img');
-            icon.classList.add('utilities-icon');
+            icon.classList.add('property-details-icon');
             icon.setAttribute('src', `${info.icon}`);
 
             infoIconDiv.appendChild(icon);
@@ -222,4 +228,17 @@ const slideShow = (targetProperty, index) => {
     imageText.classList.remove('carousel-text-hidden');
 
     runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
+}
+
+const buildMap = (address) => {
+    // AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo
+    const mapContainer = document.createElement('section');
+    mapContainer.classList.add('map-container');
+
+    const addressDisplay = document.createElement('h1');
+    addressDisplay.innerHTML = address;
+
+    mapContainer.appendChild(addressDisplay);
+
+    return mapContainer;
 }
