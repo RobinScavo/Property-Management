@@ -1,16 +1,74 @@
+// import { properties } from './dummyData.js';
+const test = {lat:45.782650,lng:-108.504578}
+
 const mapContainer = document.getElementById('map');
 
+var map;
 
-
-const initMap = () => {
+function initMap() {
     console.log('map')
     const options = {
-        center: {lat: 45.782650, lng: -108.504578},
-        zoom: 11
+        center: {lat:45.782650, lng:-108.504578},
+        zoom: 11,
+        mapTypeControl: false,
     }
 
-    var map;
-    new google.maps.Map(mapContainer, options);
+    map = new google.maps.Map(mapContainer, options);
 
-    mapContainer.appendChild(map)
+    for (let property of properties) {
+        dropMarker(property.latitude, property.longitude, property.address);
+    }
 }
+
+function dropMarker(latitude, longitude, address) {
+    const location = {lat: latitude, lng: longitude};
+    const center = {lat:45.782650, lng:-108.504578};
+    const contentString = `<h4>${address}</h4>`;
+    const infoWindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    console.log(location, center, test)
+    const marker = new google.maps.Marker({position:location, map: map, title: address});
+    // marker.addListener('click', () => {
+    //     infoWindow.open(map, marker)
+    // })
+}
+
+// const getAddress = address => {
+//     return new Promise((resolve, reject) => {
+//         const geocoder = new google.maps.Geocoder();
+//         geocoder.geocode({address: address}, (results, status) => {
+//             if (status === 'OK') {
+//                 resolve(results[0].geometry.location);
+//             } else {
+//                 reject(status);
+//             }
+//         });
+//     });
+// };
+
+// let resp = await fetch("https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo&callback=initMap")
+// const initMap = async () => {
+//     let element = document.querySelector('#map');
+
+//     try {
+
+//         let map = new google.maps.Map(element, { zoom: 16 });
+//         let location = await getAddress('Via San Michele 162, Vasto');
+
+//          map.setCenter(location);
+
+//          let marker = new google.maps.Marker({
+//                     map: element,
+//                     position: location
+//           });
+//     } catch(err) {
+//         console.warn(err);
+
+//         element.innerHTML = '<img src="../images/leapold.jpg" alt="">';
+//     }
+// };
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     createMap();
+// });
