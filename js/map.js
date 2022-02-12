@@ -1,12 +1,11 @@
 // import { properties } from './dummyData.js';
-const test = {lat:45.782650,lng:-108.504578}
+// const test = {lat:45.782650,lng:-108.504578}
 
 const mapContainer = document.getElementById('map');
 
 var map;
 
 function initMap() {
-    console.log('map')
     const options = {
         center: {lat:45.782650, lng:-108.504578},
         zoom: 11,
@@ -16,19 +15,23 @@ function initMap() {
     map = new google.maps.Map(mapContainer, options);
 
     for (let property of properties) {
+        console.log(property)
         dropMarker(property.latitude, property.longitude, property.address);
     }
 }
 
 function dropMarker(latitude, longitude, address) {
-    const location = {lat: latitude, lng: longitude};
-    const center = {lat:45.782650, lng:-108.504578};
-    const contentString = `<h4>${address}</h4>`;
-    const infoWindow = new google.maps.InfoWindow({
-        content: contentString
+    const marker = new google.maps.Marker({
+        position:{lat:45.772650, lng:-108.504578},
+        map:map,
+        icon:'../images/marker.png'
     });
-    console.log(location, center, test)
-    const marker = new google.maps.Marker({position:location, map: map, title: address});
+    // const location = {lat: latitude, lng: longitude};
+    // const contentString = `<h1>${address}</h1>`;
+    // const infoWindow = new google.maps.InfoWindow({
+    //     content: contentString
+    // });
+    // const marker = new google.maps.Marker({position: location, map: map, title: address});
     // marker.addListener('click', () => {
     //     infoWindow.open(map, marker)
     // })
