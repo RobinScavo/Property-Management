@@ -1,9 +1,5 @@
-// import { properties } from './dummyData.js';
-
 const searchHeader = document.querySelector('.search-header');
 const searchMain = document.querySelector('.search-main');
-// const mapButton = document.querySelector('.map-button');
-// const mapEl = document.getElementById('map-container')
 
 let targetProperty;
 let activeSlideIndex = 0;

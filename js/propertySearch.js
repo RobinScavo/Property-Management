@@ -21,7 +21,7 @@ const decrement = () => {
 }
 
 searchButton.addEventListener('click', () => {
-    let result = list;
+    let result = properties;
 
     const bedrooms = document.getElementById('bedrooms');
     const bathrooms = document.getElementById('bathrooms');
@@ -45,7 +45,11 @@ searchButton.addEventListener('click', () => {
 
         resultsContainer.innerHTML = '';
         resultsContainer.appendChild(noResults);
+        mapButton.classList.add('undisplayed');
+        mapEl.classList.add('undisplayed');
         return;
+    } else {
+        mapButton.classList.remove('undisplayed');
     }
 
     numberOfPages = Math.ceil(result.length/5);
@@ -89,8 +93,8 @@ const nextPageButton = () => {
 }
 
 const displayProperties = (index) => {
-    console.log(index);
     searchHeader.classList.remove('undisplayed');
+
     const listLength = (list.length < 5) ? list.length : 5
     const increment = (currentPage !== numberOfPages)
         ? listLength

@@ -22,8 +22,8 @@
         </div>
 
         <div class="header-links">
-            <a href="resources.html" class='btn'>Apply Now</a>
-            <a href="resources.html" class='btn'>Submit Repair Request</a>
+            <a href="resources.html#resource-second" class='btn'>Apply Now</a>
+            <a href="resources.html#maintenence" class='btn'>Submit Repair Request</a>
             <a href='contact.html' class='btn' target='blank'>About Us</a>
         </div>
 
@@ -35,20 +35,20 @@
 
     <section  class='option-section'>
         <a id='home-option' href="index.html" class='option'>Home</a>
-        <div class="dropdown-div">
+        <div id='availableDropdown' class="dropdown-div">
             <select name="availableDropdown" class='dropdown'></select>
-            <h2 class='option'>Available Rentals</h2>
+            <h2 class='dropdownLabel'>Available Rentals</h2>
         </div>
         <div class="dropdown-div">
-            <select name="tenantDropdown" class='dropdown'></select>
-            <h2 class='option'>Tenant Resources</h2>
+            <select name="resourceDropdown" class='dropdown' id="resourceDropdown"></select>
+            <h2 class='dropdownLabel'>Tenant Resources</h2>
         </div>
         <a id='rental-option' href="https://www.rentometer.com/" class='option'>Free Rental Analysis</a>
     </section>
 
     <figure>
         <figcaption>Rent In Billings <br><small  id='main-small'> because the future is here</small></figcaption>
-        <a href="available.html" class='btn'>AVAILABLE RENTALS</a>
+        <a href="propertySearch.html" class='btn'>AVAILABLE RENTALS</a>
     </figure>
 
     <nav class='main'>
@@ -209,6 +209,8 @@
     </div>
 
     <script src="../js/testimonials.js"></script>
+    <script src="../js/dummyData.js"></script>
     <script type='module' src="../js/sendMessage.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>
