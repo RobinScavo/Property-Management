@@ -1,4 +1,4 @@
-export const properties = [
+const properties = [
     {
         id: 0,
         mainImageURL: '../images/gallery/2-pexels-pixabay-221506.jpg',
@@ -9,7 +9,7 @@ export const properties = [
         bath: 1,
         address: '3320 Great Northern Ave B207',
         city: 'Billings, MT',
-        latitude: 45.782650,
+        latitude: 45.772650,
         longitude: -108.504578,
         rent: 800,
         availability: '2022/1/2',
@@ -125,8 +125,8 @@ export const properties = [
         bath: 1,
         address: '2225 Main St',
         city: 'Billings, MT',
-        latitude: 40.491880,
-        longitude: -96.960490,
+        latitude: 45.791880,
+        longitude: -108.650490,
         rent: 700,
         availability: '2022/1/1',
         alt: 'Carol M. Highsmith from NounProject.com',
@@ -299,8 +299,8 @@ export const properties = [
         bath: 3,
         address: 'Rock Creek, APT 31, 2323 32nd St W',
         city: 'Billings, MT',
-        latitude: 45.981320,
-        longitude: -106.558710,
+        latitude: 45.761320,
+        longitude: -108.578710,
         rent: 1800,
         availability: '2022/2/15',
         alt: 'Luis Quintero from NounProject.com',
@@ -349,7 +349,7 @@ export const properties = [
     }
 ]
 
-export const troubleTips = {
+const troubleTips = {
     title: 'Troubleshooting Common Issues',
     subtitle: 'Please try troubleshooting your issue before submitting any repair request',
     children: [
@@ -371,7 +371,7 @@ export const troubleTips = {
     ]
 }
 
-export const reportForm = {
+const reportForm = {
     title: 'What Went Wrong?',
     subtitle: "We're sorry to hear you're having an issue and appreciate the opportunity to help resolve it. Please give us all the details below and hit send.",
     children: [
@@ -392,4 +392,4 @@ export const reportForm = {
     ]
 }
 
-export const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];
+const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];

@@ -1,16 +1,20 @@
-import { properties } from './dummyData.js';
+// import { properties } from './dummyData.js';
 
 const searchHeader = document.querySelector('.search-header');
 const searchMain = document.querySelector('.search-main');
+// const mapButton = document.querySelector('.map-button');
+// const mapEl = document.getElementById('map-container')
 
 let targetProperty;
 let activeSlideIndex = 0;
 let runSlideShow;
 let manuallyToggling = false;
 
-export const viewProperty = (target) => {
+const viewProperty = (target) => {
     searchHeader.innerHTML = '';
     searchMain.innerHTML = '';
+    mapButton.classList.add('undisplayed');
+    mapEl.classList.remove('undisplayed');
 
     for (const property of properties) {
         if (property.id === +target) {
@@ -22,6 +26,16 @@ export const viewProperty = (target) => {
     const propertyContainer = document.createElement('div');
     propertyContainer.classList.add('detail-container');
 
+    const backButton = document.createElement('button');
+    backButton.classList.add('btn');
+    backButton.classList.add('back-button');
+    backButton.innerText = 'Back to Results';
+    backButton.addEventListener('click', () => {
+        searchMain.removeChild(propertyContainer);
+        searchMain.appendChild(resultsContainer);
+        displayProperties(currentIndex);
+    });
+
     const detailAddress = document.createElement('h1');
     detailAddress.classList.add('detail-address');
     detailAddress.innerText = `${targetProperty.address}`;
@@ -30,18 +44,19 @@ export const viewProperty = (target) => {
     detailCity.classList.add('detail-city');
     detailCity.innerText = `${targetProperty.city}`;
 
+    propertyContainer.appendChild(backButton);
     propertyContainer.appendChild(detailAddress);
     propertyContainer.appendChild(detailCity);
 
     const carousel = buildCarousel(targetProperty);
     const thumbnails = buildThumbnails(targetProperty);
     const infoDiv = buildInfoDiv(targetProperty);
-    const map = buildMap(targetProperty.address);
+    initMap([targetProperty]);
 
     propertyContainer.appendChild(carousel);
     propertyContainer.appendChild(thumbnails);
     propertyContainer.appendChild(infoDiv);
-    propertyContainer.appendChild(map);
+    // propertyContainer.appendChild(map);
 
     searchMain.appendChild(propertyContainer);
 
@@ -230,15 +245,15 @@ const slideShow = (targetProperty, index) => {
     runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
 }
 
-const buildMap = (address) => {
-    // AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo
-    const mapContainer = document.createElement('section');
-    mapContainer.classList.add('map-container');
+// const buildMap = (address) => {
+//     AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo
+//     const mapContainer = document.createElement('section');
+//     mapContainer.classList.add('map-container');
 
-    const addressDisplay = document.createElement('h1');
-    addressDisplay.innerHTML = address;
+//     const addressDisplay = document.createElement('h1');
+//     addressDisplay.innerHTML = address;
 
-    mapContainer.appendChild(addressDisplay);
+//     mapContainer.appendChild(addressDisplay);
 
-    return mapContainer;
-}
+//     return mapContainer;
+// }

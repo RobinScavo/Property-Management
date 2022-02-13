@@ -1,8 +1,10 @@
-import { properties } from './dummyData.js';
-import { viewProperty } from './viewProperty.js';
+// import { properties } from './dummyData.js';
+// import { viewProperty } from './viewProperty.js';
 
 const searchButton = document.querySelector('.filter-button');
 const resultsContainer = document.querySelector('.results-container');
+const mapEl = document.querySelector('.map-container');
+const mapButton = document.querySelector('.map-button');
 
 let list = properties;
 let currentIndex = 0;
@@ -52,6 +54,7 @@ searchButton.addEventListener('click', () => {
     numberOfPages = Math.ceil(result.length/5);
     list = result;
 
+    // initMap(list)
     displayProperties(currentIndex);
 });
 
@@ -90,6 +93,7 @@ const nextPageButton = () => {
 }
 
 const displayProperties = (index) => {
+    console.log(index)
     const listLength = (list.length < 5) ? list.length : 5
     const increment = (currentPage !== numberOfPages)
         ? listLength
@@ -178,6 +182,13 @@ const displayProperties = (index) => {
     };
 
     nextPageButton();
+    initMap(list);
 }
+
+mapButton.addEventListener('click', () => {
+    mapButton.classList.add('undisplayed');
+    mapEl.classList.remove('undisplayed');
+    mapEl.scrollIntoView();
+})
 
 displayProperties(currentIndex);

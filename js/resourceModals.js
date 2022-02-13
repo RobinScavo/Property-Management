@@ -1,4 +1,4 @@
-import { troubleTips, reportForm, placeholderArray } from './dummyData.js'
+// import { troubleTips, reportForm, placeholderArray } from './dummyData.js'
 
 const troubleButtons = document.querySelectorAll('.troubleshoot-button');
 const reportButton = document.querySelector('.report-button');
