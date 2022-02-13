@@ -332,7 +332,6 @@
 }
 
 .thumbnail-image:hover {
-    /* width: 175px; */
     height: 135px;
 }
 
@@ -412,7 +411,8 @@
 }
 
 .back-button {
-    width: 11rem;
+    width: 13rem;
+    margin-top: 2.5rem;
 }
 
 .undisplayed {

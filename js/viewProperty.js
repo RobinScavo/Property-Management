@@ -11,8 +11,10 @@ let runSlideShow;
 let manuallyToggling = false;
 
 const viewProperty = (target) => {
-    searchHeader.innerHTML = '';
-    searchMain.innerHTML = '';
+    searchHeader.classList.add('undisplayed');
+    if (searchMain.contains(resultsContainer)) {
+        searchMain.removeChild(resultsContainer);
+    }
     mapButton.classList.add('undisplayed');
     mapEl.classList.remove('undisplayed');
 
@@ -31,6 +33,7 @@ const viewProperty = (target) => {
     backButton.classList.add('back-button');
     backButton.innerText = 'Back to Results';
     backButton.addEventListener('click', () => {
+        clearTimeout(runSlideShow);
         searchMain.removeChild(propertyContainer);
         searchMain.appendChild(resultsContainer);
         displayProperties(currentIndex);
@@ -56,7 +59,6 @@ const viewProperty = (target) => {
     propertyContainer.appendChild(carousel);
     propertyContainer.appendChild(thumbnails);
     propertyContainer.appendChild(infoDiv);
-    // propertyContainer.appendChild(map);
 
     searchMain.appendChild(propertyContainer);
 
@@ -235,6 +237,8 @@ const slideShow = (targetProperty, index) => {
     const overlay = document.querySelector('.carousel-overlay');
     const imageText = document.querySelector('.carousel-text');
 
+    if (searchMain.contains(resultsContainer)) return;
+
     imageText.innerText = targetProperty.imageTextArray[index];
 
     overlay.classList.add('carousel-visible');
@@ -243,17 +247,5 @@ const slideShow = (targetProperty, index) => {
     imageText.classList.remove('carousel-text-hidden');
 
     runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
+
 }
-
-// const buildMap = (address) => {
-//     AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo
-//     const mapContainer = document.createElement('section');
-//     mapContainer.classList.add('map-container');
-
-//     const addressDisplay = document.createElement('h1');
-//     addressDisplay.innerHTML = address;
-
-//     mapContainer.appendChild(addressDisplay);
-
-//     return mapContainer;
-// }

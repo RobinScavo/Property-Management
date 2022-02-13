@@ -4,14 +4,11 @@ const listings = document.querySelector('.results-container').childNodes;
 var map;
 
 function initMap(markersDisplayed) {
-    console.log(markersDisplayed.length);
     const options = {
         center: {lat:45.782650, lng:-108.504578},
         zoom: 11,
         mapTypeControl: false,
     }
-
-    // console.log(markersDisplayed)
 
     map = new google.maps.Map(mapContainer, options);
 
@@ -38,4 +35,14 @@ function dropMarker(latitude, longitude, address) {
     marker.addListener('mouseout', () => {
         infoWindow.close(map, marker)
     });
+    marker.addListener('click', () => {
+        if (!searchMain.contains(resultsContainer)) return;
+        let target;
+        for (let listing of list) {
+            if (listing.address === address) {
+                target = list.indexOf(listing)
+            };
+        }
+        if (target !== undefined) viewProperty(target)
+    })
 }
