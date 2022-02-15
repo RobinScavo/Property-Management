@@ -393,3 +393,22 @@ const reportForm = {
 }
 
 const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];
+
+const siteMapOptions = {
+    'Home': '../html/index.html',
+    'Tenant Resources': '../html/resources.html',
+    'Property Search': '../html/propertySearch.html',
+    'About Us': '../html/contact.html'
+}
+
+const resourceOptions = {
+    'Apply Online': '../html/resources.html#resource-pet-policy',
+    'Pet Policy': '../html/resources.html#resource-pet-policy',
+    'Rental Requirements': '../html/resources.html#resource-second',
+    'Utility Links': '../html/resources.html#utility-links',
+    'Lease Agreement Video': '../html/resources.html#video-link-container',
+    'Report Concerns': '../html/resources.html#report-concern',
+    'Repair Request': '../html/resources.html#maintenence',
+    'Accessibilty Request': '../html/resources.html#accessibility-request',
+    'Moving Out Guide': '../html/resources.html#move-out-guide'
+}

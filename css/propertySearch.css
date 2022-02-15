@@ -231,35 +231,6 @@
     transform: translate(-50%, -50%);
 }
 
-.carousel-button {
-    border: none;
-    background-color: transparent;
-    color: var(--light-color);
-    height: 2rem;
-    width: 2rem;
-    font-size: 2rem;
-    text-shadow: 1px 1px 3px var(--darkish-color);
-    background-image: url('../images/icons/left-arrow.png');
-    background-size: 95%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: var(--light-color);
-    border-radius: 50%;
-    margin: .5rem;
-}
-
-.carousel-button-right {
-    transform: rotate(180deg)
-}
-
-.carousel-button:hover {
-    cursor: pointer;
-}
-
-.carousel-button:active {
-    background-size: 90%;
-}
-
 .carousel-visible {
     opacity: 0.3;
     visibility: visible;

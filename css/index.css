@@ -4,14 +4,69 @@
 .option-section {
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     background-color: var(--dark-color);
     height: 3.5rem;
     color: var(--light-color);
-    padding-top: .8rem;
+    /* padding-top: .8rem; */
 }
 
-.option-section a {
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: .5rem;
+    opacity: 0.9;
+    transform: rotate(270deg);
+    transition: transform 1s;
+}
+
+.open > .dropdown-icon {
+    transform: rotate(90deg);
+}
+
+.dropdown-label {
+    color: var(--light-color);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.dropdown-container:hover .dropdown-label{
+    font-weight: bold;
+}
+
+.dropdown-container:hover .dropdown-icon{
+    margin-left: .3rem;
+}
+
+.dropdown-option-div {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    background-color: var(--dark-color);
+    z-index: 100;
+    padding: .5rem;
+    box-shadow: 3px 6px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-option {
+    padding: .1rem;
+}
+
+.dropdown-option:hover {
+    font-weight: bold;
+    background-color: rgba(81, 81, 81, 0.7);
+}
+/* .option-section a {
     text-align: center;
 }
 
@@ -39,7 +94,7 @@
     width: 10rem;
     font-size: 1rem;
     font-weight: normal;
-}
+} */
 
 .dropdownLabel:hover {
     cursor: pointer;
@@ -90,7 +145,7 @@ figure .btn {
     bottom: 3rem;
     width: 15rem;
     height: 3rem;
-    z-index: 100;
+    z-index: 80;
 }
 
 figcaption {
