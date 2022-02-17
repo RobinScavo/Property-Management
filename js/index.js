@@ -5,9 +5,17 @@ const dropdownContainers = document.querySelectorAll('.dropdown-container');
 
 for (const dropdownContainer of dropdownContainers) {
     dropdownContainer.addEventListener('click', (e) => {
-        dropdownContainer.classList.toggle('open');
-        console.log(e)
+        if (e.target.classList.contains('dropdown-option')) return;
 
+        if (e.target.parentElement.classList.contains('open')) {
+            const openedDropdown = document.querySelector('.dropdown-option-div');
+            console.log(openedDropdown.clientHeight)
+            // dropdownContainer.removeChild(openedDropdown);
+            dropdownContainer.classList.toggle('open');
+            return;
+        }
+
+        dropdownContainer.classList.toggle('open');
         createDropdown(e);
     });
 }
@@ -15,7 +23,6 @@ for (const dropdownContainer of dropdownContainers) {
 // DROPDOWN
 
 const createDropdown = (e) => {
-    e.stopPropagation();
     const targetDropdown = e.target.parentElement;
     let data = {};
 
@@ -34,12 +41,11 @@ const createDropdown = (e) => {
         const optionEl = document.createElement('a');
         optionEl.classList.add('dropdown-option');
         optionEl.innerText = option;
-        optionEl.setAttribute('src', data[option]);
+        optionEl.setAttribute('href', data[option]);
 
         optionsContainer.appendChild(optionEl);
     }
 
-    console.log(targetDropdown)
 
     targetDropdown.appendChild(optionsContainer);
 }
