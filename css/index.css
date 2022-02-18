@@ -11,12 +11,21 @@
     /* padding-top: .8rem; */
 }
 
-.dropdown-container {
+.select-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     position: relative;
-    z-index: 100;
+    z-index: 1000;
+    height: 100%;
+    width: 25vw;
+    background-color: var(--dark-color);
+}
+
+.dropdown-container {
+    position: relative;
+    height: 100%;
 }
 
 .dropdown-icon {
@@ -25,10 +34,10 @@
     margin-left: .5rem;
     opacity: 0.9;
     transform: rotate(270deg);
-    transition: transform 1s;
+    transition: transform 500ms;
 }
 
-.open > .dropdown-icon {
+.open .dropdown-icon {
     transform: rotate(90deg);
 }
 
@@ -38,29 +47,29 @@
     font-weight: normal;
 }
 
-.dropdown-container:hover .dropdown-label{
+.select-container:hover .dropdown-label{
     font-weight: bold;
 }
 
-.dropdown-container:hover .dropdown-icon{
+.select-container:hover .dropdown-icon{
     margin-left: .3rem;
 }
 
-.dropdown-option-div {
+.option-container {
     position: absolute;
-    bottom: 0px;
-    left: 7px;
+    bottom: 2px;
+    left: 57px;
     display: flex;
     flex-direction: column;
-    width: 20rem;
+    width: 13rem;
     background-color: var(--dark-color);
     z-index: 2;
     padding: .5rem;
     box-shadow: 3px 6px 5px 1px rgba(0, 0, 0, 0.2);
-    transition: transform 1s linear;
+    transition: transform 500ms linear;
 }
 
-.open .dropdown-option-div {
+.open > .option-container {
     transform: translateY(100%);
 }
 
@@ -72,48 +81,23 @@
     font-weight: bold;
     background-color: rgba(81, 81, 81, 0.7);
 }
-/* .option-section a {
-    text-align: center;
-}
-
-.dropdown-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 9.5rem;
-    margin-top: .2rem;
-}
-
-.dropdown {
-    width: 100%;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    outline: none;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdownLabel {
-    position: absolute;
-    color: var(--light-color);
-    margin-left: .3rem;
-    width: 10rem;
-    font-size: 1rem;
-    font-weight: normal;
-} */
 
 .dropdownLabel:hover {
     cursor: pointer;
     font-size: 1.03rem;
 }
 
-@media (max-width: 738px)  {
-    #home-option {
-        display: none;
-    }
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 100%;
+    background-color: aqua;
+    text-align: center;
 }
 
-@media (max-width: 538px)  {
+@media (max-width: 638px)  {
     #rental-option {
         display: none;
     }

@@ -1,51 +1,45 @@
-const siteMapDropdown = document.getElementById('site-map-dropdown');
-const availableDropdown = document.getElementById('available-dropdown');
-const resourceDropdown = document.getElementById('resource-dropdown');
+const siteMapSelector = document.getElementById('site-map-selector');
+const availableSelector = document.getElementById('available-selector');
+const resourceSelector = document.getElementById('resource-selector');
+const siteMapContainer = document.getElementById('site-map-container');
+const availableContainer = document.getElementById('available-container');
+const resourceContainer = document.getElementById('resource-container');
+const selectContainers = document.querySelectorAll('.select-container');
+const optionContainers = document.querySelectorAll('.option-container');
 const dropdownContainers = document.querySelectorAll('.dropdown-container');
 
-for (const dropdownContainer of dropdownContainers) {
-    dropdownContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dropdown-option')) return;
-
-        if (e.target.parentElement.classList.contains('open')) {
-            const openedDropdown = document.querySelector('.dropdown-option-div');
-            console.log(openedDropdown.clientHeight)
-            // dropdownContainer.removeChild(openedDropdown);
-            dropdownContainer.classList.toggle('open');
-            return;
-        }
-
-        dropdownContainer.classList.toggle('open');
-        createDropdown(e);
+for (const [index, selectContainer] of selectContainers.entries()) {
+    console.log(dropdownContainers[index])
+    selectContainer.addEventListener('click', () => {
+        dropdownContainers[index].classList.toggle('open');
     });
 }
 
-// DROPDOWN
 
-const createDropdown = (e) => {
-    const targetDropdown = e.target.parentElement;
+const createDropdown = (optionContainer) => {
     let data = {};
 
-    if (targetDropdown.id === 'site-map-dropdown') {
+    if (optionContainer.id === 'site-map-container') {
         data = {...siteMapOptions};
-    } else if (targetDropdown.id === 'available-dropdown') {
-        data = {}
+    } else if (optionContainer.id === 'available-container') {
+        data = {};
     } else {
         data = {...resourceOptions}
     }
 
-    const optionsContainer = document.createElement('div');
-    optionsContainer.classList.add('dropdown-option-div');
-
     for (let option in data) {
-        const optionEl = document.createElement('a');
-        optionEl.classList.add('dropdown-option');
-        optionEl.innerText = option;
-        optionEl.setAttribute('href', data[option]);
+        const optionText = document.createElement('a');
+        optionText.classList.add('dropdown-option');
+        optionText.innerText = option;
+        optionText.setAttribute('href', data[option]);
 
-        optionsContainer.appendChild(optionEl);
+        optionContainer.appendChild(optionText);
     }
 
+    const parent = optionContainer.parentElement
+    parent.appendChild(optionContainer);
+}
 
-    targetDropdown.appendChild(optionsContainer);
+for (let optionContainer of optionContainers) {
+    createDropdown(optionContainer)
 }
