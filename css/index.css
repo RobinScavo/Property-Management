@@ -58,19 +58,20 @@
 .option-container {
     position: absolute;
     bottom: 2px;
-    left: 57px;
+    left: 20%;
     display: flex;
     flex-direction: column;
     width: 13rem;
     background-color: var(--dark-color);
     z-index: 2;
     padding: .5rem;
-    box-shadow: 3px 6px 5px 1px rgba(0, 0, 0, 0.2);
-    transition: transform 500ms linear;
+    padding-left: .3rem;
+    transition: transform 500ms ease-in-out;
 }
 
 .open > .option-container {
     transform: translateY(100%);
+    box-shadow: 3px 6px 5px 1px rgba(0, 0, 0, 0.4);
 }
 
 .dropdown-option {
@@ -87,14 +88,44 @@
     font-size: 1.03rem;
 }
 
+.option-text-div {
+    display: flex;
+    /* background-color: aqua; */
+}
+
+.option-accent-div {
+    /* background-color: palegoldenrod; */
+    font-size: 1rem;
+    transform: rotate(-90deg);
+    height: 1.4rem;
+    margin-right: .3rem;
+    margin-top: .2rem;
+    font-weight: bolder;
+    font-family: monospace;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 500ms ease-out, opacity 500ms ease-out;
+}
+
+.option-text-div:hover .option-accent-div{
+    visibility: visible;
+    opacity: 1;
+    /* transition: visibility 500ms ease-out, opacity 500ms ease-out; */
+}
+
+.option-accent-div p {
+    color: var(--primary-color);
+}
+
 .option {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25vw;
     height: 100%;
-    background-color: aqua;
+    z-index: 3;
     text-align: center;
+    background-color: var(--dark-color);
 }
 
 @media (max-width: 638px)  {

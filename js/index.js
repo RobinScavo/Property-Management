@@ -28,12 +28,25 @@ const createDropdown = (optionContainer) => {
     }
 
     for (let option in data) {
+        const optionDiv = document.createElement('div');
+        optionDiv.classList.add('option-text-div');
+
         const optionText = document.createElement('a');
         optionText.classList.add('dropdown-option');
         optionText.innerText = option;
         optionText.setAttribute('href', data[option]);
 
-        optionContainer.appendChild(optionText);
+        const optionAccentDiv = document.createElement('div');
+        optionAccentDiv.classList.add('option-accent-div');
+
+        const optionAccent = document.createElement('p');
+        optionAccent.innerText = 'V';
+
+        optionAccentDiv.appendChild(optionAccent);
+
+        optionDiv.appendChild(optionAccentDiv);
+        optionDiv.appendChild(optionText);
+        optionContainer.appendChild(optionDiv);
     }
 
     const parent = optionContainer.parentElement
