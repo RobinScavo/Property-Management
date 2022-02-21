@@ -2,6 +2,8 @@
 
 const troubleButtons = document.querySelectorAll('.troubleshoot-button');
 const reportButton = document.querySelector('.report-button');
+const criteriaButton = document.getElementById('criteria-button');
+const petCriteriaButton = document.getElementById('pet-criteria-button')
 const troubleModal = document.querySelector('.trouble-modal');
 const reportModal = document.querySelector('.report-modal');
 const overlay = document.querySelector('.full-overlay');
@@ -38,11 +40,28 @@ const showModal = (inputPojo) => {
 
     if (inputPojo.title === 'Troubleshooting Common Issues') {
         troubleChildren(modal)
-    } else {
+    } else if (inputPojo.title === 'What Went Wrong?') {
         reportChildren(modal)
+    } else {
+        criteriaChildren(modal)
     }
 
     modal.scrollIntoView();
+}
+
+const criteriaChildren = (modal) => {
+    const criteriaContainer = document.createElement('div');
+    criteriaContainer.classList.add('criteria-container');
+
+    for (let [index, child] of rentalCriteria.children.entries()) {
+        const criteriaChild = document.createElement('h2');
+        criteriaChild.classList.add('criteria-child');
+        criteriaChild.innerHTML =`${index}: ${child}`;
+
+        criteriaContainer.appendChild(criteriaChild);
+    }
+
+    modal.appendChild(criteriaContainer);
 }
 
 const troubleChildren = (modal) => {
@@ -263,6 +282,14 @@ troubleButtons.forEach((button) => {
 
 reportButton.addEventListener('click', () => {
     showModal(reportForm);
+});
+
+criteriaButton.addEventListener('click', () => {
+    showModal(rentalCriteria);
+});
+
+petCriteriaButton.addEventListener('click', () => {
+    showModal(petCriteria);
 });
 
 function validateEmail (emailAddress) {

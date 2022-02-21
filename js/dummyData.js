@@ -349,6 +349,24 @@ const properties = [
     }
 ]
 
+const rentalCriteria = {
+    title: 'Rental Criteria',
+    subtitle: 'Please read carefully before applying',
+    children: [
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+    ]
+}
+
+const petCriteria = {
+    title: 'Pet Criteria',
+    subtitle: 'Please read carefully before applying',
+}
+
 const troubleTips = {
     title: 'Troubleshooting Common Issues',
     subtitle: 'Please try troubleshooting your issue before submitting any repair request',

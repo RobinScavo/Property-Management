@@ -799,3 +799,13 @@ form {
         width: 110%;
     }
 }
+
+.criteria-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.criteria-child {
+    margin-top: 1rem;
+    text-align: center;
+}

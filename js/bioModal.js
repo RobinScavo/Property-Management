@@ -6,7 +6,8 @@ const overlay = document.querySelector('.full-overlay');
 
 const targets = [
     {name: 'Leapold Lionheart', titles: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero culpa, voluptates cupiditate aliquam corporis vitae nam. Iure sit minus cupiditate, corrupti accusantium, maiores eius quas cum hic dicta exercitationem asperiores.', bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione culpa qui pariatur ab nam excepturi nobis voluptatem, numquam quae animi, vero similique alias facere quidem possimus quis. Vero, totam aspernatur!'},
-    {name: 'Robin Scavo', titles: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero culpa, voluptates cupiditate aliquam corporis vitae nam. Iure sit minus cupiditate, corrupti accusantium, maiores eius quas cum hic dicta exercitationem asperiores.', bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione culpa qui pariatur ab nam excepturi nobis voluptatem, numquam quae animi, vero similique alias facere quidem possimus quis. Vero, totam aspernatur!'}
+    {name: 'Robin Scavo', titles: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero culpa, voluptates cupiditate aliquam corporis vitae nam. Iure sit minus cupiditate, corrupti accusantium, maiores eius quas cum hic dicta exercitationem asperiores.', bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione culpa qui pariatur ab nam excepturi nobis voluptatem, numquam quae animi, vero similique alias facere quidem possimus quis. Vero, totam aspernatur!'},
+    {name: 'Rental Criteria', titles: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero culpa, voluptates cupiditate aliquam corporis vitae nam. Iure sit minus cupiditate, corrupti accusantium, maiores eius quas cum hic dicta exercitationem asperiores.', bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione culpa qui pariatur ab nam excepturi nobis voluptatem, numquam quae animi, vero similique alias facere quidem possimus quis. Vero, totam aspernatur!'},
 ]
 
 const showModal = (target) => {
@@ -46,4 +47,8 @@ leapold.addEventListener('click', () => {
 
 robin.addEventListener('click', () => {
     showModal(targets[1])
-})
+});
+
+// criteria.addEventListener('click', () => {
+//     showModal(targets[2])
+// })
