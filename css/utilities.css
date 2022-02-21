@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-/* * {
-    box-sizing: border-box;
-} */
-
 :root {
     --primary-color: #599cdf;
     --secondary-color: #2983dd;

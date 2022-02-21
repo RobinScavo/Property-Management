@@ -108,6 +108,7 @@ const displayProperties = (index) => {
         const property = list[i];
         const propertyContainer = document.createElement('div');
         propertyContainer.classList.add('property-container');
+        propertyContainer.setAttribute('id', i);
 
         //Image
 
