@@ -188,6 +188,15 @@ header {
     background-color: var(--secondary-color);
 }
 
+@media (max-width: 538px)  {
+    header {
+        height: 9.5rem;
+    }
+    .header-links {
+        margin-top: 5rem;
+    }
+}
+
 /* SMALL HEADER */
 
 .logo-div:hover {
@@ -376,7 +385,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 3rem; */
     color: var(--dark-color);
     text-align: center;
     line-height: 1.2;

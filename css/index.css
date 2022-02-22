@@ -134,6 +134,9 @@
     #rental-option {
         display: none;
     }
+    .select-container {
+        width: 33.5vw;
+    }
 }
 
 /* MAIN IMAGE */
@@ -371,19 +374,19 @@ i {
 
   /* CONTACT FORM */
 
-  .contact-form {
-      position: relative;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      height: 110vh;
-      height: 35rem;
-      color: var(--dark-color);
-      background: url('../images/2-pexels-karolina-grabowska-4210787.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      margin-bottom: 1.5rem;
-  }
+.contact-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 110vh;
+    height: 35rem;
+    color: var(--dark-color);
+    background: url('../images/2-pexels-karolina-grabowska-4210787.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 1.5rem;
+}
 
 form {
     width: 90%;
@@ -446,4 +449,10 @@ form textarea {
 
 .g-recaptcha {
     margin-top: 2rem;
+}
+
+@media (max-width: 600px)  {
+    .contact-form {
+        height: 40rem;
+    }
 }

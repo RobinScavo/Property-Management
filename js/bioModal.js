@@ -1,7 +1,6 @@
 const leapold = document.querySelector('.leapold');
 const robin = document.querySelector('.samuii');
 const modal = document.querySelector('.bio-modal');
-// const body = document.querySelector('body');
 const overlay = document.querySelector('.full-overlay');
 
 const targets = [
@@ -48,7 +47,3 @@ leapold.addEventListener('click', () => {
 robin.addEventListener('click', () => {
     showModal(targets[1])
 });
-
-// criteria.addEventListener('click', () => {
-//     showModal(targets[2])
-// })

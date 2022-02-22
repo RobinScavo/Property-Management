@@ -1,9 +1,8 @@
-// import { troubleTips, reportForm, placeholderArray } from './dummyData.js'
-
 const troubleButtons = document.querySelectorAll('.troubleshoot-button');
 const reportButton = document.querySelector('.report-button');
 const criteriaButton = document.getElementById('criteria-button');
-const petCriteriaButton = document.getElementById('pet-criteria-button')
+const petCriteriaButton = document.getElementById('pet-criteria-button');
+const repairRequest = document.getElementById('repair-request');
 const troubleModal = document.querySelector('.trouble-modal');
 const reportModal = document.querySelector('.report-modal');
 const overlay = document.querySelector('.full-overlay');
@@ -281,6 +280,10 @@ troubleButtons.forEach((button) => {
 });
 
 reportButton.addEventListener('click', () => {
+    showModal(reportForm);
+});
+
+repairRequest.addEventListener('click', () => {
     showModal(reportForm);
 });
 

@@ -8,3 +8,9 @@
 - Using percent (%) and viewport width (vw) for width and auto for height works well for responsiveness. Space the height using margin and padding (preferably in a reset css file).
 
 - I need to build my own custom css reset file where I also keep commonly used variables.
+
+- Need to add emailing of forms upon submission. Unsure of how to do this without Node.js.
+
+- Pressing the back button while on the property detail page will send you back to property search. Obviously a user would expect to return to their search results. This is due to my lack of routing.
+
+- Users are unable to send links to a specific property which is an obvious flaw. I know how I'd handle this with React but routing with HTML alone is a gap in my knowledge.

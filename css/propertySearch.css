@@ -163,6 +163,15 @@
     .first-property-text {
         margin-bottom: 1rem;
     }
+
+    .second-property-text {
+        width: 33%;
+        align-items: center;
+    }
+
+    .first-property-text {
+        width: 70%;
+    }
 }
 
 /* PROPERTY DETAIL */
