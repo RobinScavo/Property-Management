@@ -102,7 +102,32 @@ const troubleChildren = (modal) => {
 
 const reportChildren = (modal) => {
     const form = document.createElement('form');
+    form.setAttribute('name', 'report-form');
+    form.setAttribute('method', 'POST');
+    form.setAttribute('netlify-honeypot', 'bot-field');
+    form.setAttribute('data-netlify', true);
     form.setAttribute('onkeydown', "return event.key != 'Enter';");
+
+    // Netlify form requirement
+    const hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'form-name');
+    hiddenInput.setAttribute('value', 'report-form');
+
+    form.appendChild(hiddenInput);
+
+    // Netlify honey-pot protection
+    const honeypotContainer =  document.createElement('p');
+    honeypotContainer.classList.add('hidden-honeypot');
+
+    const honeypot = document.createElement('input');
+    honeypot.setAttribute('name', 'bot-field');
+    honeypot.setAttribute('label', 'Do not fill this out if you are human')
+
+    honeypotContainer.appendChild(honeypot);
+    form.appendChild(honeypotContainer);
+
+    // Validate on pressing enter
     form.onkeydown = function(e) {
         if (e.key == "Enter") {
             e.preventDefault();

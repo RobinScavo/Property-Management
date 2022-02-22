@@ -790,6 +790,11 @@ form {
     background-repeat: no-repeat;
 }
 
+.hidden-honeypot {
+    visibility: hidden;
+    height: 0;
+}
+
 @media (max-width: 600px) {
     .report-modal {
         padding: 10px;

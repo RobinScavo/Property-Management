@@ -21,7 +21,7 @@
 
 # Improvements needed:
 
-- Property data is simply dummy data so I'll return to this and add a back end and a way for the customer to easily update listings.
+- Property data is simply dummy data so I'll return to this and add a back end and a headless CMS for the customer to easily update listings.
 
 - Need to add emailing of forms upon submission. Unsure of how to do this without Node.js.
 
