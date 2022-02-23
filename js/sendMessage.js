@@ -26,10 +26,10 @@ formButton.addEventListener('click', (e) => {
 
 function validateMessage () {
     let alertText = 'Your message has been sent. Thank you!';
-    const name = form.elements[0].value;
-    const email = form.elements[1].value;
-    const phone = form.elements[2].value;
-    const message = form.elements[3].value;
+    const name = form.elements[1].value;
+    const email = form.elements[2].value;
+    const phone = form.elements[3].value;
+    const message = form.elements[4].value;
     let validEmail, validPhone;
 
     if (email) validEmail = validateEmail(email);
