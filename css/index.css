@@ -27,10 +27,19 @@
     height: 100%;
 }
 
-.dropdown-icon {
-    width: 20px;
-    height: 20px;
+.dropdown-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 18px;
+    width: 18px;
+    overflow: hidden;
     margin-left: .5rem;
+    border-radius: 50%;
+}
+
+.dropdown-icon-container .dropdown-icon {
+    background-size: 115%;
     opacity: 0.9;
     transform: rotate(270deg);
     transition: transform 500ms;

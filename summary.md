@@ -35,3 +35,7 @@
  - The biggest hit I took on Google Lighthouse was for having my images in JPEG format. In the future I'll use Gimp to export them as WebP files.
 ## Image Sizing
  - I'm using images that are often bigger than the images rendered which is a waste of resources. In the future I should size them specifically to what I need, even making multiple sizes of the same image if necessary. I may just use the gatsby-image plugin for future websites.
+## Lazy loading
+ - Some of the 3rd party code I'm using (i.e. Google recapcha) are slowing down my initial load. I should have used the IntersectionObserver API to load elements which are 'below the fold' as needed.
+ ## Minimize main-thread work
+ - I need to read more about this.
