@@ -59,10 +59,6 @@
     font-weight: bold;
 }
 
-.select-container:hover .dropdown-icon{
-    margin-left: .3rem;
-}
-
 .option-container {
     position: absolute;
     bottom: 2px;
