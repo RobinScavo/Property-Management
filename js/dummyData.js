@@ -413,7 +413,7 @@ const reportForm = {
 const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];
 
 const siteMapOptions = {
-    'Home': '../html/index.html',
+    'Home': '../index.html',
     'Tenant Resources': '../html/resources.html',
     'Property Search': '../html/propertySearch.html',
     'About Us': '../html/contact.html'

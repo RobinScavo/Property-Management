@@ -570,6 +570,7 @@ figure::after{
 
 .trouble-modal .modal-name  {
     text-align: center;
+    align-self: center;
     line-height: 1;
     border-bottom: none;
     margin-bottom: 0;
@@ -577,6 +578,7 @@ figure::after{
 
 .report-modal .modal-name {
     text-align: center;
+    align-self: center;
     line-height: 1;
     border-bottom: none;
     margin-bottom: 0;
