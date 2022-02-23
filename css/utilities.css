@@ -7,6 +7,7 @@
     --dark-color: #515151;
     --darker-color: #1a1919;
     --darkish-color: rgba(81, 81, 81, 0.7);
+    --darkish-color: rgba(81, 81, 81, 0.9);
     --faint-color: rgba(81, 81, 81, 0.3);
     --light-color: rgb(250, 246, 246);
     --lightish-color: rgb(223, 221, 215);
@@ -130,6 +131,7 @@ header {
     font-family: 'Orbitron', sans-serif;
     color: var(--dark-color);
     margin-bottom: -.3rem;
+    font-display: swap;
 }
 
 .logo-text-bottom {

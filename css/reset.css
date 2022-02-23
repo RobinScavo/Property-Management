@@ -32,6 +32,7 @@ body {
     color: var(--light-color);
     caret-color: transparent;
     line-height: 1.6rem;
+    font-display: swap;
 }
 
 h1, h2, h3, p, ul, li {
@@ -64,10 +65,6 @@ h1 {
 h2 {
     font-size: 1.6rem;
 }
-
-/* p {
-    font-size: 1.1rem;
-} */
 
 .visible {
     opacity: 1;

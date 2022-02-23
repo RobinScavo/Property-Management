@@ -108,6 +108,7 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 500ms ease-out, opacity 500ms ease-out;
+    font-display: swap;
 }
 
 .option-text-div:hover .option-accent-div{
@@ -392,6 +393,11 @@ form {
     width: 90%;
     margin-top: 30px;
   }
+
+.contact-form .form-text {
+    font-size: 1.3rem;
+    color: var(--darker-color);
+}
 
 .form-top {
     display: flex;

@@ -28,7 +28,7 @@ const createCard = ({results}) => {
 
     const cardInnerHTML = `
         <div class='user-profile'>
-            <img class='user-image' src="${results[counter].picture.thumbnail}">
+            <img class='user-image' src="${results[counter].picture.thumbnail} alt="random user image">
             <div class='user-text'>
                 <h2 class='user-name'>${results[counter].name.first} ${results[counter].name.last}</h2>
                 <h3 class='user-date'>${dates[counter]}</h3>

@@ -28,3 +28,10 @@
 - Pressing the back button while on the property detail page will send you back to property search. Obviously a user would expect to return to their search results.
 
 - Users are unable to send links to a specific property which is an obvious flaw. I know how I'd remedy this with React Router but routing with HTML alone is a gap in my knowledge.
+
+# Optimizations needed
+
+## Image format
+ - The biggest hit I took on Google Lighthouse was for having my images in JPEG format. In the future I'll use Gimp to export them as WebP files.
+## Image Sizing
+ - I'm using images that are often bigger than the images rendered which is a waste of resources. In the future I should size them specifically to what I need, even making multiple sizes of the same image if necessary. I may just use the gatsby-image plugin for future websites.
