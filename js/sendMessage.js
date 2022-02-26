@@ -20,6 +20,11 @@ formButton.addEventListener('click', (e) => {
 
     alert.appendChild(okButton);
     form.appendChild(alert);
+    if (alertText === 'Your message has been sent. Thank you!') {
+      for (let i = 1; i <= 4; i++) {
+        form.elements[i].value = '';
+      }
+    }
 
     // Send email with node.js
 });
