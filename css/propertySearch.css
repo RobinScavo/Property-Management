@@ -320,6 +320,13 @@
     height: 135px;
 }
 
+@media (min-width: 1320px) {
+    .thumbnail-container {
+        background-color: bisque;
+        width: 70vw;
+    }
+}
+
 /* INFO DIV */
 
 .info-container {
