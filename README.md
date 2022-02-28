@@ -18,6 +18,7 @@
 
 - Add database and headless CMS (property data is POJO dummy data).
 - Add restful routing so users can send specific property links.
+- I lose some of functionality when viewed on my iPhone (animation transitions and the carousel). I have much to learn about browsers on mobile devices.
 
 
 # Optimizations needed
