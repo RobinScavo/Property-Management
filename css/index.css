@@ -62,7 +62,7 @@
 .option-container {
     position: absolute;
     bottom: 2px;
-    left: 20%;
+    left: 0%;
     display: flex;
     flex-direction: column;
     width: 13rem;
@@ -142,6 +142,9 @@
     }
     .select-container {
         width: 33.5vw;
+    }
+    #resource-container {
+        width: 10rem;
     }
 }
 

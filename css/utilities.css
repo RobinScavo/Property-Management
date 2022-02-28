@@ -219,9 +219,9 @@ header {
     .small-header .logo-text-div {
         display: none;
     }
-    .small-header  {
-        justify-content: right;
-        padding-right: 1rem;
+    .small-header .btn {
+        position: absolute;
+        right: 8px;
     }
 }
 
