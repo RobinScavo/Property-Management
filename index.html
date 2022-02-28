@@ -164,7 +164,11 @@
 
     <section class='contact-form'>
         <form name="contact-form" method="POST" data-netlify="'true">
-            <input type="hidden" name="'form-name" value="contact-form">
+            <input type="hidden" name="form-name" value="contact-form">
+            <p class="hidden">
+                <label>Don't fill this out if you are human: <input name="bot-field"></label>
+            </p>
+
             <h2 class="form-title">CONTACT US</h2>
             <h3 class="form-subtitle">Want us to call you? Send us an email.</h3>
             <div class="form-top">
@@ -189,7 +193,6 @@
                 <textarea name='form-text'></textarea>
             </div>
 
-            <div class="g-recaptcha" data-sitekey="6LdOa5keAAAAAMpJYW8xAhB3aSXEI4q5-ckT5PsS"></div>
             <button type="submit" class='btn form-btn'>SEND MESSAGE</button>
         </form>
     </section>
