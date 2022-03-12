@@ -87,11 +87,6 @@
     font-size: 1.2rem;
 }
 
-.dropdown-option:hover {
-    font-weight: bold;
-    background-color: rgba(81, 81, 81, 0.7);
-}
-
 .dropdownLabel:hover {
     cursor: pointer;
     font-size: 1.03rem;
@@ -101,6 +96,13 @@
     display: flex;
     align-items: center;
     height: 2rem;
+    cursor: pointer;
+}
+
+.option-text-div:hover {
+    font-weight: bolder;
+    background-color: var(--darkish-color);
+    background-color: rgb(107, 107, 107);
 }
 
 .option-accent-div {

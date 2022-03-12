@@ -410,7 +410,24 @@ const reportForm = {
     ]
 }
 
+const accomodationForm = {
+    title: 'Request for Accessibilty Accomodation or Modification',
+    subtitle: 'Please provide the following information and a BPM representative will contact you shortly.',
+    children: [
+        {'text': 'Name of Tenant or Applicant'},
+        {'date': 'Date'},
+        {'text': 'Name of person with disability'},
+        {'tel': 'Phone number'},
+        {'text': 'Address'},
+        {'email': 'Your Email'},
+        {'radio': 'Prefer method of contact', radioValues: ['Phone Call', 'Text', 'Email']},
+        {'textarea': 'I am requesting the following accomadation/s:'},
+        {'textarea': 'I need this reasonable accomodation because:'},
+    ]
+}
+
 const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];
+const placeholderArrayAccomodation = ['Jane Doe', 'mm/dd/yyyy', 'John Doe', '406-555-1212', '123 45th st w', 'janedoe@gmail.com', '123 45th st w', '...', '...'];
 
 const siteMapOptions = {
     'Home': '../index.html',

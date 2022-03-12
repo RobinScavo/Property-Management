@@ -66,6 +66,14 @@ h2 {
     font-size: 1.6rem;
 }
 
+p {
+    font-size: 1.2rem;
+}
+
+a {
+    font-weight: bolder;
+}
+
 .visible {
     opacity: 1;
     visibility: visible;

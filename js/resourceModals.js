@@ -3,6 +3,8 @@ const reportButton = document.querySelector('.report-button');
 const criteriaButton = document.getElementById('criteria-button');
 const petCriteriaButton = document.getElementById('pet-criteria-button');
 const repairRequest = document.getElementById('repair-request');
+const accomodationRequest = document.getElementById('accomodation-request');
+const modificationRequest = document.getElementById('modification-request');
 const troubleModal = document.querySelector('.trouble-modal');
 const reportModal = document.querySelector('.report-modal');
 const overlay = document.querySelector('.full-overlay');
@@ -40,7 +42,9 @@ const showModal = (inputPojo) => {
     if (inputPojo.title === 'Troubleshooting Common Issues') {
         troubleChildren(modal)
     } else if (inputPojo.title === 'What Went Wrong?') {
-        reportChildren(modal)
+        reportChildren(modal, true)
+    } else if (inputPojo.title === 'Request for Accessibilty Accomodation or Modification') {
+        reportChildren(modal, false)
     } else {
         criteriaChildren(modal)
     }
@@ -100,7 +104,7 @@ const troubleChildren = (modal) => {
     }
 }
 
-const reportChildren = (modal) => {
+const reportChildren = (modal, reportFormBoolean) => {
     const form = document.createElement('form');
     form.setAttribute('name', 'report-form');
     form.setAttribute('method', 'POST');
@@ -135,7 +139,10 @@ const reportChildren = (modal) => {
         }
     }
 
-    for (let [index, child] of reportForm.children.entries()) {
+    const formType = reportFormBoolean ? reportForm : accomodationForm;
+    const placeholderType = reportFormBoolean ? placeholderArray : placeholderArrayAccomodation;
+
+    for (let [index, child] of formType.children.entries()) {
         const inputType = Object.keys(child)[0];
         let requiredText = '';
 
@@ -144,13 +151,13 @@ const reportChildren = (modal) => {
 
         const label = document.createElement('label');
         label.classList.add('report-label');
-        label.innerText = reportForm.children[index][inputType];
+        label.innerText = formType.children[index][inputType];
 
         inputDiv.appendChild(label);
 
         if (inputType === 'radio') {
-            const radioOptions = reportForm.children[index].radioValues;
-            const radioName = reportForm.children[index][inputType];
+            const radioOptions = formType.children[index].radioValues;
+            const radioName = formType.children[index][inputType];
 
             radioOptions.forEach((option) => {
                 const radioInput = document.createElement('input');
@@ -170,7 +177,7 @@ const reportChildren = (modal) => {
             const textarea = document.createElement('textarea');
             textarea.classList.add('report-textarea');
             textarea.setAttribute('rows', '4');
-            textarea.setAttribute('placeholder', placeholderArray[index]);
+            textarea.setAttribute('placeholder', placeholderType[index]);
 
             if (child.textarea === 'Describe Your Issue') {
                 textarea.setAttribute('required', true);
@@ -183,7 +190,7 @@ const reportChildren = (modal) => {
             input.setAttribute('type', inputType);
             input.setAttribute('required', true);
             requiredText = 'REQUIRED';
-            input.setAttribute('placeholder', placeholderArray[index]);
+            input.setAttribute('placeholder', placeholderType[index]);
             input.classList.add('report-input');
 
             inputDiv.appendChild(input);
@@ -318,6 +325,14 @@ criteriaButton.addEventListener('click', () => {
 
 petCriteriaButton.addEventListener('click', () => {
     showModal(petCriteria);
+});
+
+accomodationRequest.addEventListener('click', () => {
+    showModal(accomodationForm);
+});
+
+modificationRequest.addEventListener('click', () => {
+    showModal(accomodationForm);
 });
 
 function validateEmail (emailAddress) {
