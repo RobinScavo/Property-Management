@@ -50,7 +50,7 @@ const createDropdown = (optionContainer) => {
         optionAccentDiv.classList.add('option-accent-div');
 
         const optionAccent = document.createElement('p');
-        optionAccent.innerText = 'o';
+        optionAccent.innerText = '+';
 
         const optionText = document.createElement('a');
         optionText.classList.add('dropdown-option');

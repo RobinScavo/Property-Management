@@ -25,8 +25,6 @@ formButton.addEventListener('click', (e) => {
         form.elements[i].value = '';
       }
     }
-
-    // Send email with node.js
 });
 
 function validateMessage () {

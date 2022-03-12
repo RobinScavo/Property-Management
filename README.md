@@ -4,7 +4,7 @@
 
 
 # Acknowledgements:
-- Thank you to free-use contributors to The Noun Project for the images and icons. Individual credits can be found in the alt tags.
+- Thank you free-use contributors of The Noun Project for the images and icons. Individual credits can be found in the alt tags.
 - Thank you to the open source developers who made the image processor Gimp.
 
 

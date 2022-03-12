@@ -107,10 +107,9 @@
 
 .option-accent-div {
     font-size: 1rem;
-    transform: rotate(-90deg);
     height: 1.4rem;
-    margin-right: .3rem;
-    margin-top: .2rem;
+    margin-right: .1rem;
+    margin-bottom: .2rem;
     font-weight: bolder;
     font-family: monospace;
     visibility: hidden;
@@ -125,7 +124,7 @@
 }
 
 .option-accent-div p {
-    color: var(--primary-color);
+    color: var(--light-color);
 }
 
 .option {
@@ -434,7 +433,6 @@ form {
 }
 
 form input, form textarea {
-    /* color: var(--dark-color); */
     color: var(--light-color);
     font-size: 16px;
     border: none;
@@ -480,10 +478,6 @@ form textarea {
     height: 2.7rem;
     font-size: 1.2rem;
 }
-
-/* .g-recaptcha {
-    margin-top: 2rem;
-} */
 
 @media (max-width: 600px)  {
     .contact-form {

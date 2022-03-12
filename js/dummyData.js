@@ -43,7 +43,7 @@ const properties = [
             {
                 icon: null,
                 title: 'Appliances',
-                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer']
             },
             {
                 icon: null,
@@ -101,7 +101,7 @@ const properties = [
             {
                 icon: null,
                 title: 'Appliances',
-                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer']
             },
             {
                 icon: null,
@@ -159,7 +159,7 @@ const properties = [
             {
                 icon: null,
                 title: 'Appliances',
-                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer']
             },
             {
                 icon: null,
@@ -217,7 +217,7 @@ const properties = [
             {
                 icon: null,
                 title: 'Appliances',
-                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer']
             },
             {
                 icon: null,
@@ -275,7 +275,7 @@ const properties = [
             {
                 icon: null,
                 title: 'Appliances',
-                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer']
             },
             {
                 icon: null,
@@ -333,7 +333,7 @@ const properties = [
             {
                 icon: null,
                 title: 'Appliances',
-                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer/Dryer']
+                infoArray: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer']
             },
             {
                 icon: null,

@@ -33,7 +33,7 @@
     border: none;
     background-color: var(--lightish-color);
     color: var(--dark-color);
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: .5rem;
 
 }
@@ -47,6 +47,10 @@
     height: 2.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.filter-label {
+    font-size: 1.2rem;
 }
 
 /* MAIN */
@@ -83,7 +87,6 @@
 }
 
 .property-image-div {
-    /* height: 200px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,6 +104,7 @@
 .more-info {
     margin-top: 1rem;
     height: 2.5rem;
+    width: 10rem;
 }
 
 .no-results {
@@ -115,7 +119,7 @@
     justify-content: space-between;
     color: var(--dark-color);
     height:2rem;
-    width: 11rem;
+    width: 15rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
@@ -124,16 +128,15 @@
     border: none;
     background-color: transparent;
     color: var(--dark-color);
-    font-size: 1rem;
     height: 100%;
     width: 25%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding-top: .1rem;
 }
 
 .current-page {
     color: var(--dark-color);
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: normal;
 }
 
@@ -143,7 +146,7 @@
 }
 
 .disabled {
-    color: var(--lightish-color);
+    color: transparent;
 }
 
 
@@ -185,14 +188,13 @@
 }
 
 .detail-address {
-    font-size: 3vw;
     color: var(--darker-color);
     margin-bottom: 1rem;
-    opacity: 0.8;
 }
 
 .detail-city {
     margin-bottom: 1.5rem;
+    font-size: 1.4rem;
 }
 
 /* CAROUSEL */
@@ -255,10 +257,12 @@
 }
 
 .carousel-text {
-    color: var(--light-color);
+    color: var(--lighter-color);
     height: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-top: .2rem;
+    z-index: 100;
+    font-weight: bolder;
 }
 
 .carousel-hidden {
@@ -368,6 +372,9 @@
     color: var(--darker-color);
     margin-top: 1rem;
     margin-bottom: .5rem;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    border-bottom: 1px solid var(--darkish-color);
 }
 
 .info-array-element {

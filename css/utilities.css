@@ -3,12 +3,9 @@
 
 :root {
     --primary-color: #599cdf;
-    /* --secondary-color: #2983dd; */
     --secondary-color: #1784f1;
     --dark-color: #515151;
     --darker-color: #1a1919;
-    /* --darkish-color: rgba(81, 81, 81, 0.7); */
-    --darkish-color: rgba(81, 81, 81, 0.9);
     --darkish-color: rgba(42, 41, 41, 0.9);
     --faint-color: rgba(81, 81, 81, 0.3);
     --light-color: rgb(250, 246, 246);
@@ -176,8 +173,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 9rem; */
-    /* height: 3.3rem; */
     background-color: var(--primary-color);
     text-decoration: none;
     color: var(--light-color);
@@ -280,21 +275,15 @@ header {
     flex-direction: column;
     justify-content: flex-start;
     padding: 3px;
-    /* font-size: .9rem; */
     width: 70%;
     height: 100%;
     color: var(--dark-color);
-    /* text-align: center; */
 }
 
 .main-text h2 {
     justify-self: start;
     padding-bottom: 10px;
     font-weight: bolder;
-}
-
-.main-text p {
-    color: var(--darkish-color);
 }
 
 .main-text a {
@@ -419,7 +408,6 @@ header {
 }
 
 .modal-text {
-    /* height: 85vh; */
     font-size: 1.2rem;
     color: var(--darkish-color);
 }

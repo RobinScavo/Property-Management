@@ -12,16 +12,6 @@ html {
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #599cdf;
-    --secondary-color: #2983dd;
-    --dark-color: #515151;
-    --darker-color: #1a1919;
-    --darkish-color: rgba(81, 81, 81, 0.7);
-    --light-color: rgb(250, 246, 246);
-    --lightish-color: rgb(235, 233, 227);
-}
-
 body {
     position: relative;
     background-color: var(--light-color);
@@ -36,12 +26,13 @@ body {
 }
 
 h1, h2, h3, p, ul, li {
-    color: var(--darkish-color)
+    color: var(--darker-color)
 }
 
 a {
     text-decoration: none;
     color: var(--light-color);
+    font-weight: bolder;
 }
 
 h2, h3, p, ul, nav, img {
