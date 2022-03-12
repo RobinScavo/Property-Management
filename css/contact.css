@@ -109,17 +109,6 @@
     margin-top: 1rem;
 }
 
-@media (max-width: 730px) {
-    .contact-main img {
-        height: 6.5rem;
-        width: 6.5rem;
-        display: none;
-    }
-    .contact-image-div {
-        display: none;
-    }
-}
-
 /* BIOGRAPHIES */
 
 .bio-section {
@@ -227,4 +216,15 @@
 .visible {
     opacity: 1;
     visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .contact-main img {
+        height: 6.5rem;
+        width: 6.5rem;
+        display: none;
+    }
+    .contact-image-div {
+        display: none;
+    }
 }
