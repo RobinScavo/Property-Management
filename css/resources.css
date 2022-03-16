@@ -593,6 +593,7 @@ figure::after{
     width: 100%;
     background-color: var(--lightish-color);
     padding-left: 1rem;
+    color: var(--darker-color);
 }
 
 .report-input:-webkit-autofill,
