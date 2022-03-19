@@ -249,9 +249,9 @@ const validateForm = (form) => {
     const checkmarks = document.querySelectorAll('.checkmark-div');
     const xMarks = document.querySelectorAll('.x-mark-div');
     const requirements = document.querySelectorAll('.requirement-text');
+    console.log('validate')
 
     for (let i = 0; i < form.elements.length; i++) {
-        console.log(i)
         if (form.elements[i].required && !form.elements[i].value) {
             // checkmarks[i].classList.remove('hidden');
             // requirements[i].classList.add('hidden');
