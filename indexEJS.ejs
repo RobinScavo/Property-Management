@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./views/partials/head.ejs') %>
+
+<body class="'scrollbar-hidden">
+
+    <!-- Header -->
+    <%- include('./views/partials/header.ejs') %>
+
+    <!-- Drop-down menus -->
+    <section  class='option-section'>
+        <div class="dropdown-container">
+            <div id='site-map-selector' class="select-container">
+                <h2 class='dropdown-label'>Slite Map</h2>
+                <div class="dropdown-icon-container">
+                    <div class="dropdown-icon carousel-button"></div>
+                </div>
+            </div>
+            <div id='site-map-container' class="option-container"></div>
+        </div>
+        <div class="dropdown-container">
+            <div id='available-selector' class="select-container">
+                <h2 class='dropdown-label'>Available Rentals</h2>
+                <div class="dropdown-icon-container">
+                    <div class="dropdown-icon carousel-button"></div>
+                </div>
+            </div>
+            <div id='available-container' class="option-container"></div>
+        </div>
+        <div class="dropdown-container">
+            <div id='resource-selector' class="select-container">
+                <h2 class='dropdown-label'>Tenant Resources</h2>
+                <div class="dropdown-icon-container">
+                    <div class="dropdown-icon carousel-button"></div>
+                </div>
+            </div>
+            <div id='resource-container' class="option-container"></div>
+        </div>
+        <a id='rental-option' href="https://www.rentometer.com/" class='option' target="'blank">Free Rental Analysis</a>
+    </section>
+
+    <!-- Main image -->
+    <figure>
+        <figcaption>Rent In Billings <br><small  id='main-small'> because the future is here</small></figcaption>
+        <button class='btn'><a href="./html/propertySearch.html">AVAILABLE RENTALS</a></button>
+    </figure>
+
+    <!-- Main navigation -->
+    <nav class='main'>
+        <ul class='grid'>
+            <li class='flex'>
+                <div class="image-div">
+                    <img src="./images/icons/search.png" alt="Eye by ainul muttaqin from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>FIND A RENTAL</h2>
+                    <p>Looking for a great place to live? Search our wide-variety of rental homes and apartments based on your requirements.</p>
+                    <a href="./html/propertySearch.html">Search Page</a>
+                </div>
+            </li>
+
+            <li class='flex'>
+                <div class="image-div">
+                    <img src="./images/icons/sign.png" alt="Signpost by Zohaib Bajwa from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>PROPERTY MAP</h2>
+                    <p>Want to live in a specific neighborhood? See all our properties on one map.</p>
+                    <a href="./html/propertySearch.html#map-button">Location Map</a>
+                </div>
+            </li>
+
+            <li class='flex'>
+                <div class="image-div">
+                    <img id='keys' src="./images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>TENANT PORTAL</h2>
+                    <p>View your account. Update your information. Pay your rent.</p>
+                    <a href="https://missoula.twa.rentmanager.com/Applynow" target='_blank'>Tenant Portal</a>
+                </div>
+            </li>
+
+            <li class='flex'>
+                <div class="image-div">
+                    <img src="./images/icons/signpost.png" alt="Sign by Astoe Design from NounProject.com">
+                </div>
+                <div class="main-text">
+                    <h2>OWNER PORTAL</h2>
+                    <p>24/7/365 access to your property accounts.</p>
+                    <a href="https://missoula.owa.rentmanager.com/#/login?returnUrl=%2Fdashboard&locations=Default,hoa,talbert,weaver" target='_blank'>
+                        Online Owner Portal
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Image gallery -->
+    <section class='image-gallery'>
+        <ul class='gallery-list'>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>CLICK TO SEE OUR FEATURED PROPERTIES</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>MOVE IN READY LISTINGS</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>RUSTIC MEETS LUXURY</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>SEARCH BY LOCATIONS</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>TAKE A HIKE FROM YOUR BACKYARD!</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>NEW AND MODERN</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>PET FRIENDLY RENTALS</h2>
+            </li>
+            <li class='gallery-item'>
+                <div class="overlay"></div>
+                <h2 class='overlay-text'>LIVE IN THE COVETED RIMROCK AREA</h2>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section class='testimonials'>
+        <h1>TESTIMONIALS</h1>
+        <div class="testimonials-div"></div>
+    </section>
+
+    <!-- Contact form -->
+    <section class='contact-form'>
+        <form name="contact-form" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact-form">
+            <p class="hidden">
+                <label>Don't fill this out if you are human: <input name="bot-field"></label>
+            </p>
+
+            <h2 class="form-title">CONTACT US</h2>
+            <h3 class="form-subtitle">Want us to call you? Send us an email.</h3>
+            <div class="form-top">
+                <div class="form-div">
+                    <label for='form-name' class="form-text">Name</label>
+                    <input type="text" class="form-name" name='form-name' required>
+                </div>
+
+                <div class="form-div">
+                    <label for='form-email' class="form-text">Email</label>
+                    <input type="email" class="form-email" name='form-email' required>
+                </div>
+
+                <div class="form-div">
+                    <label for='form-phone' class="form-text">Phone</label>
+                    <input type="tel" class="form-phone" name='form-phone' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                </div>
+            </div>
+
+            <div class="form-div textarea-div">
+                <label for='form-text' class="form-text">Message</label>
+                <textarea name='form-text'></textarea>
+            </div>
+
+            <button type="submit" class='btn form-btn'>SEND MESSAGE</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+
+    <script src="./js/testimonials.js"></script>
+    <script src="./js/dummyData.js"></script>
+    <script type='module' src="./js/sendMessage.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
