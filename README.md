@@ -31,3 +31,9 @@
  - Some of the 3rd party code I'm using (i.e. Google recapcha) are slowing down my initial load. I should have used the IntersectionObserver API to load elements which are 'below the fold' as needed.
  ## Minimize main-thread work
  - I need to read more about this.
+
+ # NPM Dependencies
+ - EJS
+ - Nodemon
+ - Express
+ - MongoDB
