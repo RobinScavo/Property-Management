@@ -5,6 +5,11 @@ const { connectToDb, getDb } = require('./db');
 // init app & middleware
 const app = express()
 
+// register view engine
+app.set('view engine', 'ejs');
+
+app.use(express.static(__dirname + '/public'))
+
 // db connection
 let db
 
@@ -17,12 +22,30 @@ connectToDb((err) => {
     }
 })
 
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
+app.get('/contact', (req, res) => {
+    res.render('contact')
+})
+
+app.get('/resources', (req, res) => {
+    res.render('resources')
+})
+
 // routes
 app.get('/listings', (req, res) => {
+    // current page
+    const page = req.query.p || 0;
+    const listingsPerPage = 5;
+
     let listings = []
 
     db.collection('listings')
-        .find() //filter by first 5
+        .find()
+        .skip(page * listingsPerPage)
+        .limit(listingsPerPage)
         .forEach(listing => listings.push(listing))
         .then(() => {
             res.status(200).json(listings)
@@ -30,6 +53,7 @@ app.get('/listings', (req, res) => {
         .catch(() => {
             res.status(500).json({error: 'Could not fetch listings'})
         })
+    res.render('propertySearch')
 })
 
 app.get('/listings/:id', (req, res) => {
