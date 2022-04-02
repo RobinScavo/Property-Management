@@ -36,23 +36,22 @@ app.get('/resources', (req, res) => {
 
 // routes
 app.get('/listings', (req, res) => {
-    // current page
-    const page = req.query.p || 0;
-    const listingsPerPage = 5;
+    // const page = req.query.p || 0;
+    // const listingsPerPage = 5;
 
-    let listings = []
+    // let listings = []
 
-    db.collection('listings')
-        .find()
-        .skip(page * listingsPerPage)
-        .limit(listingsPerPage)
-        .forEach(listing => listings.push(listing))
-        .then(() => {
-            res.status(200).json(listings)
-        })
-        .catch(() => {
-            res.status(500).json({error: 'Could not fetch listings'})
-        })
+    // db.collection('listings')
+    //     .find()
+    //     .skip(page * listingsPerPage)
+    //     .limit(listingsPerPage)
+    //     .forEach(listing => listings.push(listing))
+    //     .then(() => {
+    //         res.status(200).json(listings)
+    //     })
+    //     .catch(() => {
+    //         res.status(500).json({error: 'Could not fetch listings'})
+    //     })
     res.render('propertySearch')
 })
 

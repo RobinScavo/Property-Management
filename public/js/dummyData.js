@@ -430,11 +430,17 @@ const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@
 const placeholderArrayAccomodation = ['Jane Doe', 'mm/dd/yyyy', 'John Doe', '406-555-1212', '123 45th st w', 'janedoe@gmail.com', '123 45th st w', '...', '...'];
 
 const siteMapOptions = {
-    'Home': '../index.html',
-    'Tenant Resources': '../html/resources.html',
-    'Property Search': '../html/propertySearch.html',
-    'About Us': '../html/contact.html'
+    'Home': '/',
+    'Tenant Resources': '/resources',
+    'Property Search': '/listings',
+    'About Us': '/contact'
 }
+// const siteMapOptions = {
+//     'Home': '../index.html',
+//     'Tenant Resources': '../html/resources.html',
+//     'Property Search': '../html/propertySearch.html',
+//     'About Us': '../html/contact.html'
+// }
 
 const resourceOptions = {
     'Apply Online': '../html/resources.html#resource-pet-policy',
