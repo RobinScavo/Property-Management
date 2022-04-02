@@ -37,3 +37,5 @@
  - Nodemon
  - Express
  - MongoDB
+ - Morgan
+ - Mongoose

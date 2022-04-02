@@ -1,27 +1,41 @@
 const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const Listing = require('./models/listing')
 const { ObjectId } = require('mongodb');
 const { connectToDb, getDb } = require('./db');
 
 // init app & middleware
 const app = express()
 
+const dbURI = 'mongodb+srv://BPM-admin:YFKlFyfpz49TozQC@cluster0.auuxc.mongodb.net/BPM?retryWrites=true&w=majority';
+mongoose.connect(dbURI)
+    .then((result) => app.listen(3000))
+    .catch((err) => console.log(err))
+
 // register view engine
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/public'))
-
 // db connection
-let db
+// let db
 
-connectToDb((err) => {
-    if (!err) {
-        app.listen(3000, () => {
-            console.log('app listenting on port 3000')
-        });
-        db = getDb()
-    }
-})
+// BPM-admin:YFKlFyfpz49TozQC
 
+// connectToDb((err) => {
+//     if (!err) {
+//         app.listen(3000, () => {
+//             console.log('app listenting on port 3000')
+//         });
+//         db = getDb()
+//     }
+// })
+
+// middleware and static files
+app.use(express.static(__dirname + '/public'))
+app.use(morgan('dev'))
+
+
+// routes
 app.get('/', (req, res) => {
     res.render('index')
 })
@@ -34,7 +48,14 @@ app.get('/resources', (req, res) => {
     res.render('resources')
 })
 
-// routes
+app.get('/admin', (req, res) => {
+    res.render('admin')
+})
+
+app.get('/addListing', (req, res) => {
+    const listing = new Listing()
+})
+
 app.get('/listings', (req, res) => {
     // const page = req.query.p || 0;
     // const listingsPerPage = 5;
@@ -52,6 +73,7 @@ app.get('/listings', (req, res) => {
     //     .catch(() => {
     //         res.status(500).json({error: 'Could not fetch listings'})
     //     })
+    // console.log(listings)
     res.render('propertySearch')
 })
 
@@ -69,4 +91,8 @@ app.get('/listings/:id', (req, res) => {
     } else {
         res.status(500).json({error: 'Not a valid property ID'})
     }
+})
+
+app.use((req, res) => {
+    res.status(404).render('404')
 })

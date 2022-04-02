@@ -1,1 +1,72 @@
-<h1>Property Search</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/propertySearch.css">
+    <title>Search Rentals</title>
+</head>
+<body class="scrollbar-hidden">
+    <!-- Header -->
+    <%- include('./partials/small-header.ejs') %>
+
+    <section class="search-header">
+        <div class="filter-div">
+            <div class="select-div">
+                <label for="bedrooms" class="filter-label">Bedrooms</label>
+                <select id='bedrooms' class="filter-select">
+                    <option value="" class="filter-option" selected disabled hidden></option>
+                    <option value='0' class="filter-option">Studio</option>
+                    <option value='1' class="filter-option">1</option>
+                    <option value='2' class="filter-option">2</option>
+                    <option value='3' class="filter-option">3</option>
+                    <option value='4' class="filter-option">4+</option>
+                </select>
+            </div>
+            <div class="select-div">
+                <label for="bathrooms" class="filter-label">Bathrooms</label>
+                <select id='bathrooms' class="filter-select">
+                    <option value="" class="filter-option" selected disabled hidden></option>
+                    <option value='1' class="filter-option">1</option>
+                    <option value='2' class="filter-option">2</option>
+                    <option value='3' class="filter-option">3</option>
+                </select>
+            </div>
+            <div class="select-div">
+                <label for="max-rent" class="filter-label">Max Rent</label>
+                <select id='max-rent' class="filter-select">
+                    <option value="" class="filter-option" selected disabled hidden></option>
+                    <option value='800' class="filter-option">$800</option>
+                    <option value='900' class="filter-option">$900</option>
+                    <option value='1000' class="filter-option">$1000</option>
+                    <option value='1100' class="filter-option">$1100+</option>
+                </select>
+            </div>
+        </div>
+        <button type='submit' class="btn filter-button">Search</button>
+    </section>
+
+    <main class="search-main">
+        <div class="results-container"></div>
+    </main>
+
+    <button id='map-button' class="btn map-button">View Map</button>
+
+    <section class="map-container undisplayed">
+        <div id="map"></div>
+    </section>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    <script src='../js/dummyData.js'></script>
+    <script src="../js/viewProperty.js"></script>
+    <script src="../js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo"></script>
+    <script src="../js/propertySearch.js"></script>
+</body>
+</html>

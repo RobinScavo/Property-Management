@@ -489,6 +489,14 @@ li {
     background-size: 90%;
 }
 
+.not-found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    /* background-color: var(--light-color); */
+}
+
 @media only screen and (max-width: 600px)  {
     header {
         height: 9.5rem;
