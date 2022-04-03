@@ -83,8 +83,10 @@
 .admin-button-div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: end;
     width: 20rem;
+    height: 11rem;
 }
 .second-property-text {
     display: flex;
@@ -404,6 +406,11 @@
 
     .first-property-text {
         width: 70%;
+    }
+    .admin-button-div {
+        justify-content: center;
+        align-items: center;
+        height: 7rem;
     }
 }
 

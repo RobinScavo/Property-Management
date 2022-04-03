@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/utilities.css">
-    <title>Not Found</title>
+    <link rel="stylesheet" href="../css/propertySearch.css">
+    <title>Admin Edit</title>
 </head>
 <body>
-    <%- include('./partials/small-header.ejs'), { admin: false } %>
-
-    <div class="not-found">
-        <h1>Sorry, your request was not found.</h1>
+    <div class="detail-container">
+        <h1 class='detail-address'><%= listing.address %></h1>
+        <p class="detail-city"><%= listing.city %></p>
     </div>
 
-    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

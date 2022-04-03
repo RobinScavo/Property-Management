@@ -4,6 +4,8 @@
 :root {
     --primary-color: #599cdf;
     --secondary-color: #1784f1;
+    --primary-color: #1784f1;
+    --secondary-color: #0f5ca8;
     --dark-color: #515151;
     --darker-color: #1a1919;
     --darkish-color: rgba(42, 41, 41, 0.9);
@@ -95,7 +97,7 @@ header {
     width: 3.5rem;
     left: .5rem;
     top: .5rem;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: var(--light-color);
     color: #d3e7fa;
 }
@@ -105,6 +107,7 @@ header {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: var(--darker-color);
 }
 
 .home-text {
@@ -176,7 +179,7 @@ header {
     background-color: var(--primary-color);
     text-decoration: none;
     color: var(--light-color);
-    font-weight: bolder;
+    font-weight: normal;
     font-size: 1.2rem;
     text-align: center;
     padding: 10px;

@@ -58,14 +58,18 @@ app.get('/admin', (req, res) => {
         })
 })
 
-app.get('/listing-detail', (req, res) => {
-    Listing.findById('6246259aadaa758e5979c72a')
-        .then((result) => {
-            res.send(result)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+app.get('/admin-edit/:id', (req, res) => {
+    if (ObjectId.isValid(req.params.id)) {
+        Listing.findById(req.params.id)
+            .then((result) => {
+                res.render('adminEdit', {listing: result })
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    } else {
+        res.status(500).json({error: 'Not a valid property ID'})
+    }
 })
 
 // app.get('/addListing', (req, res) => {

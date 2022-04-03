@@ -230,8 +230,9 @@ figure::after{
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
     max-width: 50rem;
+    padding-left: 10px;
 }
 
 .utilities-title {
@@ -241,14 +242,17 @@ figure::after{
 
 .utilities-text {
     margin-top: 1.5rem;
+    text-align: start;
+    padding-left: 10px;
 }
 
 .utilities-link {
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 110%;
 }
 
 .utilities-link:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .lower-utilities-container {
@@ -382,6 +386,10 @@ figure::after{
 .bottom-link {
     color: var(--primary-color);
     font-weight: bold;
+}
+
+.bottom-link:hover {
+    color: var(--secondary-color);
 }
 
 .emergency-icon  {
@@ -818,5 +826,9 @@ form {
     .report-textarea {
         width: 90%;
         margin-left: 2rem;
+    }
+    #electric-div {
+        width: 36%;
+        margin-left: 10px;
     }
 }

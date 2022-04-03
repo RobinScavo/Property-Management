@@ -50,10 +50,9 @@
                     </div>
 
                     <div class="admin-button-div">
-                        <button
-                            id=<%= listing._id %>
-                            class="btn more-info"
-                        > Edit </button>
+                        <button class="btn more-info">
+                            <a href="/admin-edit/<%= listing.id %>"> Edit </a>
+                        </button>
                         <button
                             id=<%= listing._id %>
                             class="btn more-info"
