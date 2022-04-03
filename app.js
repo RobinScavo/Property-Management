@@ -49,12 +49,47 @@ app.get('/resources', (req, res) => {
 })
 
 app.get('/admin', (req, res) => {
-    res.render('admin')
+    Listing.find()
+        .then((result) => {
+            res.render('admin', { listings: result })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
 
-app.get('/addListing', (req, res) => {
-    const listing = new Listing()
+app.get('/listing-detail', (req, res) => {
+    Listing.findById('6246259aadaa758e5979c72a')
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
+
+// app.get('/addListing', (req, res) => {
+//     const listing = new Listing({
+//         mainImageURL:
+//         imageURLs:
+//         imageAlts:
+//         imageTextArray:
+//         beds:
+//         bath:
+//         address:
+//         city:
+//         latitude:
+//         longitude:
+//         rent:
+//         availability:
+//         alt:
+//         propertyInfo: {
+//             icon:
+//             title:
+//             infoArray:
+//         }
+//     })
+// })
 
 app.get('/listings', (req, res) => {
     // const page = req.query.p || 0;

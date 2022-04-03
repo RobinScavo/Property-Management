@@ -3,6 +3,7 @@ const resultsContainer = document.querySelector('.results-container');
 const mapEl = document.querySelector('.map-container');
 const mapButton = document.querySelector('.map-button');
 
+console.log(listings)
 let list = properties;
 let currentIndex = 0;
 let currentPage = 1;

@@ -55,20 +55,10 @@ const listingSchema = new Schema({
         required: true
     },
     propertyInfo: {
-        icon: {
-            type: String,
-            required:true
-        },
-        title: {
-            type: String,
-            required:true
-        },
-        infoArray: {
-            type: Array,
-            required:true
-        }
+        type: Array,
+        required: true
     },
-})
+}, { timestamps: true });
 
 const Listing = mongoose.model('Listing', listingSchema)
 

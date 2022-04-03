@@ -1,1 +1,71 @@
-<h1>Admin</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/propertySearch.css">
+    <title>Admin</title>
+</head>
+<body>
+    <%- include('./partials/small-header.ejs', { admin: true }) %>
+
+    <!-- <div class="search-main"> -->
+    <div class="'results-container">
+        <% if (listings.length > 0) { %>
+            <% listings.forEach((listing, index) => { %>
+                <div id=<%= index %> class="property-container">
+
+                    <div class="'property-image-div admin-image">
+                        <img
+                            class="property-image"
+                            src=<%= listing.mainImageURL %>
+                            alt=<%= listing.alt %>
+                            height='200px'
+                            width='300px'
+                        />
+                    </div>
+
+                    <div class="first-property-text">
+                        <p class="property-text">
+                            <%= listing.beds %> Bedrooms
+                        </p>
+                        <p class="'property-text">
+                            <%= listing.bath %> Bath
+                        </p>
+                        <p class="'property-text">
+                            <%= listing.address %>
+                        </p>
+                    </div>
+
+                    <div class="second-property-text">
+                        <h2 class="'property-text-big">
+                            $<%= listing.rent %>/Month
+                        </h2>
+                        <p class="'property-text">
+                            <%= listing.availability %>
+                        </p>
+                    </div>
+
+                    <div class="admin-button-div">
+                        <button
+                            id=<%= listing._id %>
+                            class="btn more-info"
+                        > Edit </button>
+                        <button
+                            id=<%= listing._id %>
+                            class="btn more-info"
+                        > Delete </button>
+                    </div>
+
+
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+    <!-- </div> -->
+
+</body>
+</html>

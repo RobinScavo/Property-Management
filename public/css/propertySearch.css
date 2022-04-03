@@ -70,12 +70,22 @@
     height: 15rem;
 }
 
+.admin-image {
+    padding-left: 3rem;
+}
+
 .first-property-text {
     width: 43%;
     padding-left: 1.5rem;
     line-height: 2;
 }
 
+.admin-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+}
 .second-property-text {
     display: flex;
     flex-direction: column;
