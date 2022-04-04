@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Listing = require('./models/listing')
 const { ObjectId } = require('mongodb');
-const { connectToDb, getDb } = require('./db');
+// const { connectToDb, getDb } = require('./db');
 
 
 // init app & middleware
@@ -17,19 +17,7 @@ mongoose.connect(dbURI)
 // register view engine
 app.set('view engine', 'ejs');
 
-// db connection
-// let db
-
 // BPM-admin:YFKlFyfpz49TozQC
-
-// connectToDb((err) => {
-//     if (!err) {
-//         app.listen(3000, () => {
-//             console.log('app listenting on port 3000')
-//         });
-//         db = getDb()
-//     }
-// })
 
 // middleware and static files
 app.use(express.static(__dirname + '/public'))
@@ -73,29 +61,6 @@ app.get('/admin-edit/:id', (req, res) => {
     }
 })
 
-// app.get('/addListing', (req, res) => {
-//     const listing = new Listing({
-//         mainImageURL:
-//         imageURLs:
-//         imageAlts:
-//         imageTextArray:
-//         beds:
-//         bath:
-//         address:
-//         city:
-//         latitude:
-//         longitude:
-//         rent:
-//         availability:
-//         alt:
-//         propertyInfo: {
-//             icon:
-//             title:
-//             infoArray:
-//         }
-//     })
-// })
-
 app.get('/listings', (req, res) => {
     Listing.find()
         .then((result) => {
@@ -104,20 +69,6 @@ app.get('/listings', (req, res) => {
         .catch((err) => {
             console.log(err)
         })
-
-    // db.collection('listings')
-    //     .find()
-        // .skip(page * listingsPerPage)
-        // .limit(listingsPerPage)
-        // .forEach(listing => listings.push(listing))
-    //     .then(() => {
-    //         res.status(200).json(listings)
-    //     })
-    //     .catch(() => {
-    //         res.status(500).json({error: 'Could not fetch listings'})
-    //     })
-    // console.log(listings)
-    // res.render('propertySearch')
 })
 
 app.get('/listings/:id', (req, res) => {
@@ -132,19 +83,42 @@ app.get('/listings/:id', (req, res) => {
     } else {
         res.status(500).json({error: 'Not a valid property ID'})
     }
+})
 
-    // if (ObjectId.isValid(req.params.id)) {
-    //     db.collection('listings')
-    //         .findOne({_id: ObjectId(req.params.id)})
-    //         .then(doc => {
-    //             res.status(200).json(doc)
-    //         })
-    //         .catch(err => {
-    //             res.status(500).json({error: 'Could not fetch document'})
-    //         })
-    // } else {
-    //     res.status(500).json({error: 'Not a valid property ID'})
-    // }
+app.get('/addListing', (req, res) => {
+    const listing = new Listing({
+        mainImageURL: '../images/gallery/2-pexels-luis-quintero-2564873.jpg',
+        imageURLs: ['../images/gallery/2-pexels-luis-quintero-2564873.jpg','../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
+        imageAlts: ['Luis Quintero from NounProject.com','dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
+        imageTextArray: ['Central Location','Full Bathroom', 'Spacious Bedrooms','Modern Kitchen','Comfortable Layout', 'Furnished Apartment'],
+        beds: 4,
+        bath: 3,
+        address: 'Rock Creek, APT 31, 2323 32nd St W',
+        city: 'Billings, MT',
+        latitude: 45.761320,
+        longitude: -108.578710,
+        rent: 1800,
+        availability: 'Available NOW!',
+        alt:   'Luis Quintero from NounProject.com',
+        propertyInfo: {
+            BedsBath: ['1 Bedroom', '1 Bathroom'],
+            Utilities: '$35 utility fee which includes water, sewer, and trash.',
+            Pets: ['Cats', 'Small dogs'],
+            Rent: ['$800 monthly', '$1000 deposit'],
+            Footage: '550 sq. feet',
+            Appliances: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer'],
+            Design: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage'],
+            Amenities: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
+        }
+    });
+
+    listing.save()
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
 
 app.use((req, res) => {

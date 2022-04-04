@@ -55,7 +55,7 @@ const listingSchema = new Schema({
         required: true
     },
     propertyInfo: {
-        type: Array,
+        type: Object,
         required: true
     },
 }, { timestamps: true });
