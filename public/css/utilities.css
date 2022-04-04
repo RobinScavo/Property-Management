@@ -468,8 +468,8 @@ li {
     border: none;
     background-color: transparent;
     color: var(--light-color);
-    height: 2rem;
-    width: 2rem;
+    height: 2.2rem;
+    width: 2.2rem;
     font-size: 2rem;
     text-shadow: 1px 1px 3px var(--darkish-color);
     background-image: url('../images/icons/left-arrow.png');

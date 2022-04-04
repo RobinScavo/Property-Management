@@ -5,6 +5,7 @@ const Listing = require('./models/listing')
 const { ObjectId } = require('mongodb');
 const { connectToDb, getDb } = require('./db');
 
+
 // init app & middleware
 const app = express()
 
@@ -96,16 +97,19 @@ app.get('/admin-edit/:id', (req, res) => {
 // })
 
 app.get('/listings', (req, res) => {
-    // const page = req.query.p || 0;
-    // const listingsPerPage = 5;
-
-    // let listings = []
+    Listing.find()
+        .then((result) => {
+            res.render('propertySearch', { listings: result })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 
     // db.collection('listings')
     //     .find()
-    //     .skip(page * listingsPerPage)
-    //     .limit(listingsPerPage)
-    //     .forEach(listing => listings.push(listing))
+        // .skip(page * listingsPerPage)
+        // .limit(listingsPerPage)
+        // .forEach(listing => listings.push(listing))
     //     .then(() => {
     //         res.status(200).json(listings)
     //     })
@@ -113,23 +117,34 @@ app.get('/listings', (req, res) => {
     //         res.status(500).json({error: 'Could not fetch listings'})
     //     })
     // console.log(listings)
-    res.render('propertySearch')
+    // res.render('propertySearch')
 })
 
 app.get('/listings/:id', (req, res) => {
-
     if (ObjectId.isValid(req.params.id)) {
-        db.collection('listings')
-            .findOne({_id: ObjectId(req.params.id)})
-            .then(doc => {
-                res.status(200).json(doc)
+        Listing.findById(req.params.id)
+            .then((result) => {
+                res.render('propertyDetail', {listing: result })
             })
-            .catch(err => {
-                res.status(500).json({error: 'Could not fetch document'})
+            .catch((err) => {
+                console.log(err)
             })
     } else {
         res.status(500).json({error: 'Not a valid property ID'})
     }
+
+    // if (ObjectId.isValid(req.params.id)) {
+    //     db.collection('listings')
+    //         .findOne({_id: ObjectId(req.params.id)})
+    //         .then(doc => {
+    //             res.status(200).json(doc)
+    //         })
+    //         .catch(err => {
+    //             res.status(500).json({error: 'Could not fetch document'})
+    //         })
+    // } else {
+    //     res.status(500).json({error: 'Not a valid property ID'})
+    // }
 })
 
 app.use((req, res) => {

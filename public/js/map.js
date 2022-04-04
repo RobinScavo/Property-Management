@@ -1,9 +1,34 @@
-const mapContainer = document.getElementById('map');
-const listings = document.querySelector('.results-container').childNodes;
+const mapEl = document.querySelector('.map-container');
+const mapButton = document.querySelector('.map-button');
 
 var map;
 
-function initMap(markersDisplayed) {
+mapButton.addEventListener('click', () => {
+    const listings = document.querySelectorAll('.latitude');
+    const longitudes = document.querySelectorAll('.longitude');
+    const addresses = document.querySelectorAll('.address');
+    const IDs = document.querySelectorAll('.id');
+
+
+    listings.forEach((listing, index) => {
+        const latitude = +listing.innerHTML;
+        const longitude = +longitudes[index].innerHTML;
+        const address = addresses[index].innerHTML
+        const id = IDs[index].innerHTML
+
+        // console.log(typeof latitude, longitude, address)
+        dropMarker(latitude, longitude, address, id)
+    })
+
+    mapButton.classList.add('undisplayed');
+    mapEl.classList.remove('undisplayed');
+    mapEl.scrollIntoView();
+})
+
+function initMap() {
+    const mapContainer = document.getElementById('map');
+
+
     const options = {
         center: {lat:45.782650, lng:-108.504578},
         zoom: 11,
@@ -11,13 +36,9 @@ function initMap(markersDisplayed) {
     }
 
     map = new google.maps.Map(mapContainer, options);
-
-    for (let listing of markersDisplayed) {
-        dropMarker(listing.latitude, listing.longitude, listing.address);
-    }
 }
 
-function dropMarker(latitude, longitude, address) {
+function dropMarker(latitude, longitude, address, id) {
     const marker = new google.maps.Marker({
         position:{lat:latitude, lng:longitude},
         map:map,
@@ -36,13 +57,18 @@ function dropMarker(latitude, longitude, address) {
         infoWindow.close(map, marker)
     });
     marker.addListener('click', () => {
-        if (!searchMain.contains(resultsContainer)) return;
-        let target;
-        for (let listing of list) {
-            if (listing.address === address) {
-                target = list.indexOf(listing)
-            };
-        }
-        if (target !== undefined) viewProperty(target)
+        const redirect = id.trim()
+        window.location.href = `/listings/${redirect}`
+        // window.location.href = `/listings/${id}`
+        // if (!searchMain.contains(resultsContainer)) return;
+        // let target;
+        // for (let listing of list) {
+        //     if (listing.address === address) {
+        //         target = list.indexOf(listing)
+        //     };
+        // }
+        // if (target !== undefined) viewProperty(target)
     })
 }
+
+initMap()

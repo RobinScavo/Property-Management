@@ -51,7 +51,58 @@
     </section>
 
     <main class="search-main">
-        <div class="results-container"></div>
+        <div class="results-container">
+            <% if (listings.length > 0) { %>
+                <% listings.forEach((listing, index) => { %>
+                    <div id=<%= index %> class="property-container">
+
+                        <div class="'property-image-div admin-image">
+                            <img
+                                class="property-image"
+                                src=<%= listing.mainImageURL %>
+                                alt=<%= listing.alt %>
+                                height='200px'
+                                width='300px'
+                            />
+                        </div>
+
+                        <div class="first-property-text">
+                            <p class="property-text">
+                                <%= listing.beds %> Bedrooms
+                            </p>
+                            <p class="property-text">
+                                <%= listing.bath %> Bath
+                            </p>
+                            <p class="address property-text">
+                                <%= listing.address %>
+                            </p>
+                            <p class="latitude hidden">
+                                <%= listing.latitude %>
+                            </p>
+                            <p class="longitude hidden">
+                                <%= listing.longitude %>
+                            </p>
+                            <p class="id hidden">
+                                <%= listing.id %>
+                            </p>
+                        </div>
+
+                        <div class="second-property-text">
+                            <h2 class="property-text-big">
+                                $<%= listing.rent %>/Month
+                            </h2>
+                            <p class="property-text">
+                                <%= listing.availability %>
+                            </p>
+                            <button class="btn more-info">
+                                <a href="/listings/<%= listing.id %>"> More Info >> </a>
+                            </button>
+                        </div>
+
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
     </main>
 
     <button id='map-button' class="btn map-button">View Map</button>
@@ -65,8 +116,8 @@
 
     <script src='../js/dummyData.js'></script>
     <script src="../js/viewProperty.js"></script>
-    <script src="../js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo"></script>
+    <script src="../js/map.js"></script>
     <script src="../js/propertySearch.js"></script>
 </body>
 </html>
