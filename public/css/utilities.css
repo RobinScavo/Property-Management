@@ -97,20 +97,21 @@ header {
     width: 3.5rem;
     left: .5rem;
     top: .5rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--light-color);
     color: #d3e7fa;
 }
 
 .logo-text {
+    /* font-family: 'Orbitron', sans-serif; */
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: var(--darker-color);
+    color: var(--light-color);
 }
 
-.home-text {
+/* .home-text {
     visibility: hidden;
     position: absolute;
     top: 2rem;
@@ -118,7 +119,7 @@ header {
     font-size: 10px;
     opacity: 0;
     transition: visiblity 0s linear 1000ms, opacity 1000ms;
-}
+} */
 
 .logo-text-div {
     position: absolute;
@@ -154,7 +155,7 @@ header {
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
-.logo-overlay {
+/* .logo-overlay {
     position:absolute;
     left:0;
     top:0;
@@ -163,7 +164,7 @@ header {
     background-color:black;
     opacity:0.1;
     border-radius: 50%;
-}
+} */
 
 .header-links {
     display: flex;
@@ -272,9 +273,11 @@ header {
 
 .main-text a {
     color: var(--secondary-color);
-    font-size: 18px;
+    font-size: 20px;
     padding-top: .3rem;
+    /* padding-left: 1rem; */
     margin-bottom: 1rem;
+    margin-top: .3rem;
     font-weight: bolder;
 }
 

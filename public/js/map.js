@@ -17,6 +17,7 @@ mapButton.addEventListener('click', () => {
         const id = IDs[index].innerHTML
 
         // console.log(typeof latitude, longitude, address)
+
         dropMarker(latitude, longitude, address, id)
     })
 
@@ -59,15 +60,6 @@ function dropMarker(latitude, longitude, address, id) {
     marker.addListener('click', () => {
         const redirect = id.trim()
         window.location.href = `/listings/${redirect}`
-        // window.location.href = `/listings/${id}`
-        // if (!searchMain.contains(resultsContainer)) return;
-        // let target;
-        // for (let listing of list) {
-        //     if (listing.address === address) {
-        //         target = list.indexOf(listing)
-        //     };
-        // }
-        // if (target !== undefined) viewProperty(target)
     })
 }
 
