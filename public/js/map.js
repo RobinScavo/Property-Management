@@ -4,19 +4,20 @@ const mapButton = document.querySelector('.map-button');
 var map;
 
 mapButton.addEventListener('click', () => {
-    const listings = document.querySelectorAll('.latitude');
+    const listings = document.querySelectorAll('.property-container')
+    const latitudes = document.querySelectorAll('.latitude');
     const longitudes = document.querySelectorAll('.longitude');
     const addresses = document.querySelectorAll('.address');
     const IDs = document.querySelectorAll('.id');
 
 
     listings.forEach((listing, index) => {
-        const latitude = +listing.innerHTML;
+        if (listing.classList.contains('undisplayed')) return;
+
+        const latitude = +latitudes[index].innerHTML;
         const longitude = +longitudes[index].innerHTML;
         const address = addresses[index].innerHTML
         const id = IDs[index].innerHTML
-
-        // console.log(typeof latitude, longitude, address)
 
         dropMarker(latitude, longitude, address, id)
     })
