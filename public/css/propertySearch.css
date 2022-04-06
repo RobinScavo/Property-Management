@@ -169,6 +169,8 @@
     align-items: center;
     height: auto;
     width: 100vw;
+    background-color: var(--lightish-color);
+    padding-bottom: 20px;
 }
 
 .detail-address {

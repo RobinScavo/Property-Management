@@ -483,7 +483,7 @@ li {
     border-radius: 50%;
 }
 
-.carousel-button-right {
+#right-carousel-button {
     transform: rotate(180deg)
 }
 

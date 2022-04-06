@@ -10,7 +10,6 @@ mapButton.addEventListener('click', () => {
     const addresses = document.querySelectorAll('.address');
     const IDs = document.querySelectorAll('.id');
 
-
     listings.forEach((listing, index) => {
         if (listing.classList.contains('undisplayed')) return;
 
@@ -29,7 +28,6 @@ mapButton.addEventListener('click', () => {
 
 function initMap() {
     const mapContainer = document.getElementById('map');
-
 
     const options = {
         center: {lat:45.782650, lng:-108.504578},

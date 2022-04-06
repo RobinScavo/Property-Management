@@ -1,65 +1,79 @@
-const searchHeader = document.querySelector('.search-header');
-const searchMain = document.querySelector('.search-main');
+// const searchHeader = document.querySelector('.search-header');
+// const searchMain = document.querySelector('.search-main');
+const forwardButton = document.getElementById('right-carousel-button');
+const backButton = document.getElementById('left-carousel-button');
 
 let targetProperty;
 let activeSlideIndex = 0;
 let runSlideShow;
 let manuallyToggling = false;
 
-const viewProperty = (target) => {
-    searchHeader.classList.add('undisplayed');
-    if (searchMain.contains(resultsContainer)) {
-        searchMain.removeChild(resultsContainer);
-    }
-    mapButton.classList.add('undisplayed');
-    mapEl.classList.remove('undisplayed');
+backButton.addEventListener('click', () => {
+    manuallyToggling  = true;
+    clearTimeout(runSlideShow);
+    toggleCarousel('left', activeSlideIndex);
+});
 
-    for (const property of properties) {
-        if (property.id === +target) {
-            targetProperty = property;
-            continue;
-        }
-    }
+forwardButton.addEventListener('click', () => {
+    manuallyToggling  = true;
+    clearTimeout(runSlideShow);
+    toggleCarousel('right', activeSlideIndex);
+});
 
-    const propertyContainer = document.createElement('div');
-    propertyContainer.classList.add('detail-container');
+// const viewProperty = (target) => {
+//     searchHeader.classList.add('undisplayed');
+//     if (searchMain.contains(resultsContainer)) {
+//         searchMain.removeChild(resultsContainer);
+//     }
+//     mapButton.classList.add('undisplayed');
+//     mapEl.classList.remove('undisplayed');
 
-    const backButton = document.createElement('button');
-    backButton.classList.add('btn');
-    backButton.classList.add('back-button');
-    backButton.innerText = 'Back to Results';
-    backButton.addEventListener('click', () => {
-        clearTimeout(runSlideShow);
-        searchMain.removeChild(propertyContainer);
-        searchMain.appendChild(resultsContainer);
-        displayProperties(currentIndex);
-    });
+//     for (const property of properties) {
+//         if (property.id === +target) {
+//             targetProperty = property;
+//             continue;
+//         }
+//     }
 
-    const detailAddress = document.createElement('h1');
-    detailAddress.classList.add('detail-address');
-    detailAddress.innerText = `${targetProperty.address}`;
+//     const propertyContainer = document.createElement('div');
+//     propertyContainer.classList.add('detail-container');
 
-    const detailCity = document.createElement('p');
-    detailCity.classList.add('detail-city');
-    detailCity.innerText = `${targetProperty.city}`;
+//     const backButton = document.createElement('button');
+//     backButton.classList.add('btn');
+//     backButton.classList.add('back-button');
+//     backButton.innerText = 'Back to Results';
+//     backButton.addEventListener('click', () => {
+//         clearTimeout(runSlideShow);
+//         searchMain.removeChild(propertyContainer);
+//         searchMain.appendChild(resultsContainer);
+//         displayProperties(currentIndex);
+//     });
 
-    propertyContainer.appendChild(backButton);
-    propertyContainer.appendChild(detailAddress);
-    propertyContainer.appendChild(detailCity);
+//     const detailAddress = document.createElement('h1');
+//     detailAddress.classList.add('detail-address');
+//     detailAddress.innerText = `${targetProperty.address}`;
 
-    const carousel = buildCarousel(targetProperty);
-    const thumbnails = buildThumbnails(targetProperty);
-    const infoDiv = buildInfoDiv(targetProperty);
-    initMap([targetProperty]);
+//     const detailCity = document.createElement('p');
+//     detailCity.classList.add('detail-city');
+//     detailCity.innerText = `${targetProperty.city}`;
 
-    propertyContainer.appendChild(carousel);
-    propertyContainer.appendChild(thumbnails);
-    propertyContainer.appendChild(infoDiv);
+//     propertyContainer.appendChild(backButton);
+//     propertyContainer.appendChild(detailAddress);
+//     propertyContainer.appendChild(detailCity);
 
-    searchMain.appendChild(propertyContainer);
+//     const carousel = buildCarousel(targetProperty);
+//     const thumbnails = buildThumbnails(targetProperty);
+//     const infoDiv = buildInfoDiv(targetProperty);
+//     initMap([targetProperty]);
 
-    setTimeout(() => slideShow(targetProperty, activeSlideIndex), 1000)
-}
+//     propertyContainer.appendChild(carousel);
+//     propertyContainer.appendChild(thumbnails);
+//     propertyContainer.appendChild(infoDiv);
+
+//     searchMain.appendChild(propertyContainer);
+
+//     setTimeout(() => slideShow(targetProperty, activeSlideIndex), 1000)
+// }
 
 const buildCarousel = (targetProperty) => {
     const carouselContainer = document.createElement('div');
