@@ -1,7 +1,15 @@
-// const searchHeader = document.querySelector('.search-header');
-// const searchMain = document.querySelector('.search-main');
 const forwardButton = document.getElementById('right-carousel-button');
 const backButton = document.getElementById('left-carousel-button');
+const thumbnails = document.querySelectorAll('.thumbnail-image');
+const thumbnail = document.querySelector('.thumbnail-image');
+const carousel = document.querySelector('.carousel-container');
+const mainImage = document.querySelector('.main-image-container');
+const thumbnailDiv = document.querySelector('.thumbnail-div');
+const slidesLength = mainImage.querySelectorAll('div').length;
+const overlay = document.querySelector('.carousel-overlay');
+const imageText = document.querySelector('.carousel-text');
+const imageURLs = document.querySelector('.image-urls').innerHTML.split(',');
+const imageTextArray = document.querySelector('.image-text-array').innerHTML.split(',');
 
 let targetProperty;
 let activeSlideIndex = 0;
@@ -19,6 +27,61 @@ forwardButton.addEventListener('click', () => {
     clearTimeout(runSlideShow);
     toggleCarousel('right', activeSlideIndex);
 });
+
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        console.log(index)
+        manuallyToggling  = true;
+        toggleCarousel(null, index+1);
+    });
+})
+
+const toggleCarousel = (direction, index) => {
+    const sliderWidth = carousel.clientWidth;
+    const thumbnailWidth = thumbnail.clientWidth;
+
+    activeSlideIndex = index;
+
+    overlay.classList.remove('carousel-visible');
+    imageText.classList.remove('carousel-text-visible');
+    overlay.classList.add('carousel-hidden');
+    imageText.classList.add('carousel-text-hidden');
+
+    if (direction === 'right') {
+        activeSlideIndex++;
+        if (activeSlideIndex > slidesLength - 1) {
+            activeSlideIndex = 0;
+        }
+    } else if (direction === 'left') {
+        activeSlideIndex--;
+        if (activeSlideIndex < 0) {
+            activeSlideIndex = slidesLength -1;
+        }
+    }
+
+    mainImage.style.transform = `translateX(-${activeSlideIndex * sliderWidth}px)`;
+    thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
+
+    if (!manuallyToggling) {
+        setTimeout(function() {
+            slideShow(imageURLs, activeSlideIndex)
+        }, 1500);
+    }
+}
+
+const slideShow = (imageURLs, index) => {
+    imageText.innerText = imageTextArray[index];
+
+    overlay.classList.add('carousel-visible');
+    overlay.classList.remove('carousel-hidden');
+    imageText.classList.add('carousel-text-visible');
+    imageText.classList.remove('carousel-text-hidden');
+
+    runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
+
+}
+
+setTimeout(() => slideShow(imageURLs, activeSlideIndex), 1000)
 
 // const viewProperty = (target) => {
 //     searchHeader.classList.add('undisplayed');
@@ -131,131 +194,131 @@ const buildCarousel = (targetProperty) => {
     return carouselContainer;
 }
 
-const buildThumbnails = (targetProperty) => {
-    const thumbnailContainer = document.createElement('div');
-    thumbnailContainer.classList.add('thumbnail-container');
+// const buildThumbnails = (targetProperty) => {
+//     const thumbnailContainer = document.createElement('div');
+//     thumbnailContainer.classList.add('thumbnail-container');
 
-    const thumbnailDiv = document.createElement('div');
-    thumbnailDiv.classList.add('thumbnail-div');
+//     const thumbnailDiv = document.createElement('div');
+//     thumbnailDiv.classList.add('thumbnail-div');
 
-    for (const [index, image] of targetProperty.imageURLs.entries()) {
-        if (index === 0) continue;
-        const thumbnail = document.createElement('div');
-        thumbnail.classList.add('thumbnail-image');
-        thumbnail.setAttribute('style', `background-image: url('${image}')`);
-        thumbnail.setAttribute('alt', targetProperty.imageAlts[index]);
-        thumbnail.addEventListener('click', () => {
-            manuallyToggling  = true;
-            toggleCarousel(null, index);
-        });
+//     for (const [index, image] of targetProperty.imageURLs.entries()) {
+//         if (index === 0) continue;
+//         const thumbnail = document.createElement('div');
+//         thumbnail.classList.add('thumbnail-image');
+//         thumbnail.setAttribute('style', `background-image: url('${image}')`);
+//         thumbnail.setAttribute('alt', targetProperty.imageAlts[index]);
+//         thumbnail.addEventListener('click', () => {
+//             manuallyToggling  = true;
+//             toggleCarousel(null, index);
+//         });
 
-        thumbnailDiv.appendChild(thumbnail);
-        thumbnailContainer.appendChild(thumbnailDiv);
-    }
+//         thumbnailDiv.appendChild(thumbnail);
+//         thumbnailContainer.appendChild(thumbnailDiv);
+//     }
 
-    thumbnailContainer.appendChild(thumbnailDiv);
+//     thumbnailContainer.appendChild(thumbnailDiv);
 
-    return thumbnailContainer;
-}
+//     return thumbnailContainer;
+// }
 
-const buildInfoDiv = (targetProperty) => {
-    const target = targetProperty.propertyInfo;
-    const infoContainer = document.createElement('div');
-    infoContainer.classList.add('info-container');
+// const buildInfoDiv = (targetProperty) => {
+//     const target = targetProperty.propertyInfo;
+//     const infoContainer = document.createElement('div');
+//     infoContainer.classList.add('info-container');
 
-    target.forEach((info) => {
-        const infoDiv = document.createElement('div');
-        infoDiv.classList.add('info-div');
+//     target.forEach((info) => {
+//         const infoDiv = document.createElement('div');
+//         infoDiv.classList.add('info-div');
 
-        if (info.icon) {
-            const infoIconDiv = document.createElement('div');
-            infoIconDiv.classList.add('icon-container');
-            if (info.icon === '../images/icons/pets-icon.png') {
-                infoIconDiv.classList.add('info-icon-pets');
-            }
+//         if (info.icon) {
+//             const infoIconDiv = document.createElement('div');
+//             infoIconDiv.classList.add('icon-container');
+//             if (info.icon === '../images/icons/pets-icon.png') {
+//                 infoIconDiv.classList.add('info-icon-pets');
+//             }
 
-            const icon = document.createElement('img');
-            icon.classList.add('property-details-icon');
-            icon.setAttribute('src', `${info.icon}`);
+//             const icon = document.createElement('img');
+//             icon.classList.add('property-details-icon');
+//             icon.setAttribute('src', `${info.icon}`);
 
-            infoIconDiv.appendChild(icon);
-            infoDiv.appendChild(infoIconDiv);
-        }
+//             infoIconDiv.appendChild(icon);
+//             infoDiv.appendChild(infoIconDiv);
+//         }
 
-        const infoTitle = document.createElement('h3');
-        infoTitle.classList.add('info-title');
-        infoTitle.innerText = `${info.title}`;
+//         const infoTitle = document.createElement('h3');
+//         infoTitle.classList.add('info-title');
+//         infoTitle.innerText = `${info.title}`;
 
-        infoDiv.appendChild(infoTitle);
+//         infoDiv.appendChild(infoTitle);
 
-        info.infoArray.forEach((el) => {
-            const infoElement = document.createElement('p');
-            infoElement.classList.add('info-array-element')
-            infoElement.innerText = `${el}`;
+//         info.infoArray.forEach((el) => {
+//             const infoElement = document.createElement('p');
+//             infoElement.classList.add('info-array-element')
+//             infoElement.innerText = `${el}`;
 
-            infoDiv.appendChild(infoElement);
-        });
+//             infoDiv.appendChild(infoElement);
+//         });
 
-        infoContainer.appendChild(infoDiv);
-    });
+//         infoContainer.appendChild(infoDiv);
+//     });
 
-    return infoContainer
-}
+//     return infoContainer
+// }
 
-const toggleCarousel = (direction, index) => {
-    const carousel = document.querySelector('.carousel-container');
-    const mainImage = document.querySelector('.main-image-container');
-    const thumbnails = document.querySelector('.thumbnail-image');
-    const thumbnailDiv = document.querySelector('.thumbnail-div');
-    const slidesLength = mainImage.querySelectorAll('div').length;
-    const overlay = document.querySelector('.carousel-overlay');
-    const imageText = document.querySelector('.carousel-text');
+// const toggleCarousel = (direction, index) => {
+//     const carousel = document.querySelector('.carousel-container');
+//     const mainImage = document.querySelector('.main-image-container');
+//     const thumbnails = document.querySelector('.thumbnail-image');
+//     const thumbnailDiv = document.querySelector('.thumbnail-div');
+//     const slidesLength = mainImage.querySelectorAll('div').length;
+//     const overlay = document.querySelector('.carousel-overlay');
+//     const imageText = document.querySelector('.carousel-text');
 
-    const sliderWidth = carousel.clientWidth;
-    const thumbnailWidth = thumbnails.clientWidth;
+//     const sliderWidth = carousel.clientWidth;
+//     const thumbnailWidth = thumbnails.clientWidth;
 
-    activeSlideIndex = index;
+//     activeSlideIndex = index;
 
-    overlay.classList.remove('carousel-visible');
-    imageText.classList.remove('carousel-text-visible');
-    overlay.classList.add('carousel-hidden');
-    imageText.classList.add('carousel-text-hidden');
+//     overlay.classList.remove('carousel-visible');
+//     imageText.classList.remove('carousel-text-visible');
+//     overlay.classList.add('carousel-hidden');
+//     imageText.classList.add('carousel-text-hidden');
 
-    if (direction === 'right') {
-        activeSlideIndex++;
-        if (activeSlideIndex > slidesLength - 1) {
-            activeSlideIndex = 0;
-        }
-    } else if (direction === 'left') {
-        activeSlideIndex--;
-        if (activeSlideIndex < 0) {
-            activeSlideIndex = slidesLength -1;
-        }
-    }
+//     if (direction === 'right') {
+//         activeSlideIndex++;
+//         if (activeSlideIndex > slidesLength - 1) {
+//             activeSlideIndex = 0;
+//         }
+//     } else if (direction === 'left') {
+//         activeSlideIndex--;
+//         if (activeSlideIndex < 0) {
+//             activeSlideIndex = slidesLength -1;
+//         }
+//     }
 
-    mainImage.style.transform = `translateX(-${activeSlideIndex * sliderWidth}px)`;
-    thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
+//     mainImage.style.transform = `translateX(-${activeSlideIndex * sliderWidth}px)`;
+//     thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
 
-    if (!manuallyToggling) {
-        setTimeout(function() {
-            slideShow(targetProperty, activeSlideIndex)
-        }, 1500);
-    }
-}
+//     if (!manuallyToggling) {
+//         setTimeout(function() {
+//             slideShow(targetProperty, activeSlideIndex)
+//         }, 1500);
+//     }
+// }
 
-const slideShow = (targetProperty, index) => {
-    const overlay = document.querySelector('.carousel-overlay');
-    const imageText = document.querySelector('.carousel-text');
+// const slideShow = (targetProperty, index) => {
+//     const overlay = document.querySelector('.carousel-overlay');
+//     const imageText = document.querySelector('.carousel-text');
 
-    if (searchMain.contains(resultsContainer)) return;
+//     if (searchMain.contains(resultsContainer)) return;
 
-    imageText.innerText = targetProperty.imageTextArray[index];
+//     imageText.innerText = targetProperty.imageTextArray[index];
 
-    overlay.classList.add('carousel-visible');
-    overlay.classList.remove('carousel-hidden');
-    imageText.classList.add('carousel-text-visible');
-    imageText.classList.remove('carousel-text-hidden');
+//     overlay.classList.add('carousel-visible');
+//     overlay.classList.remove('carousel-hidden');
+//     imageText.classList.add('carousel-text-visible');
+//     imageText.classList.remove('carousel-text-hidden');
 
-    runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
+//     runSlideShow = setTimeout(() => toggleCarousel('right', index), 3500)
 
-}
+// }

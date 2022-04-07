@@ -10,14 +10,20 @@
     <link rel="stylesheet" href="../css/propertySearch.css">
     <title>Listing Detail</title>
 </head>
-<body>
+
+<body class="'scrollbar-hidden">
     <!-- Header -->
     <%- include('./partials/small-header.ejs', { admin: false }) %>
 
-    <div class="detail-container">
+    <div class="detail-container property-container">
         <button class="btn back-button"><a href='/listings'>Back To Results</a></button>
-        <h1 class="detail-address"><%= listing.address %></h1>
+        <h1 class="detail-address address"><%= listing.address %></h1>
         <p class="detail-city"><%= listing.city %></p>
+        <p class="latitude undisplayed"><%= listing.latitude %></p>
+        <p class="longitude undisplayed"><%= listing.longitude %></p>
+        <p class="id undisplayed"><%= listing.id %></p>
+        <p class="image-text-array undisplayed"><%= listing.imageTextArray %></p>
+        <p class="image-urls undisplayed"><%= listing.imageURLs %></p>
 
         <!-- Carousel -->
         <div class="carousel-container">
@@ -53,10 +59,49 @@
                 <% } %>
             </div>
         </div>
+
+        <!-- Info -->
+        <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
+
+        <% const titles = Object.keys(infoTitles) %>
+        <% const icons = Object.values(infoTitles) %>
+        <% const infoValues = Object.values(listing.propertyInfo) %>
+
+        <div class="info-container">
+            <% for (const [index, info] of infoValues.entries()) { %>
+                <% const title = titles[index] %>
+                <% const icon = icons[index] %>
+
+                <div class="info-div">
+                    <% if (icon) { %>
+                        <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
+
+                        <div class="icon-container <%= petIcon %>">
+                            <img class='property-details-icon' src="<%= icon %>" alt="icon">
+                        </div>
+                    <% } %>
+
+                    <h3 class="info-title"><%= title %></h3>
+
+                    <% for (const item of info) { %>
+                        <p class="info-array-element"><%= item %></p>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        <button id='map-button' class="btn map-button">View Map</button>
+
+        <section class="map-container undisplayed">
+            <div id="map"></div>
+        </section>
     </div>
 
 
+    <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo"></script>
+    <script src="../js/map.js"></script>
     <script src="../js/viewProperty.js"></script>
 </body>

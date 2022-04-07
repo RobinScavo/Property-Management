@@ -17,6 +17,7 @@ mapButton.addEventListener('click', () => {
         const longitude = +longitudes[index].innerHTML;
         const address = addresses[index].innerHTML
         const id = IDs[index].innerHTML
+        console.log(latitude, longitude, address, id)
 
         dropMarker(latitude, longitude, address, id)
     })

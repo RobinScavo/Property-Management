@@ -349,6 +349,7 @@ const properties = [
     }
 ]
 
+
 const rentalCriteria = {
     title: 'Rental Criteria',
     subtitle: 'Please read carefully before applying',
