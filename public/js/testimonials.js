@@ -55,8 +55,8 @@ getUsers()
     .then(data => Object.assign(results, data))
     .then(results => createCard(results));
 
-// Cycle cards on scroll
 
+// Cycle cards on scroll
 let lastKnownScrollPosition = 0;
 let cycling = false;
 let cyclingCards;

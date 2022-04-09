@@ -4,16 +4,143 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/propertySearch.css">
-    <title>Admin Edit</title>
+    <link rel="stylesheet" href="../css/edit.css">
+    <title>Listing Detail</title>
 </head>
-<body>
-    <div class="detail-container">
-        <h1 class='detail-address'><%= listing.address %></h1>
-        <p class="detail-city"><%= listing.city %></p>
+
+<body class="'scrollbar-hidden">
+    <!-- Header -->
+    <%- include('./partials/small-header.ejs', { admin: false }) %>
+
+    <div class="detail-container property-container">
+        <button class="btn back-button"><a href='/listings'>Update Listing</a></button>
+        <input type='text' class="editInput bigInput" value="<%= listing.address %>" />
+        <input type='text' class="editInput mediumInput" value="<%= listing.city %>" />
+        <!-- <p class="latitude undisplayed"><%= listing.latitude %></p>
+        <p class="longitude undisplayed"><%= listing.longitude %></p>
+        <p class="id undisplayed"><%= listing.id %></p>
+        <p class="image-text-array undisplayed"><%= listing.imageTextArray %></p>
+        <p class="image-urls undisplayed"><%= listing.imageURLs %></p> -->
+
+        <!-- Carousel -->
+        <div class="carousel-container">
+            <div class="carousel-button-container editOverlay">
+                <p class="carousel-text"><%= listing.imageTextArray[0] %></p>
+            </div>
+
+            <div class="main-image-container">
+                <% for (const [index, image] of listing.imageURLs.entries()) { %>
+                    <div
+                        class="main-image"
+                        alt= <%= listing.imageAlts[index] %>
+                        style= "background-image: url('<%= image %>')"
+                    ></div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="editTextDiv">
+            <h2>Main Image URL</h2>
+            <input
+                type='text'
+                class="editInput mediumInput"
+                value="<%= listing.mainImageURL %>"
+            />
+        </div>
+
+        <div class="editTextDiv">
+            <h2 style="margin-top:-1rem">Text Overlay</h2>
+            <input
+                type='text'
+                class="editInput mediumInput"
+                value="<%= listing.imageTextArray[0] %>"
+            />
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbnail-container editThumbnailContainer">
+            <div class="thumbnail-div editThumbnails">
+                <% for (const [index, image] of listing.imageURLs.entries()) { %>
+                    <% if (index === 0) continue %>
+                    <div
+                        class="thumbnail-image editThumbnail"
+                        style= "background-image: url('<%= image %>')"
+                        alt= <%= listing.imageAlts[index] %>
+                    ></div>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="editTextDiv">
+            <h2>#2 Image URL</h2>
+            <input
+                type='text'
+                class="editInput mediumInput"
+                value="<%= listing.imageURLs[1] %>"
+            />
+        </div>
+
+        <div class="editTextDiv">
+            <h2>#2 Text Overlay</h2>
+            <input
+                type='text'
+                class="editInput mediumInput"
+                value="<%= listing.imageTextArray[1] %>"
+            />
+        </div>
+
+        <!-- Info -->
+        <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
+
+        <% const titles = Object.keys(infoTitles) %>
+        <% const icons = Object.values(infoTitles) %>
+        <% const infoValues = Object.values(listing.propertyInfo) %>
+
+        <div class="info-container">
+            <% for (const [index, info] of infoValues.entries()) { %>
+                <% const title = titles[index] %>
+                <% const icon = icons[index] %>
+
+                <div class="info-div">
+                    <% if (icon) { %>
+                        <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
+
+                        <div class="icon-container <%= petIcon %>">
+                            <img class='property-details-icon' src="<%= icon %>" alt="icon">
+                        </div>
+                    <% } %>
+
+                    <h3 class="info-title"><%= title %></h3>
+
+                    <% for (const item of info) { %>
+                        <input
+                            type='text'
+                            class="editInput smallInput"
+                            value="<%= item %>"
+                        />
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        <button class="btn back-button"><a href='/listings'>Update Listing</a></button>
+
+        <!-- <button id='map-button' class="btn map-button">View Map</button>
+
+        <section class="map-container undisplayed">
+            <div id="map"></div>
+        </section> -->
     </div>
 
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo"></script> -->
+    <!-- <script src="../js/map.js"></script>
+    <script src="../js/viewProperty.js"></script> -->
 </body>
-</html>

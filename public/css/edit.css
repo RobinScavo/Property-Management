@@ -1,0 +1,84 @@
+.editInput {
+    border: 2px solid var(--faint-color);
+    background-color: var(--lightish-color);
+    padding: .5rem;
+    width: 60vw;
+    caret-color: var(--dark-color);
+    text-align: center;
+    cursor: pointer;
+    color: var(--darker-color);
+}
+
+.editInput:focus {
+    outline: 3px solid var(--faint-color);
+}
+
+.bigInput,
+.bigInput::-webkit-input-placeholder {
+    margin-top: 1.5rem;
+    font-size: 2.2rem;
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
+    overflow: visible;
+}
+
+.mediumInput,
+.mediumInput::-webkit-input-placeholder {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--darker-color);
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
+    overflow: visible;
+}
+
+.editTextDiv {
+    position: relative;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.editOverlay {
+    justify-content: center;
+    background-color: rgba(81, 81, 81, 0.7);
+    text-align: center;
+}
+
+.editThumbnails {
+    background-color: var(--light-color);
+    flex-wrap: wrap;
+    height: auto;
+    overflow: visible;
+}
+
+.editThumbnailContainer {
+    overflow: visible;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+    /* height: fit-content; */
+}
+
+.editThumbnail {
+    margin-top: 1rem;
+}
+
+.smallInput {
+    width: auto;
+    font-size: 1.2rem;
+    margin-top: .5rem;
+}
+
+@media only screen and (max-width: 600px)  {
+    .editThumbnails {
+        height: 260px;
+        background-color: rebeccapurple;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .editThumbnails {
+        height: 260px;
+        background-color: aqua;
+    }
+}

@@ -30,7 +30,6 @@ forwardButton.addEventListener('click', () => {
 
 thumbnails.forEach((thumbnail, index) => {
     thumbnail.addEventListener('click', () => {
-        console.log(index)
         manuallyToggling  = true;
         toggleCarousel(null, index+1);
     });
@@ -64,12 +63,12 @@ const toggleCarousel = (direction, index) => {
 
     if (!manuallyToggling) {
         setTimeout(function() {
-            slideShow(imageURLs, activeSlideIndex)
+            slideShow(activeSlideIndex)
         }, 1500);
     }
 }
 
-const slideShow = (imageURLs, index) => {
+const slideShow = (index) => {
     imageText.innerText = imageTextArray[index];
 
     overlay.classList.add('carousel-visible');
@@ -81,7 +80,7 @@ const slideShow = (imageURLs, index) => {
 
 }
 
-setTimeout(() => slideShow(imageURLs, activeSlideIndex), 1000)
+setTimeout(() => slideShow(activeSlideIndex), 1000)
 
 // const viewProperty = (target) => {
 //     searchHeader.classList.add('undisplayed');
@@ -138,61 +137,61 @@ setTimeout(() => slideShow(imageURLs, activeSlideIndex), 1000)
 //     setTimeout(() => slideShow(targetProperty, activeSlideIndex), 1000)
 // }
 
-const buildCarousel = (targetProperty) => {
-    const carouselContainer = document.createElement('div');
-    carouselContainer.classList.add('carousel-container');
+// const buildCarousel = (targetProperty) => {
+//     const carouselContainer = document.createElement('div');
+//     carouselContainer.classList.add('carousel-container');
 
-    const carouselDiv = document.createElement('div');
-    carouselDiv.classList.add('main-image-container');
+//     const carouselDiv = document.createElement('div');
+//     carouselDiv.classList.add('main-image-container');
 
-    const carouselOverlay = document.createElement('div');
-    carouselOverlay.classList.add('carousel-overlay');
-    carouselOverlay.classList.add('carousel-hidden');
+//     const carouselOverlay = document.createElement('div');
+//     carouselOverlay.classList.add('carousel-overlay');
+//     carouselOverlay.classList.add('carousel-hidden');
 
-    const carouselButtonContainer = document.createElement('div');
-    carouselButtonContainer.classList.add('carousel-button-container');
+//     const carouselButtonContainer = document.createElement('div');
+//     carouselButtonContainer.classList.add('carousel-button-container');
 
-    const leftCarouselButton = document.createElement('button');
-    leftCarouselButton.classList.add('carousel-button');
-    leftCarouselButton.addEventListener('click', () => {
-        manuallyToggling  = true;
-        clearTimeout(runSlideShow);
-        toggleCarousel('left', activeSlideIndex);
-    });
+//     const leftCarouselButton = document.createElement('button');
+//     leftCarouselButton.classList.add('carousel-button');
+//     leftCarouselButton.addEventListener('click', () => {
+//         manuallyToggling  = true;
+//         clearTimeout(runSlideShow);
+//         toggleCarousel('left', activeSlideIndex);
+//     });
 
-    const rightCarouselButton = document.createElement('button');
-    rightCarouselButton.classList.add('carousel-button');
-    rightCarouselButton.classList.add('carousel-button-right');
-    rightCarouselButton.addEventListener('click', () => {
-        manuallyToggling  = true;
-        clearTimeout(runSlideShow);
-        toggleCarousel('right', activeSlideIndex);
-    });
+//     const rightCarouselButton = document.createElement('button');
+//     rightCarouselButton.classList.add('carousel-button');
+//     rightCarouselButton.classList.add('carousel-button-right');
+//     rightCarouselButton.addEventListener('click', () => {
+//         manuallyToggling  = true;
+//         clearTimeout(runSlideShow);
+//         toggleCarousel('right', activeSlideIndex);
+//     });
 
-    const carouselText = document.createElement('p');
-    carouselText.classList.add('carousel-text');
-    carouselText.classList.add('carousel-text-hidden');
-    carouselText.innerText = '';
+//     const carouselText = document.createElement('p');
+//     carouselText.classList.add('carousel-text');
+//     carouselText.classList.add('carousel-text-hidden');
+//     carouselText.innerText = '';
 
-    for (const [index, image] of targetProperty.imageURLs.entries()) {
-        const mainImage = document.createElement('div');
-        mainImage.classList.add('main-image');
-        mainImage.setAttribute('style', `background-image: url('${image}')`);
-        mainImage.setAttribute('alt', targetProperty.imageAlts[index]);
+//     for (const [index, image] of targetProperty.imageURLs.entries()) {
+//         const mainImage = document.createElement('div');
+//         mainImage.classList.add('main-image');
+//         mainImage.setAttribute('style', `background-image: url('${image}')`);
+//         mainImage.setAttribute('alt', targetProperty.imageAlts[index]);
 
-        carouselDiv.appendChild(mainImage);
-    }
+//         carouselDiv.appendChild(mainImage);
+//     }
 
-    carouselButtonContainer.appendChild(leftCarouselButton);
-    carouselButtonContainer.appendChild(carouselText);
-    carouselButtonContainer.appendChild(rightCarouselButton);
+//     carouselButtonContainer.appendChild(leftCarouselButton);
+//     carouselButtonContainer.appendChild(carouselText);
+//     carouselButtonContainer.appendChild(rightCarouselButton);
 
-    carouselContainer.appendChild(carouselButtonContainer);
-    carouselContainer.appendChild(carouselDiv);
-    carouselContainer.appendChild(carouselOverlay);
+//     carouselContainer.appendChild(carouselButtonContainer);
+//     carouselContainer.appendChild(carouselDiv);
+//     carouselContainer.appendChild(carouselOverlay);
 
-    return carouselContainer;
-}
+//     return carouselContainer;
+// }
 
 // const buildThumbnails = (targetProperty) => {
 //     const thumbnailContainer = document.createElement('div');

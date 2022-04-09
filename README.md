@@ -10,8 +10,8 @@
 
 # Features:
 - Custom dropdown menus
-- Custom 'Troubleshooting Tips' UI
-- Custom Forms
+- Custom Forms and Models
+- Custom Content Manager
 
 
 # Improvements needed:
@@ -39,3 +39,12 @@
  - MongoDB
  - Morgan
  - Mongoose
+
+ # Stack
+ - EJS/ CSS/ JS/ Node.js/ MongoDB
+
+ # Technologies
+ - Google maps API
+ - Random User  API
+ - Mongoose
+ -
