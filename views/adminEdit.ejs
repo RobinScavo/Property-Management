@@ -62,22 +62,28 @@
         </div>
 
         <!-- Thumbnails -->
-        <div class="thumbnail-container editThumbnailContainer">
+        <!-- <div class="thumbnail-container editThumbnailContainer"> -->
             <div class="thumbnail-div editThumbnails">
                 <% for (const [index, image] of listing.imageURLs.entries()) { %>
                     <% if (index === 0) continue %>
                     <div
-                        class="thumbnail-image editThumbnail"
-                        style= "background-image: url('<%= image %>')"
-                        alt= <%= listing.imageAlts[index] %>
-                    ></div>
+                    id= <%= index %>
+                    class="thumbnail-image editThumbnail"
+                    style= "background-image: url('<%= image %>')"
+                    alt= <%= listing.imageAlts[index] %>
+                    >
+                        <div class="thumbnailTextOverlay">
+                            <p class="thumbnail-text"><%= listing.imageTextArray[index] %></p>
+                        </div>
+                    </div>
                 <% } %>
             </div>
-        </div>
+        <!-- </div> -->
 
         <div class="editTextDiv">
-            <h2>#2 Image URL</h2>
+            <h2 class="thumbnail-URL-title">#2 Image URL</h2>
             <input
+                id="thumbnail-URL-input"
                 type='text'
                 class="editInput mediumInput"
                 value="<%= listing.imageURLs[1] %>"
@@ -85,8 +91,9 @@
         </div>
 
         <div class="editTextDiv">
-            <h2>#2 Text Overlay</h2>
+            <h2 class="thumbnail-text-title">#2 Text Overlay</h2>
             <input
+                id="thumbnail-text-input"
                 type='text'
                 class="editInput mediumInput"
                 value="<%= listing.imageTextArray[1] %>"
@@ -141,6 +148,5 @@
     <%- include('./partials/footer.ejs') %>
 
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo"></script> -->
-    <!-- <script src="../js/map.js"></script>
-    <script src="../js/viewProperty.js"></script> -->
+    <script src="../js/edit.js"></script>
 </body>
