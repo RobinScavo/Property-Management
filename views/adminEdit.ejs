@@ -8,23 +8,20 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/propertySearch.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
     <link rel="stylesheet" href="../css/edit.css">
     <title>Listing Detail</title>
 </head>
 
-<body class="'scrollbar-hidden">
+<body class="scrollbar-hidden">
     <!-- Header -->
-    <%- include('./partials/small-header.ejs', { admin: false }) %>
+    <%- include('./partials/small-header.ejs', { admin: true }) %>
+
+    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: true }) %>
 
     <div class="detail-container property-container">
-        <button class="btn back-button"><a href='/listings'>Update Listing</a></button>
         <input type='text' class="editInput bigInput" value="<%= listing.address %>" />
         <input type='text' class="editInput mediumInput" value="<%= listing.city %>" />
-        <!-- <p class="latitude undisplayed"><%= listing.latitude %></p>
-        <p class="longitude undisplayed"><%= listing.longitude %></p>
-        <p class="id undisplayed"><%= listing.id %></p>
-        <p class="image-text-array undisplayed"><%= listing.imageTextArray %></p>
-        <p class="image-urls undisplayed"><%= listing.imageURLs %></p> -->
 
         <!-- Carousel -->
         <div class="carousel-container">
@@ -62,23 +59,21 @@
         </div>
 
         <!-- Thumbnails -->
-        <!-- <div class="thumbnail-container editThumbnailContainer"> -->
-            <div class="thumbnail-div editThumbnails">
-                <% for (const [index, image] of listing.imageURLs.entries()) { %>
-                    <% if (index === 0) continue %>
-                    <div
-                    id= <%= index %>
-                    class="thumbnail-image editThumbnail"
-                    style= "background-image: url('<%= image %>')"
-                    alt= <%= listing.imageAlts[index] %>
-                    >
-                        <div class="thumbnailTextOverlay">
-                            <p class="thumbnail-text"><%= listing.imageTextArray[index] %></p>
-                        </div>
+        <div class="thumbnail-div editThumbnails">
+            <% for (const [index, image] of listing.imageURLs.entries()) { %>
+                <% if (index === 0) continue %>
+                <div
+                id= <%= index %>
+                class="thumbnail-image editThumbnail"
+                style= "background-image: url('<%= image %>')"
+                alt= <%= listing.imageAlts[index] %>
+                >
+                    <div class="thumbnailTextOverlay">
+                        <p class="thumbnail-text"><%= listing.imageTextArray[index] %></p>
                     </div>
-                <% } %>
-            </div>
-        <!-- </div> -->
+                </div>
+            <% } %>
+        </div>
 
         <div class="editTextDiv">
             <h2 class="thumbnail-URL-title">#2 Image URL</h2>
@@ -135,18 +130,10 @@
         </div>
 
         <button class="btn back-button"><a href='/listings'>Update Listing</a></button>
-
-        <!-- <button id='map-button' class="btn map-button">View Map</button>
-
-        <section class="map-container undisplayed">
-            <div id="map"></div>
-        </section> -->
     </div>
-
 
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
 
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEr6lAkDkwFhhVZJGvPynoHGLpzOiQOKo"></script> -->
     <script src="../js/edit.js"></script>
 </body>

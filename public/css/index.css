@@ -1,6 +1,6 @@
 
 /* OPTION DIV */
-
+/*
 .option-section {
     display: flex;
     justify-content: space-around;
@@ -137,7 +137,7 @@
     text-align: center;
     background-color: var(--dark-color);
     font-size: 1.2rem;
-}
+} */
 
 /* MAIN IMAGE */
 
@@ -450,27 +450,6 @@ form textarea {
 }
 
 @media only screen and (max-width: 600px)  {
-    #rental-option {
-        display: none;
-    }
-    .select-container {
-        width: 38vw;
-    }
-    #site-map-selector {
-        width: 24vw;
-    }
-    #resource-container {
-        width: 11rem;
-    }
-    .dropdown-label {
-        font-size: 1.2rem;
-    }
-    .option-container {
-        left: 0%;
-    }
-    .option-text-div {
-        height: 3.5rem;
-    }
     .contact-form {
         height: 40rem;
     }

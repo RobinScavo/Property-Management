@@ -22,4 +22,6 @@ const selectThumbnail = (e) => {
 
     thumbnailURLTitle.innerHTML = `#${index} Image URL`
     thumbnailTextTitle.innerHTML = `#${index} Text Overlay`
+    thumbnailURLInput.value = url.slice(5,url.length-2);
+    thumbnailTextInput.value = overlayText;
 }
