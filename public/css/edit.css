@@ -7,23 +7,28 @@
     text-align: center;
     cursor: pointer;
     color: var(--darker-color);
+    margin-left: 1rem;
 }
 
 .editInput:focus {
     outline: 3px solid var(--faint-color);
 }
 
-.bigInput,
-.bigInput::-webkit-input-placeholder {
+.bigInput {
     margin-top: 1.5rem;
     font-size: 2.2rem;
     font-weight: normal;
     font-family: 'Lato', sans-serif;
     overflow: visible;
+    color: var(--darker-color);
 }
 
-.mediumInput,
+.bigInput::-webkit-input-placeholder,
 .mediumInput::-webkit-input-placeholder {
+    color: var(--darkish-color);
+}
+
+.mediumInput {
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     font-size: 1.4rem;
@@ -93,12 +98,57 @@
     border: 6px solid var(--primary-color);
 }
 
-/* @media only screen and (max-width: 600px)  {
-    .editThumbnails {
-        height: 460px;
-        background-color: rebeccapurple;
-    }
-} */
+.add-listing-form, .thumbnailAddContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-listing-form {
+    align-items: flex-end;
+}
+
+.edit-label {
+    font-size: 1.6rem;
+    color: var(--darker-color);
+}
+
+#add-thumbnail-button {
+    align-self: center;
+}
+
+.small-add-label {
+    display: flex;
+    justify-content: end;
+    width: 6rem;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.small-add-info {
+    width: 4rem;
+    height: 2rem;
+    margin-left: 5px;
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--dark-color)
+}
+
+.edit-textarea {
+    height: 2rem;
+    width: 10rem;
+    font-size: 1.2rem;
+    border: 2px solid var(--faint-color);
+    background-color: var(--lightish-color);
+    padding: .5rem;
+    margin-top: .2rem;
+}
+
+.edit-textarea:focus {
+    outline: 3px solid var(--faint-color);
+}
 
 @media only screen and (max-width: 1200px) {
     .info-container {

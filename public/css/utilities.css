@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 :root {
-    --primary-color: #599cdf;
-    --secondary-color: #1784f1;
+    /* --primary-color: #599cdf;
+    --secondary-color: #1784f1; */
     --primary-color: #1784f1;
     --secondary-color: #0f5ca8;
     --dark-color: #515151;
     --darker-color: #1a1919;
-    --darkish-color: rgba(42, 41, 41, 0.9);
+    --darkish-color: rgba(42, 41, 41, 0.7);
     --faint-color: rgba(81, 81, 81, 0.3);
     --light-color: rgb(250, 246, 246);
     --lightish-color: rgb(241, 238, 230);

@@ -1,1 +1,91 @@
-<h1>Add Listing</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="../css/propertySearch.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
+    <link rel="stylesheet" href="../css/edit.css">
+    <title>Listing Detail</title>
+</head>
+
+<body class="scrollbar-hidden">
+    <!-- Header -->
+    <%- include('./partials/small-header.ejs', { admin: true }) %>
+
+    <!-- Dropdown -->
+    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: true }) %>
+
+    <!-- Form -->
+    <div class="detail-container property-container">
+        <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
+
+        <% const titles = Object.keys(infoTitles) %>
+        <% const icons = Object.values(infoTitles) %>
+
+        <form class='add-listing-form' action="/addListing" method="POST">
+            <label class='edit-label' for="address">Address:
+                <input type='text' class="editInput mediumInput" placeholder='3320 Great Northern Ave B207' name='address' required/></label>
+            <label class='edit-label' for="address">City, State:
+                <input type='text' class="editInput mediumInput" placeholder="Billings, MT" name='city' required/></label>
+            <label class='edit-label' for="address">Main Image URL:
+                <input type='text' class="editInput mediumInput" placeholder="../images/gallery/2-pexels-pixabay-221506.jpg" name='mainImageURL' required/></label>
+            <label class='edit-label' for="address">Main Image Text:
+                <input type='text' class="editInput mediumInput" placeholder="Central Location" name='mainImageText' required/></label>
+
+            <div class="thumbnailAddContainer"></div>
+            <button id='add-thumbnail-button' class="btn">Add Thumbnail Image</button>
+
+            <div class="info-container">
+                <% for (const [index, title] of titles.entries()) { %>
+                    <% const icon = icons[index] %>
+                    <% console.log(title, icons) %>
+
+                    <div class="info-div">
+                        <% if (icon) { %>
+                            <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
+
+                            <div class="icon-container <%= petIcon %>">
+                                <img class='property-details-icon' src="<%= icon %>" alt="icon">
+                            </div>
+                        <% } %>
+
+                        <h3 class="info-title"><%= title %></h3>
+
+                        <% if (title === 'Beds & Bath') { %>
+                            <label class="small-add-label" for="bed">Beds:
+                            <input type="number" class="small-add-info editInput" name="bed" min='0' max='7' required /></label>
+                            <label class="small-add-label" for="bath">Baths:
+                            <input type="number" class="small-add-info editInput" name="bath" min='0' max='7' required /></label>
+                        <% } else if (title === 'Utilities') { %>
+                            <input type="textarea" class="edit-textarea" name="utilities" required>
+                        <% } else if (title === 'Pets') { %>
+                            <select class="edit-select">Select
+                                <option class="edit-option">Cats</option>
+                                <option class="edit-option">Dogs</option>
+                                <option class="edit-option">Small Dogs</option>
+                                <option class="edit-option">Big Cats</option>
+                            </select>
+                        <% } else if (title === 'Rent') { %>
+                        <% } else if (title === 'Footage') { %>
+                        <% } else if (title === 'Appliances') { %>
+                        <% } else if (title === 'Design') { %>
+                        <% } else if (title === 'Amenities') { %>
+                        <% } %>
+
+                    </div>
+                <% } %>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+
+    <script src="../js/dropdown.js"></script>
+    <script src="../js/addListing.js"></script>
+</body>

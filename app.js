@@ -20,8 +20,9 @@ app.set('view engine', 'ejs');
 // BPM-admin:YFKlFyfpz49TozQC
 
 // middleware and static files
-app.use(express.static(__dirname + '/public'))
-app.use(morgan('dev'))
+app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
 
 // routes
@@ -33,7 +34,6 @@ app.get('/', (req, res) => {
     .catch((err) => {
         console.log(err)
     })
-    // res.render('index')
 })
 
 app.get('/contact', (req, res) => {
@@ -90,6 +90,10 @@ app.get('/listings/:id', (req, res) => {
     } else {
         res.status(500).json({error: 'Not a valid property ID'})
     }
+})
+
+app.post('/addListing', (req, res) => {
+    console.log(req.body)
 })
 
 app.get('/addListing', (req, res) => {
