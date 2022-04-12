@@ -30,12 +30,14 @@
         <form class='add-listing-form' action="/addListing" method="POST">
             <label class='edit-label' for="address">Address:
                 <input type='text' class="editInput mediumInput" placeholder='3320 Great Northern Ave B207' name='address' required/></label>
-            <label class='edit-label' for="address">City, State:
+            <label class='edit-label' for="city">City, State:
                 <input type='text' class="editInput mediumInput" placeholder="Billings, MT" name='city' required/></label>
-            <label class='edit-label' for="address">Main Image URL:
+            <label class='edit-label' for="mainImageURL">Main Image URL:
                 <input type='text' class="editInput mediumInput" placeholder="../images/gallery/2-pexels-pixabay-221506.jpg" name='mainImageURL' required/></label>
-            <label class='edit-label' for="address">Main Image Text:
+            <label class='edit-label' for="mainImageText">Main Image Text:
                 <input type='text' class="editInput mediumInput" placeholder="Central Location" name='mainImageText' required/></label>
+            <label class='edit-label' for="availability">Availability:
+                <input type='text' class="editInput mediumInput" placeholder="3/15/22" name='availability' required/></label>
 
             <div class="thumbnailAddContainer"></div>
             <button id='add-thumbnail-button' class="btn">Add Thumbnail Image</button>
@@ -43,7 +45,6 @@
             <div class="info-container">
                 <% for (const [index, title] of titles.entries()) { %>
                     <% const icon = icons[index] %>
-                    <% console.log(title, icons) %>
 
                     <div class="info-div">
                         <% if (icon) { %>
@@ -64,22 +65,53 @@
                         <% } else if (title === 'Utilities') { %>
                             <input type="textarea" class="edit-textarea" name="utilities" required>
                         <% } else if (title === 'Pets') { %>
-                            <select class="edit-select">Select
-                                <option class="edit-option">Cats</option>
-                                <option class="edit-option">Dogs</option>
-                                <option class="edit-option">Small Dogs</option>
-                                <option class="edit-option">Big Cats</option>
-                            </select>
+                            <label class="radio-label" for="pets">Cats:
+                            <input type='checkbox' class="edit-radio" name="pets" value="cats"></input></label>
+                            <label class="radio-label" for="pets">Dogs:
+                            <input type='checkbox' class="edit-radio" name="pets" value="dogs"></input></label>
+                            <label class="radio-label" for="pets">Small Dogs:
+                            <input type='checkbox' class="edit-radio" name="pets" value="small-dogs"></input></label>
+                            <label class="radio-label" for="pets">Big Cats:
+                            <input type='checkbox' class="edit-radio" name="pets" value="big-cats"></input></label>
                         <% } else if (title === 'Rent') { %>
+                            <label class="small-add-label" for="rent">Rent:
+                            <input type="number" class="small-add-info editInput rent-input" name="rent" required /></label>
+                            <label class="small-add-label" for="deposit">Deposit:
+                            <input type="number" class="small-add-info editInput rent-input" name="deposit" required /></label>
                         <% } else if (title === 'Footage') { %>
+                            <label class="small-add-label" for="rent">Square Feet:
+                                <input type="number" class="small-add-info editInput rent-input" name="footage" required /></label>
                         <% } else if (title === 'Appliances') { %>
+                            <label class="radio-label" for="appliances">Stove:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Stove"></input></label>
+                            <label class="radio-label" for="appliances">Refrigerator:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Refrigerator"></input></label>
+                            <label class="radio-label" for="appliances">Dishwasher:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Dishwasher"></input></label>
+                            <label class="radio-label" for="appliances">Washer/Dryer:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Washer and Dryer"></input></label>
                         <% } else if (title === 'Design') { %>
+                            <label class="radio-label" for="design">Sunny:
+                            <input type='checkbox' class="edit-radio" name="design" value="Sunny"></input></label>
+                            <label class="radio-label" for="design">Efficiency:
+                            <input type='checkbox' class="edit-radio" name="design" value="Efficiency"></input></label>
+                            <label class="radio-label" for="design">Air Conditioning:
+                            <input type='checkbox' class="edit-radio" name="design" value="Air Conditioning"></input></label>
+                            <label class="radio-label" for="design">Bike Storage:
+                            <input type='checkbox' class="edit-radio" name="design" value="Bike Storage"></input></label>
                         <% } else if (title === 'Amenities') { %>
+                            <label class="radio-label" for="amenities">Off-street Parking:
+                            <input type='checkbox' class="edit-radio" name="amenities" value="Off-street Parking"></input></label>
+                            <label class="radio-label" for="amenities">Walking distance:
+                            <input type='checkbox' class="edit-radio" name="amenities" value="Walking distance to shopping & restaurants"></input></label>
+                            <label class="radio-label" for="amenities">Storage units:
+                            <input type='checkbox' class="edit-radio" name="amenities" value="Storage units for $10/month"></input></label>
                         <% } %>
 
                     </div>
                 <% } %>
             </div>
+            <button id='edit-form-submit' type='submit' class="btn">Submit</button>
         </form>
     </div>
 

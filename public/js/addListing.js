@@ -10,7 +10,7 @@ addthumbnailButton.addEventListener('click', (e) => {
     urlInput.classList.add('mediumInput');
     urlInput.setAttribute('type', 'text');
     urlInput.setAttribute('placeholder', '../images/property-images/bathroom.jpg');
-    urlInput.setAttribute('name', `#${thumbnailLength}imageURL`);
+    urlInput.setAttribute('name', `imageURLs`);
 
     const urlLabel = document.createElement('label');
     urlLabel.classList.add('edit-label');
@@ -24,7 +24,7 @@ addthumbnailButton.addEventListener('click', (e) => {
     textInput.classList.add('mediumInput');
     textInput.setAttribute('type', 'text');
     textInput.setAttribute('placeholder', 'Full Bathroom');
-    textInput.setAttribute('name', `#${thumbnailLength}imageText:`);
+    textInput.setAttribute('name', `imageTextArray`);
 
     const textLabel = document.createElement('label');
     textLabel.classList.add('edit-label');

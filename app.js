@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 // middleware and static files
 app.use(express.static(__dirname + '/public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //accepting form data
 app.use(morgan('dev'));
 
 
@@ -92,45 +92,61 @@ app.get('/listings/:id', (req, res) => {
     }
 })
 
-app.post('/addListing', (req, res) => {
-    console.log(req.body)
+app.get('/addListing', (req, res) => {
+    res.render('addListing')
 })
 
-app.get('/addListing', (req, res) => {
-    // const listing = new Listing({
-    //     mainImageURL: '../images/gallery/2-pexels-luis-quintero-2564873.jpg',
-    //     imageURLs: ['../images/gallery/2-pexels-luis-quintero-2564873.jpg','../images/property-images/bathroom.jpg', '../images/property-images/bedroom.jpg', '../images/property-images/kitchen.jpg', '../images/property-images/living-room.jpg', '../images/property-images/dining-room.jpg'],
-    //     imageAlts: ['Luis Quintero from NounProject.com','dining room, stefygutovska from NounProject.com', 'bedroom, credit Carol M. Highsmith from NounProject.com', 'living room, by Suzanne Strong from NounProject.com', 'kitchen, by Jacob Lund Photography from NounProject.com'],
-    //     imageTextArray: ['Central Location','Full Bathroom', 'Spacious Bedrooms','Modern Kitchen','Comfortable Layout', 'Furnished Apartment'],
-    //     beds: 4,
-    //     bath: 3,
-    //     address: 'Rock Creek, APT 31, 2323 32nd St W',
-    //     city: 'Billings, MT',
-    //     latitude: 45.761320,
-    //     longitude: -108.578710,
-    //     rent: 1800,
-    //     availability: 'Available NOW!',
-    //     alt:   'Luis Quintero from NounProject.com',
-    //     propertyInfo: {
-    //         BedsBath: ['1 Bedroom', '1 Bathroom'],
-    //         Utilities: '$35 utility fee which includes water, sewer, and trash.',
-    //         Pets: ['Cats', 'Small dogs'],
-    //         Rent: ['$800 monthly', '$1000 deposit'],
-    //         Footage: '550 sq. feet',
-    //         Appliances: ['Stove', 'Refrigerator', 'Dishwasher', 'Washer and Dryer'],
-    //         Design: ['Sunny', 'Efficiency', 'Air Conditioning', 'Bike Storage'],
-    //         Amenities: ['Off-street Parking', 'Walking distance to shopping & restaurants', 'Storage units for $10/month']
-    //     }
-    // });
+app.post('/addListing', (req, res) => {
+    let imageAltArray
+    if (req.body.imageTextArray && req.body.imageTextArray.length > 1) {
+        imageAltArray = [req.body.mainImageText, ...req.body.imageTextArray]
+    } else if (req.body.imageTextArray && req.body.imageTextArray.length === 1) {
+        imageAltArray = [req.body.mainImageText, req.body.imageTextArray]
+    } else {
+        imageAltArray = [];
+    }
 
-    // listing.save()
-    //     .then((result) => {
-    //         res.send(result)
-    //     })
-    //     .catch((err) => {
-    //         console.log(err)
-    //     })
-    res.render('addListing')
+    let imageURLArray
+    if (!req.body.imageURLs) imageURLArray = []
+    let imageTexts
+    if (!req.body.imageTextArray) imageTexts = []
+
+    const newListing = {
+        mainImageURL: req.body.mainImageURL,
+        imageURLs: imageURLArray || imageURLArray,
+        imageAlts: imageAltArray,
+        imageTextArray: req.body.imageTextArray || imageTexts,
+        beds: +req.body.bed,
+        bath: +req.body.bath,
+        address: req.body.address,
+        city: req.body.city,
+        latitude: 0,
+        longitude: 0,
+        rent: +req.body.rent,
+        deposit: +req.body.deposit,
+        availability: req.body.availability,
+        alt: req.body.mainImageText,
+        propertyInfo: {
+            BedsBath: [`${req.body.bed} Bedroom`, `${req.body.bath} Bathroom`],
+            Utilities: [req.body.utilities],
+            Pets: req.body.pets,
+            Rent: [`${req.body.rent} monthly`, `${req.body.deposit} deposit`],
+            Footage: [`${req.body.footage} sq. feet`],
+            Appliances: req.body.appliances,
+            Design: req.body.design,
+            Amenities: req.body.amenities
+        }
+    }
+    console.log(newListing)
+    const listing = new Listing(newListing);
+
+    listing.save()
+        .then((result) => {
+            res.redirect('/listings')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
 
 app.use((req, res) => {

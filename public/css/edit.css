@@ -121,10 +121,11 @@
 .small-add-label {
     display: flex;
     justify-content: end;
-    width: 6rem;
+    width: 15rem;
     font-size: 1.2rem;
     text-align: center;
     margin-top: 5px;
+    margin-right: 90px;
 }
 
 .small-add-info {
@@ -150,9 +151,46 @@
     outline: 3px solid var(--faint-color);
 }
 
+.radio-label {
+    display: flex;
+    justify-content: end;
+    width: 15rem;
+    font-size: 1.2rem;
+    margin-right: 120px;
+}
+
+.edit-radio {
+    height: 17px;
+    width: 17px;
+    margin-left: 7px;
+    border: 2px solid var(--faint-color);
+    background-color: var(--lightish-color);
+}
+
+#edit-form-submit {
+    align-self: center;
+    margin-top: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.rent-input::-webkit-outer-spin-button,
+.rent-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.rent-input[type=number] {
+  -moz-appearance: textfield;
+}
+
 @media only screen and (max-width: 1200px) {
     .info-container {
         flex-direction: column;
-        margin-left: 60vw;
+        align-items: center;
+        /* margin-left: 60vw; */
+    }
+    .icon-container {
+        margin-top: 10px;
     }
 }
