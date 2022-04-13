@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/utilities.css">
     <link rel="stylesheet" href="../css/dropdown.css">
-    <link rel="stylesheet" href="../css/propertySearch.css">
+    <link rel="stylesheet" href="../css/listings.css">
     <title>Admin</title>
 </head>
 <body class='scrollbar-hidden'>
     <%- include('./partials/small-header.ejs', { admin: true }) %>
 
-    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: false }) %>
+    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: false, adminHome: true }) %>
 
     <!-- <div class="search-main"> -->
     <div class="results-container">

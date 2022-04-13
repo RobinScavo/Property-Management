@@ -1,10 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require("cors");
 const mongoose = require('mongoose');
 const Listing = require('./models/listing')
 const { ObjectId } = require('mongodb');
-// const { connectToDb, getDb } = require('./db');
-
 
 // init app & middleware
 const app = express()
@@ -23,6 +22,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true })); //accepting form data
 app.use(morgan('dev'));
+app.use(cors());
 
 
 // routes
@@ -36,8 +36,8 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/contact', (req, res) => {
-    res.render('contact')
+app.get('/about', (req, res) => {
+    res.render('about')
 })
 
 app.get('/resources', (req, res) => {
@@ -58,7 +58,7 @@ app.get('/admin-edit/:id', (req, res) => {
     if (ObjectId.isValid(req.params.id)) {
         Listing.findById(req.params.id)
             .then((result) => {
-                res.render('adminEdit', {listing: result })
+                res.render('admin-edit', {listing: result })
             })
             .catch((err) => {
                 console.log(err)
@@ -71,7 +71,7 @@ app.get('/admin-edit/:id', (req, res) => {
 app.get('/listings', (req, res) => {
     Listing.find()
         .then((result) => {
-            res.render('propertySearch', { listings: result })
+            res.render('listings', { listings: result })
         })
         .catch((err) => {
             console.log(err)
@@ -82,7 +82,7 @@ app.get('/listings/:id', (req, res) => {
     if (ObjectId.isValid(req.params.id)) {
         Listing.findById(req.params.id)
             .then((result) => {
-                res.render('propertyDetail', {listing: result })
+                res.render('listing', {listing: result })
             })
             .catch((err) => {
                 console.log(err)
@@ -92,11 +92,11 @@ app.get('/listings/:id', (req, res) => {
     }
 })
 
-app.get('/addListing', (req, res) => {
-    res.render('addListing')
+app.get('/admin-create', (req, res) => {
+    res.render('admin-create')
 })
 
-app.post('/addListing', (req, res) => {
+app.post('/admin-create', (req, res) => {
     let imageAltArray
     if (req.body.imageTextArray && req.body.imageTextArray.length > 1) {
         imageAltArray = [req.body.mainImageText, ...req.body.imageTextArray]
@@ -112,7 +112,7 @@ app.post('/addListing', (req, res) => {
     if (!req.body.imageTextArray) imageTexts = []
 
     const newListing = {
-        mainImageURL: req.body.mainImageURL,
+        mainImageURL: req.body.mainImageURL || '../images/unavailable.jpeg',
         imageURLs: imageURLArray || imageURLArray,
         imageAlts: imageAltArray,
         imageTextArray: req.body.imageTextArray || imageTexts,
@@ -137,7 +137,7 @@ app.post('/addListing', (req, res) => {
             Amenities: req.body.amenities
         }
     }
-    console.log(newListing)
+
     const listing = new Listing(newListing);
 
     listing.save()

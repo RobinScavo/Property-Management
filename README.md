@@ -39,6 +39,7 @@
  - MongoDB
  - Morgan
  - Mongoose
+ - Cors
 
  # Stack
  - EJS/ CSS/ JS/ Node.js/ MongoDB

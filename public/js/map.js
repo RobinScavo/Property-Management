@@ -15,11 +15,10 @@ mapButton.addEventListener('click', () => {
 
         const latitude = +latitudes[index].innerHTML;
         const longitude = +longitudes[index].innerHTML;
-        const address = addresses[index].innerHTML
-        const id = IDs[index].innerHTML
-        console.log(latitude, longitude, address, id)
+        const address = addresses[index].innerHTML;
+        const id = IDs[index].innerHTML;
 
-        dropMarker(latitude, longitude, address, id)
+        dropMarker(latitude, longitude, address, id);
     })
 
     mapButton.classList.add('undisplayed');

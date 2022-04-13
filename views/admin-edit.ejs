@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/propertySearch.css">
+    <link rel="stylesheet" href="../css/listings.css">
     <link rel="stylesheet" href="../css/dropdown.css">
-    <link rel="stylesheet" href="../css/edit.css">
+    <link rel="stylesheet" href="../css/admin-edit.css">
     <title>Listing Detail</title>
 </head>
 
@@ -18,7 +18,7 @@
     <%- include('./partials/small-header.ejs', { admin: true }) %>
 
     <!-- Dropdown -->
-    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: true }) %>
+    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: true, adminHome: true }) %>
 
     <div class="detail-container property-container">
         <input type='text' class="editInput bigInput" value="<%= listing.address %>" />
@@ -137,5 +137,5 @@
     <%- include('./partials/footer.ejs') %>
 
     <script src="../js/dropdown.js"></script>
-    <script src="../js/edit.js"></script>
+    <script src="../js/admin-edit.js"></script>
 </body>

@@ -172,6 +172,19 @@
     margin-top: 20px;
 }
 
+.add-listing-image-container {
+    position: relative;
+    align-self: center;
+    height: 350px;
+    width: 580px;
+    /* background-color: grey; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -10rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
 /* Chrome, Safari, Edge, Opera */
 .rent-input::-webkit-outer-spin-button,
 .rent-input::-webkit-inner-spin-button {

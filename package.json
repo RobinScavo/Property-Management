@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/RobinScavo/Property-Management#readme",
   "dependencies": {
-    "ejs": "^3.1.6",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.2",
     "express": "^4.17.3",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.9",

@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/propertySearch.css">
+    <link rel="stylesheet" href="../css/listings.css">
     <link rel="stylesheet" href="../css/dropdown.css">
-    <link rel="stylesheet" href="../css/edit.css">
+    <link rel="stylesheet" href="../css/admin-edit.css">
     <title>Listing Detail</title>
 </head>
 
@@ -32,10 +32,18 @@
                 <input type='text' class="editInput mediumInput" placeholder='3320 Great Northern Ave B207' name='address' required/></label>
             <label class='edit-label' for="city">City, State:
                 <input type='text' class="editInput mediumInput" placeholder="Billings, MT" name='city' required/></label>
+
+            <div id='add-listing-main-image-url' class="add-listing-image-container" style="background-image: url('../images/unavailable.jpeg');">
+                <div class="carousel-button-container editOverlay">
+                    <p id='add-listing-main-image-text' class="carousel-text">No Image Available</p>
+                </div>
+                <!-- <img class="add-listing-main-image" src="../images/no-image.jpeg"></img> -->
+            </div>
+
             <label class='edit-label' for="mainImageURL">Main Image URL:
-                <input type='text' class="editInput mediumInput" placeholder="../images/gallery/2-pexels-pixabay-221506.jpg" name='mainImageURL' required/></label>
-            <label class='edit-label' for="mainImageText">Main Image Text:
-                <input type='text' class="editInput mediumInput" placeholder="Central Location" name='mainImageText' required/></label>
+                <input id='add-listing-main-image-url-input' type='text' class="editInput mediumInput" placeholder="../images/unavailable.jpeg" name='mainImageURL' required/></label>
+            <label id='add-listing-main-image-input' class='edit-label' for="mainImageText">Main Image Text:
+                <input type='text' class="editInput mediumInput" placeholder="No Image Available" name='mainImageText' required/></label>
             <label class='edit-label' for="availability">Availability:
                 <input type='text' class="editInput mediumInput" placeholder="3/15/22" name='availability' required/></label>
 
@@ -62,8 +70,10 @@
                             <input type="number" class="small-add-info editInput" name="bed" min='0' max='7' required /></label>
                             <label class="small-add-label" for="bath">Baths:
                             <input type="number" class="small-add-info editInput" name="bath" min='0' max='7' required /></label>
+
                         <% } else if (title === 'Utilities') { %>
                             <input type="textarea" class="edit-textarea" name="utilities" required>
+
                         <% } else if (title === 'Pets') { %>
                             <label class="radio-label" for="pets">Cats:
                             <input type='checkbox' class="edit-radio" name="pets" value="cats"></input></label>
@@ -73,14 +83,17 @@
                             <input type='checkbox' class="edit-radio" name="pets" value="small-dogs"></input></label>
                             <label class="radio-label" for="pets">Big Cats:
                             <input type='checkbox' class="edit-radio" name="pets" value="big-cats"></input></label>
+
                         <% } else if (title === 'Rent') { %>
                             <label class="small-add-label" for="rent">Rent:
                             <input type="number" class="small-add-info editInput rent-input" name="rent" required /></label>
                             <label class="small-add-label" for="deposit">Deposit:
                             <input type="number" class="small-add-info editInput rent-input" name="deposit" required /></label>
+
                         <% } else if (title === 'Footage') { %>
                             <label class="small-add-label" for="rent">Square Feet:
                                 <input type="number" class="small-add-info editInput rent-input" name="footage" required /></label>
+
                         <% } else if (title === 'Appliances') { %>
                             <label class="radio-label" for="appliances">Stove:
                             <input type='checkbox' class="edit-radio" name="appliances" value="Stove"></input></label>
@@ -90,6 +103,7 @@
                             <input type='checkbox' class="edit-radio" name="appliances" value="Dishwasher"></input></label>
                             <label class="radio-label" for="appliances">Washer/Dryer:
                             <input type='checkbox' class="edit-radio" name="appliances" value="Washer and Dryer"></input></label>
+
                         <% } else if (title === 'Design') { %>
                             <label class="radio-label" for="design">Sunny:
                             <input type='checkbox' class="edit-radio" name="design" value="Sunny"></input></label>
@@ -99,6 +113,7 @@
                             <input type='checkbox' class="edit-radio" name="design" value="Air Conditioning"></input></label>
                             <label class="radio-label" for="design">Bike Storage:
                             <input type='checkbox' class="edit-radio" name="design" value="Bike Storage"></input></label>
+
                         <% } else if (title === 'Amenities') { %>
                             <label class="radio-label" for="amenities">Off-street Parking:
                             <input type='checkbox' class="edit-radio" name="amenities" value="Off-street Parking"></input></label>
@@ -119,5 +134,5 @@
     <%- include('./partials/footer.ejs') %>
 
     <script src="../js/dropdown.js"></script>
-    <script src="../js/addListing.js"></script>
+    <script src="../js/admin-create.js"></script>
 </body>

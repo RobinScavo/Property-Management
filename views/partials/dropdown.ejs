@@ -44,7 +44,7 @@
                 <div class="option-accent-div">
                     <p>+</p>
                 </div>
-                <a href="/contact" class="dropdown-option">About Us</a>
+                <a href="/about" class="dropdown-option">About Us</a>
             </div>
         </div>
     </div>
@@ -65,7 +65,8 @@
                         <div class="option-accent-div">
                             <p>+</p>
                         </div>
-                        <a href="/listings/<%= listing.id %>" class="dropdown-option"><%= listing.address %></a>
+                        <% let listingRoute = (adminHome) ? `/admin-edit/${listing.id}` : `/listings/${listing.id}` %>
+                        <a href="<%= listingRoute %>" class="dropdown-option"><%= listing.address %></a>
                     </div>
                 <% }) %>
             </div>
@@ -143,7 +144,7 @@
                     <div class="option-accent-div">
                         <p>+</p>
                     </div>
-                    <a href="/addListing" class="dropdown-option">New Listing</a>
+                    <a href="/admin-create" class="dropdown-option">New Listing</a>
                 </div>
             <% } %>
         </div>

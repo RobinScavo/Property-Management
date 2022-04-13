@@ -36,7 +36,7 @@
     <%- include('./partials/header.ejs') %>
 
     <!-- Drop-down menus -->
-    <%- include('./partials/dropdown.ejs', { homePage: true, listingEdit: false }) %>
+    <%- include('./partials/dropdown.ejs', { homePage: true, listingEdit: false, adminHome: false }) %>
 
     <!-- Main image -->
     <figure>
@@ -65,7 +65,7 @@
                 <div class="main-text">
                     <h2>PROPERTY MAP</h2>
                     <p>Want to live in a specific neighborhood? See all our properties on one map.</p>
-                    <a href="./listings">Location Map</a>
+                    <a href="./listings#map-button">Location Map</a>
                 </div>
             </li>
 
@@ -178,9 +178,10 @@
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
 
-    <script src="../js/testimonials.js"></script>
-    <script src="../js/dummyData.js"></script>
-    <script type='module' src="../js/sendMessage.js"></script>
+    <!-- <script src="../js/testimonials.js"></script> -->
+    <!-- <script src="../js/data.js"></script> -->
+    <script src="../js/index.js"></script>
+    <!-- <script type='module' src="../js/sendMessage.js"></script> -->
     <script src="../js/dropdown.js"></script>
 </body>
 </html>
