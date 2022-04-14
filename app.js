@@ -106,16 +106,18 @@ app.post('/admin-create', (req, res) => {
         imageAltArray = [];
     }
 
-    let imageURLArray
-    if (!req.body.imageURLs) imageURLArray = []
-    let imageTexts
-    if (!req.body.imageTextArray) imageTexts = []
+    // let imageURL
+    // if (!req.body.imageURLs) imageURL = ['../images/unavailable.jpeg']
+    // let imageText
+    // if (!req.body.alt) imageText = 'No Image Available'
+    // let mainImage
+    // if (!req.body.mainImageURL) mainImage = '../images/unavailable.jpeg';
 
     const newListing = {
         mainImageURL: req.body.mainImageURL || '../images/unavailable.jpeg',
-        imageURLs: imageURLArray || imageURLArray,
+        imageURLs: req.body.imageURLs || ['../images/unavailable.jpeg'],
         imageAlts: imageAltArray,
-        imageTextArray: req.body.imageTextArray || imageTexts,
+        imageTextArray: req.body.imageTextArray || 'No Image Available',
         beds: +req.body.bed,
         bath: +req.body.bath,
         address: req.body.address,
@@ -125,7 +127,7 @@ app.post('/admin-create', (req, res) => {
         rent: +req.body.rent,
         deposit: +req.body.deposit,
         availability: req.body.availability,
-        alt: req.body.mainImageText,
+        alt: req.body.alt || 'No Image Available',
         propertyInfo: {
             BedsBath: [`${req.body.bed} Bedroom`, `${req.body.bath} Bathroom`],
             Utilities: [req.body.utilities],

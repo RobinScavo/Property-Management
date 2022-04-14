@@ -37,7 +37,6 @@ thumbnails.forEach((thumbnail, index) => {
 
 const toggleCarousel = (direction, index) => {
     const sliderWidth = carousel.clientWidth;
-    const thumbnailWidth = thumbnail.clientWidth;
 
     activeSlideIndex = index;
 
@@ -57,9 +56,11 @@ const toggleCarousel = (direction, index) => {
             activeSlideIndex = slidesLength -1;
         }
     }
-
     mainImage.style.transform = `translateX(-${activeSlideIndex * sliderWidth}px)`;
-    thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
+    if (thumbnails.length > 0) {
+        const thumbnailWidth = thumbnail.clientWidth;
+        thumbnailDiv.style.transform = `translateX(-${activeSlideIndex * (thumbnailWidth + 30)}px)`;
+    }
 
     if (!manuallyToggling) {
         setTimeout(function() {
@@ -80,7 +81,9 @@ const slideShow = (index) => {
 
 }
 
-setTimeout(() => slideShow(activeSlideIndex), 1000)
+if (slidesLength) {
+    setTimeout(() => slideShow(activeSlideIndex), 1000)
+}
 
 // const viewProperty = (target) => {
 //     searchHeader.classList.add('undisplayed');

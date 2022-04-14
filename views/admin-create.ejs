@@ -27,7 +27,7 @@
         <% const titles = Object.keys(infoTitles) %>
         <% const icons = Object.values(infoTitles) %>
 
-        <form class='add-listing-form' action="/addListing" method="POST">
+        <form class='add-listing-form' action="/admin-create" method="POST">
             <label class='edit-label' for="address">Address:
                 <input type='text' class="editInput mediumInput" placeholder='3320 Great Northern Ave B207' name='address' required/></label>
             <label class='edit-label' for="city">City, State:
@@ -37,16 +37,16 @@
                 <div class="carousel-button-container editOverlay">
                     <p id='add-listing-main-image-text' class="carousel-text">No Image Available</p>
                 </div>
-                <!-- <img class="add-listing-main-image" src="../images/no-image.jpeg"></img> -->
             </div>
 
             <label class='edit-label' for="mainImageURL">Main Image URL:
-                <input id='add-listing-main-image-url-input' type='text' class="editInput mediumInput" placeholder="../images/unavailable.jpeg" name='mainImageURL' required/></label>
+                <input id='add-listing-main-image-url-input' type='text' class="editInput mediumInput" placeholder="../images/unavailable.jpeg" name='mainImageURL'/></label>
             <label id='add-listing-main-image-input' class='edit-label' for="mainImageText">Main Image Text:
-                <input type='text' class="editInput mediumInput" placeholder="No Image Available" name='mainImageText' required/></label>
+                <input type='text' class="editInput mediumInput" placeholder="No Image Available" name='mainImageText'/></label>
             <label class='edit-label' for="availability">Availability:
                 <input type='text' class="editInput mediumInput" placeholder="3/15/22" name='availability' required/></label>
 
+            <div id="add-listing-thumbnail-display" class="thumbnail-div editThumbnails"></div>
             <div class="thumbnailAddContainer"></div>
             <button id='add-thumbnail-button' class="btn">Add Thumbnail Image</button>
 
