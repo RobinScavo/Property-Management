@@ -21,120 +21,199 @@
     <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: true, adminHome: true }) %>
 
     <div class="detail-container property-container">
-        <input type='text' class="editInput bigInput" value="<%= listing.address %>" />
-        <input type='text' class="editInput mediumInput" value="<%= listing.city %>" />
+        <form class='add-listing-form edit-listing-form' action=<%= `/admin-edit/${listing.id}` %> method="POST">
+            <input type='text' class="editInput bigInput" value="<%= listing.address %>" name='address' />
+            <input type='text' class="editInput mediumInput" value="<%= listing.city %>" name='city'/>
+            <input type='text' class="editInput mediumInput" value="<%= listing.availability %>" name='availability'/>
 
-        <!-- Carousel -->
-        <div class="carousel-container">
-            <div class="carousel-button-container editOverlay">
-                <p class="carousel-text"><%= listing.imageTextArray[0] %></p>
+            <!-- Carousel -->
+            <div class="carousel-container edit-main-image">
+                <div class="carousel-button-container editOverlay">
+                    <p class="carousel-text"><%= listing.imageTextArray[0] %></p>
+                </div>
+
+                <div class="main-image-container">
+                    <% for (const [index, image] of listing.imageURLs.entries()) { %>
+                        <div
+                            class="main-image"
+                            alt= <%= listing.imageAlts[index] %>
+                            style= "background-image: url('<%= image %>')"
+                        ></div>
+                    <% } %>
+                </div>
             </div>
 
-            <div class="main-image-container">
-                <% for (const [index, image] of listing.imageURLs.entries()) { %>
-                    <div
-                        class="main-image"
-                        alt= <%= listing.imageAlts[index] %>
-                        style= "background-image: url('<%= image %>')"
-                    ></div>
-                <% } %>
+            <div class="editTextDiv">
+                <h2>Main Image URL</h2>
+                <input
+                    type='text'
+                    class="editInput mediumInput"
+                    value="<%= listing.mainImageURL %>"
+                    name='mainImageURL'
+                />
             </div>
-        </div>
 
-        <div class="editTextDiv">
-            <h2>Main Image URL</h2>
-            <input
-                type='text'
-                class="editInput mediumInput"
-                value="<%= listing.mainImageURL %>"
-            />
-        </div>
+            <div class="editTextDiv">
+                <h2 style="margin-top:-1rem">Text Overlay</h2>
+                <input
+                    type='text'
+                    class="editInput mediumInput"
+                    value="<%= listing.imageTextArray[0] %>"
+                    name='mainImageText'
+                />
+            </div>
 
-        <div class="editTextDiv">
-            <h2 style="margin-top:-1rem">Text Overlay</h2>
-            <input
-                type='text'
-                class="editInput mediumInput"
-                value="<%= listing.imageTextArray[0] %>"
-            />
-        </div>
-
-        <!-- Thumbnails -->
-        <div class="thumbnail-div editThumbnails">
+            <!-- Thumbnails -->
             <% for (const [index, image] of listing.imageURLs.entries()) { %>
-                <% if (index === 0) continue %>
-                <div
-                id= <%= index %>
-                class="thumbnail-image editThumbnail"
-                style= "background-image: url('<%= image %>')"
-                alt= <%= listing.imageAlts[index] %>
-                >
-                    <div class="thumbnailTextOverlay">
-                        <p class="thumbnail-text"><%= listing.imageTextArray[index] %></p>
+                <div class="thumbnail-div editThumbnails">
+                    <% if (index === 0) continue %>
+                    <div
+                        id= <%= index %>
+                        class="thumbnail-image editThumbnail"
+                        style= "background-image: url('<%= image %>')"
+                        alt= <%= listing.imageAlts[index] %>
+                    >
+                        <div class="thumbnailTextOverlay">
+                            <p class="thumbnail-text"><%= listing.imageTextArray[index] %></p>
+                        </div>
+                    </div>
+                    <div class="editTextDiv">
+                        <h2 class="thumbnail-URL-title">#<%= index %> Image URL</h2>
+                        <input
+                            id="thumbnail-URL-input"
+                            type='text'
+                            class="editInput mediumInput"
+                            value="<%= listing.imageURLs[index] %>"
+                        />
+                    </div>
+
+                    <div class="editTextDiv">
+                        <h2 class="thumbnail-text-title">#<%= index %> Text Overlay</h2>
+                        <input
+                            id="thumbnail-text-input"
+                            type='text'
+                            class="editInput mediumInput"
+                            value="<%= listing.imageTextArray[index] %>"
+                        />
                     </div>
                 </div>
             <% } %>
-        </div>
 
-        <div class="editTextDiv">
-            <h2 class="thumbnail-URL-title">#2 Image URL</h2>
-            <input
-                id="thumbnail-URL-input"
-                type='text'
-                class="editInput mediumInput"
-                value="<%= listing.imageURLs[1] %>"
-            />
-        </div>
 
-        <div class="editTextDiv">
-            <h2 class="thumbnail-text-title">#2 Text Overlay</h2>
-            <input
-                id="thumbnail-text-input"
-                type='text'
-                class="editInput mediumInput"
-                value="<%= listing.imageTextArray[1] %>"
-            />
-        </div>
+            <!-- Info -->
+            <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
 
-        <!-- Info -->
-        <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
+            <% const titles = Object.keys(infoTitles) %>
+            <% const icons = Object.values(infoTitles) %>
+            <% const infoValues = Object.values(listing.propertyInfo) %>
 
-        <% const titles = Object.keys(infoTitles) %>
-        <% const icons = Object.values(infoTitles) %>
-        <% const infoValues = Object.values(listing.propertyInfo) %>
+            <div class="info-container">
+                <% for (const [index, info] of infoValues.entries()) { %>
+                    <% const title = titles[index] %>
+                    <% const icon = icons[index] %>
 
-        <div class="info-container">
-            <% for (const [index, info] of infoValues.entries()) { %>
-                <% const title = titles[index] %>
-                <% const icon = icons[index] %>
+                    <div class="info-div">
+                        <% if (icon) { %>
+                            <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
 
-                <div class="info-div">
-                    <% if (icon) { %>
-                        <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
+                            <div class="icon-container <%= petIcon %>">
+                                <img class='property-details-icon' src="<%= icon %>" alt="icon">
+                            </div>
+                        <% } %>
 
-                        <div class="icon-container <%= petIcon %>">
-                            <img class='property-details-icon' src="<%= icon %>" alt="icon">
-                        </div>
-                    <% } %>
+                        <h3 class="info-title"><%= title %></h3>
 
-                    <h3 class="info-title"><%= title %></h3>
+                        <% if (title === 'Beds & Bath') { %>
+                            <label class="small-add-label" for="bed">Beds:
+                            <input type="number" class="small-add-info editInput" name="bed" min='0' max='7' required value="<%= listing.beds %>"/></label>
+                            <label class="small-add-label" for="bath">Baths:
+                            <input type="number" class="small-add-info editInput" name="bath" min='0' max='7' required value="<%= listing.bath %>" /></label>
 
-                    <% for (const item of info) { %>
-                        <input
-                            type='text'
-                            class="editInput smallInput"
-                            value="<%= item %>"
-                        />
-                    <% } %>
-                </div>
-            <% } %>
-        </div>
+                        <% } else if (title === 'Utilities') { %>
+                            <input type="textarea" class="edit-textarea" name="utilities" required value="<%= listing.propertyInfo.Utilities %>">
 
-        <button class="btn back-button"><a href='/listings'>Update Listing</a></button>
+                        <% } else if (title === 'Pets') { %>
+                            <% const catsChecked = (listing.propertyInfo.Pets.includes('Cats') ? 'checked' : '') %>
+                            <% const dogsChecked = (listing.propertyInfo.Pets.includes('Dogs') ? 'checked' : '') %>
+                            <% const smallDogsChecked = (listing.propertyInfo.Pets.includes('Small dogs') ? 'checked' : '') %>
+                            <% const bigCatsChecked = (listing.propertyInfo.Pets.includes('Big Cats') ? 'checked' : '') %>
+
+                            <label class="radio-label" for="pets">Cats:
+                            <input type='checkbox' class="edit-radio" name="pets" value="cats" <%= catsChecked %> /></label>
+                            <label class="radio-label" for="pets">Dogs:
+                            <input type='checkbox' class="edit-radio" name="pets" value="dogs" <%= dogsChecked %>></input></label>
+                            <label class="radio-label" for="pets">Small Dogs:
+                            <input type='checkbox' class="edit-radio" name="pets" value="small-dogs" <%= smallDogsChecked %>></input></label>
+                            <label class="radio-label" for="pets">Big Cats:
+                            <input type='checkbox' class="edit-radio" name="pets" value="big-cats" <%= bigCatsChecked %>></input></label>
+
+                        <% } else if (title === 'Rent') { %>
+                            <label class="small-add-label" for="rent">Rent:
+                            <input type="number" class="small-add-info editInput rent-input" name="rent" value="<%= listing.rent %>" required /></label>
+                            <label class="small-add-label" for="deposit">Deposit:
+                            <input type="number" class="small-add-info editInput rent-input" name="deposit" value="<%= listing.propertyInfo.Rent[1].split(' ')[0].slice(1) %>" required /></label>
+
+                        <% } else if (title === 'Footage') { %>
+                            <label class="small-add-label" for="rent">Square Feet:
+                                <input type="number" class="small-add-info editInput rent-input" name="footage" value="<%= listing.propertyInfo.Footage[0].split(' ')[0] %>" required /></label>
+
+                        <% } else if (title === 'Appliances') { %>
+                            <% const stoveChecked = (listing.propertyInfo.Appliances.includes('Stove') ? 'checked' : '') %>
+                            <% const fridgeChecked = (listing.propertyInfo.Appliances.includes('Refrigerator') ? 'checked' : '') %>
+                            <% const dishwasherChecked = (listing.propertyInfo.Appliances.includes('Dishwasher') ? 'checked' : '') %>
+                            <% const washerChecked = (listing.propertyInfo.Appliances.includes('Washer and Dryer') ? 'checked' : '') %>
+
+                            <label class="radio-label" for="appliances">Stove:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Stove" <%= stoveChecked %>></input></label>
+                            <label class="radio-label" for="appliances">Refrigerator:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Refrigerator" <%= fridgeChecked %>></input></label>
+                            <label class="radio-label" for="appliances">Dishwasher:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Dishwasher" <%= dishwasherChecked %>></input></label>
+                            <label class="radio-label" for="appliances">Washer/Dryer:
+                            <input type='checkbox' class="edit-radio" name="appliances" value="Washer and Dryer" <%= washerChecked %>></input></label>
+
+                        <% } else if (title === 'Design') { %>
+                            <% const sunnyChecked = (listing.propertyInfo.Design.includes('Sunny') ? 'checked' : '') %>
+                            <% const efficiencyChecked = (listing.propertyInfo.Design.includes('Efficiency') ? 'checked' : '') %>
+                            <% const acChecked = (listing.propertyInfo.Design.includes('Air Conditioning') ? 'checked' : '') %>
+                            <% const storageChecked = (listing.propertyInfo.Design.includes('Bike Storage') ? 'checked' : '') %>
+
+                            <label class="radio-label" for="design">Sunny:
+                            <input type='checkbox' class="edit-radio" name="design" value="Sunny" <%= sunnyChecked %>></input></label>
+                            <label class="radio-label" for="design">Efficiency:
+                            <input type='checkbox' class="edit-radio" name="design" value="Efficiency" <%= efficiencyChecked %>></input></label>
+                            <label class="radio-label" for="design">Air Conditioning:
+                            <input type='checkbox' class="edit-radio" name="design" value="Air Conditioning" <%= acChecked %>></input></label>
+                            <label class="radio-label" for="design">Bike Storage:
+                            <input type='checkbox' class="edit-radio" name="design" value="Bike Storage" <%= storageChecked %>></input></label>
+
+                        <% } else if (title === 'Amenities') { %>
+                            <% const parkingChecked = (listing.propertyInfo.Amenities.includes('Off-street Parking') ? 'checked' : '') %>
+                            <% const walkingChecked = (listing.propertyInfo.Amenities.includes('Walking distance to shopping & restaurants') ? 'checked' : '') %>
+                            <% const unitsChecked = (listing.propertyInfo.Amenities.includes('Storage units for $10/month') ? 'checked' : '') %>
+
+                            <label class="radio-label" for="amenities">Off-street Parking:
+                            <input type='checkbox' class="edit-radio" name="amenities" value="Off-street Parking" <%= parkingChecked %>></input></label>
+                            <label class="radio-label" for="amenities">Walking distance:
+                            <input type='checkbox' class="edit-radio" name="amenities" value="Walking distance to shopping & restaurants" <%= walkingChecked %>></input></label>
+                            <label class="radio-label" for="amenities">Storage units:
+                            <input type='checkbox' class="edit-radio" name="amenities" value="Storage units for $10/month" <%= unitsChecked %>></input></label>
+                        <% } %>
+
+                        <!-- <% for (const item of info) { %>
+                            <input
+                                type='text'
+                                class="editInput smallInput"
+                                value="<%= item %>"
+                            />
+                        <% } %> -->
+                    </div>
+                <% } %>
+            </div>
+
+            <button type='submit' id=<%= listing.id %> class="btn back-button">Update Listing</button>
+        </form>
     </div>
-
-    <!-- Footer -->
-    <%- include('./partials/footer.ejs') %>
 
     <script src="../js/dropdown.js"></script>
     <script src="../js/admin-edit.js"></script>

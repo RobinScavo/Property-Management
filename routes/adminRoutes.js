@@ -80,4 +80,23 @@ router.get('/admin-edit/:id', (req, res) => {
     }
 })
 
+router.post('/admin-edit/:id', (req, res) => {
+    const updates = req.body
+
+    console.log(req.body)
+
+    if (ObjectId.isValid(req.params.id)) {
+        Listing.updateOne({id: ObjectId(req.params.id)}, {$set: updates})
+            .then((result) => {
+                console.log(result);
+                res.redirect('/listings')
+            })
+            .catch((err) => {
+                res.render('404')
+            })
+    } else {
+        res.status(500).json({error: 'Not a valid property ID'})
+    }
+})
+
 module.exports = router;

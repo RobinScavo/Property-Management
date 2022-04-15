@@ -21,7 +21,6 @@ filterButton.addEventListener('click', () => {
             listing.classList.add('undisplayed');
         }
         if (rentFilter.value && rent-1 >= +rentFilter.value) {
-            console.log(+rentFilter.value, rent)
             listing.classList.add('undisplayed');
         }
     })

@@ -346,7 +346,7 @@
 }
 
 .info-array-element {
-    color: var(--darkish-color);
+    color: var(--darker-color);
 }
 
 /* MAP */
@@ -383,6 +383,10 @@
 
 .undisplayed {
     display: none;
+}
+
+.cancel-delete-button {
+    align-self: flex-end;
 }
 
 @media (max-width: 868px) {

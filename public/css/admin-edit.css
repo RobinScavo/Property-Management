@@ -41,7 +41,7 @@
 .editTextDiv {
     position: relative;
     text-align: center;
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
 }
 
 .editOverlay {
@@ -50,7 +50,14 @@
     text-align: center;
 }
 
+.edit-main-image {
+    margin-bottom: 1rem;
+}
+
 .editThumbnails {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     position: relative;
     background-color: var(--light-color);
     flex-wrap: wrap;
@@ -65,7 +72,8 @@
 } */
 
 .editThumbnail {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .editThumbnail:hover {
@@ -195,6 +203,10 @@
 /* Firefox */
 .rent-input[type=number] {
   -moz-appearance: textfield;
+}
+
+.edit-listing-form {
+    align-items: center;
 }
 
 @media only screen and (max-width: 1200px) {
