@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require("cors");
 
+require("dotenv").config({ path: "./config.env" })
 const mongoose = require('mongoose');
 const Listing = require('./models/listing');
 
@@ -10,16 +11,14 @@ const adminRoutes = require('./routes/adminRoutes');
 
 // init app & middleware
 const app = express()
+const dbURI = process.env.ATLAS_URI;
 
-const dbURI = 'mongodb+srv://BPM-admin:YFKlFyfpz49TozQC@cluster0.auuxc.mongodb.net/BPM?retryWrites=true&w=majority';
 mongoose.connect(dbURI)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err))
 
 // register view engine
 app.set('view engine', 'ejs');
-
-// BPM-admin:YFKlFyfpz49TozQC
 
 // middleware and static files
 app.use(express.static(__dirname + '/public'));
