@@ -49,6 +49,7 @@
  - Random User  API
  - Mongoose
  - Express Router
+ - Netlify Forms
 
  # Development
 - nodemon app
