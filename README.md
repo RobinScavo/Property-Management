@@ -49,3 +49,6 @@
  - Random User  API
  - Mongoose
  - Express Router
+
+ # Development
+- nodemon app
