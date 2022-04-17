@@ -88,7 +88,6 @@ router.post('/admin-edit/:id', (req, res) => {
     if (ObjectId.isValid(req.params.id)) {
         Listing.updateOne({id: ObjectId(req.params.id)}, {$set: updates})
             .then((result) => {
-                console.log(result);
                 res.redirect('/listings')
             })
             .catch((err) => {

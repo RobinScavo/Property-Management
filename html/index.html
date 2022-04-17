@@ -21,9 +21,10 @@
     <meta name="twitter:image:alt" content="Billings Property Management homepage">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/utilities.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./public/css/reset.css">
+    <link rel="stylesheet" href="./public/css/utilities.css">
+    <link rel="stylesheet" href="./public/css/dropdown.css">
+    <link rel="stylesheet" href="./public/css/index.css">
 
     <title>Billings Property Management</title>
 </head>
@@ -50,34 +51,142 @@
     </header>
 
     <section  class='option-section'>
-        <div class="dropdown-container">
+        <!-- <% let listingText, resourceText, listingPath, resourcePath, adminListings, adminDropdown %>
+
+        <% if (homePage) { %>
+            <% listingText = 'Available Rentals' %>
+            <% resourceText = 'Tenant Resources' %>
+            <% adminListings = 'available-container' %>
+            <% adminResources = 'resource-selector' %>
+        <% } else { %>
+            <% listingText = 'Edit Listings' %>
+            <% resourceText = 'Admin Tools' %>
+            <% adminListings = 'admin-listings' %>
+            <% adminResources = 'admin-resources' %>
+        <% } %> -->
+
+        <!-- Site map -->
+        <div id='site-map-container' class="dropdown-container">
             <div id='site-map-selector' class="select-container">
-                <h2 class='dropdown-label'>Slite Map</h2>
+                <h2 class='dropdown-label'>Site Map</h2>
                 <div class="dropdown-icon-container">
                     <div class="dropdown-icon carousel-button"></div>
                 </div>
             </div>
-            <div id='site-map-container' class="option-container"></div>
+            <div class="option-container">
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/" class="dropdown-option">Home</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="./views/resources.ejs" class="dropdown-option">Resources</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/listings" class="dropdown-option">Listings</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/about" class="dropdown-option">About Us</a>
+                </div>
+            </div>
         </div>
+
+        <!-- Listings -->
         <div class="dropdown-container">
             <div id='available-selector' class="select-container">
-                <h2 class='dropdown-label'>Available Rentals</h2>
+                <h2 class='dropdown-label'>Listings</h2>
                 <div class="dropdown-icon-container">
                     <div class="dropdown-icon carousel-button"></div>
                 </div>
             </div>
-            <div id='available-container' class="option-container"></div>
+            <div id='available-container' class="option-container">
+                <!-- <% listings.forEach((listing) => { %>
+                    <div class="option-text-div">
+                        <div class="option-accent-div">
+                            <p>+</p>
+                        </div>
+                        <% let listingRoute = (adminHome) ? `/admin-edit/${listing.id}` : `/listings/${listing.id}` %>
+                        <a href="<%= listingRoute %>" class="dropdown-option"><%= listing.address %></a>
+                    </div>
+                <% }) %> -->
+            </div>
         </div>
+
+        <!-- Resources -->
         <div class="dropdown-container">
-            <div id='resource-selector' class="select-container">
-                <h2 class='dropdown-label'>Tenant Resources</h2>
+            <div  class="select-container">
+                <h2 class='dropdown-label'>Resources</h2>
                 <div class="dropdown-icon-container">
                     <div class="dropdown-icon carousel-button"></div>
                 </div>
             </div>
-            <div id='resource-container' class="option-container"></div>
+            <div id='admin-resource-container' class="option-container">
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#resource-pet-policy" class="dropdown-option">Apply Online</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#resource-pet-policy" class="dropdown-option">Pet Policy</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#resource-second" class="dropdown-option">Rental Requirements</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#utility-links" class="dropdown-option">Utility Links</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#video-link-container" class="dropdown-option">Lease Agreement Video</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#report-concern" class="dropdown-option">Report Concerns</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#maintenence" class="dropdown-option">Repair Request</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#accessibility-request" class="dropdown-option">Accessibilty Request</a>
+                </div>
+                <div class="option-text-div">
+                    <div class="option-accent-div">
+                        <p>+</p>
+                    </div>
+                    <a href="/resources#move-out-guide" class="dropdown-option">Moving Out Guide</a>
+                </div>
+            </div>
         </div>
-        <a id='rental-option' href="https://www.rentometer.com/" class='option' target="'blank">Free Rental Analysis</a>
     </section>
 
     <figure>
@@ -89,7 +198,7 @@
         <ul class='grid'>
             <li class='flex'>
                 <div class="image-div">
-                    <img src="./images/icons/search.png" alt="Eye by ainul muttaqin from NounProject.com">
+                    <img src="./public/images/icons/search.png" alt="Eye by ainul muttaqin from NounProject.com">
                 </div>
                 <div class="main-text">
                     <h2>FIND A RENTAL</h2>
@@ -100,7 +209,7 @@
 
             <li class='flex'>
                 <div class="image-div">
-                    <img src="./images/icons/sign.png" alt="Signpost by Zohaib Bajwa from NounProject.com">
+                    <img src="./public/images/icons/sign.png" alt="Signpost by Zohaib Bajwa from NounProject.com">
                 </div>
                 <div class="main-text">
                     <h2>PROPERTY MAP</h2>
@@ -111,7 +220,7 @@
 
             <li class='flex'>
                 <div class="image-div">
-                    <img id='keys' src="./images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
+                    <img id='keys' src="./public/images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
                 </div>
                 <div class="main-text">
                     <h2>TENANT PORTAL</h2>
@@ -122,7 +231,7 @@
 
             <li class='flex'>
                 <div class="image-div">
-                    <img src="./images/icons/signpost.png" alt="Sign by Astoe Design from NounProject.com">
+                    <img src="./public/images/icons/signpost.png" alt="Sign by Astoe Design from NounProject.com">
                 </div>
                 <div class="main-text">
                     <h2>OWNER PORTAL</h2>
@@ -246,9 +355,10 @@
         </p>
     </div>
 
-    <script src="./js/testimonials.js"></script>
-    <script src="./js/dummyData.js"></script>
-    <script type='module' src="./js/sendMessage.js"></script>
-    <script src="./js/index.js"></script>
+    <!-- <script src="./public/js/testimonials.js"></script> -->
+    <!-- <script src="./js/dummyData.js"></script> -->
+    <!-- <script type='module' src="./public/js/sendMessage.js"></script> -->
+    <script src="./public/js/dropdown.js"></script>
+    <script src="./public/js/index.js"></script>
 </body>
 </html>

@@ -9,10 +9,10 @@ const troubleModal = document.querySelector('.trouble-modal');
 const reportModal = document.querySelector('.report-modal');
 const overlay = document.querySelector('.full-overlay');
 
-const showModal = (inputPojo) => {
+const showModal = (modalType) => {
     overlay.classList.add('overlay-visible');
 
-    const modal = (inputPojo.title === 'Troubleshooting Common Issues')
+    const modal = (modalType.title === 'Troubleshooting Common Issues')
         ? troubleModal
         : reportModal;
 
@@ -29,30 +29,30 @@ const showModal = (inputPojo) => {
 
     const modalTitle = document.createElement('div');
     modalTitle.classList.add('modal-name');
-    modalTitle.innerText = inputPojo.title;
+    modalTitle.innerText = modalType.title;
 
     const modalSubtitle = document.createElement('p');
     modalSubtitle.classList.add('modal-text');
-    modalSubtitle.innerText = inputPojo.subtitle;
+    modalSubtitle.innerText = modalType.subtitle;
 
     modal.appendChild(closeButton);
     modal.appendChild(modalTitle);
     modal.appendChild(modalSubtitle);
 
-    if (inputPojo.title === 'Troubleshooting Common Issues') {
-        troubleChildren(modal)
-    } else if (inputPojo.title === 'What Went Wrong?') {
-        reportChildren(modal, true)
-    } else if (inputPojo.title === 'Request for Accessibilty Accomodation or Modification') {
-        reportChildren(modal, false)
+    if (modalType.title === 'Troubleshooting Common Issues') {
+        reportTroubleModal(modal)
+    } else if (modalType.title === 'What Went Wrong?') {
+        formType(modal, true)
+    } else if (modalType.title === 'Request for Accessibilty Accomodation or Modification') {
+        formType(modal, false)
     } else {
-        criteriaChildren(modal)
+        rentalCriteriaModal(modal)
     }
 
     modal.scrollIntoView();
 }
 
-const criteriaChildren = (modal) => {
+const rentalCriteriaModal = (modal) => {
     const criteriaContainer = document.createElement('div');
     criteriaContainer.classList.add('criteria-container');
 
@@ -67,7 +67,7 @@ const criteriaChildren = (modal) => {
     modal.appendChild(criteriaContainer);
 }
 
-const troubleChildren = (modal) => {
+const reportTroubleModal = (modal) => {
     for (let [index, child] of troubleTips.children.entries()) {
         const issue = Object.keys(child);
 
@@ -104,23 +104,26 @@ const troubleChildren = (modal) => {
     }
 }
 
-const reportChildren = (modal, reportFormBoolean) => {
-    const form = document.createElement('form');
+const formType = (modal, reportFormBoolean) => {
+    // const formTypeString = (reportFormBoolean) ? 'report-trouble-form' : 'accomodation-request-form';
+
+    // // Hidden Netlify form
+    // const form = document.createElement('form');
     // form.setAttribute('name', 'report-form');
+    // form.setAttribute('type', 'hidden');
     // form.setAttribute('method', 'POST');
     // form.setAttribute('netlify-honeypot', 'bot-field');
     // form.setAttribute('data-netlify', true);
     // form.setAttribute('onkeydown', "return event.key != 'Enter';");
 
-    // Netlify form requirement
     // const hiddenInput = document.createElement('input');
     // hiddenInput.setAttribute('type', 'hidden');
     // hiddenInput.setAttribute('name', 'form-name');
-    // hiddenInput.setAttribute('value', 'report-form');
+    // hiddenInput.setAttribute('value', `${formTypeString}`);
 
     // form.appendChild(hiddenInput);
 
-    // Netlify honey-pot protection
+    // // Netlify honey-pot protection
     // const honeypotContainer =  document.createElement('p');
     // honeypotContainer.classList.add('hidden-honeypot');
 

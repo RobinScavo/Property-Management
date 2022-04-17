@@ -10,7 +10,7 @@
 
 # Features:
 - Custom dropdown menus
-- Custom Forms and Models
+- Client-side rendered forms submitted via Netlify.
 - Custom Content Manager
 
 

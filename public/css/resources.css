@@ -544,7 +544,7 @@ figure::after{
 }
 
 .modal-issue {
-    color: var(--dark-color);
+    color: var(--darker-color);
     margin-left: 1rem;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -586,7 +586,7 @@ figure::after{
 }
 
 .report-label {
-    color: var(--darkish-color);
+    color: var(--darker-color);
     margin-right: 1.5rem;
     width: 20vw;
     background-color: var(--light-color);

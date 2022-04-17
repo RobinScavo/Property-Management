@@ -316,6 +316,20 @@ header {
     margin-top: .5rem;
 }
 
+#admin-login-button {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    margin-left: 0.6rem;
+    color: var(--light-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
 .footer a,
 .footer p {
     width: fit-content;
@@ -331,7 +345,8 @@ header {
 }
 
 .footer a:hover,
-.footer i:hover {
+.footer i:hover,
+#admin-login-button:hover {
     color: var(--primary-color);
 }
 
@@ -377,7 +392,7 @@ header {
 
 .modal-text {
     font-size: 1.2rem;
-    color: var(--darkish-color);
+    color: var(--darker-color);
 }
 
 li {
@@ -398,6 +413,7 @@ li {
     border-radius: 50%;
     border: 2px solid var(--dark-color);
     color: var(--dark-color);
+    font-family: 'Orbitron', sans-serif;
 }
 
 .modal-close:hover {
@@ -501,6 +517,53 @@ li {
     align-items: center;
     height: 60vh;
     /* background-color: var(--light-color); */
+}
+
+/* Log In Modal */
+
+.login-modal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 20px;
+    height: 27rem;
+    width: 60vw;
+    background-color: var(--lightish-color);
+    z-index: 100;
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.4);
+}
+
+.login-label {
+    font-size: 1.6rem;
+    color: var(--darker-color);
+}
+
+.login-input {
+    color: var(--light-color);
+    font-size: 1.2rem;
+    border: none;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.5);
+    caret-color: var(--light-color);
+    padding: 10px;
+    margin-bottom: 1.5rem;
+    margin-top: .5rem;
+    outline: none;
+    letter-spacing: 2px;
+}
+
+.login-btn {
+    margin-bottom: 1.5rem;
+}
+
+.demo-btn {
+    position: absolute;
+    top: 1.5rem;
+}
+
+.overlay-visible {
+    visibility: visible;
 }
 
 @media only screen and (max-width: 600px)  {

@@ -57,7 +57,7 @@
                 <% listings.forEach((listing, index) => { %>
                     <div id=<%= index %> class="property-container">
 
-                        <div class="'property-image-div admin-image">
+                        <div class="property-image-div admin-image">
                             <img
                                 class="property-image"
                                 src=<%= listing.mainImageURL %>
@@ -68,22 +68,22 @@
                         </div>
 
                         <div class="first-property-text">
+                            <p class="small-address property-text">
+                                <%= listing.address %>
+                            </p>
                             <p class="property-text">
                                 <%= listing.beds %> Bedrooms
                             </p>
                             <p class="property-text">
                                 <%= listing.bath %> Bath
                             </p>
-                            <p class="address property-text">
-                                <%= listing.address %>
-                            </p>
-                            <p class="latitude hidden">
+                            <p class="latitude undisplayed">
                                 <%= listing.latitude %>
                             </p>
-                            <p class="longitude hidden">
+                            <p class="longitude undisplayed">
                                 <%= listing.longitude %>
                             </p>
-                            <p class="id hidden">
+                            <p class="id undisplayed">
                                 <%= listing.id %>
                             </p>
                         </div>

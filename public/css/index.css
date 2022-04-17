@@ -455,7 +455,7 @@ form textarea {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     #main-small {
         display: none;
     }
