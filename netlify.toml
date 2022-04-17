@@ -1,5 +1,3 @@
-The /netlify.toml could be used as:
-
 [build]
   command = "node ./build.js"
   publish = "public"
