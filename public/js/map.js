@@ -7,7 +7,7 @@ mapButton.addEventListener('click', () => {
     const listings = document.querySelectorAll('.property-container')
     const latitudes = document.querySelectorAll('.latitude');
     const longitudes = document.querySelectorAll('.longitude');
-    const addresses = document.querySelectorAll('.address');
+    const addresses = document.querySelectorAll('.small-address');
     const IDs = document.querySelectorAll('.id');
 
     listings.forEach((listing, index) => {
