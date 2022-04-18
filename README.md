@@ -40,6 +40,7 @@
  - Morgan
  - Mongoose
  - Cors
+ - Path
 
  # Stack
  - EJS/ CSS/ JS/ Node.js/ MongoDB
