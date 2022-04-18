@@ -13,7 +13,8 @@ const adminRoutes = require('./routes/adminRoutes');
 const app = express()
 const dbURI = process.env.ATLAS_URI;
 
-mongoose.connect('PORT=3000')
+console.log(dbURI)
+mongoose.connect(dbURI)
     .then((result) => app.listen(process.env.PORT || 3000))
     .catch((err) => console.log(err))
 
