@@ -1,8 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require("cors");
+const nodemailer = require('nodemailer')
 
 require("dotenv").config({ path: "./config.env" })
+require("dotenv").config({ path: "./.env" })
 const mongoose = require('mongoose');
 const Listing = require('./models/listing');
 
@@ -12,10 +14,15 @@ const adminRoutes = require('./routes/adminRoutes');
 // init app & middleware
 const app = express()
 const dbURI = process.env.ATLAS_URI;
+const email = process.env.EMAIL;
+const password = process.env.PASS;
 
-console.log(dbURI)
+const port = process.env.PORT || 3000;
+
 mongoose.connect(dbURI)
-    .then((result) => app.listen(process.env.PORT || 3000))
+    .then((result) => app.listen(port, () => {
+        console.log(`Server running on port ${port}`)
+    }))
     .catch((err) => console.log(err))
 
 // register view engine
@@ -26,6 +33,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true })); //accepting form data
 app.use(morgan('dev'));
 app.use(cors());
+app.use(express.json());
 
 
 // routes
@@ -50,6 +58,35 @@ app.get('/resources', (req, res) => {
 app.use(adminRoutes);
 
 app.use('/listings', listingRoutes);
+
+// Email forms
+app.post('/', (req, res) => {
+    console.log(req.body)
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: email,
+            pass: password
+        }
+    })
+
+    const mailOptions = {
+        from: req.body.email,
+        to: email,
+        subject: `Message from ${req.body.email}, ${req.body.name}`,
+        text: req.body.message
+    }
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if(error){
+            console.log(error)
+            res.send('error')
+        } else {
+            console.log('Email sent: ' + info.response)
+            res.send('success')
+        }
+    })
+})
 
 app.use((req, res) => {
     res.status(404).render('404')

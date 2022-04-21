@@ -4,7 +4,8 @@
   "description": "- This site was created for demonstrational purposes only and is not intended for financial gain. Original design credit: https://www.rentinmissoula.com/. The code-base is entirely original. Any design changes made were due to personal preference.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.9",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.7.3",
     "path": "^0.12.7"
   }
 }

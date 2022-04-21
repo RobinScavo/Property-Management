@@ -74,7 +74,7 @@ const cycleCards  = () => {
         }, 1000)
     }
 }
-// setInterval(cycleCards, 4000)
+
 document.addEventListener('scroll', function(e) {
     lastKnownScrollPosition = window.scrollY;
 
@@ -92,8 +92,8 @@ document.addEventListener('scroll', function(e) {
 });
 
 
-const formButton = document.querySelector('.form-btn');
-const form = document.querySelector('form');
+// const formButton = document.querySelector('.form-btn');
+// const form = document.querySelector('form');
 
 // formButton.addEventListener('click', (e) => {
 //     e.preventDefault();
@@ -131,7 +131,6 @@ const form = document.querySelector('form');
 
 //     if (email) validEmail = validateEmail(email);
 //     if (phone) validPhone = validatePhone(phone);
-//     // console.log(validEmail, validPhone, email,  phone)
 
 //     if (!name) alertText = 'Please include your name';
 //     if (!message) alertText = 'Please include a message';

@@ -387,6 +387,7 @@ form {
     font-size: 1.5rem;
     color: var(--darker-color);
     font-weight: bolder;
+    width: 30%;
 }
 
 .form-top {
@@ -398,11 +399,10 @@ form {
     display: flex;
     flex-direction: column;
     color: var(--dark-color);
-    font-size: 10px;
     width: 30%;
 }
 
-form input, form textarea {
+form input, .form-textarea {
     color: var(--light-color);
     font-size: 16px;
     border: none;
@@ -415,7 +415,7 @@ form input:focus, form textarea:focus {
     outline: none;
 }
 
-form textarea {
+.form-textarea {
     height: 5rem;
 }
 

@@ -140,48 +140,13 @@
     </section>
 
     <!-- Contact form -->
-    <section class='contact-form'>
-        <form name="contact-form" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact-form">
-            <p class="hidden">
-                <label>Don't fill this out if you are human: <input name="bot-field"></label>
-            </p>
-
-            <h2 class="form-title">CONTACT US</h2>
-            <h3 class="form-subtitle">Want us to call you? Send us an email.</h3>
-            <div class="form-top">
-                <div class="form-div">
-                    <label for='name' class="form-text">Name</label>
-                    <input type="text" name='name' required>
-                </div>
-
-                <div class="form-div">
-                    <label for='email' class="form-text">Email</label>
-                    <input type="email" name='email' required>
-                </div>
-
-                <div class="form-div">
-                    <label for='phone' class="form-text">Phone</label>
-                    <input type="tel" name='phone' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                </div>
-            </div>
-
-            <div class="form-div textarea-div">
-                <label for='message' class="form-text">Message</label>
-                <textarea name='message'></textarea>
-            </div>
-
-            <button type="submit" class='btn form-btn'>SEND MESSAGE</button>
-        </form>
-    </section>
+    <%- include('./partials/forms/contact.ejs') %>
 
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
 
-    <!-- <script src="../js/testimonials.js"></script> -->
-    <!-- <script src="../js/data.js"></script> -->
+    <script src="../js/sendForm.js"></script>
     <script src="../js/index.js"></script>
-    <!-- <script type='module' src="../js/sendMessage.js"></script> -->
     <script src="../js/dropdown.js"></script>
 </body>
 </html>
