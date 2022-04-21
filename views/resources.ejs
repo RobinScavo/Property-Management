@@ -209,6 +209,8 @@
             </div>
         </div>
 
+        <%- include('./partials/forms/repair.ejs') %>
+
         <div class="full-overlay"></div>
         <div class="bottom-container" id='maintenence'>
             <div class="trouble-modal"></div>
@@ -244,6 +246,9 @@
                 <button id="repair-request" class="bottom-button btn">Submit Repair Request</button>
             </div>
         </div>
+
+        <%- include('./partials/forms/accomodation.ejs') %>
+        <%- include('./partials/forms/modification.ejs') %>
 
         <div id='accessibility-request' class="bottom-container">
             <div class="left-bottom-div">
@@ -312,7 +317,7 @@
     <%- include('./partials/footer.ejs') %>
 
     <script src='../js/utilities.js'></script>
-    <script src="../js/data.js"></script>
-    <script src="../js/resources.js"></script>
+    <!-- <script src="../js/data.js"></script> -->
+    <script type='module' src="../js/resources.js"></script>
 </body>
 </html>

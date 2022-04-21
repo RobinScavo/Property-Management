@@ -1,5 +1,15 @@
-const troubleButtons = document.querySelectorAll('.troubleshoot-button');
+import { submitForm } from "./sendForm.js"
 
+const modal = document.querySelector('.trouble-modal');
+const overlay = document.querySelector('.full-overlay');
+const submitButton = document.querySelectorAll('.submit-button');
+
+const reportModal = document.getElementById('report-form-modal');
+const repairModal = document.getElementById('repair-form-modal');
+const accomodationModal = document.getElementById('accomodation-form-modal');
+const modificationModal = document.getElementById('modification-form-modal');
+
+const troubleButtons = document.querySelectorAll('.troubleshoot-button');
 const criteriaButton = document.getElementById('criteria-button');
 const petCriteriaButton = document.getElementById('pet-criteria-button');
 const reportButton = document.querySelector('.report-button');
@@ -7,17 +17,40 @@ const accomodationRequest = document.getElementById('accomodation-request');
 const modificationRequest = document.getElementById('modification-request');
 const repairRequest = document.getElementById('repair-request');
 
-const modal = document.querySelector('.trouble-modal');
-const reportModal = document.getElementById('report-form-modal');
-const overlay = document.querySelector('.full-overlay');
+const showForm = (type) => {
+    const closeButtons = document.querySelectorAll('.modal-close');
+
+    let modal;
+
+    overlay.classList.add('overlay-visible');
+
+    if (type === 'report') {
+        modal = reportModal;
+    } else if (type === 'repair') {
+        modal = repairModal;
+    } else if (type === 'accomodation') {
+        modal = accomodationModal;
+    } else if (type === 'modification') {
+        modal = modificationModal;
+    }
+
+    modal.classList.remove('hidden');
+    modal.classList.add('visible');
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('visible');
+            overlay.classList.remove('overlay-visible');
+        })
+    });
+
+
+    modal.scrollIntoView();
+}
 
 const showModal = (modalType) => {
     overlay.classList.add('overlay-visible');
-
-    // const modal = (modalType.title === 'Troubleshooting Common Issues')
-    //     ? troubleModal
-    //     : reportModal;
-
     modal.classList.add('visible');
 
     const closeButton = document.createElement('div');
@@ -42,29 +75,20 @@ const showModal = (modalType) => {
     modal.appendChild(modalSubtitle);
 
     if (modalType.title === 'Troubleshooting Common Issues') {
-        reportTroubleModal(modal)
+        createTroubleModal(modal)
+    } else if (modalType.title === 'Rental Criteria') {
+        createCriteriaModal(modal, rentalCriteria)
     } else {
-        rentalCriteriaModal(modal)
+        createCriteriaModal(modal, petCriteria)
     }
-
-    // if (modalType.title === 'Troubleshooting Common Issues') {
-    //     reportTroubleModal(modal)
-    // } else if (modalType.title === 'What Went Wrong?') {
-    //     formType(modal, true)
-    // } else if (modalType.title === 'Request for Accessibilty Accomodation or Modification') {
-    //     formType(modal, false)
-    // } else {
-    //     rentalCriteriaModal(modal)
-    // }
 
     modal.scrollIntoView();
 }
-
-const rentalCriteriaModal = (modal) => {
+const createCriteriaModal = (modal, data) => {
     const criteriaContainer = document.createElement('div');
     criteriaContainer.classList.add('criteria-container');
 
-    for (let [index, child] of rentalCriteria.children.entries()) {
+    for (let [index, child] of data.children.entries()) {
         const criteriaChild = document.createElement('h2');
         criteriaChild.classList.add('criteria-child');
         criteriaChild.innerHTML =`${index}: ${child}`;
@@ -75,7 +99,7 @@ const rentalCriteriaModal = (modal) => {
     modal.appendChild(criteriaContainer);
 }
 
-const reportTroubleModal = (modal) => {
+const createTroubleModal = (modal) => {
     for (let [index, child] of troubleTips.children.entries()) {
         const issue = Object.keys(child);
 
@@ -112,103 +136,6 @@ const reportTroubleModal = (modal) => {
     }
 }
 
-const formType = (modal, reportFormBoolean) => {
-
-
-    const formType = reportFormBoolean ? reportForm : accomodationForm;
-    const placeholderType = reportFormBoolean ? placeholderArray : placeholderArrayAccomodation;
-
-    for (let [index, child] of formType.children.entries()) {
-        const inputType = Object.keys(child)[0];
-        let requiredText = '';
-
-        const inputDiv = document.createElement('div');
-        inputDiv.classList.add('input-div');
-
-        const label = document.createElement('label');
-        label.classList.add('report-label');
-        label.innerText = formType.children[index][inputType];
-
-        inputDiv.appendChild(label);
-
-        if (inputType === 'radio') {
-            const radioOptions = formType.children[index].radioValues;
-            const radioName = formType.children[index][inputType];
-
-            radioOptions.forEach((option) => {
-                const radioInput = document.createElement('input');
-                radioInput.setAttribute('type', inputType);
-                radioInput.setAttribute('name', `${radioName}`);
-                radioInput.classList.add('report-radio-input');
-
-                const optionText = document.createElement('p');
-                optionText.classList.add('report-option-text');
-                optionText.innerText = option;
-                radioInput.setAttribute('value', option);
-
-                inputDiv.appendChild(optionText);
-                inputDiv.appendChild(radioInput);
-            });
-        } else if (inputType === 'textarea') {
-            const textarea = document.createElement('textarea');
-            textarea.classList.add('report-textarea');
-            textarea.setAttribute('rows', '4');
-            textarea.setAttribute('placeholder', placeholderType[index]);
-
-            if (child.textarea === 'Describe Your Issue') {
-                textarea.setAttribute('required', true);
-                requiredText = 'REQUIRED';
-            };
-
-            inputDiv.appendChild(textarea);
-        } else if (child.text !== 'If Yes: Responding Officers Name') {
-            const input = document.createElement('input');
-            input.setAttribute('type', inputType);
-            input.setAttribute('required', true);
-            requiredText = 'REQUIRED';
-            input.setAttribute('placeholder', placeholderType[index]);
-            input.classList.add('report-input');
-
-            inputDiv.appendChild(input);
-        }
-
-        const requirementDiv = document.createElement('div');
-        requirementDiv.classList.add('requirement-div');
-
-        const requirementText = document.createElement('h2');
-        requirementText.innerText = requiredText;
-        requirementText.classList.add('requirement-text');
-
-        const checkmarkDiv = document.createElement('div');
-        checkmarkDiv.classList.add('checkmark-div');
-        checkmarkDiv.classList.add('hidden');
-
-        const xMarkDiv = document.createElement('div');
-        xMarkDiv.classList.add('x-mark-div');
-        xMarkDiv.classList.add('hidden');
-
-        requirementDiv.appendChild(requirementText);
-        requirementDiv.appendChild(checkmarkDiv);
-        requirementDiv.appendChild(xMarkDiv);
-        inputDiv.appendChild(requirementDiv);
-        form.appendChild(inputDiv);
-    }
-
-    // SUBMIT BUTTON
-    const submitButton = document.createElement('button');
-    submitButton.innerText = 'Submit';
-    submitButton.classList.add('btn');
-    submitButton.classList.add('report-submit');
-    submitButton.addEventListener('click', (e) => {
-        e.preventDefault;
-        const form = document.querySelector('form');
-        validateForm(form);
-    });
-
-    form.appendChild(submitButton);
-    modal.appendChild(form);
-}
-
 const toggleExpand = (e) => {
     const resolutions = document.querySelectorAll('.resolution-div');
     const expandIcons = document.querySelectorAll('.expand-button');
@@ -221,86 +148,8 @@ const toggleExpand = (e) => {
     target.classList.toggle('expanded-div');
 }
 
-// const validateForm = (form) => {
-//     const checkmarks = document.querySelectorAll('.checkmark-div');
-//     const xMarks = document.querySelectorAll('.x-mark-div');
-//     const requirements = document.querySelectorAll('.requirement-text');
-//     console.log('validate')
-
-//     for (let i = 0; i < form.elements.length; i++) {
-//         if (form.elements[i].required && !form.elements[i].value) {
-//             alert('Please fill out all required fields.');
-//             return;
-//         }
-//     }
-
-//     if (!validatePhone(form.elements[2].value)) {
-//         alert('Please provide a valid phone number.');
-//         return;
-//     }
-
-//     if (!validateEmail(form.elements[3].value)) {
-//         alert('Please provide a valid email.');
-//         return;
-//     }
-
-//     console.log('submit')
-//     alert('Your report has been filed. A representative will be in contact.');
-// }
-
-// const alert = (message) => {
-//     const form = document.querySelector('form');
-
-//     const alert = document.createElement('div');
-//     alert.classList.add('alert');
-//     alert.classList.add('report-alert');
-
-//     const alertTextEl = document.createElement('h2');
-//     alertTextEl.innerHTML = message;
-//     alert.appendChild(alertTextEl);
-
-//     const okButton = document.createElement('button');
-//     okButton.classList.add('btn');
-//     okButton.classList.add('okButton');
-//     okButton.innerText = 'OK';
-//     okButton.addEventListener('click', () => form.removeChild(alert));
-
-//     alert.appendChild(okButton);
-//     form.appendChild(alert);
-//     alert.scrollIntoView();
-// }
-
-const showForm = (type) => {
-    closeButton = document.querySelector('.modal-close');
-
-    overlay.classList.add('overlay-visible');
-
-    if (type === 'report') {
-        reportModal.classList.remove('hidden');
-        reportModal.classList.add('visible');
-    }
-
-    closeButton.addEventListener('click', () => {
-        modal.innerHTML = '';
-        reportModal.classList.remove('visible');
-        overlay.classList.remove('overlay-visible');
-    });
-
-    reportModal.scrollIntoView();
-}
-
 troubleButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        showModal(troubleTips);
-    });
-});
-
-reportButton.addEventListener('click', () => {
-    showForm('report');
-});
-
-repairRequest.addEventListener('click', () => {
-    showForm(report);
+    button.addEventListener('click', () => showModal(troubleTips));
 });
 
 criteriaButton.addEventListener('click', () => {
@@ -311,10 +160,70 @@ petCriteriaButton.addEventListener('click', () => {
     showModal(petCriteria);
 });
 
-// accomodationRequest.addEventListener('click', () => {
-//     showModal(accomodationForm);
-// });
+reportButton.addEventListener('click', () => {
+    showForm('report');
+});
 
-// modificationRequest.addEventListener('click', () => {
-//     showModal(accomodationForm);
-// });
+repairRequest.addEventListener('click', () => {
+    showForm('repair');
+});
+
+accomodationRequest.addEventListener('click', () => {
+    showForm('accomodation');
+});
+
+modificationRequest.addEventListener('click', () => {
+    showForm('modification');
+});
+
+submitButton.forEach(button => {
+    button.addEventListener('click', (e) => submitForm(e))
+})
+
+const rentalCriteria = {
+    title: 'Rental Criteria',
+    subtitle: 'Please read carefully before applying',
+    children: [
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+    ]
+}
+
+const petCriteria = {
+    title: 'Pet Criteria',
+    subtitle: 'Please read carefully before applying',
+    children: [
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eligendi.',
+    ]
+}
+
+const troubleTips = {
+    title: 'Troubleshooting Common Issues',
+    subtitle: 'Please try troubleshooting your issue before submitting any repair request',
+    children: [
+        {'No Electricity': ['Check all breakers', 'Flip them hard to the OFF position and then hard to the ON position.']},
+        {'No Power to Plugs or Light Switches': ['Check and reset breaker panel.', 'Check and reset all GFI (Ground Fault Indicator) outlets (located in the kitchen, bathrooms, utility room, and garage).', 'Check to see if plug works off a wall switch.']},
+        {'No Heat': ['Check to make sure thermostat is set to 68 degrees, and on auto, not fan.', 'Did you pay your utility bill on time or issue an order to disconnect services?']},
+        {'No Hot Water': ['Check and reset breaker in power panel']},
+        {'Plumbing or Fixtures Leak': ['Turn off water fixture and turn off water at supply line and notify MPM immediately.']},
+        {"Smoke Detectors Don't Work": ['Press the test button or test with approved smoke detector spray. Replace battery.']},
+        {'Smoke Detector Beeps': ['Replace battery']},
+        {'Clogged Toilet': ['No paper products other than toilet paper should be flushed down the toilet.', 'Plunge to remove the clog']},
+        {'Overflowing Toilet': ['If your toilet overflows, or you notice water at the base of the toilet', 'a. Turn off valve at the base of the toilet.', 'b. Wipe up excess water.', 'c. Submit a Maintenence Request.']},
+        {'Garbage Disposal Not Working': ['When garbage disposal is on, do you hear a buzz?', 'NO: Hit the reset button on the bottom of the disposal and test.', 'YES: Turn off disposal and unplug from wall.', 'Mounted on the side of the disposal or side of cabinet may be an Allen Wrench. Put the wrench in the center shaft and gently twist back and forth (this unjams the disposal)', 'Remove the object that is causing the obstruction, turn back on and test.']},
+        {'Clogged Sink': ['DO NOT use Drano and other caustic cleaners to unclog your drain.. These products are very harmful to both the plumbing and our technicians servicing your drains.', 'Use maintenance form to request repair']},
+        {"Dishwasher Doesn't Drain": ['Clean food/debris out of bottom of dishwasher.']},
+        {'Dishwasher Grinds or No Water is Coming In': ['Turn off dishwasher.', 'If no water is on the bottom, pour two large glasses of water into the bottom and re-start.', 'If problem continues, call MPM immediately and discontinue use.']},
+        {'Calcium Build-Up in Dishwasher': ['Pour a little white vinegar in your dishwasher and run it while empty.']},
+        {'Refrigerator Too Warm or Too Cold': ['Check if thermostat in refrigerator is set correctly.']}
+    ]
+}

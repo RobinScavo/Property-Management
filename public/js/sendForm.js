@@ -1,25 +1,27 @@
-const form = document.querySelector('form');
-const inputs = document.querySelectorAll('input');
-const submitButton = document.getElementById('submit-button');
-
-submitButton.addEventListener('click', (e) => {
+const submitForm = (e) => {
     e.preventDefault();
 
+    const formType = e.target.id.split('-')[0];
+    const formId = `${formType}-form-modal`;
+
+    const form = document.getElementById(formId);
+    const inputs = form.querySelectorAll('input');
+    const formOverlay = form.querySelector('.form-overlay');
+
+    let isModal = (e.target.id !== 'contact-submit-button');
     let formData = {};
     let honeyPot = '';
+    let alertText;
 
     inputs.forEach(input => {
         const formInput = input.value;
         const formLabel = input.name;
         if(input.type === 'radio') {
             if (input.checked && input.value === 'yes') {
-                console.log('yes', input.value)
                 formData[formLabel] = 'Yes'
             } else if (input.checked && input.value === 'no') {
-                console.log('no', input.value)
                 formData[formLabel] = 'No'
             } else if (formData[formLabel] !== 'Yes') {
-                console.log('not answered', input.value)
                 formData[formLabel] = 'Not answered'
             }
         } else if (formLabel === 'bot-field') {
@@ -27,13 +29,10 @@ submitButton.addEventListener('click', (e) => {
         } else {
             formData[formLabel] = formInput;
         }
-
-
     })
 
-    let alertText
     if (!honeyPot) {
-        alertText = validateMessage(formData);
+        alertText = validateForm(formData);
     }
 
     const alert = document.createElement('div');
@@ -47,25 +46,35 @@ submitButton.addEventListener('click', (e) => {
     okButton.classList.add('btn');
     okButton.classList.add('okButton');
     okButton.innerText = 'OK';
-    okButton.addEventListener('click', () => form.removeChild(alert));
-
-    alert.appendChild(okButton);
-    form.appendChild(alert);
+    okButton.addEventListener('click', () => {
+        form.removeChild(alert);
+        if (isModal) {
+            formOverlay.classList.add('hidden');
+        }
+    });
 
     if (alertText === 'Your message has been sent. Thank you!') {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/');
+        xhr.setRequestHeader('content-type', 'application/json');
+
+        xhr.send(JSON.stringify(formData));
+
         inputs.forEach(input => {
             input.value = ''
         })
     }
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/');
-    xhr.setRequestHeader('content-type', 'application/json');
+    if (isModal) {
+        formOverlay.classList.remove('hidden');
+    }
 
-    xhr.send(JSON.stringify(formData));
-})
+    alert.appendChild(okButton);
+    form.appendChild(alert);
+    alert.scrollIntoView();
+}
 
-function validateMessage (formData) {
+function validateForm (formData) {
     let alertText = 'Your message has been sent. Thank you!';
     const name = formData.name;
     const email = formData.email;
@@ -102,3 +111,5 @@ function validatePhone (phoneNumber) {
         return false;
     }
 }
+
+export { submitForm }
