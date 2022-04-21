@@ -1,20 +1,22 @@
 const troubleButtons = document.querySelectorAll('.troubleshoot-button');
-const reportButton = document.querySelector('.report-button');
+
 const criteriaButton = document.getElementById('criteria-button');
 const petCriteriaButton = document.getElementById('pet-criteria-button');
-const repairRequest = document.getElementById('repair-request');
+const reportButton = document.querySelector('.report-button');
 const accomodationRequest = document.getElementById('accomodation-request');
 const modificationRequest = document.getElementById('modification-request');
-const troubleModal = document.querySelector('.trouble-modal');
-const reportModal = document.querySelector('.report-modal');
+const repairRequest = document.getElementById('repair-request');
+
+const modal = document.querySelector('.trouble-modal');
+const reportModal = document.getElementById('report-form-modal');
 const overlay = document.querySelector('.full-overlay');
 
 const showModal = (modalType) => {
     overlay.classList.add('overlay-visible');
 
-    const modal = (modalType.title === 'Troubleshooting Common Issues')
-        ? troubleModal
-        : reportModal;
+    // const modal = (modalType.title === 'Troubleshooting Common Issues')
+    //     ? troubleModal
+    //     : reportModal;
 
     modal.classList.add('visible');
 
@@ -41,13 +43,19 @@ const showModal = (modalType) => {
 
     if (modalType.title === 'Troubleshooting Common Issues') {
         reportTroubleModal(modal)
-    } else if (modalType.title === 'What Went Wrong?') {
-        formType(modal, true)
-    } else if (modalType.title === 'Request for Accessibilty Accomodation or Modification') {
-        formType(modal, false)
     } else {
         rentalCriteriaModal(modal)
     }
+
+    // if (modalType.title === 'Troubleshooting Common Issues') {
+    //     reportTroubleModal(modal)
+    // } else if (modalType.title === 'What Went Wrong?') {
+    //     formType(modal, true)
+    // } else if (modalType.title === 'Request for Accessibilty Accomodation or Modification') {
+    //     formType(modal, false)
+    // } else {
+    //     rentalCriteriaModal(modal)
+    // }
 
     modal.scrollIntoView();
 }
@@ -105,42 +113,7 @@ const reportTroubleModal = (modal) => {
 }
 
 const formType = (modal, reportFormBoolean) => {
-    // const formTypeString = (reportFormBoolean) ? 'report-trouble-form' : 'accomodation-request-form';
 
-    // // Hidden Netlify form
-    // const form = document.createElement('form');
-    // form.setAttribute('name', 'report-form');
-    // form.setAttribute('type', 'hidden');
-    // form.setAttribute('method', 'POST');
-    // form.setAttribute('netlify-honeypot', 'bot-field');
-    // form.setAttribute('data-netlify', true);
-    // form.setAttribute('onkeydown', "return event.key != 'Enter';");
-
-    // const hiddenInput = document.createElement('input');
-    // hiddenInput.setAttribute('type', 'hidden');
-    // hiddenInput.setAttribute('name', 'form-name');
-    // hiddenInput.setAttribute('value', `${formTypeString}`);
-
-    // form.appendChild(hiddenInput);
-
-    // // Netlify honey-pot protection
-    // const honeypotContainer =  document.createElement('p');
-    // honeypotContainer.classList.add('hidden-honeypot');
-
-    // const honeypot = document.createElement('input');
-    // honeypot.setAttribute('name', 'bot-field');
-    // honeypot.setAttribute('label', 'Do not fill this out if you are human')
-
-    // honeypotContainer.appendChild(honeypot);
-    // form.appendChild(honeypotContainer);
-
-    // Validate on pressing enter
-    form.onkeydown = function(e) {
-        if (e.key == "Enter") {
-            e.preventDefault();
-            validateForm(form);
-        }
-    }
 
     const formType = reportFormBoolean ? reportForm : accomodationForm;
     const placeholderType = reportFormBoolean ? placeholderArray : placeholderArrayAccomodation;
@@ -248,64 +221,72 @@ const toggleExpand = (e) => {
     target.classList.toggle('expanded-div');
 }
 
-const validateForm = (form) => {
-    const checkmarks = document.querySelectorAll('.checkmark-div');
-    const xMarks = document.querySelectorAll('.x-mark-div');
-    const requirements = document.querySelectorAll('.requirement-text');
-    console.log('validate')
+// const validateForm = (form) => {
+//     const checkmarks = document.querySelectorAll('.checkmark-div');
+//     const xMarks = document.querySelectorAll('.x-mark-div');
+//     const requirements = document.querySelectorAll('.requirement-text');
+//     console.log('validate')
 
-    for (let i = 0; i < form.elements.length; i++) {
-        if (form.elements[i].required && !form.elements[i].value) {
-            // checkmarks[i].classList.remove('hidden');
-            // requirements[i].classList.add('hidden');
-            // xMarks[i].classList.add('hidden');
-            // xMarks[i].classList.remove('hidden');
-            // requirements[i].classList.add('hidden');
-            alert('Please fill out all required fields.');
-            return;
-        }
+//     for (let i = 0; i < form.elements.length; i++) {
+//         if (form.elements[i].required && !form.elements[i].value) {
+//             alert('Please fill out all required fields.');
+//             return;
+//         }
+//     }
+
+//     if (!validatePhone(form.elements[2].value)) {
+//         alert('Please provide a valid phone number.');
+//         return;
+//     }
+
+//     if (!validateEmail(form.elements[3].value)) {
+//         alert('Please provide a valid email.');
+//         return;
+//     }
+
+//     console.log('submit')
+//     alert('Your report has been filed. A representative will be in contact.');
+// }
+
+// const alert = (message) => {
+//     const form = document.querySelector('form');
+
+//     const alert = document.createElement('div');
+//     alert.classList.add('alert');
+//     alert.classList.add('report-alert');
+
+//     const alertTextEl = document.createElement('h2');
+//     alertTextEl.innerHTML = message;
+//     alert.appendChild(alertTextEl);
+
+//     const okButton = document.createElement('button');
+//     okButton.classList.add('btn');
+//     okButton.classList.add('okButton');
+//     okButton.innerText = 'OK';
+//     okButton.addEventListener('click', () => form.removeChild(alert));
+
+//     alert.appendChild(okButton);
+//     form.appendChild(alert);
+//     alert.scrollIntoView();
+// }
+
+const showForm = (type) => {
+    closeButton = document.querySelector('.modal-close');
+
+    overlay.classList.add('overlay-visible');
+
+    if (type === 'report') {
+        reportModal.classList.remove('hidden');
+        reportModal.classList.add('visible');
     }
 
-    if (!validatePhone(form.elements[2].value)) {
-        // xMarks[2].classList.remove('hidden');
-        // requirements[2].classList.add('hidden');
-        // checkmarks[2].classList.add('hidden');
-        alert('Please provide a valid phone number.');
-        return;
-    }
+    closeButton.addEventListener('click', () => {
+        modal.innerHTML = '';
+        reportModal.classList.remove('visible');
+        overlay.classList.remove('overlay-visible');
+    });
 
-    if (!validateEmail(form.elements[3].value)) {
-        // xMarks[3].classList.remove('hidden');
-        // requirements[3].classList.add('hidden');
-        // checkmarks[3].classList.add('hidden');
-        alert('Please provide a valid email.');
-        return;
-    }
-
-    console.log('submit')
-    alert('Your report has been filed. A representative will be in contact.');
-}
-
-const alert = (message) => {
-    const form = document.querySelector('form');
-
-    const alert = document.createElement('div');
-    alert.classList.add('alert');
-    alert.classList.add('report-alert');
-
-    const alertTextEl = document.createElement('h2');
-    alertTextEl.innerHTML = message;
-    alert.appendChild(alertTextEl);
-
-    const okButton = document.createElement('button');
-    okButton.classList.add('btn');
-    okButton.classList.add('okButton');
-    okButton.innerText = 'OK';
-    okButton.addEventListener('click', () => form.removeChild(alert));
-
-    alert.appendChild(okButton);
-    form.appendChild(alert);
-    alert.scrollIntoView();
+    reportModal.scrollIntoView();
 }
 
 troubleButtons.forEach((button) => {
@@ -315,11 +296,11 @@ troubleButtons.forEach((button) => {
 });
 
 reportButton.addEventListener('click', () => {
-    showModal(reportForm);
+    showForm('report');
 });
 
 repairRequest.addEventListener('click', () => {
-    showModal(reportForm);
+    showForm(report);
 });
 
 criteriaButton.addEventListener('click', () => {
@@ -330,29 +311,10 @@ petCriteriaButton.addEventListener('click', () => {
     showModal(petCriteria);
 });
 
-accomodationRequest.addEventListener('click', () => {
-    showModal(accomodationForm);
-});
+// accomodationRequest.addEventListener('click', () => {
+//     showModal(accomodationForm);
+// });
 
-modificationRequest.addEventListener('click', () => {
-    showModal(accomodationForm);
-});
-
-function validateEmail (emailAddress) {
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (emailAddress.match(regexEmail)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function validatePhone (phoneNumber) {
-    let regexPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-
-    if (phoneNumber.match(regexPhone)) {
-        return true;
-    } else {
-        return false;
-    }
-}
+// modificationRequest.addEventListener('click', () => {
+//     showModal(accomodationForm);
+// });

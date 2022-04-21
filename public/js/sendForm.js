@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 const inputs = document.querySelectorAll('input');
-const submitButton = document.getElementById('contact-submit-button');
+const submitButton = document.getElementById('submit-button');
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -11,12 +11,24 @@ submitButton.addEventListener('click', (e) => {
     inputs.forEach(input => {
         const formInput = input.value;
         const formLabel = input.name;
-
-        if (formLabel !== 'bot-field') {
-            formData[formLabel] = formInput;
-        } else {
+        if(input.type === 'radio') {
+            if (input.checked && input.value === 'yes') {
+                console.log('yes', input.value)
+                formData[formLabel] = 'Yes'
+            } else if (input.checked && input.value === 'no') {
+                console.log('no', input.value)
+                formData[formLabel] = 'No'
+            } else if (formData[formLabel] !== 'Yes') {
+                console.log('not answered', input.value)
+                formData[formLabel] = 'Not answered'
+            }
+        } else if (formLabel === 'bot-field') {
             honeyPot =formInput;
+        } else {
+            formData[formLabel] = formInput;
         }
+
+
     })
 
     let alertText
