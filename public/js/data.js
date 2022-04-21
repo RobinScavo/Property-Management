@@ -350,42 +350,42 @@
 // ]
 
 
-const reportForm = {
-    title: 'What Went Wrong?',
-    subtitle: "We're sorry to hear you're having an issue and appreciate the opportunity to help resolve it. Please give us all the details below and hit send.",
-    children: [
-        {'text': 'Your Name'},
-        {'text': 'Your Address'},
-        {'tel': 'Phone Number'},
-        {'email': 'Your Email'},
-        {'text': 'Address of Concern'},
-        {'date': 'Date of Issue'},
-        {'time': 'Time of Issue'},
-        {'textarea': 'Describe Your Issue'},
-        {'radio': 'Were the Police Called?', radioValues: ['Yes', 'No']},
-        {'text': 'If Yes: Responding Officers Name'},
-        {'radio': 'Did the Police File a Report?', radioValues: ['Yes', 'No']},
-        {'radio': 'Was Anyone Arrested?', radioValues: ['Yes', 'No']},
-        {'radio': 'Was Any Property Damaged?', radioValues: ['Yes', 'No', 'Not Sure']},
-        {'textarea': 'If Yes: Please Describe Damage:'},
-    ]
-}
+// const reportForm = {
+//     title: 'What Went Wrong?',
+//     subtitle: "We're sorry to hear you're having an issue and appreciate the opportunity to help resolve it. Please give us all the details below and hit send.",
+//     children: [
+//         {'text': 'Your Name'},
+//         {'text': 'Your Address'},
+//         {'tel': 'Phone Number'},
+//         {'email': 'Your Email'},
+//         {'text': 'Address of Concern'},
+//         {'date': 'Date of Issue'},
+//         {'time': 'Time of Issue'},
+//         {'textarea': 'Describe Your Issue'},
+//         {'radio': 'Were the Police Called?', radioValues: ['Yes', 'No']},
+//         {'text': 'If Yes: Responding Officers Name'},
+//         {'radio': 'Did the Police File a Report?', radioValues: ['Yes', 'No']},
+//         {'radio': 'Was Anyone Arrested?', radioValues: ['Yes', 'No']},
+//         {'radio': 'Was Any Property Damaged?', radioValues: ['Yes', 'No', 'Not Sure']},
+//         {'textarea': 'If Yes: Please Describe Damage:'},
+//     ]
+// }
 
-const accomodationForm = {
-    title: 'Request for Accessibilty Accomodation or Modification',
-    subtitle: 'Please provide the following information and a BPM representative will contact you shortly.',
-    children: [
-        {'text': 'Name of Tenant or Applicant'},
-        {'date': 'Date'},
-        {'text': 'Name of person with disability'},
-        {'tel': 'Phone number'},
-        {'text': 'Address'},
-        {'email': 'Your Email'},
-        {'radio': 'Prefer method of contact', radioValues: ['Phone Call', 'Text', 'Email']},
-        {'textarea': 'I am requesting the following accomadation/s:'},
-        {'textarea': 'I need this reasonable accomodation because:'},
-    ]
-}
+// const accomodationForm = {
+//     title: 'Request for Accessibilty Accomodation or Modification',
+//     subtitle: 'Please provide the following information and a BPM representative will contact you shortly.',
+//     children: [
+//         {'text': 'Name of Tenant or Applicant'},
+//         {'date': 'Date'},
+//         {'text': 'Name of person with disability'},
+//         {'tel': 'Phone number'},
+//         {'text': 'Address'},
+//         {'email': 'Your Email'},
+//         {'radio': 'Prefer method of contact', radioValues: ['Phone Call', 'Text', 'Email']},
+//         {'textarea': 'I am requesting the following accomadation/s:'},
+//         {'textarea': 'I need this reasonable accomodation because:'},
+//     ]
+// }
 
 // const placeholderArray = ['Jane Doe', '123 45th st w', '406-555-1212', 'janedoe@gmail.com', '123 45th st w', 'mm/dd/yyyy', '11:30 AM', '...', '', 'John Doe', '', '', '', '...'];
 // const placeholderArrayAccomodation = ['Jane Doe', 'mm/dd/yyyy', 'John Doe', '406-555-1212', '123 45th st w', 'janedoe@gmail.com', '123 45th st w', '...', '...'];
