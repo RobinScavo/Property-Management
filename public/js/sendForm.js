@@ -3,6 +3,7 @@ const submitForm = (e) => {
 
     const formType = e.target.id.split('-')[0];
     const formId = `${formType}-form-modal`;
+    console.log(formId)
 
     const form = document.getElementById(formId);
     const inputs = form.querySelectorAll('input');

@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 :root {
-    /* --primary-color: #599cdf;
-    --secondary-color: #1784f1; */
     --primary-color: #1784f1;
     --secondary-color: #0f5ca8;
     --dark-color: #515151;
@@ -103,23 +101,12 @@ header {
 }
 
 .logo-text {
-    /* font-family: 'Orbitron', sans-serif; */
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--light-color);
 }
-
-/* .home-text {
-    visibility: hidden;
-    position: absolute;
-    top: 2rem;
-    left: 1rem;
-    font-size: 10px;
-    opacity: 0;
-    transition: visiblity 0s linear 1000ms, opacity 1000ms;
-} */
 
 .logo-text-div {
     position: absolute;
@@ -154,17 +141,6 @@ header {
     background-repeat: no-repeat;
     box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
-
-/* .logo-overlay {
-    position:absolute;
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    background-color:black;
-    opacity:0.1;
-    border-radius: 50%;
-} */
 
 .header-links {
     display: flex;
