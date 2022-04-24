@@ -11,6 +11,7 @@
  - Mongoose
  - Cors
  - Path
+ - Bcrypt
 
  # Stack
  - EJS/ CSS/ JS/ Node.js/ MongoDB

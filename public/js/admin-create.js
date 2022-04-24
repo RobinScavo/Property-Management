@@ -4,6 +4,9 @@ const thumbnailDisplay = document.getElementById('add-listing-thumbnail-display'
 const addListingMainImageText = document.getElementById('add-listing-main-image-text');
 const addListingMainImageInput = document.getElementById('add-listing-main-image-input');
 const addListingMainImageURLInput = document.getElementById('add-listing-main-image-url-input');
+const createButton = document.getElementById('edit-form-submit');
+const detailContainer = document.querySelector('.detail-container');
+const overlay = document.querySelector('.overlay');
 
 
 // Image update
@@ -115,4 +118,29 @@ addthumbnailButton.addEventListener('click', (e) => {
 
     thumbnailAddContainer.appendChild(urlLabel);
     thumbnailAddContainer.appendChild(textLabel);
+});
+
+createButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const alert = document.createElement('div');
+    alert.classList.add('alert');
+
+    const alertTextEl = document.createElement('h2');
+    alertTextEl.innerHTML = "I'm sorry. The demo admin cannot add listings to the database.";
+
+    const closeButton = document.createElement('div');
+    closeButton.classList.add('modal-close');
+    closeButton.innerText = 'X';
+    closeButton.addEventListener('click', () => {
+        detailContainer.removeChild(alert);
+        overlay.classList.remove('overlay-visible');
+    });
+
+    alert.appendChild(closeButton);
+    alert.appendChild(alertTextEl);
+
+    overlay.classList.add('overlay-visible');
+    detailContainer.appendChild(alert);
+    alert.scrollIntoView();
 })

@@ -22,6 +22,7 @@
 
     <!-- Form -->
     <div class="detail-container property-container">
+        <div class="overlay"></div>
         <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
 
         <% const titles = Object.keys(infoTitles) %>
@@ -126,7 +127,7 @@
                     </div>
                 <% } %>
             </div>
-            <button id='edit-form-submit' type='submit' class="btn">Submit</button>
+            <button id='edit-form-submit' class="btn">Submit</button>
         </form>
     </div>
 

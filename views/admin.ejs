@@ -16,6 +16,7 @@
     <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: false, adminHome: true }) %>
 
     <!-- <div class="search-main"> -->
+    <div class="overlay"></div>
     <div class="results-container">
         <% if (listings.length > 0) { %>
             <% listings.forEach((listing, index) => { %>

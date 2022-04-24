@@ -13,6 +13,7 @@
     <title>Listing Detail</title>
 </head>
 
+
 <body class="scrollbar-hidden">
     <!-- Header -->
     <%- include('./partials/small-header.ejs', { admin: true }) %>
@@ -203,10 +204,10 @@
                 <% } %>
             </div>
 
-            <button type='submit' id=<%= listing.id %> class="btn back-button">Update Listing</button>
+            <button id='update-listing-button' class="btn back-button">Update Listing</button>
         </form>
     </div>
 
     <script src="../js/dropdown.js"></script>
-    <script src="../js/admin-edit.js"></script>
+    <script src="../js/adminEdit.js"></script>
 </body>

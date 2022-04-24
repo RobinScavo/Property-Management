@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/RobinScavo/Property-Management#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "ejs": "^3.0.2",
