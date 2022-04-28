@@ -1,142 +1,185 @@
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Billings Property Management" content="Built by Robin Scavo">
-    <meta name="keywords" content="apartment, apartments, house, houses, rent, rental">
-    <meta name="author" content="Robin Scavo">
-    <meta name="description" content="Rental Property Company Website">
-    <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="Billings Property Management" content="Built by Robin Scavo" />
+  <meta
+    name="keywords"
+    content="apartment, apartments, house, houses, rent, rental"
+  />
+  <meta name="author" content="Robin Scavo" />
+  <meta name="description" content="Rental Property Company Website" />
+  <meta name="robots" content="noindex, nofollow" />
 
-    <!-- social media -->
-    <meta property="og:title" content="Billings Property Management">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://flic.kr/p/2n8gjGK">
-    <meta property="og:url" content="https://billings-property-management.netlify.app/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:description" content="Rental Property Company Website">
-    <meta property="og:site_name" content="Billings Property Management">
-    <meta name="twitter:image:alt" content="Billings Property Management homepage">
+  <!-- social media -->
+  <meta property="og:title" content="Billings Property Management" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://flic.kr/p/2n8gjGK" />
+  <meta
+    property="og:url"
+    content="https://billings-property-management.netlify.app/"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:description" content="Rental Property Company Website" />
+  <meta property="og:site_name" content="Billings Property Management" />
+  <meta
+    name="twitter:image:alt"
+    content="Billings Property Management homepage"
+  />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/dropdown.css">
-    <link rel="stylesheet" href="../css/index.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/utilities.css" />
+  <link rel="stylesheet" href="../css/dropdown.css" />
+  <link rel="stylesheet" href="../css/index.css" />
 
-    <title>Billings Property Management</title>
+  <title>Billings Property Management</title>
 </head>
 <html lang="en">
-
-<body class="scrollbar-hidden">
-
+  <body class="scrollbar-hidden">
     <!-- Header -->
     <%- include('./partials/header.ejs') %>
 
     <!-- Drop-down menus -->
-    <%- include('./partials/dropdown.ejs', { homePage: true, listingEdit: false, adminHome: false }) %>
+    <%- include('./partials/dropdown.ejs', { homePage: true, listingEdit: false,
+    adminHome: false }) %>
 
     <!-- Main image -->
     <figure>
-        <figcaption>Rent In Billings <br><small  id='main-small'> because the future is here</small></figcaption>
-        <button class='btn'><a href="/listings">AVAILABLE RENTALS</a></button>
+      <figcaption>
+        Rent In Billings <br /><small id="main-small">
+          because the future is here</small
+        >
+      </figcaption>
+      <button class="btn"><a href="/listings">AVAILABLE RENTALS</a></button>
     </figure>
 
     <!-- Main navigation -->
-    <nav class='main'>
-        <ul class='grid'>
-            <li class='flex'>
-                <div class="image-div">
-                    <img src="./images/icons/search.png" alt="Eye by ainul muttaqin from NounProject.com">
-                </div>
-                <div class="main-text">
-                    <h2>FIND A RENTAL</h2>
-                    <p>Looking for a great place to live? Search our wide-variety of rental homes and apartments based on your requirements.</p>
-                    <a href="./listings">Search Page</a>
-                </div>
-            </li>
+    <nav class="main">
+      <ul class="grid">
+        <li class="flex">
+          <div class="image-div">
+            <img
+              src="./images/icons/search.png"
+              alt="Eye by ainul muttaqin from NounProject.com"
+            />
+          </div>
+          <div class="main-text">
+            <h2>FIND A RENTAL</h2>
+            <p>
+              Looking for a great place to live? Search our wide-variety of
+              rental homes and apartments based on your requirements.
+            </p>
+            <a href="./listings">Search Page</a>
+          </div>
+        </li>
 
-            <li class='flex'>
-                <div class="image-div">
-                    <img src="./images/icons/sign.png" alt="Signpost by Zohaib Bajwa from NounProject.com">
-                </div>
-                <div class="main-text">
-                    <h2>PROPERTY MAP</h2>
-                    <p>Want to live in a specific neighborhood? See all our properties on one map.</p>
-                    <a href="./listings#map-button">Location Map</a>
-                </div>
-            </li>
+        <li class="flex">
+          <div class="image-div">
+            <img
+              src="./images/icons/sign.png"
+              alt="Signpost by Zohaib Bajwa from NounProject.com"
+            />
+          </div>
+          <div class="main-text">
+            <h2>PROPERTY MAP</h2>
+            <p>
+              Want to live in a specific neighborhood? See all our properties on
+              one map.
+            </p>
+            <a href="./listings#map-button">Location Map</a>
+          </div>
+        </li>
 
-            <li class='flex'>
-                <div class="image-div">
-                    <img id='keys' src="./images/icons/keys.png" alt="Key by Pundimon from NounProject.com">
-                </div>
-                <div class="main-text">
-                    <h2>TENANT PORTAL</h2>
-                    <p>View your account. Update your information. Pay your rent.</p>
-                    <a href="https://missoula.twa.rentmanager.com/Applynow" target='_blank'>Tenant Portal</a>
-                </div>
-            </li>
+        <li class="flex">
+          <div class="image-div">
+            <img
+              id="keys"
+              src="./images/icons/keys.png"
+              alt="Key by Pundimon from NounProject.com"
+            />
+          </div>
+          <div class="main-text">
+            <h2>TENANT PORTAL</h2>
+            <p>View your account. Update your information. Pay your rent.</p>
+            <a
+              href="https://missoula.twa.rentmanager.com/Applynow"
+              target="_blank"
+              >Tenant Portal</a
+            >
+          </div>
+        </li>
 
-            <li class='flex'>
-                <div class="image-div">
-                    <img src="./images/icons/signpost.png" alt="Sign by Astoe Design from NounProject.com">
-                </div>
-                <div class="main-text">
-                    <h2>OWNER PORTAL</h2>
-                    <p>24/7/365 access to your property accounts.</p>
-                    <a href="https://missoula.owa.rentmanager.com/#/login?returnUrl=%2Fdashboard&locations=Default,hoa,talbert,weaver" target='_blank'>
-                        Online Owner Portal
-                    </a>
-                </div>
-            </li>
-        </ul>
+        <li class="flex">
+          <div class="image-div">
+            <img
+              src="./images/icons/signpost.png"
+              alt="Sign by Astoe Design from NounProject.com"
+            />
+          </div>
+          <div class="main-text">
+            <h2>OWNER PORTAL</h2>
+            <p>24/7/365 access to your property accounts.</p>
+            <a
+              href="https://missoula.owa.rentmanager.com/#/login?returnUrl=%2Fdashboard&locations=Default,hoa,talbert,weaver"
+              target="_blank"
+            >
+              Online Owner Portal
+            </a>
+          </div>
+        </li>
+      </ul>
     </nav>
 
     <!-- Image gallery -->
-    <section class='image-gallery'>
-        <ul class='gallery-list'>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>CLICK TO SEE OUR FEATURED PROPERTIES</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>MOVE IN READY LISTINGS</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>RUSTIC MEETS LUXURY</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>SEARCH BY LOCATIONS</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>TAKE A HIKE FROM YOUR BACKYARD!</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>NEW AND MODERN</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>PET FRIENDLY RENTALS</h2>
-            </li>
-            <li class='gallery-item'>
-                <div class="overlay"></div>
-                <h2 class='overlay-text'>LIVE IN THE COVETED RIMROCK AREA</h2>
-            </li>
-        </ul>
+    <section class="image-gallery">
+      <ul class="gallery-list">
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">CLICK TO SEE OUR FEATURED PROPERTIES</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">MOVE IN READY LISTINGS</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">RUSTIC MEETS LUXURY</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">SEARCH BY LOCATIONS</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">TAKE A HIKE FROM YOUR BACKYARD!</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">NEW AND MODERN</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">PET FRIENDLY RENTALS</h2>
+        </li>
+        <li class="gallery-item">
+          <div class="overlay"></div>
+          <h2 class="overlay-text">LIVE IN THE COVETED RIMROCK AREA</h2>
+        </li>
+      </ul>
     </section>
 
     <!-- Testimonials -->
-    <section class='testimonials'>
-        <h1>TESTIMONIALS</h1>
-        <div class="testimonials-div"></div>
+    <section class="testimonials">
+      <h1>TESTIMONIALS</h1>
+      <div class="testimonials-div"></div>
     </section>
 
     <!-- Contact form -->
@@ -145,8 +188,8 @@
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
 
-    <script type='module' src="../js/sendForm.js"></script>
-    <script type='module' src="../js/index.js"></script>
+    <script type="module" src="../js/sendForm.js"></script>
+    <script type="module" src="../js/index.js"></script>
     <script src="../js/dropdown.js"></script>
-</body>
+  </body>
 </html>

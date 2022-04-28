@@ -1,54 +1,99 @@
-<section class='report-modal' id="accomodation-form-modal">
-    <form name="report-form" >
-        <div class="form-overlay hidden"></div>
-        <input type="hidden" class='undisplayed' name="Form Type" value="Accomodation Request">
-        <div class="modal-close">X</div>
-        <p class="hidden">
-            <label>Don't fill this out if you are human: <input name="bot-field"></label>
-        </p>
+<section class="report-modal" id="accomodation-form-modal">
+  <form name="report-form">
+    <div class="form-overlay hidden"></div>
+    <input
+      type="hidden"
+      class="undisplayed"
+      name="Form Type"
+      value="Accomodation Request"
+    />
+    <div class="modal-close">X</div>
+    <p class="hidden">
+      <label
+        >Don't fill this out if you are human: <input name="bot-field"
+      /></label>
+    </p>
 
-        <h2 class="modal-name">Accomodation Request</h2>
-        <h3 class="modal-text">Please provide the information listed below.</h3>
+    <h2 class="modal-name">Accomodation Request</h2>
+    <h3 class="modal-text">Please provide the information listed below.</h3>
 
-        <div class="input-div">
-            <label for='name' class="report-label">Name</label>
-            <input type="text" name='name' class='report-input' placeholder='Jane Doe' required>
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="name" class="report-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="report-input"
+        placeholder="Jane Doe"
+        required
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='email' class="report-label">Email</label>
-            <input type="email" name='email' class='report-input' placeholder='janedoe@gmail.com' required>
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="email" class="report-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="report-input"
+        placeholder="janedoe@gmail.com"
+        required
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='phone' class="report-label">Phone</label>
-            <input type="tel" name='phone' class='report-input' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='406-555-1212' required>
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="phone" class="report-label">Phone</label>
+      <input
+        type="tel"
+        name="phone"
+        class="report-input"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="406-555-1212"
+        required
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='address' class="report-label">Address of Concern</label>
-            <input type="text" name='address' class='report-input' placeholder="123 45th st w">
-        </div>
+    <div class="input-div">
+      <label for="address" class="report-label">Address of Concern</label>
+      <input
+        type="text"
+        name="address"
+        class="report-input"
+        placeholder="123 45th st w"
+      />
+    </div>
 
-        <div class="input-div">
-            <label for='message' class="report-label">Describe Your Accomodation Request</label>
-            <input type="textarea" name="message" class='report-textarea' placeholder="...">
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="message" class="report-label"
+        >Describe Your Accomodation Request</label
+      >
+      <input
+        type="textarea"
+        name="message"
+        class="report-textarea"
+        placeholder="..."
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <button id='accomodation-submit-button' type="submit" class='btn report-submit submit-button' form='true'>SEND MESSAGE</button>
+    <button
+      id="accomodation-submit-button"
+      type="submit"
+      class="btn report-submit submit-button"
+      form="true"
+    >
+      SEND MESSAGE
+    </button>
 
-        <script type='module' src="../js/sendForm.js"></script>
-    </form>
+    <script type="module" src="../js/sendForm.js"></script>
+  </form>
 </section>

@@ -1,115 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/listings.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/listings.css" />
     <title>Search Rentals</title>
-</head>
-<body class="scrollbar-hidden">
+  </head>
+  <body class="scrollbar-hidden">
     <!-- Header -->
     <%- include('./partials/small-header.ejs', { admin: false }) %>
 
     <section class="search-header">
-        <div class="filter-div">
-            <div class="select-div">
-                <label for="bedrooms" class="filter-label">Bedrooms</label>
-                <select id='bedrooms' class="filter-select">
-                    <option value="" class="filter-option" selected disabled hidden></option>
-                    <option value='0' class="filter-option">Studio</option>
-                    <option value='1' class="filter-option">1</option>
-                    <option value='2' class="filter-option">2</option>
-                    <option value='3' class="filter-option">3</option>
-                    <option value='4' class="filter-option">4+</option>
-                </select>
-            </div>
-            <div class="select-div">
-                <label for="bathrooms" class="filter-label">Bathrooms</label>
-                <select id='bathrooms' class="filter-select">
-                    <option value="" class="filter-option" selected disabled hidden></option>
-                    <option value='1' class="filter-option">1</option>
-                    <option value='2' class="filter-option">2</option>
-                    <option value='3' class="filter-option">3</option>
-                </select>
-            </div>
-            <div class="select-div">
-                <label for="max-rent" class="filter-label">Max Rent</label>
-                <select id='max-rent' class="filter-select">
-                    <option value="" class="filter-option" selected disabled hidden></option>
-                    <option value='800' class="filter-option">$800</option>
-                    <option value='900' class="filter-option">$900</option>
-                    <option value='1000' class="filter-option">$1000</option>
-                    <option value='1100' class="filter-option">$1100+</option>
-                </select>
-            </div>
+      <div class="filter-div">
+        <div class="select-div">
+          <label for="bedrooms" class="filter-label">Bedrooms</label>
+          <select id="bedrooms" class="filter-select">
+            <option
+              value=""
+              class="filter-option"
+              selected
+              disabled
+              hidden
+            ></option>
+            <option value="0" class="filter-option">Studio</option>
+            <option value="1" class="filter-option">1</option>
+            <option value="2" class="filter-option">2</option>
+            <option value="3" class="filter-option">3</option>
+            <option value="4" class="filter-option">4+</option>
+          </select>
         </div>
-        <button id='filter-button' class="btn filter-button">Filter</button>
-        <button id='unfilter-button' class="btn filter-button undisplayed"><a href="/listings">Remove Filter</a></button>
+        <div class="select-div">
+          <label for="bathrooms" class="filter-label">Bathrooms</label>
+          <select id="bathrooms" class="filter-select">
+            <option
+              value=""
+              class="filter-option"
+              selected
+              disabled
+              hidden
+            ></option>
+            <option value="1" class="filter-option">1</option>
+            <option value="2" class="filter-option">2</option>
+            <option value="3" class="filter-option">3</option>
+          </select>
+        </div>
+        <div class="select-div">
+          <label for="max-rent" class="filter-label">Max Rent</label>
+          <select id="max-rent" class="filter-select">
+            <option
+              value=""
+              class="filter-option"
+              selected
+              disabled
+              hidden
+            ></option>
+            <option value="800" class="filter-option">$800</option>
+            <option value="900" class="filter-option">$900</option>
+            <option value="1000" class="filter-option">$1000</option>
+            <option value="1100" class="filter-option">$1100+</option>
+          </select>
+        </div>
+      </div>
+      <button id="filter-button" class="btn filter-button">Filter</button>
+      <button id="unfilter-button" class="btn filter-button undisplayed">
+        <a href="/listings">Remove Filter</a>
+      </button>
     </section>
 
     <main class="search-main">
-        <div class="results-container">
-            <% if (listings.length > 0) { %>
-                <% listings.forEach((listing, index) => { %>
-                    <div id=<%= index %> class="property-container">
+      <div class="results-container">
+        <% if (listings.length > 0) { %> <% listings.forEach((listing, index) =>
+        { %>
+        <div id="<%" ="index" %>
+          class="property-container">
 
-                        <div class="property-image-div admin-image">
-                            <img
-                                class="property-image"
-                                src=<%= listing.mainImageURL %>
-                                alt=<%= listing.alt %>
-                                height='200px'
-                                width='300px'
-                            />
-                        </div>
+          <div class="property-image-div admin-image">
+            <img class="property-image" src="<%" ="listing.mainImageURL" % />
+            alt=<%= listing.alt %> height='200px' width='300px' />
+          </div>
 
-                        <div class="first-property-text">
-                            <p class="small-address address property-text">
-                                <%= listing.address %>
-                            </p>
-                            <p class="property-text">
-                                <%= listing.beds %> Bedrooms
-                            </p>
-                            <p class="property-text">
-                                <%= listing.bath %> Bath
-                            </p>
-                            <p class="latitude undisplayed">
-                                <%= listing.latitude %>
-                            </p>
-                            <p class="longitude undisplayed">
-                                <%= listing.longitude %>
-                            </p>
-                            <p class="id undisplayed">
-                                <%= listing.id %>
-                            </p>
-                        </div>
+          <div class="first-property-text">
+            <p class="small-address address property-text">
+              <%= listing.address %>
+            </p>
+            <p class="property-text"><%= listing.beds %> Bedrooms</p>
+            <p class="property-text"><%= listing.bath %> Bath</p>
+            <p class="latitude undisplayed"><%= listing.latitude %></p>
+            <p class="longitude undisplayed"><%= listing.longitude %></p>
+            <p class="id undisplayed"><%= listing.id %></p>
+          </div>
 
-                        <div class="second-property-text">
-                            <h2 class="property-text-big">
-                                $<%= listing.rent %>/Month
-                            </h2>
-                            <p class="property-text">
-                                <%= listing.availability %>
-                            </p>
-                            <button class="btn more-info">
-                                <a href="/listings/<%= listing.id %>"> More Info >> </a>
-                            </button>
-                        </div>
-
-                    </div>
-                <% }) %>
-            <% } %>
+          <div class="second-property-text">
+            <h2 class="property-text-big">$<%= listing.rent %>/Month</h2>
+            <p class="property-text"><%= listing.availability %></p>
+            <button class="btn more-info">
+              <a href="/listings/<%= listing.id %>"> More Info >> </a>
+            </button>
+          </div>
         </div>
+        <% }) %> <% } %>
+      </div>
     </main>
 
-    <button id='map-button' class="btn map-button">View Map</button>
+    <button id="map-button" class="btn map-button">View Map</button>
 
     <section class="map-container undisplayed">
-        <div id="map"></div>
+      <div id="map"></div>
     </section>
 
     <!-- Footer -->
@@ -119,5 +124,5 @@
     <script src="<%= googleMap %>"></script>
     <script src="../js/map.js"></script>
     <script src="../js/listings.js"></script>
-</body>
+  </body>
 </html>

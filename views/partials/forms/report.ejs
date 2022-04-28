@@ -1,106 +1,198 @@
-<section class='report-modal' id="report-form-modal">
-    <form name="report-form" >
-        <div class="form-overlay hidden"></div>
-        <input type="hidden" class='undisplayed' name="Form Type" value="Report Problem">
-        <div class="modal-close">X</div>
-        <p class="hidden">
-            <label>Don't fill this out if you are human: <input name="bot-field"></label>
-        </p>
+<section class="report-modal" id="report-form-modal">
+  <form name="report-form">
+    <div class="form-overlay hidden"></div>
+    <input
+      type="hidden"
+      class="undisplayed"
+      name="Form Type"
+      value="Report Problem"
+    />
+    <div class="modal-close">X</div>
+    <p class="hidden">
+      <label
+        >Don't fill this out if you are human: <input name="bot-field"
+      /></label>
+    </p>
 
-        <h2 class="modal-name">What Went Wrong?</h2>
-        <h3 class="modal-text">We're sorry to hear you're having an issue and appreciate the opportunity to help resolve it. Please give us all the details below and hit send.</h3>
+    <h2 class="modal-name">What Went Wrong?</h2>
+    <h3 class="modal-text">
+      We're sorry to hear you're having an issue and appreciate the opportunity
+      to help resolve it. Please give us all the details below and hit send.
+    </h3>
 
-        <div class="input-div">
-            <label for='name' class="report-label">Name</label>
-            <input type="text" name='name' class='report-input' placeholder='Jane Doe' required>
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="name" class="report-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="report-input"
+        placeholder="Jane Doe"
+        required
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='email' class="report-label">Email</label>
-            <input type="email" name='email' class='report-input' placeholder='janedoe@gmail.com' required>
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="email" class="report-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        class="report-input"
+        placeholder="janedoe@gmail.com"
+        required
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='phone' class="report-label">Phone</label>
-            <input type="tel" name='phone' class='report-input' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='406-555-1212' required>
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="phone" class="report-label">Phone</label>
+      <input
+        type="tel"
+        name="phone"
+        class="report-input"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="406-555-1212"
+        required
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='address' class="report-label">Address of Concern</label>
-            <input type="text" name='address' class='report-input' placeholder="123 45th st w">
-        </div>
+    <div class="input-div">
+      <label for="address" class="report-label">Address of Concern</label>
+      <input
+        type="text"
+        name="address"
+        class="report-input"
+        placeholder="123 45th st w"
+      />
+    </div>
 
-        <div class="input-div">
-            <label for='date' class="report-label">Date of Issue</label>
-            <input type="date" name='date' class='report-input' placeholder="mm/dd/yyyy">
-        </div>
+    <div class="input-div">
+      <label for="date" class="report-label">Date of Issue</label>
+      <input
+        type="date"
+        name="date"
+        class="report-input"
+        placeholder="mm/dd/yyyy"
+      />
+    </div>
 
-        <div class="input-div">
-            <label for='time' class="report-label">Time of Issue</label>
-            <input type="time" name='time' class='report-input' placeholder="11:30 AM">
-        </div>
+    <div class="input-div">
+      <label for="time" class="report-label">Time of Issue</label>
+      <input
+        type="time"
+        name="time"
+        class="report-input"
+        placeholder="11:30 AM"
+      />
+    </div>
 
-        <div class="input-div">
-            <label for='message' class="report-label">Describe Your Issue</label>
-            <input type="textarea" name="message" class='report-textarea' placeholder="...">
-            <div class="requirement-div">
-                <h2 class="requirement-text">Required</h2>
-            </div>
-        </div>
+    <div class="input-div">
+      <label for="message" class="report-label">Describe Your Issue</label>
+      <input
+        type="textarea"
+        name="message"
+        class="report-textarea"
+        placeholder="..."
+      />
+      <div class="requirement-div">
+        <h2 class="requirement-text">Required</h2>
+      </div>
+    </div>
 
-        <div class="input-div">
-            <label for='police' class="report-label">Were the Police Called?</label>
-            <input type="radio" name='police' class="report-radio-input" value="yes">
-            <p class="report-option-text">Yes</p>
-            <input type="radio" name='police' class='report-radio-input' value="no">
-            <p class="report-option-text">No</p>
-        </div>
+    <div class="input-div">
+      <label for="police" class="report-label">Were the Police Called?</label>
+      <input
+        type="radio"
+        name="police"
+        class="report-radio-input"
+        value="yes"
+      />
+      <p class="report-option-text">Yes</p>
+      <input type="radio" name="police" class="report-radio-input" value="no" />
+      <p class="report-option-text">No</p>
+    </div>
 
-        <div class="input-div">
-            <label for='officer' class="report-label">If Yes: Responding Officers Name</label>
-            <input type="text" name='officer' class='report-input' placeholder="John Doe">
-        </div>
+    <div class="input-div">
+      <label for="officer" class="report-label"
+        >If Yes: Responding Officers Name</label
+      >
+      <input
+        type="text"
+        name="officer"
+        class="report-input"
+        placeholder="John Doe"
+      />
+    </div>
 
-        <div class="input-div">
-            <label for='report' class="report-label">Did the Police File a Report?</label>
-            <input type="radio" name='report' class='report-radio-input' value="yes">
-            <p class="report-option-text">Yes</p>
-            <input type="radio" name='report' class='report-radio-input' value="no">
-            <p class="report-option-text">No</p>
-        </div>
+    <div class="input-div">
+      <label for="report" class="report-label"
+        >Did the Police File a Report?</label
+      >
+      <input
+        type="radio"
+        name="report"
+        class="report-radio-input"
+        value="yes"
+      />
+      <p class="report-option-text">Yes</p>
+      <input type="radio" name="report" class="report-radio-input" value="no" />
+      <p class="report-option-text">No</p>
+    </div>
 
-        <div class="input-div">
-            <label for='arrest' class="report-label">Was Anyone Arrested?</label>
-            <input type="radio" name='arrest' class='report-radio-input' value="yes">
-            <p class="report-option-text">Yes</p>
-            <input type="radio" name='arrest' class='report-radio-input' value="no">
-            <p class="report-option-text">No</p>
-        </div>
+    <div class="input-div">
+      <label for="arrest" class="report-label">Was Anyone Arrested?</label>
+      <input
+        type="radio"
+        name="arrest"
+        class="report-radio-input"
+        value="yes"
+      />
+      <p class="report-option-text">Yes</p>
+      <input type="radio" name="arrest" class="report-radio-input" value="no" />
+      <p class="report-option-text">No</p>
+    </div>
 
-        <div class="input-div">
-            <label for='damage' class="report-label">Was Any Property Damaged?</label>
-            <input type="radio" name='damage' class='report-radio-input' value="yes">
-            <p class="report-option-text">Yes</p>
-            <input type="radio" name='damage' class='report-radio-input' value="no">
-            <p class="report-option-text">No</p>
-        </div>
+    <div class="input-div">
+      <label for="damage" class="report-label">Was Any Property Damaged?</label>
+      <input
+        type="radio"
+        name="damage"
+        class="report-radio-input"
+        value="yes"
+      />
+      <p class="report-option-text">Yes</p>
+      <input type="radio" name="damage" class="report-radio-input" value="no" />
+      <p class="report-option-text">No</p>
+    </div>
 
-        <div class="input-div">
-            <label for='damageMessage' class="report-label">If Yes: Please Describe Damage</label>
-            <input type="textarea" name="damageMessage" class='report-textarea' placeholder="...">
-        </div>
+    <div class="input-div">
+      <label for="damageMessage" class="report-label"
+        >If Yes: Please Describe Damage</label
+      >
+      <input
+        type="textarea"
+        name="damageMessage"
+        class="report-textarea"
+        placeholder="..."
+      />
+    </div>
 
-        <button id='report-submit-button' type="submit" class='btn report-submit submit-button' form='true'>SEND MESSAGE</button>
+    <button
+      id="report-submit-button"
+      type="submit"
+      class="btn report-submit submit-button"
+      form="true"
+    >
+      SEND MESSAGE
+    </button>
 
-        <script type='module' src="../js/sendForm.js"></script>
-    </form>
+    <script type="module" src="../js/sendForm.js"></script>
+  </form>
 </section>

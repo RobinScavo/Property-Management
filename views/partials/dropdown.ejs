@@ -1,145 +1,160 @@
-<section  class='option-section'>
-    <% let listingText, resourceText, listingPath, resourcePath, adminListings, adminDropdown %>
+<section class="option-section">
+  <% let listingText, resourceText, listingPath, resourcePath, adminListings,
+  adminDropdown %> <% if (homePage) { %> <% listingText = 'Available Rentals' %>
+  <% resourceText = 'Tenant Resources' %> <% adminListings =
+  'available-container' %> <% adminResources = 'resource-selector' %> <% } else
+  { %> <% listingText = 'Edit Listings' %> <% resourceText = 'Admin Tools' %> <%
+  adminListings = 'admin-listings' %> <% adminResources = 'admin-resources' %>
+  <% } %>
 
-    <% if (homePage) { %>
-        <% listingText = 'Available Rentals' %>
-        <% resourceText = 'Tenant Resources' %>
-        <% adminListings = 'available-container' %>
-        <% adminResources = 'resource-selector' %>
+  <!-- Site map -->
+  <div id="site-map-container" class="dropdown-container">
+    <div id="site-map-selector" class="select-container">
+      <h2 class="dropdown-label">Site Map</h2>
+      <div class="dropdown-icon-container">
+        <div class="dropdown-icon carousel-button"></div>
+      </div>
+    </div>
+    <div class="option-container">
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources" class="dropdown-option">Resources</a>
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/listings" class="dropdown-option">Listings</a>
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/about" class="dropdown-option">About Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listings -->
+  <% if (!listingEdit) { %>
+  <div class="dropdown-container">
+    <div id="available-selector" class="select-container">
+      <h2 class="dropdown-label"><%= listingText %></h2>
+      <div class="dropdown-icon-container">
+        <div class="dropdown-icon carousel-button"></div>
+      </div>
+    </div>
+    <div id="available-container" class="option-container">
+      <% listings.forEach((listing) => { %>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <% let listingRoute = (adminHome) ? `/admin-edit/${listing.id}` :
+        `/listings/${listing.id}` %>
+        <a href="<%= listingRoute %>" class="dropdown-option"
+          ><%= listing.address %></a
+        >
+      </div>
+      <% }) %>
+    </div>
     <% } else { %>
-        <% listingText = 'Edit Listings' %>
-        <% resourceText = 'Admin Tools' %>
-        <% adminListings = 'admin-listings' %>
-        <% adminResources = 'admin-resources' %>
+    <a id="admin-edit-return" href="/admin">Admin Home</a>
     <% } %>
+  </div>
 
-    <!-- Site map -->
-    <div id='site-map-container' class="dropdown-container">
-        <div id='site-map-selector' class="select-container">
-            <h2 class='dropdown-label'>Site Map</h2>
-            <div class="dropdown-icon-container">
-                <div class="dropdown-icon carousel-button"></div>
-            </div>
-        </div>
-        <div class="option-container">
-            <div class="option-text-div">
-                <div class="option-accent-div">
-                    <p>+</p>
-                </div>
-                <a href="/resources" class="dropdown-option">Resources</a>
-            </div>
-            <div class="option-text-div">
-                <div class="option-accent-div">
-                    <p>+</p>
-                </div>
-                <a href="/listings" class="dropdown-option">Listings</a>
-            </div>
-            <div class="option-text-div">
-                <div class="option-accent-div">
-                    <p>+</p>
-                </div>
-                <a href="/about" class="dropdown-option">About Us</a>
-            </div>
-        </div>
+  <!-- Resources -->
+  <div class="dropdown-container">
+    <div class="select-container">
+      <h2 class="dropdown-label"><%= resourceText %></h2>
+      <div class="dropdown-icon-container">
+        <div class="dropdown-icon carousel-button"></div>
+      </div>
     </div>
-
-    <!-- Listings -->
-    <% if (!listingEdit) { %>
-        <div class="dropdown-container">
-            <div id='available-selector' class="select-container">
-                <h2 class='dropdown-label'><%= listingText %></h2>
-                <div class="dropdown-icon-container">
-                    <div class="dropdown-icon carousel-button"></div>
-                </div>
-            </div>
-            <div id='available-container' class="option-container">
-                <% listings.forEach((listing) => { %>
-                    <div class="option-text-div">
-                        <div class="option-accent-div">
-                            <p>+</p>
-                        </div>
-                        <% let listingRoute = (adminHome) ? `/admin-edit/${listing.id}` : `/listings/${listing.id}` %>
-                        <a href="<%= listingRoute %>" class="dropdown-option"><%= listing.address %></a>
-                    </div>
-                <% }) %>
-            </div>
-        <% } else { %>
-            <a id='admin-edit-return' href="/admin" >Admin Home</a>
-        <% } %>
-    </div>
-
-    <!-- Resources -->
-    <div class="dropdown-container">
-        <div  class="select-container">
-            <h2 class='dropdown-label'><%= resourceText %></h2>
-            <div class="dropdown-icon-container">
-                <div class="dropdown-icon carousel-button"></div>
-            </div>
+    <div id="admin-resource-container" class="option-container">
+      <% if (homePage) { %>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
         </div>
-        <div id='admin-resource-container' class="option-container">
-            <% if (homePage) { %>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#resource-pet-policy" class="dropdown-option">Apply Online</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#resource-pet-policy" class="dropdown-option">Pet Policy</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#resource-second" class="dropdown-option">Rental Requirements</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#utility-links" class="dropdown-option">Utility Links</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#video-link-container" class="dropdown-option">Lease Agreement Video</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#report-concern" class="dropdown-option">Report Concerns</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#maintenence" class="dropdown-option">Repair Request</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#accessibility-request" class="dropdown-option">Accessibilty Request</a>
-                </div>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/resources#move-out-guide" class="dropdown-option">Moving Out Guide</a>
-                </div>
-            <% } else { %>
-                <div class="option-text-div">
-                    <div class="option-accent-div">
-                        <p>+</p>
-                    </div>
-                    <a href="/admin-create" class="dropdown-option">New Listing</a>
-                </div>
-            <% } %>
+        <a href="/resources#resource-pet-policy" class="dropdown-option"
+          >Apply Online</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
         </div>
+        <a href="/resources#resource-pet-policy" class="dropdown-option"
+          >Pet Policy</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#resource-second" class="dropdown-option"
+          >Rental Requirements</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#utility-links" class="dropdown-option"
+          >Utility Links</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#video-link-container" class="dropdown-option"
+          >Lease Agreement Video</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#report-concern" class="dropdown-option"
+          >Report Concerns</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#maintenence" class="dropdown-option"
+          >Repair Request</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#accessibility-request" class="dropdown-option"
+          >Accessibilty Request</a
+        >
+      </div>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/resources#move-out-guide" class="dropdown-option"
+          >Moving Out Guide</a
+        >
+      </div>
+      <% } else { %>
+      <div class="option-text-div">
+        <div class="option-accent-div">
+          <p>+</p>
+        </div>
+        <a href="/admin-create" class="dropdown-option">New Listing</a>
+      </div>
+      <% } %>
     </div>
+  </div>
 </section>

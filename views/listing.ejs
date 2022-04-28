@@ -1,101 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/utilities.css">
-    <link rel="stylesheet" href="../css/listings.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/listings.css" />
     <title>Listing Detail</title>
-</head>
+  </head>
 
-<body class="scrollbar-hidden">
+  <body class="scrollbar-hidden">
     <!-- Header -->
     <%- include('./partials/small-header.ejs', { admin: false }) %>
 
     <div class="detail-container property-container">
-        <h1 class="detail-address address"><%= listing.address %></h1>
-        <p class="detail-city"><%= listing.city %></p>
-        <p class="latitude undisplayed"><%= listing.latitude %></p>
-        <p class="longitude undisplayed"><%= listing.longitude %></p>
-        <p class="id undisplayed"><%= listing.id %></p>
-        <p class="image-text-array undisplayed"><%= listing.imageTextArray %></p>
-        <p class="image-urls undisplayed"><%= listing.imageURLs %></p>
+      <h1 class="detail-address address"><%= listing.address %></h1>
+      <p class="detail-city"><%= listing.city %></p>
+      <p class="latitude undisplayed"><%= listing.latitude %></p>
+      <p class="longitude undisplayed"><%= listing.longitude %></p>
+      <p class="id undisplayed"><%= listing.id %></p>
+      <p class="image-text-array undisplayed"><%= listing.imageTextArray %></p>
+      <p class="image-urls undisplayed"><%= listing.imageURLs %></p>
 
-        <!-- Carousel -->
-        <div class="carousel-container">
-            <div class="carousel-overlay carousel-hidden"></div>
+      <!-- Carousel -->
+      <div class="carousel-container">
+        <div class="carousel-overlay carousel-hidden"></div>
 
-            <div class="carousel-button-container">
-                <button id='left-carousel-button' class="carousel-button"></button>
-                <p class="carousel-text carousel-text-hidden"></p>
-                <button id='right-carousel-button' class="carousel-button"></button>
-            </div>
-
-            <div class="main-image-container">
-                <% for (const [index, image] of listing.imageURLs.entries()) { %>
-                    <div
-                        class="main-image"
-                        alt= <%= listing.imageAlts[index] %>
-                        style= "background-image: url('<%= image %>')"
-                    ></div>
-                <% } %>
-            </div>
+        <div class="carousel-button-container">
+          <button id="left-carousel-button" class="carousel-button"></button>
+          <p class="carousel-text carousel-text-hidden"></p>
+          <button id="right-carousel-button" class="carousel-button"></button>
         </div>
 
-        <!-- Thumbnails -->
-        <div class="thumbnail-container">
-            <div class="thumbnail-div">
-                <% for (const [index, image] of listing.imageURLs.entries()) { %>
-                    <% if (index === 0) continue %>
-                    <div
-                        class="thumbnail-image"
-                        style= "background-image: url('<%= image %>')"
-                        alt= <%= listing.imageAlts[index] %>
-                    ></div>
-                <% } %>
-            </div>
+        <div class="main-image-container">
+          <% for (const [index, image] of listing.imageURLs.entries()) { %>
+          <div class="main-image" alt="<%" ="listing.imageAlts[index]" %>
+            style= "background-image: url('<%= image %>')" >
+          </div>
+          <% } %>
         </div>
+      </div>
 
-        <!-- Info -->
-        <% const infoTitles = { "Beds & Bath": "../images/icons/water.png", "Utilities": "../images/icons/lightbulb.png", "Pets": "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png", "Footage": null, "Appliances": null, "Design": null, "Amenities": null } %>
-
-        <% const titles = Object.keys(infoTitles) %>
-        <% const icons = Object.values(infoTitles) %>
-        <% const infoValues = Object.values(listing.propertyInfo) %>
-
-        <div class="info-container">
-            <% for (const [index, info] of infoValues.entries()) { %>
-                <% const title = titles[index] %>
-                <% const icon = icons[index] %>
-
-                <div class="info-div">
-                    <% if (icon) { %>
-                        <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
-
-                        <div class="icon-container <%= petIcon %>">
-                            <img class='property-details-icon' src="<%= icon %>" alt="icon">
-                        </div>
-                    <% } %>
-
-                    <h3 class="info-title"><%= title %></h3>
-
-                    <% for (const item of info) { %>
-                        <p class="info-array-element"><%= item %></p>
-                    <% } %>
-                </div>
-            <% } %>
+      <!-- Thumbnails -->
+      <div class="thumbnail-container">
+        <div class="thumbnail-div">
+          <% for (const [index, image] of listing.imageURLs.entries()) { %> <%
+          if (index === 0) continue %>
+          <div
+            class="thumbnail-image"
+            style="background-image: url('<%= image %>')"
+            alt="<%"
+            ="listing.imageAlts[index]"
+            %
+          >
+            >
+          </div>
+          <% } %>
         </div>
+      </div>
 
-        <button id='map-button' class="btn map-button">View Map</button>
+      <!-- Info -->
+      <% const infoTitles = { "Beds & Bath": "../images/icons/water.png",
+      "Utilities": "../images/icons/lightbulb.png", "Pets":
+      "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png",
+      "Footage": null, "Appliances": null, "Design": null, "Amenities": null }
+      %> <% const titles = Object.keys(infoTitles) %> <% const icons =
+      Object.values(infoTitles) %> <% const infoValues =
+      Object.values(listing.propertyInfo) %>
 
-        <section class="map-container undisplayed">
-            <div id="map"></div>
-        </section>
+      <div class="info-container">
+        <% for (const [index, info] of infoValues.entries()) { %> <% const title
+        = titles[index] %> <% const icon = icons[index] %>
+
+        <div class="info-div">
+          <% if (icon) { %> <% let petIcon = (icon ===
+          '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
+
+          <div class="icon-container <%= petIcon %>">
+            <img class="property-details-icon" src="<%= icon %>" alt="icon" />
+          </div>
+          <% } %>
+
+          <h3 class="info-title"><%= title %></h3>
+
+          <% for (const item of info) { %>
+          <p class="info-array-element"><%= item %></p>
+          <% } %>
+        </div>
+        <% } %>
+      </div>
+
+      <button id="map-button" class="btn map-button">View Map</button>
+
+      <section class="map-container undisplayed">
+        <div id="map"></div>
+      </section>
     </div>
-
 
     <!-- Footer -->
     <%- include('./partials/footer.ejs') %>
@@ -104,4 +111,5 @@
     <script src="<%= googleMap %>"></script>
     <script src="../js/map.js"></script>
     <script src="../js/listing.js"></script>
-</body>
+  </body>
+</html>
