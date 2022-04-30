@@ -1,61 +1,60 @@
 <!DOCTYPE html>
-<html lang="en"></html>
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="Billings Property Management" content="Built by Robin Scavo" />
-  <meta
-    name="keywords"
-    content="apartment, apartments, house, houses, rent, rental"
-  />
-  <meta name="author" content="Robin Scavo" />
-  <meta name="description" content="Rental Property Company Website" />
-  <meta name="robots" content="noindex, nofollow" />
-
-  <!-- social media -->
-  <meta property="og:title" content="Billings Property Management" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://flic.kr/p/2n8gjGK" />
-  <meta
-    property="og:url"
-    content="https://billings-property-management.netlify.app/"
-  />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta property="og:description" content="Rental Property Company Website" />
-  <meta property="og:site_name" content="Billings Property Management" />
-  <meta
-    name="twitter:image:alt"
-    content="Billings Property Management homepage"
-  />
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-    crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="../css/reset.css" />
-  <link rel="stylesheet" href="../css/utilities.css" />
-  <link rel="stylesheet" href="../css/dropdown.css" />
-  <link rel="stylesheet" href="../css/index.css" />
-
-  <title>Billings Property Management</title>
-</head>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Billings Property Management" content="Built by Robin Scavo" />
+    <meta
+      name="keywords"
+      content="apartment, apartments, house, houses, rent, rental"
+    />
+    <meta name="author" content="Robin Scavo" />
+    <meta name="description" content="Rental Property Company Website" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- social media -->
+    <meta property="og:title" content="Billings Property Management" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://flic.kr/p/2n8gjGK" />
+    <meta
+      property="og:url"
+      content="https://billings-property-management.herokuapp.com/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:description" content="Rental Property Company Website" />
+    <meta property="og:site_name" content="Billings Property Management" />
+    <meta
+      name="twitter:image:alt"
+      content="Billings Property Management homepage"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/utilities.css" />
+    <link rel="stylesheet" href="../css/dropdown.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+
+    <title>Billings Property Management</title>
+  </head>
+
   <body class="scrollbar-hidden">
     <!-- Header -->
     <%- include('./partials/header.ejs') %>
 
     <!-- Drop-down menus -->
-    <%- include('./partials/dropdown.ejs', { homePage: true, listingEdit: false,
-    adminHome: false }) %>
+    <%- include('./partials/dropdown.ejs', { homePage: true, listingEdit: false, adminHome: false }) %>
 
     <!-- Main image -->
     <figure>
       <figcaption>
-        Rent In Billings <br /><small id="main-small">
-          because the future is here</small
+          Rent In Billings <br />
+          <small id="main-small">because the future is here</small
         >
       </figcaption>
       <button class="btn"><a href="/listings">AVAILABLE RENTALS</a></button>

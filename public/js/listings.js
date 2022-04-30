@@ -11,15 +11,14 @@ filterButton.addEventListener("click", () => {
     return;
 
   listings.forEach((listing) => {
-    const numberOfBedrooms =
-      +listing.childNodes[3].childNodes[1].innerHTML.trim()[0];
-    const numberOfBath =
-      +listing.childNodes[3].childNodes[3].innerHTML.trim()[0];
+    const numberOfBedrooms = +listing.childNodes[3].childNodes[3].innerHTML.trim()[0];
+    const numberOfBath = +listing.childNodes[3].childNodes[3].innerHTML.trim()[0];
     const rent = +listing.childNodes[5].childNodes[1].innerHTML
       .trim()
       .split("/")[0]
       .slice(1);
 
+    console.log(numberOfBedrooms)
     if (bedroomFilter.value && +bedroomFilter.value !== numberOfBedrooms) {
       listing.classList.add("undisplayed");
     }

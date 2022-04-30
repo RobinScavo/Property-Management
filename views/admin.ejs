@@ -11,43 +11,41 @@
     <title>Admin</title>
   </head>
   <body class="scrollbar-hidden">
-    <%- include('./partials/small-header.ejs', { admin: true }) %> <%-
-    include('./partials/dropdown.ejs', { homePage: false, listingEdit: false,
-    adminHome: true }) %>
+    <%- include('./partials/small-header.ejs', { admin: true }) -%>
+    <%- include('./partials/dropdown.ejs', { homePage: false, listingEdit: false, adminHome: true }) -%>
 
     <!-- <div class="search-main"> -->
     <div class="overlay"></div>
     <div class="results-container">
-      <% if (listings.length > 0) { %> <% listings.forEach((listing, index) => {
-      %>
-      <div id="<%" ="index" %>
-        class="property-container">
+      <% if (listings.length > 0) { %>
+        <% listings.forEach((listing, index) => { %>
+          <div id="<%= index %>"
+            class="property-container">
 
-        <div class="'property-image-div admin-image">
-          <img class="property-image" src="<%" ="listing.mainImageURL" % />
-          alt=<%= listing.alt %> height='200px' width='300px' />
-        </div>
+            <div class="'property-image-div admin-image">
+              <img class="property-image" src="<%= listing.mainImageURL %>" alt=<%= listing.alt %> height='200px' width='300px' />
+            </div>
 
-        <div class="first-property-text">
-          <p class="small-address property-text"><%= listing.address %></p>
-          <p class="property-text"><%= listing.beds %> Bedrooms</p>
-          <p class="property-text"><%= listing.bath %> Bath</p>
-        </div>
+            <div class="first-property-text">
+              <p class="small-address property-text"><%= listing.address %></p>
+              <p class="property-text"><%= listing.beds %> Bedrooms</p>
+              <p class="property-text"><%= listing.bath %> Bath</p>
+            </div>
 
-        <div class="second-property-text">
-          <h2 class="property-text-big">$<%= listing.rent %>/Month</h2>
-          <p class="property-text"><%= listing.availability %></p>
-          <button class="btn more-info">
-            <a href="/admin-edit/<%= listing.id %>"> Edit </a>
-          </button>
-          <button id="<%" ="listing.id" %>
-            class="btn more-info admin-delete-button" > Delete
-          </button>
-        </div>
-      </div>
-      <% }) %> <% } %>
+            <div class="second-property-text">
+              <h2 class="property-text-big">$<%= listing.rent %>/Month</h2>
+              <p class="property-text"><%= listing.availability %></p>
+              <button class="btn more-info">
+                <a href="/admin-edit/<%= listing.id %>"> Edit </a>
+              </button>
+              <button id="<%= listing.id %>"
+                class="btn more-info admin-delete-button" > Delete
+              </button>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
     </div>
-    <!-- </div> -->
 
     <script src="../js/dropdown.js"></script>
     <script src="../js/admin.js"></script>

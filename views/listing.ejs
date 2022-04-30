@@ -41,9 +41,9 @@
 
         <div class="main-image-container">
           <% for (const [index, image] of listing.imageURLs.entries()) { %>
-          <div class="main-image" alt="<%" ="listing.imageAlts[index]" %>
-            style= "background-image: url('<%= image %>')" >
-          </div>
+            <div class="main-image" alt="<%= listing.imageAlts[index] %>"
+              style= "background-image: url('<%= image %>')" >
+            </div>
           <% } %>
         </div>
       </div>
@@ -51,49 +51,50 @@
       <!-- Thumbnails -->
       <div class="thumbnail-container">
         <div class="thumbnail-div">
-          <% for (const [index, image] of listing.imageURLs.entries()) { %> <%
-          if (index === 0) continue %>
-          <div
-            class="thumbnail-image"
-            style="background-image: url('<%= image %>')"
-            alt="<%"
-            ="listing.imageAlts[index]"
-            %
-          >
-            >
-          </div>
+          <% for (const [index, image] of listing.imageURLs.entries()) { %>
+            <% if (index === 0) continue %>
+            <div
+              class="thumbnail-image"
+              style="background-image: url('<%= image %>')"
+              alt="<%= listing.imageAlts[index] %>"
+            ></div>
           <% } %>
         </div>
       </div>
 
       <!-- Info -->
-      <% const infoTitles = { "Beds & Bath": "../images/icons/water.png",
-      "Utilities": "../images/icons/lightbulb.png", "Pets":
-      "../images/icons/pets-icon.png", "Rent": "../images/icons/calculator.png",
-      "Footage": null, "Appliances": null, "Design": null, "Amenities": null }
-      %> <% const titles = Object.keys(infoTitles) %> <% const icons =
-      Object.values(infoTitles) %> <% const infoValues =
-      Object.values(listing.propertyInfo) %>
+      <% const infoTitles = {
+        "Beds & Bath": "../images/icons/water.png",
+        "Utilities": "../images/icons/lightbulb.png",
+        "Pets": "../images/icons/pets-icon.png",
+        "Rent": "../images/icons/calculator.png",
+        "Footage": null, "Appliances": null, "Design": null, "Amenities": null }
+      %>
+
+      <% const titles = Object.keys(infoTitles) %>
+      <% const icons = Object.values(infoTitles) %>
+      <% const infoValues = Object.values(listing.propertyInfo) %>
 
       <div class="info-container">
-        <% for (const [index, info] of infoValues.entries()) { %> <% const title
-        = titles[index] %> <% const icon = icons[index] %>
+        <% for (const [index, info] of infoValues.entries()) { %>
+          <% const title = titles[index] %>
+          <% const icon = icons[index] %>
 
-        <div class="info-div">
-          <% if (icon) { %> <% let petIcon = (icon ===
-          '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
+          <div class="info-div">
+            <% if (icon) { %>
+              <% let petIcon = (icon === '../images/icons/pets-icon.png') ? "info-icon-pets" : "" %>
 
-          <div class="icon-container <%= petIcon %>">
-            <img class="property-details-icon" src="<%= icon %>" alt="icon" />
+              <div class="icon-container <%= petIcon %>">
+                <img class="property-details-icon" src="<%= icon %>" alt="icon" />
+              </div>
+            <% } %>
+
+            <h3 class="info-title"><%= title %></h3>
+
+            <% for (const item of info) { %>
+              <p class="info-array-element"><%= item %></p>
+            <% } %>
           </div>
-          <% } %>
-
-          <h3 class="info-title"><%= title %></h3>
-
-          <% for (const item of info) { %>
-          <p class="info-array-element"><%= item %></p>
-          <% } %>
-        </div>
         <% } %>
       </div>
 

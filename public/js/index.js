@@ -94,18 +94,18 @@ document.addEventListener("scroll", function (e) {
 
   if (
     !cycling &&
-    lastKnownScrollPosition > 745 &&
-    lastKnownScrollPosition < 1400
+    lastKnownScrollPosition > 1200 &&
+    lastKnownScrollPosition < 2000
   ) {
     window.requestAnimationFrame(function () {
       cycling = true;
-      cyclingCards = setInterval(cycleCards, 4000);
+      cyclingCards = setInterval(cycleCards, 3000);
     });
   }
 
   if (
     cycling &&
-    (lastKnownScrollPosition < 745 || lastKnownScrollPosition > 1400)
+    (lastKnownScrollPosition < 1200 || lastKnownScrollPosition > 2000)
   ) {
     cycling = false;
     clearInterval(cyclingCards);

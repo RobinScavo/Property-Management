@@ -78,36 +78,34 @@
 
     <main class="search-main">
       <div class="results-container">
-        <% if (listings.length > 0) { %> <% listings.forEach((listing, index) =>
-        { %>
-        <div id="<%" ="index" %>
-          class="property-container">
+        <% if (listings.length > 0) { %>
+          <% listings.forEach((listing, index) => { %>
+            <div id="<%= index %>" class="property-container">
+              <div class="property-image-div admin-image">
+                <img class="property-image" src="<%= listing.mainImageURL %>" alt= "<%= listing.alt %>" height='200px' width='300px' />
+              </div>
 
-          <div class="property-image-div admin-image">
-            <img class="property-image" src="<%" ="listing.mainImageURL" % />
-            alt=<%= listing.alt %> height='200px' width='300px' />
-          </div>
+              <div class="first-property-text">
+                <p class="small-address address property-text">
+                  <%= listing.address %>
+                </p>
+                <p class="property-text"><%= listing.beds %> Bedrooms</p>
+                <p class="property-text"><%= listing.bath %> Bath</p>
+                <p class="latitude undisplayed"><%= listing.latitude %></p>
+                <p class="longitude undisplayed"><%= listing.longitude %></p>
+                <p class="id undisplayed"><%= listing.id %></p>
+              </div>
 
-          <div class="first-property-text">
-            <p class="small-address address property-text">
-              <%= listing.address %>
-            </p>
-            <p class="property-text"><%= listing.beds %> Bedrooms</p>
-            <p class="property-text"><%= listing.bath %> Bath</p>
-            <p class="latitude undisplayed"><%= listing.latitude %></p>
-            <p class="longitude undisplayed"><%= listing.longitude %></p>
-            <p class="id undisplayed"><%= listing.id %></p>
-          </div>
-
-          <div class="second-property-text">
-            <h2 class="property-text-big">$<%= listing.rent %>/Month</h2>
-            <p class="property-text"><%= listing.availability %></p>
-            <button class="btn more-info">
-              <a href="/listings/<%= listing.id %>"> More Info >> </a>
-            </button>
-          </div>
-        </div>
-        <% }) %> <% } %>
+              <div class="second-property-text">
+                <h2 class="property-text-big">$<%= listing.rent %>/Month</h2>
+                <p class="property-text"><%= listing.availability %></p>
+                <button class="btn more-info">
+                  <a href="/listings/<%= listing.id %>"> More Info >> </a>
+                </button>
+              </div>
+            </div>
+          <% }) %>
+        <% } %>
       </div>
     </main>
 
