@@ -10,7 +10,6 @@ const Listing = require("./models/listing");
 
 const listingRoutes = require("./routes/listingsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
-const sign = require('./public/js/signature');
 
 // init app & middleware
 const app = express();
