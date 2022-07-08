@@ -316,6 +316,35 @@ form textarea:focus {
   .contact-form {
     height: 40rem;
   }
+
+  .image-gallery {
+    display: none;
+  }
+
+  .main ul {
+    margin-right: 0;
+  }
+
+  .main ul li {
+    width: 90%;
+    flex-direction: column;
+    margin-left: 10px;
+    align-items: center;
+    line-height: 1.5;
+  }
+
+  .main ul li h2 {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .main ul li .image-div {
+    height: 5.5rem;
+  }
+
+  figure .btn {
+    bottom: 0;
+  }
 }
 
 @media only screen and (max-width: 1024px) {

@@ -776,20 +776,32 @@ form {
     display: none;
   }
   .main-upper-right {
-    left: -280px;
+    align-items: center;
     text-align: center;
-    margin-left: 17rem;
+    margin-left: 0;
+    width: 80vw;
+    align-self: center;
+    margin-left: 20px;
+  }
+  .upper-right-title {
+    width: 80vw;
+    margin-left: 3rem;
+    line-height: 1.2;
   }
   .main-upper-right ul {
     text-align: start;
-    margin-left: 15rem;
+    width: 80%;
+    margin-left: 8rem;
+  }
+  .upper-right-subtitle {
+    width: 100vw;
   }
   .report-modal {
     padding: 10px;
   }
-  .input-div {
+  /* .input-div {
     width: 110%;
-  }
+  } */
   .second-upper-div {
     display: flex;
     flex-direction: column;
@@ -846,8 +858,17 @@ form {
     width: 90%;
     margin-left: 2rem;
   }
-  #electric-div {
-    width: 36%;
-    margin-left: 10px;
+  #utility-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .lower-utilities-div {
+    width: 100%;
+  }
+  .main-lower-right {
+    padding-top: 1rem;
+  }
+  .report-modal {
+    width: 90vw;
   }
 }

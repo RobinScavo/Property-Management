@@ -10,6 +10,7 @@ const Listing = require("./models/listing");
 
 const listingRoutes = require("./routes/listingsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const sign = require('./public/js/signature');
 
 // init app & middleware
 const app = express();
@@ -63,7 +64,7 @@ app.use("/listings", listingRoutes);
 
 // Email forms
 app.post("/", (req, res) => {
-  console.log(req.body);
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
